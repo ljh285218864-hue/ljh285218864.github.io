@@ -1,190 +1,142 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taoist Destiny Studio – Home</title>
+  <title>Products – Taoist Destiny Studio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- 顶部通知条 -->
 <div class="top-bar">
-  限时体验：下单后 3–5 个工作日内完成命理解读与发货。
+  Spiritual products and reading services are for reflection and personal growth only.
 </div>
 
-<!-- 头部：搜索 + 居中 Logo + 图标 + 导航 -->
 <header class="site-header">
   <div class="header-inner">
-    <!-- 左：搜索图标（现在只是样式） -->
-    <div class="header-left">
-      <a href="#" class="icon-btn" title="搜索">🔍</a>
+    <div class="logo">
+      Taoist Destiny Studio<br />TAOIST DESTINY
     </div>
-
-    <!-- 中：Logo 图标 + 品牌文字 -->
-    <div class="header-center">
-      <div class="logo-mark">☯</div>
-      <div class="logo-text">
-        TAOIST DESTINY<br />STUDIO
-      </div>
-    </div>
-
-    <!-- 右：账户 / 购物袋 图标（先做样子） -->
-    <div class="header-right">
-      <a href="#" class="icon-btn" title="账户">👤</a>
-      <a href="#" class="icon-btn" title="购物袋">👜</a>
-    </div>
+    <nav class="nav">
+      <a href="index.html" class="active">Products</a>
+      <a href="readings.html">Readings</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
   </div>
-
-  <!-- 下方导航菜单（首页默认高亮“畅销商品”） -->
-  <nav class="nav">
-    <!-- 店铺：有 mega menu -->
-    <div class="nav-item">
-      <a href="collections.html">店铺 ▾</a>
-
-      <div class="mega-menu">
-        <!-- 列 1：产品 -->
-        <div class="mega-menu-column">
-          <div class="mega-menu-title">产品</div>
-          <a href="collections.html" class="mega-menu-link">所有商品</a>
-          <a href="collections.html" class="mega-menu-link">命理解读服务</a>
-          <a href="collections.html" class="mega-menu-link">加持手链</a>
-          <a href="collections.html" class="mega-menu-link">护身符 / 护符</a>
-          <a href="collections.html" class="mega-menu-link">套装组合</a>
-        </div>
-
-        <!-- 列 2：意图（功效） -->
-        <div class="mega-menu-column">
-          <div class="mega-menu-title">意图</div>
-          <a href="collections.html" class="mega-menu-link">招财</a>
-          <a href="collections.html" class="mega-menu-link">事业突破</a>
-          <a href="collections.html" class="mega-menu-link">感情与婚姻</a>
-          <a href="collections.html" class="mega-menu-link">健康与恢复</a>
-          <a href="collections.html" class="mega-menu-link">护身 · 化煞</a>
-        </div>
-
-        <!-- 列 3：类型 -->
-        <div class="mega-menu-column">
-          <div class="mega-menu-title">类型</div>
-          <a href="collections.html" class="mega-menu-link">开运红绳</a>
-          <a href="collections.html" class="mega-menu-link">风水手链</a>
-          <a href="collections.html" class="mega-menu-link">家宅摆件</a>
-          <a href="collections.html" class="mega-menu-link">线上解读服务</a>
-        </div>
-
-        <!-- 列 4：符号 -->
-        <div class="mega-menu-column">
-          <div class="mega-menu-title">符号</div>
-          <a href="collections.html" class="mega-menu-link">太极 / 八卦</a>
-          <a href="collections.html" class="mega-menu-link">符咒系列</a>
-          <a href="collections.html" class="mega-menu-link">守护神像</a>
-          <a href="collections.html" class="mega-menu-link">生肖相关</a>
-        </div>
-
-        <!-- 列 5：晶体 -->
-        <div class="mega-menu-column">
-          <div class="mega-menu-title">晶体</div>
-          <a href="collections.html" class="mega-menu-link">黑曜石</a>
-          <a href="collections.html" class="mega-menu-link">黄水晶</a>
-          <a href="collections.html" class="mega-menu-link">紫水晶</a>
-          <a href="collections.html" class="mega-menu-link">红玛瑙</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-item active">
-      <a href="collections.html">畅销商品</a>
-    </div>
-
-    <div class="nav-item">
-      <a href="collections.html">新品上市</a>
-    </div>
-
-    <div class="nav-item">
-      <a href="collections.html">最后机会商品</a>
-    </div>
-
-    <div class="nav-item">
-      <a href="about.html">关于我们</a>
-    </div>
-
-    <div class="nav-item">
-      <a href="faq.html">常见问题</a>
-    </div>
-  </nav>
 </header>
 
-<!-- 页面主体 -->
-<main class="page">
+<main class="page fade-in">
+  <div class="page-title">
+    <h1>Products</h1>
+    <p>Explore Feng Shui decor, wearable jewelry, and talismans inspired by Taoist and Chinese spiritual traditions.</p>
+  </div>
 
-  <!-- 大图横幅 -->
-  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1500534314211-0a24cd03f2c0?auto=format&fit=crop&w=1600&q=80');">
-    <div class="hero-inner">
-      <span class="hero-tag">SUPERMOON · WISHES · RITUAL</span>
+  <div class="filter-bar">
+    <a href="#all" class="filter-pill active">All Products</a>
+    <a href="#feng-shui" class="filter-pill">Feng Shui Decor</a>
+    <a href="#wearable" class="filter-pill">Wearable Jewelry</a>
+    <a href="#talismans" class="filter-pill">Talismans</a>
+  </div>
 
-      <h1>超级满月祈愿</h1>
-      <h1>在关键时刻，为自己立下一份清晰的心愿</h1>
+  <!-- All products overview -->
+  <section id="all">
+    <h2 class="section-heading">All Products</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Feng Shui Entryway Fountain</h3>
+        <p>A symbolic piece placed near the entryway, representing wealth and opportunity flowing into your home.</p>
+        <p>Designed for those who want a calm, welcoming first impression when stepping inside.</p>
+        <div class="button-row">
+          <a href="products-feng-shui.html" class="btn-secondary">View Feng Shui decor</a>
+        </div>
+      </div>
 
-      <p>结合道家命理解读与加持手链，为你当前的人生阶段开启一场有仪式感的守护。</p>
-      <p>Supermoon blessings with Taoist destiny readings and blessed bracelets created for your life chapter.</p>
+      <div class="card">
+        <h3>Obsidian Protection Bracelet</h3>
+        <p>A simple black obsidian bracelet, traditionally associated with grounding and protection from distractions.</p>
+        <p>Created for everyday wear to support focus and emotional stability.</p>
+        <div class="button-row">
+          <a href="products-wearable.html" class="btn-secondary">View wearable jewelry</a>
+        </div>
+      </div>
 
-      <a href="collections.html" class="btn-primary hero-btn">
-        立即选购
-      </a>
+      <div class="card">
+        <h3>Peaceful Home Talisman</h3>
+        <p>A symbolic talisman inspired by Taoist protective scripts, often carried or placed near the bedside.</p>
+        <p>For those seeking a sense of calm and safety in their living space.</p>
+        <div class="button-row">
+          <a href="products-talismans.html" class="btn-secondary">View talismans</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 畅销商品区 -->
-  <section class="products">
-    <h2>畅销商品 · Best Sellers</h2>
-    <p>展示你的主打服务与吉祥物，例如命理解读、红绳手链与护身符。</p>
-
-    <div class="product-grid">
-
-      <!-- 产品 1：一问一答命理解读 -->
-      <div class="product-card">
-        <h3>One-Question Destiny Reading</h3>
-        <h3>一问一答命理解读</h3>
-
-        <p>Clarity for one key question in your life.</p>
-        <p>针对一个核心问题（事业、财运、感情等），结合命盘给出方向建议。</p>
-
-        <p>价格：$39</p>
-
-        <a href="product-demo.html" class="btn-secondary">
-          查看解读说明
-        </a>
+  <!-- Feng Shui Decor -->
+  <section id="feng-shui">
+    <h2 class="section-heading">Feng Shui Decor</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Wealth Bowl Centerpiece</h3>
+        <p>A decorative bowl symbolizing gathered abundance, often used on desks or side tables.</p>
+        <p>Ideal for those who like to set an intention for financial stability and growth.</p>
+        <div class="button-row">
+          <a href="products-feng-shui.html" class="btn">See all decor</a>
+        </div>
       </div>
 
-      <!-- 产品 2：加持红绳手链 -->
-      <div class="product-card">
-        <h3>Blessed Red String Bracelet</h3>
-        <h3>加持红绳手链</h3>
+      <div class="card">
+        <h3>Study Wen Chang Pagoda</h3>
+        <p>Inspired by the Wen Chang star in Chinese tradition, this piece represents learning and growth.</p>
+        <p>Commonly placed near bookshelves or workspaces as a symbolic support.</p>
+        <div class="button-row">
+          <a href="products-feng-shui.html" class="btn-secondary">Placement ideas</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <p>Luck · Protection · Blessings</p>
-        <p>招福 · 护身 · 适合日常佩戴的简约红绳。</p>
-
-        <p>价格：$29</p>
-
-        <a href="collections.html" class="btn-secondary">
-          查看更多手链
-        </a>
+  <!-- Wearable Jewelry -->
+  <section id="wearable">
+    <h2 class="section-heading">Wearable Jewelry</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Red String Blessing Bracelet</h3>
+        <p>A minimalist red string bracelet, often used as a reminder of protection and gentle support.</p>
+        <p>Simple enough for daily wear, with optional charms for different intentions.</p>
+        <div class="button-row">
+          <a href="products-wearable.html" class="btn">See all jewelry</a>
+        </div>
       </div>
 
-      <!-- 产品 3：家宅护身符 -->
-      <div class="product-card">
-        <h3>Home Protection Talisman</h3>
-        <h3>家宅安稳护符</h3>
+      <div class="card">
+        <h3>Harmony Amulet Necklace</h3>
+        <p>A small pendant symbolizing balance between inner and outer life, inspired by Taoist ideas of harmony.</p>
+        <div class="button-row">
+          <a href="products-wearable.html" class="btn-secondary">More styles</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <p>Home · Safety · Peace</p>
-        <p>镇宅安神，适合摆放在卧室或书房。</p>
-
-        <p>价格：$39</p>
-
-        <a href="collections.html" class="btn-secondary">
-          更多护符
-        </a>
+  <!-- Talismans -->
+  <section id="talismans">
+    <h2 class="section-heading">Talismans</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Safe Travels Talisman</h3>
+        <p>A symbolic piece for frequent travelers, kept in bags or cars as a reminder of safe journeys.</p>
+        <div class="button-row">
+          <a href="products-talismans.html" class="btn">See talisman collection</a>
+        </div>
       </div>
 
+      <div class="card">
+        <h3>Harmony in Relationships Talisman</h3>
+        <p>Represents smoother communication and understanding in daily connections with others.</p>
+        <div class="button-row">
+          <a href="products-talismans.html" class="btn-secondary">Learn more</a>
+        </div>
+      </div>
     </div>
   </section>
 

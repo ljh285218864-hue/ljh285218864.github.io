@@ -1,407 +1,263 @@
- /* ===== 全局基础设置 ===== */
+ /* Global reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root {
-  --bg: #f3f4f6;
-  --card-bg: #ffffff;
-  --accent: #f97316;
-  --accent-soft: #fef3c7;
-  --text-main: #111827;
-  --text-sub: #6b7280;
-  --border-soft: #e5e7eb;
-  --topbar-bg: #022c22;
-}
-
-/* 页面整体 */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text-main);
+  background: #f5f5f7;
+  color: #111827;
   line-height: 1.6;
 }
 
-/* 链接 */
 a {
-  color: var(--accent);
+  color: inherit;
   text-decoration: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-a:hover {
-  opacity: 0.9;
 }
 
-/* 页面内容容器 */
-.page {
-  max-width: 1120px;
-  margin: 80px auto 48px;
-  padding: 0 16px;
-}
-
-/* ===== 顶部区域：通知条 + 头部 ===== */
-
-/* 顶部通知条 */
+/* Top info bar */
 .top-bar {
   width: 100%;
-  background: var(--topbar-bg);
+  background: #111827;
   color: #f9fafb;
   font-size: 12px;
   text-align: center;
   padding: 6px 8px;
 }
 
-/* 整个 header 背景 */
+/* Header & navigation */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
   background: #ffffff;
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* 上半部分：左图标 / 中 logo / 右图标 */
 .header-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 10px 24px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* 左右两侧图标区域 */
-.header-left,
-.header-right {
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.nav {
   display: flex;
   align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  font-size: 14px;
+  color: #4b5563;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+  color: #111827;
+  border-bottom-color: #9ca3af;
+}
+
+.nav a.active {
+  color: #111827;
+  border-bottom-color: #111827;
+}
+
+/* Page container */
+.page {
+  max-width: 1120px;
+  margin: 32px auto 48px;
+  padding: 0 16px;
+}
+
+/* Simple page fade-in animation when navigating */
+.fade-in {
+  animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page heading area */
+.page-title {
+  margin-bottom: 20px;
+}
+
+.page-title h1 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.page-title p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Filter pills (Products page) */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  font-size: 13px;
+}
+
+.filter-pill.active {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+/* Section headings */
+.section-heading {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+/* Card grid */
+.card-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
 }
 
-/* 中间 logo 区域：图标 + 文字 */
-.header-center {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* 小圆形图标按钮（搜索 / 账户 / 购物袋） */
-.icon-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  border: 1px solid #9ca3af;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: var(--text-main);
+.card {
   background: #ffffff;
-}
-.icon-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* logo 左边的小图形，可以当成莲花/太极的抽象 */
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  border: 2px solid #38bdf8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-
-/* 品牌文字，略带「BUDDHA & KARMA」那种感觉 */
-.logo-text {
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.08em;
-  font-family: "Georgia", "Times New Roman", serif;
-  text-align: center;
-}
-
-/* ===== 下半部分导航 + mega menu ===== */
-.nav {
-  max-width: 1120px;
-  margin: 0 auto;
-  /* 只保留左右和底部的 padding，避免上面多余空隙 */
-  padding: 0 24px 10px;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  border-top: 1px solid rgba(229, 231, 235, 0.6);
-}
-
-/* 每一项（店铺 / 畅销 / 新品 / …） */
-.nav-item {
-  position: relative;
-  /* 这里加一点上下的 padding，让 nav-item 本身变高，
-     鼠标从文字往下移动时，仍然算在 nav-item 区域里，不会立刻失去 hover */
-  padding: 8px 0 18px;
-}
-
-/* 导航文字本身 */
-.nav-item > a {
-  font-size: 14px;
-  color: #111827;
-  position: relative;
-  padding-bottom: 4px;
-}
-
-/* hover 变色 */
-.nav-item > a:hover {
-  color: var(--accent);
-}
-
-/* 当前页高亮：底部一条小横线 */
-.nav-item.active > a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #111827;
-  bottom: -4px;
-}
-
-/* mega menu 外层容器 */
-.mega-menu {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  /* 紧贴 nav-item 底部，不再用 margin-top 制造空缝 */
-  top: 100%;
-  margin-top: 0;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 24px 28px 20px;
-  min-width: 720px;
-  display: none;
-  gap: 32px;
-  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.14);
-  border: 1px solid var(--border-soft);
-  z-index: 30;
-}
-
-/* 悬停在 nav-item 上时展示 mega menu */
-.nav-item:hover .mega-menu {
-  display: flex;
-}
-
-/* 每一列 */
-.mega-menu-column {
-  flex: 1;
-  min-width: 120px;
-}
-
-/* 列标题：产品 / 类型 / 意图 / 符号 / 晶体 */
-.mega-menu-title {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-/* 列里的具体链接 */
-.mega-menu-link {
-  display: block;
-  font-size: 13px;
-  color: var(--text-sub);
-  margin: 2px 0;
-}
-
-.mega-menu-link:hover {
-  color: var(--accent);
-}
-
-
-/* ===== 首页横幅（大图） ===== */
-.hero {
-  margin-top: 24px;
-  padding: 90px 24px;
-  border-radius: 24px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  color: #f9fafb;
-  overflow: hidden;
-}
-
-/* 遮罩，让文字更清楚 */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 23, 42, 0.6),
-    rgba(15, 23, 42, 0.4),
-    rgba(15, 23, 42, 0.75)
-  );
-}
-
-.hero-inner {
-  position: relative;
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(249, 250, 251, 0.16);
-  margin-bottom: 10px;
-}
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 6px;
-}
-
-.hero p {
-  font-size: 14px;
-  margin-top: 4px;
-  color: #e5e7eb;
-}
-
-.hero-btn {
-  margin-top: 22px;
-}
-
-/* 按钮 */
-.btn-primary,
-.btn-secondary {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-}
-.btn-primary {
-  background: var(--accent);
-  color: #ffffff;
-}
-.btn-secondary {
-  background: #111827;
-  color: #ffffff;
-}
-.btn-primary:hover,
-.btn-secondary:hover {
-  transform: translateY(-1px);
-}
-
-/* ===== 通用内容区 / 商品卡片 ===== */
-.products {
-  margin-top: 40px;
-}
-
-.products h2 {
-  font-size: 22px;
-  margin-bottom: 8px;
-}
-
-.products > p {
-  font-size: 14px;
-  color: var(--text-sub);
-}
-
-.product-grid {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-.product-card {
-  background: var(--card-bg);
   border-radius: 16px;
+  border: 1px solid #e5e7eb;
   padding: 16px;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
-  border: 1px solid var(--border-soft);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 220px;
+  min-height: 210px;
 }
 
-.product-card h3 {
+.card h3 {
   font-size: 16px;
   margin-bottom: 4px;
 }
 
-.product-card p {
-  font-size: 14px;
+.card p {
+  font-size: 13px;
+  color: #6b7280;
   margin-top: 2px;
-  color: var(--text-sub);
 }
 
-.product-card .btn-secondary,
-.product-card .btn-primary {
-  margin-top: 14px;
+/* Buttons: simple & clean, no animation except color change */
+.button-row {
+  margin-top: 12px;
 }
 
-/* 详情页里的卡片稍微宽一点 */
-.products .product-card {
-  max-width: 720px;
+.btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid #111827;
+  background: #111827;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-/* FAQ 专用：问题块 */
+.btn-secondary {
+  background: #ffffff;
+  color: #111827;
+}
+
+.btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: #f3f4f6;
+}
+
+/* Info blocks (details, culture, notes, etc.) */
+.info-block {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  margin-top: 16px;
+}
+
+.info-block h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.info-block p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 4px;
+}
+
+/* FAQ items */
 .faq-item {
-  margin-bottom: 16px;
+  margin-top: 16px;
 }
+
 .faq-item h3 {
   font-size: 16px;
   margin-bottom: 4px;
 }
 
-/* ===== 手机适配 ===== */
+.faq-item p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+/* Sub-headings inside content */
+.sub-heading {
+  font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .page {
-    margin-top: 72px;
-    padding: 0 12px;
-  }
-
   .header-inner {
-    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
-  }
-
-  .header-center {
-    flex: 1;
-    justify-content: center;
   }
 
   .nav {
     flex-wrap: wrap;
-    gap: 14px;
-    padding: 6px 12px 10px;
+    gap: 12px;
   }
 
-  .hero {
-    padding: 70px 18px;
-  }
-
-  .mega-menu {
-    position: static;
-    transform: none;
-    margin-top: 8px;
-    min-width: auto;
-    flex-wrap: wrap;
+  .page {
+    margin-top: 24px;
+    padding: 0 12px;
   }
 }
-
-

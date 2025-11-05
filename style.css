@@ -42,9 +42,10 @@ main {
   position: relative;
   height: 90vh;
   min-height: 520px;
-  background-image: url("7dc35a2a7cf9c3873c031ae2fb41d0ad.jpg");
+  background-image: url("temple_hero_optimized.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: #111827;
 }
 

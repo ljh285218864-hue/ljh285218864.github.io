@@ -1,4 +1,4 @@
-/* 全局基础设置 */
+ /* 全局基础设置 */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,6 +13,7 @@
   --text-main: #111827;
   --text-sub: #6b7280;
   --border-soft: #e5e7eb;
+  --topbar-bg: #022c22;
 }
 
 /* 页面整体 */
@@ -23,15 +24,14 @@ body {
   line-height: 1.6;
 }
 
-/* 链接 */
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-a:hover {
-  opacity: 0.85;
+/* 顶部通知条 */
+.top-bar {
+  width: 100%;
+  background: var(--topbar-bg);
+  color: #f9fafb;
+  font-size: 12px;
+  text-align: center;
+  padding: 6px 8px;
 }
 
 /* 页面内容容器 */
@@ -41,12 +41,23 @@ a:hover {
   padding: 0 16px;
 }
 
+/* 链接 */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+a:hover {
+  opacity: 0.9;
+}
+
 /* 顶部导航 */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-soft);
   display: flex;
@@ -62,6 +73,11 @@ a:hover {
 }
 
 /* 导航链接 */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
 .nav a {
   margin-left: 18px;
   font-size: 14px;
@@ -76,138 +92,69 @@ a:hover {
   color: var(--accent);
 }
 
-/* 首页横幅区域 */
+/* 首页横幅（大图区域） */
 .hero {
   margin-top: 24px;
-  padding: 28px 24px;
-  border-radius: 18px;
-  background: var(--accent-soft);
-  border: 1px solid #fde68a;
+  padding: 80px 24px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #f9fafb;
+  overflow: hidden;
+}
+
+/* 半透明遮罩，让字更清楚 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15,23,42,0.65),
+    rgba(15,23,42,0.4),
+    rgba(15,23,42,0.75)
+  );
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(249,250,251,0.12);
+  margin-bottom: 10px;
 }
 
 .hero h1 {
-  font-size: 26px;
-  margin-bottom: 4px;
+  font-size: 30px;
+  margin-bottom: 6px;
 }
 
 .hero p {
   font-size: 14px;
-  color: var(--text-sub);
   margin-top: 4px;
+  color: #e5e7eb;
 }
 
-/* 按钮样式 */
+.hero-btn {
+  margin-top: 22px;
+}
+
+/* 按钮 */
 .btn-primary,
 .btn-secondary {
   display: inline-block;
-  margin-top: 18px;
   padding: 10px 22px;
   border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-.btn-secondary {
-  background: #111827;
-  color: #ffffff;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
-}
-
-/* 区块标题 & 描述 */
-.products {
-  margin-top: 40px;
-}
-
-.products h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.products > p {
-  font-size: 14px;
-  color: var(--text-sub);
-}
-
-/* 商品列表网格 */
-.product-grid {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-/* 商品 / 内容卡片 */
-.product-card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
-  border: 1px solid var(--border-soft);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 220px;
-}
-
-.product-card h3 {
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.product-card p {
-  font-size: 14px;
-  margin-top: 2px;
-  color: var(--text-sub);
-}
-
-.product-card .btn-secondary,
-.product-card .btn-primary {
-  margin-top: 14px;
-}
-
-/* 详情页里的卡片稍微宽一点，文字更舒服 */
-.products .product-card {
-  max-width: 720px;
-}
-
-/* 小屏幕适配 */
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 16px;
-  }
-
-  .nav {
-    margin-top: 6px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .nav a {
-    margin-left: 0;
-  }
-
-  .page {
-    margin-top: 72px;
-    padding: 0 12px;
-  }
-
-  .hero {
-    padding: 22px 18px;
-  }
-}
+  border:

@@ -364,7 +364,7 @@ main {
 /* 主图中间上方的五个标题菜单 */
 .hero-menu {
   position: absolute;
-  top: 18%; /* 控制垂直位置，越大越往下 */
+  top: 5%; /* 控制垂直位置，越大越往下 */
   left: 50%;
   transform: translateX(-50%);
   display: inline-flex;

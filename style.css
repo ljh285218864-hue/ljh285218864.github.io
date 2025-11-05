@@ -169,10 +169,11 @@ a:hover {
   z-index: 30;
 }
 
-/* 有 mega menu 的导航项（店铺）悬停时展示 */
-.nav-item.has-mega:hover .mega-menu {
+/* 悬停在带 mega menu 的导航项上时展示 */
+.nav-item:hover .mega-menu {
   display: flex;
 }
+
 
 /* 每一列 */
 .mega-menu-column {
@@ -365,4 +366,5 @@ a:hover {
     padding: 70px 18px;
   }
 }
+
 

@@ -111,8 +111,34 @@ main {
   padding: 18px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;  /* 居中五个标题 */
 }
+/* 左边的 Options 按钮推到最左边 */
+.hero-option-btn {
+  margin-right: auto;
+}
+
+/* 顶部中间的五个标题菜单 */
+.hero-top-menu {
+  display: flex;
+  gap: 24px;
+  font-size: 16px;          /* 比之前大一点 */
+  color: #f9fafb;
+  letter-spacing: 0.08em;
+}
+
+/* 每个标题链接的样式 */
+.hero-top-menu a {
+  color: #f9fafb;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.hero-top-menu a:hover {
+  border-bottom-color: rgba(249, 250, 251, 0.85); /* hover 时只加一条细线 */
+}
+
 
 .hero-logo {
   font-size: 18px;
@@ -361,31 +387,5 @@ main {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-/* 主图中间上方的五个标题菜单 */
-.hero-menu {
-  position: absolute;
-  top: 5%; /* 控制垂直位置，越大越往下 */
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 8px 20px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35); /* 半透明，不挡住背景画面 */
-  backdrop-filter: blur(2px);       /* 轻微虚化背景，显得高级一点（支持的浏览器会生效） */
-  color: #f9fafb;
-  font-size: 14px;
-  white-space: nowrap;
-}
 
-.hero-menu a {
-  color: #f9fafb;
-  text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-}
 
-.hero-menu a:hover {
-  border-bottom-color: rgba(249, 250, 251, 0.8);
-}

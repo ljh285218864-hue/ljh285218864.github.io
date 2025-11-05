@@ -130,16 +130,20 @@ a:hover {
 .nav {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 6px 24px 10px;
+  /* 只保留左右和底部的 padding，避免上面多余空隙 */
+  padding: 0 24px 10px;
   display: flex;
   justify-content: center;
   gap: 28px;
   border-top: 1px solid rgba(229, 231, 235, 0.6);
 }
 
-/* 每一项（店铺 / 畅销商品 / …） */
+/* 每一项（店铺 / 畅销 / 新品 / …） */
 .nav-item {
   position: relative;
+  /* 这里加一点上下的 padding，让 nav-item 本身变高，
+     鼠标从文字往下移动时，仍然算在 nav-item 区域里，不会立刻失去 hover */
+  padding: 8px 0 18px;
 }
 
 /* 导航文字本身 */
@@ -171,11 +175,12 @@ a:hover {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  /* 紧贴 nav-item 底部，不再用 margin-top 制造空缝 */
   top: 100%;
-  margin-top: 0;              /* 不留空缝 */
+  margin-top: 0;
   background: #ffffff;
   border-radius: 18px;
-  padding: 24px 28px 20px;    /* 上面用 padding 来“看起来”有点间距 */
+  padding: 24px 28px 20px;
   min-width: 720px;
   display: none;
   gap: 32px;
@@ -184,8 +189,7 @@ a:hover {
   z-index: 30;
 }
 
-
-/* 悬停在导航项时展示 mega menu */
+/* 悬停在 nav-item 上时展示 mega menu */
 .nav-item:hover .mega-menu {
   display: flex;
 }
@@ -210,9 +214,11 @@ a:hover {
   color: var(--text-sub);
   margin: 2px 0;
 }
+
 .mega-menu-link:hover {
   color: var(--accent);
 }
+
 
 /* ===== 首页横幅（大图） ===== */
 .hero {
@@ -397,4 +403,5 @@ a:hover {
     flex-wrap: wrap;
   }
 }
+
 

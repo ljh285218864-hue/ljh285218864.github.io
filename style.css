@@ -125,6 +125,7 @@ a:hover {
 }
 
 /* 下半部分导航菜单 */
+/* 下半部分导航菜单 + mega menu */
 .nav {
   max-width: 1120px;
   margin: 0 auto;
@@ -135,11 +136,66 @@ a:hover {
   border-top: 1px solid rgba(229,231,235,0.6);
 }
 
-.nav a {
+/* 每一项（店铺 / 畅销商品 / …） */
+.nav-item {
+  position: relative;
+}
+
+/* 导航文字本身 */
+.nav-item > a {
   font-size: 14px;
   color: #111827;
 }
-.nav a:hover {
+
+.nav-item > a:hover {
+  color: var(--accent);
+}
+
+/* mega menu 外层容器 */
+.mega-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  margin-top: 10px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 28px;
+  min-width: 720px;
+  display: none;
+  gap: 32px;
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.14);
+  border: 1px solid var(--border-soft);
+  z-index: 30;
+}
+
+/* 有 mega menu 的导航项（店铺）悬停时展示 */
+.nav-item.has-mega:hover .mega-menu {
+  display: flex;
+}
+
+/* 每一列 */
+.mega-menu-column {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* 列标题：产品 / 类型 / 意图 / 符号 / 晶体 */
+.mega-menu-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* 列里的具体链接 */
+.mega-menu-link {
+  display: block;
+  font-size: 13px;
+  color: var(--text-sub);
+  margin: 2px 0;
+}
+
+.mega-menu-link:hover {
   color: var(--accent);
 }
 
@@ -309,3 +365,4 @@ a:hover {
     padding: 70px 18px;
   }
 }
+

@@ -43,15 +43,41 @@ main {
   height: 90vh;
   min-height: 520px;
 
-  /* 用你上传的庙宇图片做背景 */
+  /* 背景用庙宇大图 */
   background-image: url("temple_hero_optimized.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 
-  /* 让上面的字更清楚，文字改为白色 */
+  /* 文字用白色 */
   color: #ffffff;
+
+  /* 强制不显示任何边框或描边 */
+  border: 0;
+  outline: 0;
 }
+
+/* 图片上的透明渐变遮罩，让文字更清晰 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.4)
+  );
+  pointer-events: none;
+}
+
+/* 确保顶部文字和箭头在遮罩之上 */
+.hero-top,
+.hero-arrow {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* 在图片上加一层透明渐变遮罩，让上面的字更好读 */
 .hero::before {

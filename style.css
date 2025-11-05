@@ -172,10 +172,10 @@ a:hover {
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
-  margin-top: 10px;
+  margin-top: 0;              /* 不留空缝 */
   background: #ffffff;
   border-radius: 18px;
-  padding: 20px 28px;
+  padding: 24px 28px 20px;    /* 上面用 padding 来“看起来”有点间距 */
   min-width: 720px;
   display: none;
   gap: 32px;
@@ -183,6 +183,7 @@ a:hover {
   border: 1px solid var(--border-soft);
   z-index: 30;
 }
+
 
 /* 悬停在导航项时展示 mega menu */
 .nav-item:hover .mega-menu {
@@ -396,3 +397,4 @@ a:hover {
     flex-wrap: wrap;
   }
 }
+

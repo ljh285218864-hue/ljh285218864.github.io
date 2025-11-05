@@ -42,17 +42,38 @@ main {
   position: relative;
   height: 90vh;
   min-height: 520px;
-  /* 这里用你上传的庙宇图片当背景 */
-  background-image: url("./temple_hero_optimized.jpg");
+
+  /* 用你上传的庙宇图片做背景 */
+  background-image: url("temple_hero_optimized.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  color: #111827;
 
-  /* 下面两行只是方便你确认 CSS 生效，看到了再删 */
-  outline: 4px solid red;
-  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.6);
+  /* 让上面的字更清楚，文字改为白色 */
+  color: #ffffff;
 }
+
+/* 在图片上加一层透明渐变遮罩，让上面的字更好读 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.4)
+  );
+  pointer-events: none;
+}
+
+/* 让顶部的按钮、LOGO、箭头在遮罩之上 */
+.hero-top,
+.hero-arrow {
+  position: relative;
+  z-index: 1;
+}
+
 
 
 /* 顶部 logo + 按钮，类似你截图上面那行 */

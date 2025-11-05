@@ -1,0 +1,309 @@
+/* ===== 基础 Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 页面淡入 */
+main {
+  animation: fadeInPage 0.4s ease-out;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 顶部大图 Hero ===== */
+.hero {
+  position: relative;
+  height: 90vh;
+  min-height: 520px;
+  background-image: linear-gradient(135deg, #1f2937, #4b5563); /* 先用渐变占位，将来可换成真实图片 */
+  background-size: cover;
+  background-position: center;
+  color: #111827;
+}
+
+/* 顶部 logo + 按钮，类似你截图上面那行 */
+.hero-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-logo {
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero-option-btn {
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #2563eb;
+  background: rgba(255, 255, 255, 0.94);
+  color: #2563eb;
+  cursor: pointer;
+}
+
+/* 底部向下箭头 */
+.hero-arrow {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  background: rgba(15, 23, 42, 0.4);
+}
+
+/* ===== 通用内容区容器 ===== */
+.section {
+  max-width: 1060px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+/* ===== 顶部大标题/标语区（“一个愿景 一款葡萄酒”那块） ===== */
+.headline-block {
+  text-align: center;
+}
+
+.headline-main {
+  font-size: 30px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.headline-sub {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 英文 Quote + 签名 */
+.quote-block {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 18px;
+  font-style: italic;
+  color: #374151;
+  line-height: 1.8;
+}
+
+.quote-signature {
+  margin-top: 24px;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 18px;
+}
+
+.quote-name {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  color: #6b7280;
+}
+
+/* ===== 分栏图片 + 文字区域 ===== */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.split.reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+/* 灰色图片占位块，将来可换成 <img> */
+.photo-box {
+  width: 100%;
+  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+  border-radius: 16px;
+}
+
+.photo-box.large {
+  height: 320px;
+}
+
+.photo-box.medium {
+  height: 220px;
+}
+
+/* 文字区域 */
+.split-text-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.split-text-body {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 8px;
+}
+
+/* “探索更多”链接样式 */
+.more-link {
+  font-size: 13px;
+  color: #2563eb;
+  margin-top: 12px;
+}
+
+/* 第二段 quote 顶部间距 */
+.section-quote {
+  margin-top: 100px;
+}
+
+/* 下方三图布局，可以用两列或三列 */
+.gallery-row {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+/* ===== 大号 Callout 框 ===== */
+.callout-section {
+  margin-top: 100px;
+}
+
+.callout-box {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #f9fafb;
+}
+
+.callout-text {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.callout-link {
+  font-size: 13px;
+  color: #2563eb;
+  margin-top: 4px;
+}
+
+/* ===== Footer 三列导航 ===== */
+.footer {
+  background: #f5f5f5;
+  padding: 40px 24px 32px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+  margin-top: 8px;
+}
+
+.footer-heading {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: #4b5563;
+  margin-top: 6px;
+}
+
+.footer-bottom {
+  margin-top: 18px;
+  font-size: 11px;
+  color: #9ca3af;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ===== 自适应 ===== */
+@media (max-width: 900px) {
+  .hero-top {
+    padding: 12px 16px;
+  }
+
+  .headline-main {
+    font-size: 22px;
+    letter-spacing: 0.12em;
+  }
+
+  .split,
+  .split.reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gallery-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .photo-box.large {
+    height: 240px;
+  }
+
+  .photo-box.medium {
+    height: 180px;
+  }
+
+  .footer-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

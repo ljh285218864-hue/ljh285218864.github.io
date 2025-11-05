@@ -361,3 +361,31 @@ main {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* 主图中间上方的五个标题菜单 */
+.hero-menu {
+  position: absolute;
+  top: 18%; /* 控制垂直位置，越大越往下 */
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35); /* 半透明，不挡住背景画面 */
+  backdrop-filter: blur(2px);       /* 轻微虚化背景，显得高级一点（支持的浏览器会生效） */
+  color: #f9fafb;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.hero-menu a {
+  color: #f9fafb;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.hero-menu a:hover {
+  border-bottom-color: rgba(249, 250, 251, 0.8);
+}

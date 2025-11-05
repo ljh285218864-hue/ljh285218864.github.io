@@ -98,6 +98,7 @@ a:hover {
   justify-content: center;
   font-size: 14px;
   color: var(--text-main);
+  background: #ffffff;
 }
 .icon-btn:hover {
   border-color: var(--accent);
@@ -122,10 +123,10 @@ a:hover {
   font-size: 20px;
   letter-spacing: 0.08em;
   font-family: "Georgia", "Times New Roman", serif;
+  text-align: center;
 }
 
-/* 下半部分导航菜单 */
-/* 下半部分导航菜单 + mega menu */
+/* ===== 下半部分导航 + mega menu ===== */
 .nav {
   max-width: 1120px;
   margin: 0 auto;
@@ -133,7 +134,7 @@ a:hover {
   display: flex;
   justify-content: center;
   gap: 28px;
-  border-top: 1px solid rgba(229,231,235,0.6);
+  border-top: 1px solid rgba(229, 231, 235, 0.6);
 }
 
 /* 每一项（店铺 / 畅销商品 / …） */
@@ -183,11 +184,10 @@ a:hover {
   z-index: 30;
 }
 
-/* 悬停在带 mega menu 的导航项上时展示 */
+/* 悬停在导航项时展示 mega menu */
 .nav-item:hover .mega-menu {
   display: flex;
 }
-
 
 /* 每一列 */
 .mega-menu-column {
@@ -209,7 +209,6 @@ a:hover {
   color: var(--text-sub);
   margin: 2px 0;
 }
-
 .mega-menu-link:hover {
   color: var(--accent);
 }
@@ -234,9 +233,9 @@ a:hover {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15,23,42,0.6),
-    rgba(15,23,42,0.4),
-    rgba(15,23,42,0.75)
+    rgba(15, 23, 42, 0.6),
+    rgba(15, 23, 42, 0.4),
+    rgba(15, 23, 42, 0.75)
   );
 }
 
@@ -254,7 +253,7 @@ a:hover {
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(249,250,251,0.16);
+  background: rgba(249, 250, 251, 0.16);
   margin-bottom: 10px;
 }
 
@@ -324,7 +323,7 @@ a:hover {
   background: var(--card-bg);
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
   border: 1px solid var(--border-soft);
   display: flex;
   flex-direction: column;
@@ -353,6 +352,15 @@ a:hover {
   max-width: 720px;
 }
 
+/* FAQ 专用：问题块 */
+.faq-item {
+  margin-bottom: 16px;
+}
+.faq-item h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
 /* ===== 手机适配 ===== */
 @media (max-width: 768px) {
   .page {
@@ -379,7 +387,12 @@ a:hover {
   .hero {
     padding: 70px 18px;
   }
+
+  .mega-menu {
+    position: static;
+    transform: none;
+    margin-top: 8px;
+    min-width: auto;
+    flex-wrap: wrap;
+  }
 }
-
-
-

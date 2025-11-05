@@ -26,120 +26,171 @@
 </header>
 
 <main class="page fade-in">
-  <div class="page-title">
-    <h1>Products</h1>
-    <p>Explore Feng Shui decor, wearable jewelry, and talismans inspired by Taoist and Chinese spiritual traditions.</p>
-  </div>
+  <!-- Collection-style hero, similar structure to best-seller page -->
+  <section class="collection-hero">
+    <div class="collection-breadcrumbs">
+      Home / Products
+    </div>
+    <div class="collection-hero-badge">
+      SPIRITUAL COLLECTION
+    </div>
+    <h1>Spiritual Essentials</h1>
+    <p>
+      A curated selection of Feng Shui decor, wearable jewelry, and talismans
+      inspired by Taoist and Chinese spiritual traditions. Choose pieces that
+      quietly support your intentions at home and in daily life.
+    </p>
+  </section>
 
+  <!-- Toolbar: items count + sort dropdown -->
+  <section class="collection-toolbar">
+    <div class="toolbar-left">
+      Showing 9 items · 3 categories
+    </div>
+    <div class="toolbar-right">
+      <span class="sort-label">Sort</span>
+      <!-- 只是样式，不做真实排序逻辑 -->
+      <select class="sort-select">
+        <option>Featured</option>
+        <option>Price: low to high</option>
+        <option>Price: high to low</option>
+        <option>Newest</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Filter pills (no JS,只是视觉和锚点) -->
   <div class="filter-bar">
-    <a href="#all" class="filter-pill active">All Products</a>
+    <a href="#all" class="filter-pill active">All</a>
     <a href="#feng-shui" class="filter-pill">Feng Shui Decor</a>
     <a href="#wearable" class="filter-pill">Wearable Jewelry</a>
     <a href="#talismans" class="filter-pill">Talismans</a>
   </div>
 
-  <!-- All products overview -->
+  <!-- Product grid,参考 best-seller 布局，但内容是你的 -->
   <section id="all">
-    <h2 class="section-heading">All Products</h2>
     <div class="card-grid">
-      <div class="card">
-        <h3>Feng Shui Entryway Fountain</h3>
-        <p>A symbolic piece placed near the entryway, representing wealth and opportunity flowing into your home.</p>
-        <p>Designed for those who want a calm, welcoming first impression when stepping inside.</p>
-        <div class="button-row">
-          <a href="products-feng-shui.html" class="btn-secondary">View Feng Shui decor</a>
+      <!-- Feng Shui Decor items -->
+      <article class="card product-card" id="feng-shui">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Feng Shui Decor</div>
+          <h3>Entryway Flow Fountain</h3>
+          <p>A symbolic fountain for the entrance area, representing opportunities and resources flowing into your life.</p>
+          <p class="product-card-meta">Symbolic use · Home entryway</p>
+          <div class="button-row">
+            <a href="products-feng-shui.html" class="btn-secondary">View decor details</a>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
-        <h3>Obsidian Protection Bracelet</h3>
-        <p>A simple black obsidian bracelet, traditionally associated with grounding and protection from distractions.</p>
-        <p>Created for everyday wear to support focus and emotional stability.</p>
-        <div class="button-row">
-          <a href="products-wearable.html" class="btn-secondary">View wearable jewelry</a>
+      <article class="card product-card">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Feng Shui Decor</div>
+          <h3>Wealth Bowl Centerpiece</h3>
+          <p>A decorative bowl symbolizing gathered abundance, often placed on desks or living room tables.</p>
+          <p class="product-card-meta">Symbolic abundance · Desk or living room</p>
+          <div class="button-row">
+            <a href="products-feng-shui.html" class="btn-secondary">Explore Feng Shui decor</a>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
-        <h3>Peaceful Home Talisman</h3>
-        <p>A symbolic talisman inspired by Taoist protective scripts, often carried or placed near the bedside.</p>
-        <p>For those seeking a sense of calm and safety in their living space.</p>
-        <div class="button-row">
-          <a href="products-talismans.html" class="btn-secondary">View talismans</a>
+      <article class="card product-card">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Feng Shui Decor</div>
+          <h3>Study Wen Chang Pagoda</h3>
+          <p>A pagoda-inspired piece representing learning and growth, placed near bookshelves or workspaces.</p>
+          <p class="product-card-meta">Study & focus · Bookshelf or desk</p>
+          <div class="button-row">
+            <a href="products-feng-shui.html" class="btn-secondary">See placement ideas</a>
+          </div>
         </div>
-      </div>
+      </article>
+
+      <!-- Wearable Jewelry items -->
+      <article class="card product-card" id="wearable">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Wearable Jewelry</div>
+          <h3>Obsidian Protection Bracelet</h3>
+          <p>A bracelet associated with grounding and protection, designed for everyday wear in busy periods.</p>
+          <p class="product-card-meta">Daily wear · Grounding focus</p>
+          <div class="button-row">
+            <a href="products-wearable.html" class="btn-secondary">View wearable collection</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card product-card">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Wearable Jewelry</div>
+          <h3>Red String Intention Bracelet</h3>
+          <p>A minimalist red string bracelet to remind you of a chosen intention such as safety, courage, or emotional support.</p>
+          <p class="product-card-meta">Subtle reminder · Adjustable focus</p>
+          <div class="button-row">
+            <a href="products-wearable.html" class="btn-secondary">See all bracelets</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card product-card">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Wearable Jewelry</div>
+          <h3>Harmony Amulet Necklace</h3>
+          <p>A small pendant inspired by yin–yang balance, for those who prefer quiet, meaningful jewelry.</p>
+          <p class="product-card-meta">Everyday necklace · Harmony theme</p>
+          <div class="button-row">
+            <a href="products-wearable.html" class="btn-secondary">More necklace styles</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Talismans items -->
+      <article class="card product-card" id="talismans">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Talismans</div>
+          <h3>Safe Travels Talisman</h3>
+          <p>A symbolic talisman kept in your wallet, bag, or car as a reminder to travel with awareness and care.</p>
+          <p class="product-card-meta">Travel support · Wallet or car</p>
+          <div class="button-row">
+            <a href="products-talismans.html" class="btn-secondary">View talisman collection</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card product-card">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Talismans</div>
+          <h3>Peaceful Home Talisman</h3>
+          <p>A piece placed near your entrance or bedside as a symbol of calm and emotional safety at home.</p>
+          <p class="product-card-meta">Home focus · Entrance or bedroom</p>
+          <div class="button-row">
+            <a href="products-talismans.html" class="btn-secondary">See home talismans</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card product-card">
+        <div class="product-card-media"></div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Talismans</div>
+          <h3>Relationship Harmony Talisman</h3>
+          <p>A symbolic reminder to improve communication and understanding in your important relationships.</p>
+          <p class="product-card-meta">Relationships · Communication focus</p>
+          <div class="button-row">
+            <a href="products-talismans.html" class="btn-secondary">Learn more</a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
-
-  <!-- Feng Shui Decor -->
-  <section id="feng-shui">
-    <h2 class="section-heading">Feng Shui Decor</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Wealth Bowl Centerpiece</h3>
-        <p>A decorative bowl symbolizing gathered abundance, often used on desks or side tables.</p>
-        <p>Ideal for those who like to set an intention for financial stability and growth.</p>
-        <div class="button-row">
-          <a href="products-feng-shui.html" class="btn">See all decor</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Study Wen Chang Pagoda</h3>
-        <p>Inspired by the Wen Chang star in Chinese tradition, this piece represents learning and growth.</p>
-        <p>Commonly placed near bookshelves or workspaces as a symbolic support.</p>
-        <div class="button-row">
-          <a href="products-feng-shui.html" class="btn-secondary">Placement ideas</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wearable Jewelry -->
-  <section id="wearable">
-    <h2 class="section-heading">Wearable Jewelry</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Red String Blessing Bracelet</h3>
-        <p>A minimalist red string bracelet, often used as a reminder of protection and gentle support.</p>
-        <p>Simple enough for daily wear, with optional charms for different intentions.</p>
-        <div class="button-row">
-          <a href="products-wearable.html" class="btn">See all jewelry</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Harmony Amulet Necklace</h3>
-        <p>A small pendant symbolizing balance between inner and outer life, inspired by Taoist ideas of harmony.</p>
-        <div class="button-row">
-          <a href="products-wearable.html" class="btn-secondary">More styles</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Talismans -->
-  <section id="talismans">
-    <h2 class="section-heading">Talismans</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Safe Travels Talisman</h3>
-        <p>A symbolic piece for frequent travelers, kept in bags or cars as a reminder of safe journeys.</p>
-        <div class="button-row">
-          <a href="products-talismans.html" class="btn">See talisman collection</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Harmony in Relationships Talisman</h3>
-        <p>Represents smoother communication and understanding in daily connections with others.</p>
-        <div class="button-row">
-          <a href="products-talismans.html" class="btn-secondary">Learn more</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 </body>

@@ -1,8 +1,12 @@
- /* Global reset */
+ /* 基础设置 */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* 导航锚点平滑滚动 */
 }
 
 body {
@@ -17,26 +21,45 @@ a {
   text-decoration: none;
 }
 
-/* Top info bar */
+/* 页面淡入效果 */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  animation: pageFadeIn 0.4s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 顶部黑条 */
 .top-bar {
   width: 100%;
   background: #111827;
-  color: #f9fafb;
-  font-size: 12px;
+  color: #e5e7eb;
+  font-size: 11px;
   text-align: center;
   padding: 6px 8px;
 }
 
-/* Header & navigation */
+/* 头部导航 */
 .site-header {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
 }
 
 .header-inner {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 16px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,336 +68,345 @@ a {
 .logo {
   font-weight: 700;
   font-size: 18px;
-  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .nav a {
-  font-size: 14px;
+  font-size: 13px;
   color: #4b5563;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
 }
 
 .nav a:hover {
   color: #111827;
-  border-bottom-color: #9ca3af;
+  border-bottom-color: #d1d5db;
 }
 
-.nav a.active {
-  color: #111827;
-  border-bottom-color: #111827;
-}
-
-/* Page container */
-.page {
-  max-width: 1120px;
-  margin: 32px auto 48px;
-  padding: 0 16px;
-}
-
-/* Simple page fade-in animation (page-level dynamic effect) */
-.fade-in {
-  animation: fadeIn 0.35s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== Collection-style hero (for Products main layout) ===== */
-.collection-hero {
-  margin-bottom: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.collection-breadcrumbs {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-bottom: 8px;
-}
-
-.collection-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #eef2ff;
-  color: #4f46e5;
-  margin-bottom: 8px;
-}
-
-.collection-hero h1 {
-  font-size: 28px;
-  margin-bottom: 4px;
-}
-
-.collection-hero p {
-  font-size: 14px;
-  color: #6b7280;
-  max-width: 620px;
-}
-
-/* Toolbar like "showing / sort" line */
-.collection-toolbar {
-  margin-top: 12px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #6b7280;
-}
-
-.toolbar-left {
-  opacity: 0.9;
-}
-
-.toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.sort-label {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-.sort-select {
-  font-size: 12px;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  padding: 4px 10px;
-  background: #ffffff;
-  outline: none;
-}
-
-/* ===== Generic page heading (used by other pages) ===== */
-.page-title {
-  margin-bottom: 20px;
-}
-
-.page-title h1 {
-  font-size: 26px;
-  margin-bottom: 4px;
-}
-
-.page-title p {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* Filter pills (Products page) */
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.filter-pill {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  font-size: 13px;
-}
-
-.filter-pill.active {
-  background: #111827;
-  color: #ffffff;
-  border-color: #111827;
-}
-
-/* Section headings (other pages use this too) */
-.section-heading {
-  margin-top: 24px;
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-/* Card grid */
-.card-grid {
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-/* Base card */
-.card {
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Product card: collection-style */
-.product-card {
-  padding: 0;
+/* Hero 大横幅 */
+.hero {
+  margin-top: 32px;
+  border-radius: 24px;
   overflow: hidden;
+  background: #111827;
+  color: #f9fafb;
+  min-height: 360px;
+  display: flex;
+  align-items: stretch;
 }
 
-.product-card-media {
-  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
-  border-bottom: 1px solid #e5e7eb;
-  /* Aspect ratio like product image */
-  aspect-ratio: 4 / 3;
+/* 左边图片区域（先用渐变占位） */
+.hero-media {
+  flex: 2;
+  background: linear-gradient(135deg, #1f2937, #4b5563);
 }
 
-.product-card-body {
-  padding: 14px 16px 16px;
+/* 右侧文案 */
+.hero-content {
+  flex: 1.4;
+  padding: 36px 36px 36px 32px;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: center;
 }
 
-.product-card-tag {
-  align-self: flex-start;
+.hero-tagline {
   font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: #f3f4f6;
-  color: #4b5563;
-  margin-bottom: 6px;
-}
-
-.product-card-body h3 {
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.product-card-body p {
-  font-size: 13px;
-  color: #6b7280;
-  margin-top: 2px;
-}
-
-.product-card-meta {
-  font-size: 12px;
   color: #9ca3af;
-  margin-top: 6px;
+  margin-bottom: 8px;
 }
 
-/* Buttons: simple & clean */
-.button-row {
-  margin-top: 12px;
+.hero-title {
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
+.hero-subtitle {
+  font-size: 14px;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* 按钮：简单大气 */
 .btn {
   display: inline-block;
-  padding: 8px 18px;
+  padding: 9px 22px;
   border-radius: 999px;
   font-size: 13px;
-  border: 1px solid #111827;
-  background: #111827;
-  color: #ffffff;
+  border: 1px solid #f9fafb;
+  background: #f9fafb;
+  color: #111827;
   cursor: pointer;
   text-align: center;
 }
 
 .btn-secondary {
-  background: #ffffff;
-  color: #111827;
+  background: transparent;
+  color: #f9fafb;
 }
 
 .btn:hover {
-  background: #000000;
-  color: #ffffff;
+  background: #e5e7eb;
+  color: #111827;
 }
 
 .btn-secondary:hover {
-  background: #f3f4f6;
+  background: rgba(249, 250, 251, 0.06);
 }
 
-/* Info blocks (details, culture, notes, etc.) */
-.info-block {
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  padding: 20px;
-  margin-top: 16px;
+/* 通用区块 */
+.section {
+  margin-top: 56px;
 }
 
-.info-block h2 {
+.section-heading {
   font-size: 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+
+.section-title {
+  font-size: 24px;
   margin-bottom: 8px;
 }
 
-.info-block p {
+.section-intro {
   font-size: 14px;
-  color: #4b5563;
-  margin-top: 4px;
+  color: #6b7280;
+  max-width: 640px;
 }
 
-/* FAQ items */
-.faq-item {
+/* Story 区，两列布局 */
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.story-media {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+  height: 260px;
+}
+
+.story-text p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 8px;
+}
+
+/* Readings 卡片网格 */
+.cards-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-meta {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.service-card h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.service-card p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.service-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+/* Rituals 横向 band */
+.band {
+  margin-top: 24px;
+  border-radius: 22px;
+  padding: 28px 28px;
+  background: linear-gradient(135deg, #e5e7eb, #f9fafb);
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.band-media {
+  border-radius: 18px;
+  background: #d1d5db;
+  height: 200px;
+}
+
+.band-text h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.band-text p {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* Process & Booking */
+.process-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+.step-item {
+  margin-top: 10px;
+}
+
+.step-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.step-text {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* 表单块（静态） */
+.contact-form {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 16px 16px 18px;
+}
+
+.form-field {
+  margin-top: 10px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 7px 9px;
+  font-size: 13px;
+  outline: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #111827;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* FAQ */
+.faq-list {
   margin-top: 16px;
 }
 
+.faq-item {
+  margin-top: 12px;
+}
+
 .faq-item h3 {
-  font-size: 16px;
-  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .faq-item p {
   font-size: 14px;
   color: #4b5563;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
-/* Sub-headings inside content */
-.sub-heading {
-  font-size: 16px;
-  margin-top: 16px;
-  margin-bottom: 4px;
-  font-weight: 600;
+/* 底部 Footer */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 40px;
+  padding-top: 16px;
+  font-size: 12px;
+  color: #9ca3af;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header-inner {
+/* 响应式 */
+@media (max-width: 900px) {
+  .hero {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
   }
 
-  .nav {
-    flex-wrap: wrap;
-    gap: 12px;
+  .hero-media {
+    min-height: 220px;
   }
 
-  .page {
-    margin-top: 24px;
-    padding: 0 12px;
+  .hero-content {
+    padding: 24px;
   }
 
-  .collection-toolbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  .story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .band {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

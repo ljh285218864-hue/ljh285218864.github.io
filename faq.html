@@ -8,22 +8,22 @@
 <body>
 
 <!-- 顶部导航 -->
-<<header class="site-header">
+<header class="site-header">
   <div class="header-inner">
-    <!-- 左侧：搜索图标（先不做真正搜索功能，只是样式） -->
+    <!-- 左：搜索图标（现在只是样式，还不做搜索功能） -->
     <div class="header-left">
       <a href="#" class="icon-btn" title="搜索">🔍</a>
     </div>
 
-    <!-- 中间：Logo 图标 + 品牌文字 -->
+    <!-- 中：Logo 图标 + 品牌文字 -->
     <div class="header-center">
       <div class="logo-mark">☯</div>
       <div class="logo-text">
-        Taoist Destiny Studio<br>道命馆
+        TAOIST DESTINY<br>STUDIO
       </div>
     </div>
 
-    <!-- 右侧：账号 / 购物袋 图标（现在只是展示） -->
+    <!-- 右：账户 / 购物袋 图标（先做样子） -->
     <div class="header-right">
       <a href="#" class="icon-btn" title="账户">👤</a>
       <a href="#" class="icon-btn" title="购物袋">👜</a>
@@ -31,11 +31,81 @@
   </div>
 
   <!-- 下方导航菜单 -->
+    <!-- 下方导航菜单 + 店铺 mega menu -->
   <nav class="nav">
-    <a href="index.html">店铺</a>
-    <a href="collections.html">畅销商品</a>
-    <a href="about.html">道教文化</a>
-    <a href="faq.html">常见问题</a>
+    <!-- 店铺：有大下拉菜单 -->
+    <div class="nav-item has-mega">
+      <a href="collections.html">店铺 ▾</a>
+
+      <div class="mega-menu">
+        <!-- 列 1：产品 -->
+        <div class="mega-menu-column">
+          <div class="mega-menu-title">产品</div>
+          <a href="collections.html" class="mega-menu-link">所有产品</a>
+          <a href="collections.html" class="mega-menu-link">畅销商品</a>
+          <a href="collections.html" class="mega-menu-link">新品上市</a>
+          <a href="collections.html" class="mega-menu-link">最后机会商品</a>
+        </div>
+
+        <!-- 列 2：类型 -->
+        <div class="mega-menu-column">
+          <div class="mega-menu-title">类型</div>
+          <a href="collections.html" class="mega-menu-link">手链</a>
+          <a href="collections.html" class="mega-menu-link">项链</a>
+          <a href="collections.html" class="mega-menu-link">戒指</a>
+          <a href="collections.html" class="mega-menu-link">家居摆件</a>
+        </div>
+
+        <!-- 列 3：意图（功效） -->
+        <div class="mega-menu-column">
+          <div class="mega-menu-title">意图</div>
+          <a href="collections.html" class="mega-menu-link">招财</a>
+          <a href="collections.html" class="mega-menu-link">感情</a>
+          <a href="collections.html" class="mega-menu-link">事业</a>
+          <a href="collections.html" class="mega-menu-link">健康</a>
+          <a href="collections.html" class="mega-menu-link">护身保护</a>
+        </div>
+
+        <!-- 列 4：符号 -->
+        <div class="mega-menu-column">
+          <div class="mega-menu-title">符号</div>
+          <a href="collections.html" class="mega-menu-link">符咒手链</a>
+          <a href="collections.html" class="mega-menu-link">风水手链</a>
+          <a href="collections.html" class="mega-menu-link">红绳系列</a>
+          <a href="collections.html" class="mega-menu-link">护身符</a>
+        </div>
+
+        <!-- 列 5：晶体 -->
+        <div class="mega-menu-column">
+          <div class="mega-menu-title">晶体</div>
+          <a href="collections.html" class="mega-menu-link">黑曜石</a>
+          <a href="collections.html" class="mega-menu-link">黄水晶</a>
+          <a href="collections.html" class="mega-menu-link">紫水晶</a>
+          <a href="collections.html" class="mega-menu-link">玫瑰石英</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 其他导航项：简单文字链接即可 -->
+    <div class="nav-item">
+      <a href="collections.html">畅销商品</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="collections.html">新品上市</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="collections.html">最后机会商品</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="about.html">关于我们</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="faq.html">常见问题</a>
+    </div>
   </nav>
 </header>
 
@@ -84,4 +154,5 @@
 
 </body>
 </html>
+
 

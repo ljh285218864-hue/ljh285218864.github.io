@@ -145,10 +145,24 @@ a:hover {
 .nav-item > a {
   font-size: 14px;
   color: #111827;
+  position: relative;
+  padding-bottom: 4px;
 }
 
+/* hover 变色 */
 .nav-item > a:hover {
   color: var(--accent);
+}
+
+/* 当前页高亮：底部一条小横线 */
+.nav-item.active > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #111827;
+  bottom: -4px;
 }
 
 /* mega menu 外层容器 */
@@ -366,5 +380,6 @@ a:hover {
     padding: 70px 18px;
   }
 }
+
 
 

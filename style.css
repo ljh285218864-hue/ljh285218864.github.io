@@ -1,4 +1,4 @@
- /* 全局基础设置 */
+ /* ===== 全局基础设置 ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,6 +24,25 @@ body {
   line-height: 1.6;
 }
 
+/* 链接 */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+a:hover {
+  opacity: 0.9;
+}
+
+/* 页面内容容器 */
+.page {
+  max-width: 1120px;
+  margin: 80px auto 48px;
+  padding: 0 16px;
+}
+
+/* ===== 顶部区域：通知条 + 头部 ===== */
+
 /* 顶部通知条 */
 .top-bar {
   width: 100%;
@@ -34,64 +53,44 @@ body {
   padding: 6px 8px;
 }
 
-/* 页面内容容器 */
-.page {
-  max-width: 1120px;
-  margin: 80px auto 48px;
-  padding: 0 16px;
-}
-
-/* 链接 */
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-a:hover {
-  opacity: 0.9;
-}
-
-/* 顶部导航 */
-/* 顶部导航整体 */
+/* 整个 header 背景 */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
+  background: #ffffff;
   border-bottom: 1px solid var(--border-soft);
 }
 
-/* 内部三栏布局：左图标，中 Logo，右图标 */
+/* 上半部分：左图标 / 中 logo / 右图标 */
 .header-inner {
   max-width: 1120px;
   margin: 0 auto;
+  padding: 10px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px;
 }
 
-/* 左、右两侧图标区域 */
+/* 左右两侧图标区域 */
 .header-left,
 .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 中间 logo 区域：图标 + 文字 */
+.header-center {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* 中间 Logo 区域 */
-.header-center {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 小圆形图标（搜素、人形、购物袋） */
+/* 小圆形图标按钮（搜索 / 账户 / 购物袋） */
 .icon-btn {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 999px;
   border: 1px solid #9ca3af;
   display: flex;
@@ -100,55 +99,54 @@ a:hover {
   font-size: 14px;
   color: var(--text-main);
 }
-
 .icon-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
 
-/* Logo 左边的简易图标，可以当做花/八卦之类 */
+/* logo 左边的小图形，可以当成莲花/太极的抽象 */
 .logo-mark {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
   border: 2px solid #38bdf8;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-/* 品牌文字 */
+/* 品牌文字，略带「BUDDHA & KARMA」那种感觉 */
 .logo-text {
   font-weight: 700;
-  font-size: 18px;
-  line-height: 1.3;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  font-family: "Georgia", "Times New Roman", serif;
 }
 
-/* 导航菜单（店铺 / 评价 / 新品…） */
+/* 下半部分导航菜单 */
 .nav {
   max-width: 1120px;
   margin: 0 auto;
+  padding: 6px 24px 10px;
   display: flex;
   justify-content: center;
-  gap: 24px;
-  padding: 8px 24px 10px;
+  gap: 28px;
+  border-top: 1px solid rgba(229,231,235,0.6);
 }
 
 .nav a {
-  margin: 0;
   font-size: 14px;
-  color: var(--text-main);
+  color: #111827;
 }
-
 .nav a:hover {
   color: var(--accent);
 }
 
-/* 首页横幅（大图区域） */
+/* ===== 首页横幅（大图） ===== */
 .hero {
   margin-top: 24px;
-  padding: 80px 24px;
+  padding: 90px 24px;
   border-radius: 24px;
   background-size: cover;
   background-position: center;
@@ -158,14 +156,14 @@ a:hover {
   overflow: hidden;
 }
 
-/* 半透明遮罩，让字更清楚 */
+/* 遮罩，让文字更清楚 */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15,23,42,0.65),
+    rgba(15,23,42,0.6),
     rgba(15,23,42,0.4),
     rgba(15,23,42,0.75)
   );
@@ -185,12 +183,12 @@ a:hover {
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(249,250,251,0.12);
+  background: rgba(249,250,251,0.16);
   margin-bottom: 10px;
 }
 
 .hero h1 {
-  font-size: 30px;
+  font-size: 32px;
   margin-bottom: 6px;
 }
 
@@ -210,21 +208,104 @@ a:hover {
   display: inline-block;
   padding: 10px 22px;
   border-radius: 999px;
-  border:
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+.btn-secondary {
+  background: #111827;
+  color: #ffffff;
+}
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-1px);
+}
+
+/* ===== 通用内容区 / 商品卡片 ===== */
+.products {
+  margin-top: 40px;
+}
+
+.products h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.products > p {
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.product-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+  border: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.product-card p {
+  font-size: 14px;
+  margin-top: 2px;
+  color: var(--text-sub);
+}
+
+.product-card .btn-secondary,
+.product-card .btn-primary {
+  margin-top: 14px;
+}
+
+/* 详情页里的卡片稍微宽一点 */
+.products .product-card {
+  max-width: 720px;
+}
+
+/* ===== 手机适配 ===== */
 @media (max-width: 768px) {
+  .page {
+    margin-top: 72px;
+    padding: 0 12px;
+  }
+
   .header-inner {
-    padding: 8px 16px;
+    padding: 8px 12px;
+    gap: 8px;
   }
 
   .header-center {
-    flex-direction: column;
-    gap: 4px;
+    flex: 1;
+    justify-content: center;
   }
 
   .nav {
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
     padding: 6px 12px 10px;
   }
-}
 
+  .hero {
+    padding: 70px 18px;
+  }
+}

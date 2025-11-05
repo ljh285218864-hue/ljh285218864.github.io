@@ -53,6 +53,7 @@ a:hover {
 }
 
 /* 顶部导航 */
+/* 顶部导航整体 */
 .site-header {
   position: sticky;
   top: 0;
@@ -60,32 +61,84 @@ a:hover {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-soft);
+}
+
+/* 内部三栏布局：左图标，中 Logo，右图标 */
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 24px;
 }
 
-.logo {
+/* 左、右两侧图标区域 */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 中间 Logo 区域 */
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 小圆形图标（搜素、人形、购物袋） */
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Logo 左边的简易图标，可以当做花/八卦之类 */
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 2px solid #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* 品牌文字 */
+.logo-text {
   font-weight: 700;
   font-size: 18px;
   line-height: 1.3;
 }
 
-/* 导航链接 */
+/* 导航菜单（店铺 / 评价 / 新品…） */
 .nav {
+  max-width: 1120px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 8px 24px 10px;
 }
 
 .nav a {
-  margin-left: 18px;
+  margin: 0;
   font-size: 14px;
-  color: var(--text-sub);
-}
-
-.nav a:first-child {
-  margin-left: 0;
+  color: var(--text-main);
 }
 
 .nav a:hover {
@@ -158,3 +211,20 @@ a:hover {
   padding: 10px 22px;
   border-radius: 999px;
   border:
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 8px 16px;
+  }
+
+  .header-center {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 6px 12px 10px;
+  }
+}
+

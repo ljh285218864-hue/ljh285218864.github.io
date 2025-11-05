@@ -1,9 +1,9 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Taoist Destiny Studio – Home</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -12,10 +12,10 @@
   限时体验：下单后 3–5 个工作日内完成命理解读与发货。
 </div>
 
-<!-- 头部：搜索 + 居中 Logo + 图标 + 导航（布局接近 Buddha&Karma） -->
+<!-- 头部：搜索 + 居中 Logo + 图标 + 导航 -->
 <header class="site-header">
   <div class="header-inner">
-    <!-- 左：搜索图标（现在只是样式，还不做搜索功能） -->
+    <!-- 左：搜索图标（现在只是样式） -->
     <div class="header-left">
       <a href="#" class="icon-btn" title="搜索">🔍</a>
     </div>
@@ -24,7 +24,7 @@
     <div class="header-center">
       <div class="logo-mark">☯</div>
       <div class="logo-text">
-        TAOIST DESTINY<br>STUDIO
+        TAOIST DESTINY<br />STUDIO
       </div>
     </div>
 
@@ -35,14 +35,13 @@
     </div>
   </div>
 
-  <!-- 下方导航菜单 -->
-    <!-- 下方导航菜单 + 店铺 mega menu -->
+  <!-- 下方导航菜单（首页默认高亮“畅销商品”） -->
   <nav class="nav">
-    <!-- 店铺：有大下拉菜单 -->
-    <div class="nav-item has-mega">
+    <!-- 店铺：有 mega menu -->
+    <div class="nav-item">
       <a href="collections.html">店铺 ▾</a>
 
-        <div class="mega-menu">
+      <div class="mega-menu">
         <!-- 列 1：产品 -->
         <div class="mega-menu-column">
           <div class="mega-menu-title">产品</div>
@@ -90,11 +89,9 @@
           <a href="collections.html" class="mega-menu-link">红玛瑙</a>
         </div>
       </div>
-
     </div>
 
-    <!-- 其他导航项：简单文字链接即可 -->
-    <div class="nav-item">
+    <div class="nav-item active">
       <a href="collections.html">畅销商品</a>
     </div>
 
@@ -116,19 +113,18 @@
   </nav>
 </header>
 
-
 <!-- 页面主体 -->
 <main class="page">
 
-  <!-- 大图横幅（类似“超级满月”那块） -->
+  <!-- 大图横幅 -->
   <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1500534314211-0a24cd03f2c0?auto=format&fit=crop&w=1600&q=80');">
     <div class="hero-inner">
       <span class="hero-tag">SUPERMOON · WISHES · RITUAL</span>
 
       <h1>超级满月祈愿</h1>
-      <h1>在关键时刻，为自己立下一愿一愿的心愿</h1>
+      <h1>在关键时刻，为自己立下一份清晰的心愿</h1>
 
-      <p>结合道家命理解读与加持手链，为你当前人生阶段开启一场有仪式感的守护。</p>
+      <p>结合道家命理解读与加持手链，为你当前的人生阶段开启一场有仪式感的守护。</p>
       <p>Supermoon blessings with Taoist destiny readings and blessed bracelets created for your life chapter.</p>
 
       <a href="collections.html" class="btn-primary hero-btn">
@@ -137,21 +133,62 @@
     </div>
   </section>
 
-  <!-- 畅销商品区（类似他们首页下方那一排） -->
+  <!-- 畅销商品区 -->
   <section class="products">
     <h2>畅销商品 · Best Sellers</h2>
-    <p>这里展示你最想推的 2–4 个产品，比如红绳手链、风水护符、命理解读服务。</p>
+    <p>展示你的主打服务与吉祥物，例如命理解读、红绳手链与护身符。</p>
 
     <div class="product-grid">
 
-      <!-- 产品 1：示例，跳到产品详情页 -->
+      <!-- 产品 1：一问一答命理解读 -->
       <div class="product-card">
-        <h3>Supermoon Red String Bracelet</h3>
-        <h3>超级满月红绳手链</h3>
+        <h3>One-Question Destiny Reading</h3>
+        <h3>一问一答命理解读</h3>
+
+        <p>Clarity for one key question in your life.</p>
+        <p>针对一个核心问题（事业、财运、感情等），结合命盘给出方向建议。</p>
+
+        <p>价格：$39</p>
+
+        <a href="product-demo.html" class="btn-secondary">
+          查看解读说明
+        </a>
+      </div>
+
+      <!-- 产品 2：加持红绳手链 -->
+      <div class="product-card">
+        <h3>Blessed Red String Bracelet</h3>
+        <h3>加持红绳手链</h3>
+
         <p>Luck · Protection · Blessings</p>
-        <p>招福 · 护身 · 满月加持</p>
+        <p>招福 · 护身 · 适合日常佩戴的简约红绳。</p>
+
         <p>价格：$29</p>
 
-        <a
+        <a href="collections.html" class="btn-secondary">
+          查看更多手链
+        </a>
+      </div>
 
+      <!-- 产品 3：家宅护身符 -->
+      <div class="product-card">
+        <h3>Home Protection Talisman</h3>
+        <h3>家宅安稳护符</h3>
 
+        <p>Home · Safety · Peace</p>
+        <p>镇宅安神，适合摆放在卧室或书房。</p>
+
+        <p>价格：$39</p>
+
+        <a href="collections.html" class="btn-secondary">
+          更多护符
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

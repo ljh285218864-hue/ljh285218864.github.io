@@ -42,7 +42,7 @@ main {
   position: relative;
   height: 90vh;
   min-height: 520px;
-  background-image: linear-gradient(135deg, #1f2937, #4b5563); /* 先用渐变占位，将来可换成真实图片 */
+  background-image: url("7dc35a2a7cf9c3873c031ae2fb41d0ad.jpg");
   background-size: cover;
   background-position: center;
   color: #111827;

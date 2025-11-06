@@ -22,17 +22,70 @@ a {
 }
 
 /* ===== Header / Nav ===== */
+/* ===== 固定导航 ===== */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 40;
-  /* 半透明渐变，悬浮在主图上 */
-  background: linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+
+  /* 默认：完全透明，不虚化，悬浮在主图上 */
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
 }
+
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.logo a {
+  color: inherit;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  color: #cbd5f5;
+}
+
+.nav a:hover {
+  border-bottom-color: #facc15;
+}
+
+/* 往下滚动后，导航加深色+虚化背景 */
+.site-header.scrolled {
+  background: rgba(3, 7, 18, 0.92);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 
 .site-header-inner {
   max-width: 1200px;

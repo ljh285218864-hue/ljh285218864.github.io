@@ -513,3 +513,171 @@ main {
     font-size: 11px;
   }
 }
+/* ===== Home lower bands: image + text layout (override) ===== */
+
+.home-bands {
+  background: #020617;          /* 深蓝底，和主图衔接 */
+  padding: 80px 0 96px;
+}
+
+/* 每一块大卡片 */
+.band {
+  padding: 40px 0;
+}
+
+.band-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  border-radius: 32px;
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.58);
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* 上下交错左右布局 */
+.band-reverse .band-inner {
+  flex-direction: row-reverse;
+}
+
+/* 左侧（或右侧）图片区 */
+.band-media {
+  flex: 0 0 40%;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 220px;
+}
+
+/* 图片上加一个轻微渐变，让右侧文字阅读舒服 */
+.band-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.0), rgba(15, 23, 42, 0.50));
+}
+
+/* 右侧文案 */
+.band-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #e5e7eb;
+}
+
+.band-copy-kicker {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #facc15;
+  margin-bottom: 8px;
+}
+
+.band-copy-title {
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.band-copy-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #cbd5f5;
+  margin-bottom: 8px;
+}
+
+.band-copy-meta {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 18px;
+}
+
+.band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* 让按钮在卡片里更居中一点 */
+.band-actions .btn {
+  font-size: 13px;
+  padding: 8px 22px;
+}
+
+/* === 每个模块对应的图片 === */
+/* 你只需要把对应的 jpg 上传到仓库根目录，名字一致即可 */
+
+.band-media-destiny {
+  background-image: url("destiny-section.jpg");
+}
+
+.band-media-fengshui {
+  background-image: url("fengshui-section.jpg");
+}
+
+.band-media-shop {
+  background-image: url("shop-section.jpg");
+}
+
+.band-media-history {
+  background-image: url("history-section.jpg");
+}
+
+.band-media-contact {
+  background-image: url("contact-section.jpg");
+}
+
+/* 问题表单这块，改成卡片居中一点，更大气 */
+.question-section {
+  margin-top: 72px;
+}
+
+.question-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 32px 36px;
+  border-radius: 28px;
+  background: radial-gradient(circle at top left, #111827, #020617);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.7);
+  color: #e5e7eb;
+}
+
+.question-title {
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.question-intro {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 18px;
+}
+
+/* 表单在下半部分略微收窄 */
+.question-section .form-block {
+  margin-top: 4px;
+}
+
+/* ===== 下半部分响应式（窄屏显示改为上下堆叠） ===== */
+@media (max-width: 960px) {
+  .band-inner {
+    flex-direction: column;
+    padding: 24px 22px;
+  }
+
+  .band-reverse .band-inner {
+    flex-direction: column;
+  }
+
+  .band-media {
+    min-height: 180px;
+  }
+}

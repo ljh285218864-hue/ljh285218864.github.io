@@ -8,101 +8,170 @@
 <body>
 
 <!-- 顶部导航 -->
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="site-header-inner">
     <div class="logo"><a href="index.html">Taoist Destiny Studio</a></div>
     <nav class="nav">
-      <a href="destiny.html">命运解读</a>
-      <a href="fengshui.html">风水</a>
-      <a href="shop.html">店铺</a>
-      <a href="history.html">道教历史</a>
-      <a href="contact.html">接触</a>
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- 顶部红色主页 -->
-<section class="hero" id="top">
+<!-- Hero 区域（仿 Opus One 主视觉） -->
+<section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">TAOIST-INSPIRED GUIDANCE</div>
-    <div class="hero-title">One question, one clear reading</div>
-    <p class="hero-subtitle">
-      A quiet entrance into Taoist-inspired destiny readings, Feng Shui suggestions,
-      symbolic items, and cultural background. Everything here is for reflection only,
-      not a promise to control fate.
-    </p>
-    <div class="hero-actions">
-      <a href="destiny.html" class="btn">Explore destiny readings</a>
-      <a href="question.html" class="btn btn-secondary">Go to question form</a>
+    <div class="hero-copy reveal">
+      <div class="hero-kicker">TAOIST DESTINY STUDIO</div>
+      <h1 class="hero-title">One question, one clear reading.</h1>
+      <p class="hero-subtitle">
+        Inspired by Taoist traditions of observing timing and balance,
+        this studio offers written destiny readings, gentle Feng Shui guidance,
+        and symbolic items to accompany your next chapter.
+      </p>
+      <p class="hero-meta">
+        All services are meant for spiritual reflection only – not a substitute for medical,
+        legal, or financial advice.
+      </p>
+      <div class="hero-actions">
+        <a href="destiny.html" class="btn btn-primary">Explore destiny readings</a>
+        <a href="question.html" class="btn btn-ghost">Submit your question</a>
+      </div>
     </div>
+
+    <aside class="hero-panel reveal">
+      <div class="hero-panel-title">Current offerings</div>
+      <ul class="hero-panel-list">
+        <li>• Single-question written destiny reading</li>
+        <li>• Three-question deep dive reading</li>
+        <li>• Feng Shui notes for room, desk, or altar</li>
+        <li>• Symbolic items: bracelets, talismans, altar objects</li>
+      </ul>
+    </aside>
   </div>
 </section>
 
-<!-- Hero 下面：5 个全屏感模块（宽度 = 2/3，整块可点） -->
-<main class="modules-wrapper">
+<!-- 首页分区：按照我们设定的 5 个方向，套 Opus One 的展示风格 -->
+<div class="home-bands">
 
-  <a href="destiny.html" class="module-full module-destiny">
-    <div class="module-full-inner">
-      <div class="module-tag">DESTINY READING</div>
-      <h2 class="module-title">命运解读 · One sincere question</h2>
-      <p class="module-subtitle">
-        Focused written readings for key questions about career, relationships,
-        health rhythm, or long-term patterns. Spiritual reflection only, not medical,
-        financial, or legal advice.
-      </p>
-      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
+  <!-- Destiny Readings -->
+  <section class="band">
+    <div class="band-inner">
+      <div class="band-media destiny reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">DESTINY</div>
+        <h2 class="band-copy-title">Destiny readings written with care.</h2>
+        <p class="band-copy-body">
+          These readings focus on one or a few sincere questions: timing for career moves,
+          emotional patterns in relationships, or the overall rhythm of the next few years.
+          The process combines Taoist-style observation with your own narrative.
+        </p>
+        <p class="band-copy-meta">
+          Readings are delivered in writing so you can return to them quietly in your own time.
+        </p>
+        <div class="band-actions">
+          <a href="destiny.html" class="btn btn-primary">View reading formats</a>
+          <a href="question.html" class="btn btn-ghost">Go to question form</a>
+        </div>
+      </div>
     </div>
-  </a>
+  </section>
 
-  <a href="fengshui.html" class="module-full module-fengshui">
-    <div class="module-full-inner">
-      <div class="module-tag">FENG SHUI</div>
-      <h2 class="module-title">风水 · Space and daily rhythm</h2>
-      <p class="module-subtitle">
-        Gentle, realistic Feng Shui suggestions for your room, desk, or altar. The focus
-        is how space, direction, and small symbolic objects can quietly support your daily life.
-      </p>
-      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
+  <!-- Feng Shui -->
+  <section class="band reverse">
+    <div class="band-inner">
+      <div class="band-media fengshui reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">FENG SHUI</div>
+        <h2 class="band-copy-title">Feng Shui as daily, realistic support.</h2>
+        <p class="band-copy-body">
+          Instead of chasing perfection, Feng Shui here is approached as a series of calm
+          adjustments: placement of a table, the angle of your bed, or a small altar that
+          marks your intention without overwhelming your space.
+        </p>
+        <p class="band-copy-meta">
+          The goal is to create rooms that feel honest to your life, not a rigid set of rules.
+        </p>
+        <div class="band-actions">
+          <a href="fengshui.html" class="btn btn-primary">Learn about Feng Shui notes</a>
+        </div>
+      </div>
     </div>
-  </a>
+  </section>
 
-  <a href="shop.html" class="module-full module-shop">
-    <div class="module-full-inner">
-      <div class="module-tag">SHOP</div>
-      <h2 class="module-title">店铺 · Symbolic items</h2>
-      <p class="module-subtitle">
-        A future place for Taoist-inspired talismans, bracelets, and small altar pieces,
-        used as daily reminders of your chosen direction – symbols, not guarantees.
-      </p>
-      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
+  <!-- Shop / Symbolic items -->
+  <section class="band">
+    <div class="band-inner">
+      <div class="band-media shop reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">SHOP</div>
+        <h2 class="band-copy-title">Symbolic items to carry your intention.</h2>
+        <p class="band-copy-body">
+          Future collections will include bracelets, talismans, and Taoist-inspired altar pieces.
+          Each item is meant to be a quiet reminder of a direction you have chosen, not a tool
+          to control fate.
+        </p>
+        <p class="band-copy-meta">
+          Availability is intentionally limited so that each offering can be considered carefully.
+        </p>
+        <div class="band-actions">
+          <a href="shop.html" class="btn btn-primary">Enter the shop</a>
+          <a href="contact.html" class="btn btn-ghost">Ask about a specific item</a>
+        </div>
+      </div>
     </div>
-  </a>
+  </section>
 
-  <a href="history.html" class="module-full module-history">
-    <div class="module-full-inner">
-      <div class="module-tag">TAOIST HISTORY</div>
-      <h2 class="module-title">道教历史 · Background ideas</h2>
-      <p class="module-subtitle">
-        A gentle overview of Taoist ideas behind this site: the Tao, yin–yang, timing,
-        and dynamic balance between action and stillness.
-      </p>
-      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
+  <!-- Taoist History -->
+  <section class="band reverse">
+    <div class="band-inner">
+      <div class="band-media history reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">TAOIST HISTORY</div>
+        <h2 class="band-copy-title">A Taoist backdrop for modern questions.</h2>
+        <p class="band-copy-body">
+          The studio draws inspiration from classical Taoist ideas – the Tao as an ever-moving
+          path, yin–yang as dynamic complementarity, and the sense that timing and sincerity
+          matter more than rigid control.
+        </p>
+        <p class="band-copy-meta">
+          The history page shares a concise overview of these ideas and how they inform the
+          way readings are written here.
+        </p>
+        <div class="band-actions">
+          <a href="history.html" class="btn btn-primary">Read the Taoist background</a>
+        </div>
+      </div>
     </div>
-  </a>
+  </section>
 
-  <a href="contact.html" class="module-full module-contact">
-    <div class="module-full-inner">
-      <div class="module-tag">CONTACT</div>
-      <h2 class="module-title">接触 · Reach the studio</h2>
-      <p class="module-subtitle">
-        Email and WhatsApp contact for readings and questions. Usually replies within
-        2–3 working days, depending on schedule and workload.
-      </p>
-      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
+  <!-- Contact / Work with us -->
+  <section class="band">
+    <div class="band-inner">
+      <div class="band-media contact reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">CONTACT</div>
+        <h2 class="band-copy-title">Work with the studio from anywhere.</h2>
+        <p class="band-copy-body">
+          All readings and notes are delivered online. You can write in English and include your
+          preferred name, birth date, and a brief outline of what you are seeking clarity on.
+        </p>
+        <p class="band-copy-meta">
+          The contact page includes email and WhatsApp details, as well as a reminder of
+          what this work can and cannot replace.
+        </p>
+        <div class="band-actions">
+          <a href="contact.html" class="btn btn-primary">View contact details</a>
+          <a href="question.html" class="btn btn-ghost">Submit a question directly</a>
+        </div>
+      </div>
     </div>
-  </a>
+  </section>
 
-</main>
+</div>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -111,29 +180,63 @@
   </div>
 </footer>
 
-<!-- 10 秒弹窗（只弹一次，使用 leadPopupShown_v3） -->
+<!-- 10 秒弹窗（只弹一次，leadPopupShown_v4） -->
 <div class="popup-overlay" id="leadPopup">
   <div class="popup">
     <button class="popup-close" type="button" aria-label="Close popup">×</button>
-    <h2>Would you like a personal reading?</h2>
+    <h2>Curious about a personal reading?</h2>
     <p>
-      If you are curious about a Taoist-inspired destiny reading,
-      you can fill in the question form on a separate page.
+      If you are considering a Taoist-inspired destiny reading, you can visit the question
+      form page and share one sincere question to begin.
     </p>
     <div class="popup-actions">
       <button type="button" id="goToFormBtn" class="btn btn-primary">Go to question form</button>
       <button type="button" class="btn btn-secondary popup-close">Maybe later</button>
     </div>
     <p class="popup-note">
-      This popup appears only once per browser (using local storage or session storage).
+      This popup appears only once per browser (using storage in your browser).
     </p>
   </div>
 </div>
 
 <script>
-  // 10 秒弹窗：只弹一次（使用 leadPopupShown_v3）
+  // 顶部导航滚动变色
+  (function() {
+    var header = document.getElementById('siteHeader');
+    function onScroll() {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  })();
+
+  // 滚动淡入动画（reveal）
+  (function() {
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(function(el) { observer.observe(el); });
+    } else {
+      // 不支持的浏览器，直接显示
+      reveals.forEach(function(el) { el.classList.add('in-view'); });
+    }
+  })();
+
+  // 10 秒弹窗（只弹一次）
   (function () {
-    var KEY = 'leadPopupShown_v3';
+    var KEY = 'leadPopupShown_v4';
 
     function storageAvailable(type) {
       try {
@@ -141,9 +244,7 @@
         storage.setItem(x, x);
         storage.removeItem(x);
         return true;
-      } catch (e) {
-        return false;
-      }
+      } catch (e) { return false; }
     }
 
     var store = null;

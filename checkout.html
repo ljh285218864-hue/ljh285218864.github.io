@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Checkout – Daoism &amp; Destiny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 顶部导航：跟其它页面保持一致 -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo">
+        <a href="index.html">DAOISM &amp; DESTINY</a>
+      </div>
+      <nav class="nav">
+        <a href="destiny.html">Destiny Readings</a>
+        <a href="fengshui.html">Feng Shui</a>
+        <a href="shop.html">Shop</a>
+        <a href="history.html">Taoist History</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="checkout-section">
+      <div class="checkout-inner">
+        <!-- 左侧：订单摘要 -->
+        <div class="checkout-card checkout-summary">
+          <h1 class="checkout-title">Secure checkout</h1>
+          <p class="checkout-subtitle">
+            Single written destiny reading – one question, one clear future.
+          </p>
+
+          <div class="checkout-item">
+            <div class="checkout-item-main">
+              <div class="checkout-item-name">
+                Single written destiny reading
+              </div>
+              <div class="checkout-item-desc">
+                One personalised written reading for your most important question,
+                delivered by email.
+              </div>
+            </div>
+            <div class="checkout-item-price">
+              $39.95 USD
+            </div>
+          </div>
+
+          <div class="checkout-divider"></div>
+
+          <div class="checkout-total-row">
+            <span>Total</span>
+            <span class="checkout-total-amount">$39.95 USD</span>
+          </div>
+
+          <ul class="checkout-list">
+            <li>Reading prepared personally by the Daoist practitioner.</li>
+            <li>Based on your birth details and current life situation.</li>
+            <li>Delivered in clear written form that you can revisit.</li>
+          </ul>
+
+          <p class="checkout-note">
+            After payment, you will receive a message from our team within
+            <strong>1–2 hours</strong>. Please remember to check your inbox.
+          </p>
+        </div>
+
+        <!-- 右侧：联系方式 + 付款按钮（静态占位） -->
+        <div class="checkout-card checkout-form">
+          <h2 class="checkout-form-title">Contact details</h2>
+          <p class="checkout-form-intro">
+            Please confirm how we can reach you about your reading and payment.
+          </p>
+
+          <form>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="co-name">Name</label>
+                <input
+                  id="co-name"
+                  type="text"
+                  class="form-input"
+                  placeholder="Your full name"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="co-email">Email</label>
+                <input
+                  id="co-email"
+                  type="email"
+                  class="form-input"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="co-whatsapp">WhatsApp</label>
+                <input
+                  id="co-whatsapp"
+                  type="tel"
+                  class="form-input"
+                  placeholder="+1 555 123 4567"
+                />
+              </div>
+            </div>
+
+            <div class="checkout-methods">
+              <div class="checkout-methods-label">Preferred payment method</div>
+              <div class="checkout-methods-row">
+                <label class="checkout-method-option">
+                  <input type="radio" name="paymethod" value="card" checked />
+                  <span>Credit / Debit card</span>
+                </label>
+                <label class="checkout-method-option">
+                  <input type="radio" name="paymethod" value="paypal" />
+                  <span>PayPal</span>
+                </label>
+                <label class="checkout-method-option">
+                  <input type="radio" name="paymethod" value="other" />
+                  <span>Other (we will confirm with you)</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary checkout-pay-btn">
+              Complete order
+            </button>
+
+            <p class="checkout-small-note">
+              This is a demo checkout page. Connect your real payment provider
+              (for example Stripe or PayPal) to process payments, and update
+              this button to redirect to your payment link.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="checkout-footer-copy">
+        © Daoism &amp; Destiny Studio &nbsp;–&nbsp; Spiritual guidance inspired
+        by Taoist tradition.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -23,46 +23,60 @@ a {
 
 /* ===== Header / Nav ===== */
 /* ===== 固定导航 ===== */
+/* ===== 顶部固定导航：初始透明，滚动后虚化背景 ===== */
+
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 40;
+  z-index: 50;
 
-  /* 默认：完全透明，不虚化，悬浮在主图上 */
+  /* 初始完全透明，悬浮在人像/背景图片上 */
   background: transparent;
-  border-bottom: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
 
-  transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+  transition:
+    background 0.25s ease,
+    backdrop-filter 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.site-header.scrolled {
+  /* 往下滚动之后才出现深色+虚化效果 */
+  background: rgba(3, 7, 18, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .site-header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 24px;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
 }
 
 .logo {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: #e5e7eb;
+  color: #f9fafb;
 }
 
 .logo a {
   color: inherit;
+  text-decoration: none;
 }
 
 .nav {
   margin-left: auto;
   display: flex;
-  gap: 22px;
+  gap: 24px;
 }
 
 .nav a {
@@ -72,10 +86,26 @@ a {
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
   color: #cbd5f5;
+  text-decoration: none;
 }
 
 .nav a:hover {
   border-bottom-color: #facc15;
+}
+
+/* 小屏幕时字稍微缩小一点 */
+@media (max-width: 768px) {
+  .site-header-inner {
+    padding: 10px 16px;
+  }
+
+  .nav {
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 11px;
+  }
 }
 
 /* 往下滚动后，导航加深色+虚化背景 */

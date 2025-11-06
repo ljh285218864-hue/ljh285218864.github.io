@@ -1,454 +1,278 @@
- /* ===== Reset & Base ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  background: #f5f5f5;
-  color: #111827;
-  line-height: 1.6;
-}
-a { color: inherit; text-decoration: none; }
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taoist Destiny Studio – Taoist-inspired guidance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-/* 默认 main：子页面用（destiny / fengshui 等） */
-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 100px 24px 80px; /* 顶部给导航留空间 */
-}
+<!-- 顶部导航 -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header-inner">
+    <div class="logo"><a href="index.html">Taoist Destiny Studio</a></div>
+    <nav class="nav">
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-/* ===== 顶部导航（仿 Opus One：透明叠图，滚动变白底） ===== */
-.site-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 40;
-  transition: background .25s ease, box-shadow .25s ease;
-  background: transparent;
-}
-.site-header.scrolled {
-  background: #ffffff;
-  box-shadow: 0 2px 12px rgba(15,23,42,.08);
-}
-body.subpage .site-header {
-  background: #ffffff;
-  box-shadow: 0 2px 12px rgba(15,23,42,.08);
-}
-.site-header-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-}
-.logo {
-  font-size: 13px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.logo a { color: #111827; }
+<!-- Hero 主视觉：只保留左边文案，居中显示 -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <div class="hero-kicker">TAOIST DESTINY STUDIO</div>
+      <h1 class="hero-title">One question, one clear reading.</h1>
+      <p class="hero-subtitle">
+        Inspired by Taoist traditions of timing and balance, this studio offers written
+        destiny readings, gentle Feng Shui guidance, and symbolic items to accompany
+        the next chapter of your life.
+      </p>
+      <p class="hero-meta">
+        All work here is spiritual reflection only – not a substitute for professional
+        medical, legal, or financial advice.
+      </p>
+      <div class="hero-actions">
+        <a href="destiny.html" class="btn btn-primary">Explore destiny readings</a>
+        <a href="question.html" class="btn btn-ghost">Submit your question</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-.nav {
-  margin-left: auto;
-  display: flex;
-  gap: 26px;
-}
-.nav a {
-  font-size: 13px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #f9fafb;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  transition: color .2s ease, border-color .2s ease;
-}
-.site-header.scrolled .nav a,
-body.subpage .nav a {
-  color: #111827;
-}
-.nav a:hover {
-  border-bottom-color: #111827;
-}
+<!-- 首页分区：5 个横向 band，对应 5 个方向 -->
+<div class="home-bands">
 
-/* ===== 通用按钮 ===== */
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:9px 22px;
-  border-radius:999px;
-  font-size:13px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  cursor:pointer;
-  text-decoration:none;
-  transition: background .18s ease, color .18s ease, border-color .18s ease;
-}
-.btn-primary {
-  background:#111827;
-  border-color:#111827;
-  color:#f9fafb;
-}
-.btn-primary:hover { background:#020617; border-color:#020617; }
-.btn-ghost {
-  background:transparent;
-  border-color:#e5e7eb;
-  color:#e5e7eb;
-}
-.btn-ghost:hover { background:rgba(249,250,251,.1); }
+  <!-- Destiny Readings -->
+  <section class="band">
+    <div class="band-inner">
+      <div class="band-media destiny reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">DESTINY</div>
+        <h2 class="band-copy-title">Destiny readings written with care.</h2>
+        <p class="band-copy-body">
+          Readings focus on one or a few sincere questions: timing for career decisions,
+          emotional patterns in relationships, or the overall rhythm of coming years.
+          The writing combines Taoist-style observation with your own story.
+        </p>
+        <p class="band-copy-meta">
+          Each reading is delivered as a written document so you can revisit it quietly,
+          in your own time and space.
+        </p>
+        <div class="band-actions">
+          <a href="destiny.html" class="btn btn-primary">View reading formats</a>
+          <a href="question.html" class="btn btn-ghost">Go to question form</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* ===== 首页 Hero（大图感） ===== */
-.hero {
-  min-height: 100vh;
-  padding: 0 24px;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background: #0b1120;
-  color:#f9fafb;
-  position: relative;
-}
-.hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  /* 将来你可以改成带图片的背景：
-     background-image:
-       linear-gradient(...),
-       url('your-hero-image.jpg'); */
-  background-image:
-    linear-gradient(120deg, rgba(15,23,42,.9), rgba(15,23,42,.45)),
-    linear-gradient(180deg, rgba(15,23,42,.15), rgba(15,23,42,.85));
-  background-size: cover;
-  background-position: center;
-  opacity: 0.98;
-}
+  <!-- Feng Shui -->
+  <section class="band reverse">
+    <div class="band-inner">
+      <div class="band-media fengshui reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">FENG SHUI</div>
+        <h2 class="band-copy-title">Feng Shui as quiet support.</h2>
+        <p class="band-copy-body">
+          Rather than perfection, Feng Shui here is approached as a series of calm adjustments:
+          the placement of a desk, the angle of a bed, or a small altar that marks your
+          intention without overwhelming your life.
+        </p>
+        <p class="band-copy-meta">
+          Suggestions are realistic and gentle, designed to work with your actual space,
+          schedule, and resources.
+        </p>
+        <div class="band-actions">
+          <a href="fengshui.html" class="btn btn-primary">Learn about Feng Shui notes</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.hero-inner {
-  position: relative;
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 40px;
-  align-items: center;
-  padding: 120px 0 80px;
-}
+  <!-- Shop -->
+  <section class="band">
+    <div class="band-inner">
+      <div class="band-media shop reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">SHOP</div>
+        <h2 class="band-copy-title">Symbolic items, not guarantees.</h2>
+        <p class="band-copy-body">
+          Future collections will include Taoist-inspired bracelets, talismans, and altar
+          pieces. Each item is meant to be a quiet reminder of a direction you have chosen,
+          rather than a promise to change destiny.
+        </p>
+        <p class="band-copy-meta">
+          The shop will open in limited batches so each offering can be prepared and
+          packaged with attention.
+        </p>
+        <div class="band-actions">
+          <a href="shop.html" class="btn btn-primary">Enter the shop</a>
+          <a href="contact.html" class="btn btn-ghost">Ask about availability</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* Hero 左侧文案 */
-.hero-copy { padding-right: 20px; }
-.hero-kicker {
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: #e5e7eb;
-  margin-bottom: 12px;
-}
-.hero-title {
-  font-size: 40px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.hero-subtitle {
-  font-size: 15px;
-  color: #e5e7eb;
-  max-width: 460px;
-  margin-bottom: 22px;
-}
-.hero-meta {
-  font-size: 12px;
-  color: #9ca3af;
-  max-width: 420px;
-}
-.hero-actions {
-  margin-top: 26px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+  <!-- Taoist History -->
+  <section class="band reverse">
+    <div class="band-inner">
+      <div class="band-media history reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">TAOIST HISTORY</div>
+        <h2 class="band-copy-title">A Taoist backdrop to modern life.</h2>
+        <p class="band-copy-body">
+          The studio draws on classical Taoist ideas: the Tao as a living path, yin–yang
+          as dynamic balance, and a sense that sincerity and timing matter more than pure
+          force of will. These ideas shape how questions are read and answered.
+        </p>
+        <p class="band-copy-meta">
+          The Taoist History page offers a concise overview – not as academic theory,
+          but as a living context for the work done here.
+        </p>
+        <div class="band-actions">
+          <a href="history.html" class="btn btn-primary">Read the Taoist background</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* Hero 右侧信息卡片 */
-.hero-panel {
-  background: rgba(15,23,42,.82);
-  border-radius: 18px;
-  padding: 20px 22px;
-  border: 1px solid rgba(148,163,184,.6);
-  box-shadow: 0 18px 40px rgba(15,23,42,.7);
-}
-.hero-panel-title {
-  font-size: 14px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  color: #e5e7eb;
-}
-.hero-panel-list {
-  list-style: none;
-  font-size: 13px;
-  color: #e5e7eb;
-}
-.hero-panel-list li + li { margin-top: 8px; }
+  <!-- Contact -->
+  <section class="band">
+    <div class="band-inner">
+      <div class="band-media contact reveal"></div>
+      <div class="band-copy reveal">
+        <div class="band-copy-kicker">CONTACT</div>
+        <h2 class="band-copy-title">Work with the studio from anywhere.</h2>
+        <p class="band-copy-body">
+          All readings and notes are delivered online. You can write in English and share
+          your preferred name, birth details, and the questions you are currently sitting with.
+        </p>
+        <p class="band-copy-meta">
+          The Contact page gathers email and WhatsApp details, as well as a reminder of
+          what this studio can and cannot replace.
+        </p>
+        <div class="band-actions">
+          <a href="contact.html" class="btn btn-primary">View contact details</a>
+          <a href="question.html" class="btn btn-ghost">Submit a question directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* ===== 首页横向分区（仿 Opus One 的 band） ===== */
-.home-bands { background:#f5f5f5; }
+</div>
 
-.band {
-  width: 100%;
-  padding: 80px 24px;
-  background:#f9fafb;
-}
-.band:nth-child(2n) { background:#ffffff; }
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Taoist Destiny Studio · 2025</span>
+    <span>Spiritual reflection only – not a substitute for professional advice.</span>
+  </div>
+</footer>
 
-.band-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-  display:grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 40px;
-  align-items:center;
-}
+<!-- 10 秒弹窗（只弹一次） -->
+<div class="popup-overlay" id="leadPopup">
+  <div class="popup">
+    <button class="popup-close" type="button" aria-label="Close popup">×</button>
+    <h2>Curious about a personal reading?</h2>
+    <p>
+      If you are considering a Taoist-inspired destiny reading, you can visit the question
+      form page and share one sincere question to begin.
+    </p>
+    <div class="popup-actions">
+      <button type="button" id="goToFormBtn" class="btn btn-primary">Go to question form</button>
+      <button type="button" class="btn btn-secondary popup-close">Maybe later</button>
+    </div>
+    <p class="popup-note">
+      This popup appears only once per browser (using storage in your browser).
+    </p>
+  </div>
+</div>
 
-/* 交叉布局 */
-.band.reverse .band-inner {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-}
+<script>
+  // 顶部导航滚动变色
+  (function() {
+    var header = document.getElementById('siteHeader');
+    function onScroll() {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  })();
 
-.band-media {
-  position:relative;
-  border-radius: 26px;
-  overflow:hidden;
-  min-height: 260px;
-  background-size:cover;
-  background-position:center;
-  box-shadow:0 22px 62px rgba(15,23,42,.25);
-}
+  // 滚动淡入动画
+  (function() {
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function(el) { observer.observe(el); });
+    } else {
+      reveals.forEach(function(el) { el.classList.add('in-view'); });
+    }
+  })();
 
-/* 左右顺序互换 */
-.band.reverse .band-media { order: 2; }
+  // 10 秒弹窗（只弹一次）
+  (function () {
+    var KEY = 'leadPopupShown_v5';
 
-/* 各模块占位背景，将来你可以改成真实图片 */
-.band-media.destiny { background-image: linear-gradient(135deg,#111827,#4b5563); }
-.band-media.fengshui { background-image: linear-gradient(135deg,#065f46,#10b981); }
-.band-media.shop { background-image: linear-gradient(135deg,#9f1239,#fb7185); }
-.band-media.history { background-image: linear-gradient(135deg,#374151,#9ca3af); }
-.band-media.contact { background-image: linear-gradient(135deg,#4c1d95,#a855f7); }
+    function storageAvailable(type) {
+      try {
+        var storage = window[type], x = '__test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+      } catch (e) { return false; }
+    }
 
-/* 文案区 */
-.band-copy-kicker {
-  font-size:11px;
-  letter-spacing:.20em;
-  text-transform:uppercase;
-  color:#9f1239;
-  margin-bottom:8px;
-}
-.band-copy-title {
-  font-size:26px;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
-.band-copy-body {
-  font-size:14px;
-  color:#4b5563;
-  margin-bottom:16px;
-}
-.band-copy-meta {
-  font-size:12px;
-  color:#9ca3af;
-  margin-bottom:16px;
-}
-.band-actions {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
+    var store = null;
+    if (storageAvailable('localStorage')) {
+      store = window.localStorage;
+    } else if (storageAvailable('sessionStorage')) {
+      store = window.sessionStorage;
+    }
 
-/* ===== 滚动淡入动画 ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
+    var already = store ? store.getItem(KEY) === 'yes' : false;
+    if (already) return;
 
-/* ===== 子页面顶部 hero ===== */
-.page-hero {
-  padding: 110px 24px 40px;
-  background:#f9fafb;
-}
-.page-hero-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.page-kicker {
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:#9f1239;
-  margin-bottom:6px;
-}
-.page-title {
-  font-size:28px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-.page-intro {
-  font-size:14px;
-  color:#4b5563;
-  max-width: 720px;
-}
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var overlay = document.getElementById('leadPopup');
+        if (!overlay) return;
+        overlay.style.display = 'flex';
+        if (store) store.setItem(KEY, 'yes');
+      }, 10000);
+    });
 
-/* 子页面 section */
-.page-section {
-  padding: 32px 24px 0;
-}
-.page-section-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.page-section-title {
-  font-size:18px;
-  margin-bottom:8px;
-}
-.page-section-text {
-  font-size:14px;
-  color:#4b5563;
-}
+    function closePopup() {
+      var overlay = document.getElementById('leadPopup');
+      if (overlay) overlay.style.display = 'none';
+    }
 
-/* ===== 表单样式（question / contact 等） ===== */
-.form-block {
-  margin-top: 24px;
-  background:#ffffff;
-  border-radius:18px;
-  border:1px solid #e5e7eb;
-  padding:22px 22px 24px;
-  box-shadow:0 12px 30px rgba(15,23,42,.08);
-}
-.form-row {
-  display:flex;
-  gap:14px;
-  margin-top:10px;
-}
-.form-field { flex:1; }
-.form-label {
-  display:block;
-  font-size:12px;
-  color:#6b7280;
-  margin-bottom:4px;
-}
-.form-input,
-.form-select,
-.form-textarea {
-  width:100%;
-  border-radius:12px;
-  border:1px solid #e5e7eb;
-  padding:9px 11px;
-  font-size:14px;
-  outline:none;
-  background:#ffffff;
-}
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color:#9f1239;
-  box-shadow:0 0 0 1px rgba(159,18,57,.18);
-}
-.form-textarea {
-  resize:vertical;
-  min-height:130px;
-}
-.form-note {
-  font-size:12px;
-  color:#9ca3af;
-  margin-top:12px;
-}
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('popup-close')) {
+        closePopup();
+      }
+      if (e.target.id === 'goToFormBtn') {
+        closePopup();
+        window.location.href = 'question.html';
+      }
+    });
+  })();
+</script>
 
-/* ===== Footer ===== */
-.footer {
-  border-top:1px solid #e5e7eb;
-  padding:18px 24px 24px;
-  font-size:12px;
-  color:#9ca3af;
-  background:#ffffff;
-  margin-top: 60px;
-}
-.footer-inner {
-  max-width:1180px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-/* ===== 10 秒弹窗 ===== */
-.popup-overlay {
-  position:fixed;
-  inset:0;
-  background:rgba(15,23,42,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
-}
-.popup {
-  background:#ffffff;
-  border-radius:18px;
-  border:1px solid #e5e7eb;
-  padding:20px 18px 18px;
-  max-width:420px;
-  width:90%;
-  position:relative;
-  box-shadow:0 20px 40px rgba(15,23,42,.45);
-}
-.popup h2 { font-size:18px; margin-bottom:4px; }
-.popup p { font-size:13px; color:#4b5563; }
-.popup-close {
-  border:none;
-  background:transparent;
-  font-size:18px;
-  line-height:1;
-  cursor:pointer;
-  position:absolute;
-  top:10px;
-  right:12px;
-  color:#6b7280;
-}
-.popup-actions {
-  margin-top:12px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-.popup-note {
-  font-size:11px;
-  color:#9ca3af;
-  margin-top:8px;
-}
-
-/* ===== 响应式 ===== */
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-    padding-top: 120px;
-  }
-  .hero-copy { padding-right: 0; margin-bottom: 24px; }
-  .nav { gap: 14px; }
-  .nav a { font-size: 11px; }
-  .band-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .band.reverse .band-media { order: 0; }
-}
-@media (max-width: 640px) {
-  .hero-title { font-size: 28px; }
-  .hero-subtitle { font-size: 14px; }
-  main { padding-top: 90px; }
-  .page-hero { padding-top: 96px; }
-  .form-row { flex-direction: column; }
-}
+</body>
+</html>

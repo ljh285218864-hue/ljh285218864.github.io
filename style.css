@@ -905,6 +905,37 @@ main {
   margin-top: 10px;
 }
 
+/* Visa / MasterCard / PayPal 品牌标签 */
+
+.checkout-brands {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.brand-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: #020617;
+}
+
+.brand-visa {
+  border-color: #1d4ed8;
+}
+
+.brand-mastercard {
+  border-color: #f97316;
+}
+
+.brand-paypal {
+  border-color: #0ea5e9;
+}
+
 .checkout-footer-copy {
   max-width: 960px;
   margin: 0 auto;
@@ -925,3 +956,4 @@ main {
     max-width: 100%;
   }
 }
+

@@ -24,22 +24,22 @@
     </div>
   </header>
 
-  <!-- Hero: full-screen statue photo -->
+  <!-- Hero: full-screen statue photo, text centered -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-kicker">TAOIST DESTINY STUDIO</div>
+      <p class="hero-kicker">TAOIST DESTINY STUDIO</p>
       <h1 class="hero-title">ONE QUESTION, ONE CLEAR READING.</h1>
       <p class="hero-subtitle">
         Rooted in Taoist traditions of timing and balance, this studio offers written destiny readings,
         gentle Feng Shui guidance, and symbolic items to accompany the next chapter of your life.
       </p>
       <p class="hero-meta">
-        All work here is spiritual reflection only &mdash; not a substitute for professional medical,
+        All work here is spiritual reflection only – not a substitute for professional medical,
         legal, or financial advice.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="destiny.html">EXPLORE DESTINY READINGS</a>
-        <a class="btn btn-ghost" href="#question-form">SUBMIT YOUR QUESTION</a>
+        <a class="btn btn-secondary" href="#question-form">SUBMIT YOUR QUESTION</a>
       </div>
     </div>
   </section>
@@ -59,8 +59,7 @@
             patterns in relationships, or the overall rhythm of coming years.
           </p>
           <p class="band-copy-meta">
-            Each reading is delivered as a written document so you can revisit it quietly when you
-            need guidance.
+            Each reading is delivered as a written document so you can revisit it quietly.
           </p>
           <div class="band-actions">
             <a class="btn btn-primary" href="destiny.html">VIEW READING FORMATS</a>
@@ -146,7 +145,7 @@
             brief note so replies can come in a calm, focused way.
           </p>
           <p class="band-copy-meta">
-            Messages are usually answered within 24&ndash;48 hours on working days.
+            Messages are usually answered within 24–48 hours on working days.
           </p>
           <div class="band-actions">
             <a class="btn btn-primary" href="contact.html">VIEW CONTACT DETAILS</a>
@@ -155,7 +154,7 @@
       </div>
     </section>
 
-    <!-- Simple question form section for now -->
+    <!-- Question form -->
     <section id="question-form" class="question-section">
       <div class="question-inner">
         <h2 class="question-title">SUBMIT YOUR MAIN QUESTION</h2>
@@ -224,7 +223,7 @@
     </div>
   </footer>
 
-  <!-- Popup (10s, once per browser) -->
+  <!-- 10s popup -->
   <div class="popup-overlay" id="popup-overlay">
     <div class="popup">
       <button class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
@@ -282,7 +281,7 @@
   </div>
 
   <script>
-    // Simple "once per browser" popup logic
+    // show popup once per browser, after ~10s
     (function () {
       var overlay = document.getElementById("popup-overlay");
       var closeBtn = document.getElementById("popup-close");
@@ -300,12 +299,13 @@
       if (overlay && !localStorage.getItem(STORAGE_KEY)) {
         setTimeout(function () {
           overlay.style.display = "flex";
-        }, 10000); // ~10 seconds
+        }, 10000);
       }
 
       if (closeBtn) closeBtn.addEventListener("click", hidePopup);
       if (saveBtn) saveBtn.addEventListener("click", hidePopup);
       if (laterBtn) laterBtn.addEventListener("click", hidePopup);
+
       overlay.addEventListener("click", function (e) {
         if (e.target === overlay) hidePopup();
       });

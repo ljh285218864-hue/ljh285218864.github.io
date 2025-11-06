@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taoist History – Taoist Destiny Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">Taoist Destiny Studio</a>
+    </div>
+    <nav class="nav">
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Taoist history</div>
+    <div class="hero-title">A quiet overview of Taoist ideas</div>
+    <p class="hero-subtitle">
+      This page offers a very simple, non-academic overview of Taoist history and themes.
+      It is not a religious teaching, but cultural background for the readings on this site.
+    </p>
+  </div>
+</section>
+
+<main class="page">
+  <section class="section">
+    <div class="section-heading">Origins</div>
+    <div class="section-title">From early texts to lived practice</div>
+    <p class="section-intro">
+      Taoism (or Daoism) is a broad family of Chinese traditions that grew over many centuries.
+      It includes classic philosophical texts, temple rituals, internal practices, and local customs.
+      The common thread is an interest in living in harmony with the <em>Tao</em> – 
+      a word that can be translated as “the Way”.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">Key themes</div>
+    <div class="section-title">The Way, yin–yang, and timing</div>
+    <p class="section-intro">
+      Although Taoist history is complex, a few recurring themes are especially relevant 
+      for destiny readings and Feng Shui-style work:
+    </p>
+
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-meta">Tao</div>
+        <h3>The Way</h3>
+        <p>
+          The Tao is often described as the natural, underlying pattern of how things move and change.
+          It is not a person or a fixed rulebook, but a flowing order that humans can either work with or against.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">Yin · Yang</div>
+        <h3>Balance of forces</h3>
+        <p>
+          Yin and yang are complementary qualities – such as soft and firm, dark and light, inner and outer.
+          Taoist thinking looks at how these qualities alternate and balance, instead of trying to make one side
+          completely “win”.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">Timing</div>
+        <h3>Right action at the right time</h3>
+        <p>
+          Many Taoist stories describe people acting in harmony with timing: pushing gently when it is time to advance,
+          and stepping back when it is time to rest or wait. Destiny readings often focus on this sense of timing.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">Wu wei</div>
+        <h3>Effort that does not fight itself</h3>
+        <p>
+          “Wu wei” is sometimes translated as “non-doing”, but it really points to action that is not forced or frantic.
+          It is effort that follows the grain of the situation, instead of constantly pushing against it.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">Destiny</div>
+    <div class="section-title">Destiny as pattern, not prison</div>
+    <p class="section-intro">
+      In Chinese traditions, “destiny” can be understood as a mixture of what you are born with 
+      (temperament, tendencies, timing) and how you respond to circumstances over time.
+      From a Taoist-inspired perspective, a reading does not lock you into a fixed script.
+      Instead, it highlights patterns so you can choose how to walk with them.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">How this site uses Taoist ideas</div>
+    <div class="section-title">Gentle influence, not absolute authority</div>
+    <p class="section-intro">
+      The services on this site are inspired by Taoist views of timing, pattern, and balance,
+      but they are not formal religious rituals and do not claim absolute accuracy.
+      Any references to Taoist history are used as gentle background, not as a promise that
+      one reading can fully define your life.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Taoist Destiny Studio · 2025</span>
+    <span>Spiritual reflection only · Not a substitute for professional advice.</span>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="leadPopup">
+  <div class="popup">
+    <button class="popup-close" type="button" aria-label="Close popup">×</button>
+    <h2>Receive a Taoist-inspired reading</h2>
+    <p>
+      If you are curious how these ideas might apply to your own situation, share a little about yourself.
+      This popup is ready to be connected to a real form later.
+    </p>
+
+    <form class="popup-form">
+      <div class="form-field">
+        <label class="form-label">What would you like to know?</label>
+        <textarea class="form-textarea" placeholder="One main question in English"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Full name</label>
+          <input class="form-input" type="text" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Date of birth</label>
+          <input class="form-input" type="date" />
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">WhatsApp (optional)</label>
+        <input class="form-input" type="text" />
+      </div>
+
+      <p class="popup-note">
+        This popup currently does not submit data. Later, you can link it to a spreadsheet for statistics.
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var overlay = document.getElementById('leadPopup');
+      if (overlay) overlay.style.display = 'flex';
+    }, 10000);
+
+    var closeBtn = document.querySelector('.popup-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        var overlay = document.getElementById('leadPopup');
+        if (overlay) overlay.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -232,110 +232,135 @@
   </header>
 
   <main>
-    <!-- 上方标题 -->
-    <section class="checkout-hero">
-      <h1 class="checkout-hero-title">SECURE PAYMENT</h1>
-      <p class="checkout-hero-subtitle">
-        All transactions are encrypted. Your card details are processed by a trusted payment provider.
-      </p>
-    </section>
+  <section class="checkout-layout">
 
-    <!-- 付款主体 -->
-    <section class="checkout-wrapper">
-      <div class="checkout-layout">
-        <!-- 左侧：付款方式 -->
-        <div class="checkout-payment">
-          <h2 class="checkout-section-title">Payment</h2>
-          <p class="checkout-secure-note">
-            All transactions are secure and encrypted. We never store your full card number on this site.
-          </p>
+    <!-- 左侧：付款表单（像 Shopify 那样） -->
+    <div class="checkout-left">
 
-          <!-- 方式 1：信用卡 -->
-          <div class="checkout-method active" data-method="card">
-            <label class="checkout-method-header">
-              <input type="radio" name="paymentMethod" checked />
-              <span class="checkout-method-name">Credit or debit card</span>
-              <span class="checkout-card-logos">VISA · MasterCard · AMEX</span>
-            </label>
-            <div class="checkout-method-body">
-              <div class="form-row">
-                <div class="form-field full">
-                  <label class="form-label">Card number</label>
-                  <input class="form-input" type="text" placeholder="1234 5678 9012 3456" />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-field">
-                  <label class="form-label">Expiration date (MM / YY)</label>
-                  <input class="form-input" type="text" placeholder="MM / YY" />
-                </div>
-                <div class="form-field">
-                  <label class="form-label">Security code</label>
-                  <input class="form-input" type="text" placeholder="CVC" />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-field full">
-                  <label class="form-label">Name on card</label>
-                  <input class="form-input" type="text" placeholder="Full name on card" />
-                </div>
-              </div>
-            </div>
+      <h1 class="checkout-title">Payment</h1>
+      <p class="checkout-subtitle">All transactions are secure and encrypted.</p>
+
+      <!-- 1. 信用卡方式 -->
+      <div class="checkout-box checkout-box-active">
+        <div class="checkout-method-header">
+          <label class="checkout-radio-row">
+            <input type="radio" name="pay_method" value="card" checked>
+            <span>Credit card</span>
+          </label>
+          <div class="checkout-card-logos">
+            <span class="logo-pill">VISA</span>
+            <span class="logo-pill">MasterCard</span>
           </div>
-
-          <!-- 方式 2：PayPal -->
-          <div class="checkout-method" data-method="paypal">
-            <label class="checkout-method-header">
-              <input type="radio" name="paymentMethod" />
-              <span class="checkout-method-name">Pay with PayPal</span>
-              <span class="checkout-card-logos">PayPal</span>
-            </label>
-            <div class="checkout-method-body">
-              <p>
-                After choosing PayPal you will be securely redirected to PayPal to complete your purchase, then
-                returned to this site with your order confirmation.
-              </p>
-            </div>
-          </div>
-
-          <!-- 如果以后想加“Bank transfer / Shop pay”等，可以在这里按同样结构再加一个 checkout-method -->
         </div>
 
-        <!-- 右侧：订单概要 -->
-        <aside class="checkout-summary">
-          <div class="checkout-summary-card">
-            <h3 class="checkout-summary-title">Order summary</h3>
-            <p class="checkout-summary-item">
-              Single written destiny reading – focused on one main question about your life.
-            </p>
+        <!-- 下面这些输入只是 UI，占位用；真实收款要用第三方链接 -->
+        <div class="checkout-card-fields">
+          <label class="checkout-field">
+            <span class="checkout-label">Card number</span>
+            <input class="checkout-input" type="text" placeholder="1234 5678 9012 3456" disabled>
+          </label>
 
-            <div class="checkout-summary-row">
-              <span>Subtotal</span>
-              <span class="checkout-summary-price">$39.95 USD</span>
-            </div>
-            <div class="checkout-summary-row">
-              <span>Processing fee</span>
-              <span class="checkout-summary-price">$0.00</span>
-            </div>
-
-            <div class="checkout-summary-row checkout-summary-total">
-              <span>Total</span>
-              <span class="checkout-summary-price">$39.95 USD</span>
-            </div>
-
-            <!-- 这里只是个按钮，暂时不真正扣款 -->
-            <button class="btn btn-primary checkout-submit">
-              Place order
-            </button>
-
-            <p class="checkout-summary-note">
-              By placing your order you agree that this is a spiritual service and all sales are final.
-            </p>
+          <div class="checkout-row">
+            <label class="checkout-field">
+              <span class="checkout-label">Expiration date (MM / YY)</span>
+              <input class="checkout-input" type="text" placeholder="MM / YY" disabled>
+            </label>
+            <label class="checkout-field">
+              <span class="checkout-label">Security code</span>
+              <input class="checkout-input" type="text" placeholder="CVC" disabled>
+            </label>
           </div>
-        </aside>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Name on card</span>
+            <input class="checkout-input" type="text" placeholder="Full name on card" disabled>
+          </label>
+
+          <label class="checkout-checkbox-row">
+            <input type="checkbox" checked>
+            <span>Use contact details as billing address</span>
+          </label>
+        </div>
       </div>
-    </section>
-  </main>
+
+      <!-- 2. PayPal 方式 -->
+      <div class="checkout-box">
+        <label class="checkout-radio-row">
+          <input type="radio" name="pay_method" value="paypal">
+          <span>PayPal</span>
+          <span class="checkout-paypal-pill">PayPal</span>
+        </label>
+        <p class="checkout-helper">
+          When you choose PayPal, you will be taken to the PayPal page to complete your payment.
+        </p>
+      </div>
+
+      <!-- 3. 备注 / 记住信息（可选） -->
+      <div class="checkout-box">
+        <h2 class="checkout-section-title">Extra note</h2>
+        <label class="checkout-checkbox-row">
+          <input type="checkbox">
+          <span>Leave a small blessing for the Daoist practitioner.</span>
+        </label>
+      </div>
+
+      <div class="checkout-box">
+        <h2 class="checkout-section-title">Remember me</h2>
+        <label class="checkout-checkbox-row">
+          <input type="checkbox">
+          <span>Save my information for a faster checkout next time.</span>
+        </label>
+      </div>
+
+      <!-- 提交按钮：这里最终要改成你的 Stripe / PayPal 支付链接 -->
+      <button class="btn btn-primary checkout-submit">
+        Place order
+      </button>
+
+      <p class="checkout-security-note">
+        This is a visual checkout page. To accept real payments, connect your payment provider
+        (for example Stripe or PayPal) and update this button to open your actual payment link.
+      </p>
+
+    </div>
+
+    <!-- 右侧：订单摘要（用你原来的内容） -->
+    <aside class="checkout-right">
+      <div class="checkout-summary-box">
+        <h2 class="summary-title">Order summary</h2>
+
+        <div class="summary-item">
+          <div>
+            <div class="summary-item-name">Single written destiny reading</div>
+            <div class="summary-item-desc">
+              One question, one clear future. Personalised Taoist destiny reading delivered by email.
+            </div>
+          </div>
+          <div class="summary-item-price">$39.95 USD</div>
+        </div>
+
+        <div class="summary-line"></div>
+
+        <div class="summary-total-row">
+          <span>Total</span>
+          <span class="summary-total-amount">$39.95 USD</span>
+        </div>
+
+        <ul class="summary-bullets">
+          <li>Reading prepared personally by the Daoist practitioner.</li>
+          <li>Based on your birth details and current life situation.</li>
+          <li>Delivered in clear written form that you can revisit.</li>
+        </ul>
+
+        <p class="summary-note">
+          After payment, you will receive a message from our team within <strong>1–2 hours</strong>.
+          Please remember to check your inbox or WhatsApp.
+        </p>
+      </div>
+    </aside>
+
+  </section>
+</main>
 
   <footer class="footer">
     <div class="footer-inner">

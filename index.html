@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<!-- 顶部固定导航：左 logo，右 5 个标题 -->
+<!-- 顶部固定导航：左 logo，右 5 个标题（同一页内跳锚点） -->
 <header class="site-header">
   <div class="site-header-inner">
     <div class="logo">
@@ -35,7 +35,8 @@
     </p>
     <div class="hero-actions">
       <a href="#destiny" class="btn">Start with destiny readings</a>
-      <a href="#questionnaire" class="btn btn-secondary">Go to question form</a>
+      <!-- 🌟 这里改成跳转到新的问卷页面，而不是拉到本页底部 -->
+      <a href="question.html" class="btn btn-secondary">Go to question form</a>
     </div>
   </div>
 </section>
@@ -89,7 +90,7 @@
       </article>
     </div>
 
-    <!-- 命运测算下单与信息框架 -->
+    <!-- 命运测算下单与信息框架（解释流程，但不在本页收集信息） -->
     <div class="section" style="margin-top: 40px;">
       <div class="section-heading">Order framework</div>
       <div class="section-title">How a reading request can work</div>
@@ -101,7 +102,7 @@
       <ol class="section-intro" style="margin-top: 16px; padding-left: 18px;">
         <li><strong>Choose a reading type</strong> – career, relationship, health rhythm, or destiny overview.</li>
         <li><strong>Confirm the price and payment method</strong> – for example, via email or a payment link.</li>
-        <li><strong>Fill in the information form</strong> – see the questionnaire at the bottom of this page.</li>
+        <li><strong>Fill in the information form</strong> – on the separate question page.</li>
         <li><strong>Receive confirmation</strong> – you get an email with the expected delivery time.</li>
         <li><strong>Receive the written reading</strong> – within the agreed time frame.</li>
       </ol>
@@ -230,62 +231,7 @@
     </div>
   </section>
 
-  <!-- 底部问卷：你要收集的信息，放在页面最下面 -->
-  <section class="section" id="questionnaire">
-    <div class="section-heading">Question form</div>
-    <div class="section-title">Information to request a destiny reading</div>
-    <p class="section-intro">
-      This is the main questionnaire. 
-      It collects your question, gender, name, date of birth, email, and WhatsApp contact.
-      At the moment, it is a static form – later, you can connect it to email or a spreadsheet for statistics.
-    </p>
-
-    <div class="form-block">
-      <form>
-        <div class="form-field">
-          <label class="form-label">What would you like to ask?</label>
-          <textarea class="form-textarea" placeholder="One main question in English"></textarea>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label">Full name</label>
-            <input class="form-input" type="text" placeholder="Name as you prefer to be addressed" />
-          </div>
-          <div class="form-field">
-            <label class="form-label">Gender</label>
-            <select class="form-select">
-              <option value="">Prefer not to say</option>
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label">Date of birth</label>
-            <input class="form-input" type="date" />
-          </div>
-          <div class="form-field">
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" placeholder="Where to send your reading" />
-          </div>
-        </div>
-
-        <div class="form-field" style="margin-top: 10px;">
-          <label class="form-label">WhatsApp (optional)</label>
-          <input class="form-input" type="text" placeholder="Include country code, e.g. +1..." />
-        </div>
-
-        <p class="form-note">
-          This form does not yet submit or store data. 
-          Later, you can connect it to an email inbox or online spreadsheet to collect and track requests in table form.
-        </p>
-      </form>
-    </div>
-  </section>
+  <!-- ⚠️ 注意：这里不再有问卷表单 section，本页底部已经干净了 -->
 </main>
 
 <footer class="footer">
@@ -295,14 +241,14 @@
   </div>
 </footer>
 
-<!-- 10 秒弹窗：不再乱，只做“引导去底部问卷” -->
+<!-- 10 秒弹窗：只引导去 question.html，不在本页显示表单 -->
 <div class="popup-overlay" id="leadPopup">
   <div class="popup">
     <button class="popup-close" type="button" aria-label="Close popup">×</button>
     <h2>Would you like a personal reading?</h2>
     <p>
       If you are curious about a Taoist-inspired destiny reading,
-      you can fill in the question form at the bottom of this page.
+      you can fill in the question form on a separate page.
     </p>
 
     <div class="popup-actions">
@@ -312,7 +258,7 @@
 
     <p class="popup-note">
       This popup appears about 10 seconds after you open the page, 
-      and only guides you to the form. It does not store any data by itself.
+      and only guides you to the form page. It does not store any data by itself.
     </p>
   </div>
 </div>
@@ -338,15 +284,12 @@
       btn.addEventListener('click', closePopup);
     });
 
-    // “Go to question form” 按钮：关闭弹窗并滚动到底部问卷
+    // “Go to question form” 按钮：关闭弹窗并跳转到单独的问卷页面
     var goToFormBtn = document.getElementById('goToFormBtn');
     if (goToFormBtn) {
       goToFormBtn.addEventListener('click', function () {
         closePopup();
-        var formSection = document.getElementById('questionnaire');
-        if (formSection) {
-          formSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        window.location.href = 'question.html';
       });
     }
   });

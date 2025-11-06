@@ -161,22 +161,19 @@ main {
 
 /* ===== 首页全屏模块区域 ===== */
 
-/* 覆盖首页用的 main：让模块铺满高度，但宽度只占 2/3 视口 */
+/* 覆盖首页用的 main：让模块铺满宽度 */
 .modules-wrapper {
   max-width: 100%;
   margin: 0;
   padding: 0 0 80px;
 }
 
-/* 全屏模块：整块可点击，宽度为屏幕三分之二，居中 */
+/* 全屏模块：整块可点击 */
 .module-full {
   display: block;
   position: relative;
-  width: 66.666vw;       /* 视口宽度的 2/3 */
-  max-width: 1200px;     /* 最大不超过 1200px */
-  min-height: 85vh;      /* 高度接近一屏 */
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  min-height: 85vh; /* 空间比较宽松 */
   color: #ffffff;
   background-size: cover;
   background-position: center;
@@ -185,7 +182,7 @@ main {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 模块之间空隙：改为 0，让 5 个模块挨在一起（中间不留横条） */
+/* 模块之间空隙：改为 0，让 5 个模块挨在一起 */
 .module-full + .module-full {
   margin-top: 0;
 }
@@ -450,7 +447,6 @@ main {
 
   .module-full {
     min-height: 70vh;
-    width: 90vw;        /* 手机 / 平板上适当放宽一点 */
   }
 
   .module-full-inner {

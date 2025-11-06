@@ -127,7 +127,7 @@ main {
 .hero {
   position: relative;
   min-height: 100vh;
-  background-image: url("hero_main_statue.jpg"); /* 你现在用的主图 */
+  background-image: url("hero-main.jpg"); /* 你现在用的主图 */
   background-size: cover;
   background-position: center center;
   display: flex;

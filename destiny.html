@@ -42,124 +42,127 @@
       </div>
     </section>
 
-    <!-- 居中、横向更宽的表单 -->
-    <section class="destiny-layout">
-      <div class="destiny-form-wrap">
-        <h2 class="destiny-form-title">Tell me about your question</h2>
-        <p class="destiny-form-intro">
-          Fill in the details below so your reading can be prepared precisely for you.
-        </p>
+<section class="destiny-layout">
+  <div class="destiny-form-wrap">
+    <h2 class="destiny-form-title">Tell me about your question</h2>
+    <p class="destiny-form-intro">
+      Fill in the details below so your reading can be prepared precisely for you.
+    </p>
 
-        <form class="destiny-form" action="#" method="post">
-          <!-- 姓名 + 性别 -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="client-name">Name</label>
-              <input
-                id="client-name"
-                name="name"
-                type="text"
-                class="form-input"
-                placeholder="Your full name"
-                required
-              />
-            </div>
-            <div class="form-field">
-              <span class="form-label">Gender</span>
-              <div class="destiny-gender-group">
-                <label class="destiny-gender-option">
-                  <input type="radio" name="gender" value="male" required />
-                  <span>男性</span>
-                </label>
-                <label class="destiny-gender-option">
-                  <input type="radio" name="gender" value="female" />
-                  <span>女性</span>
-                </label>
-              </div>
-            </div>
+    <form class="destiny-form">
+      <!-- Name + Gender -->
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="destiny-name">Name</label>
+          <input
+            id="destiny-name"
+            name="name"
+            type="text"
+            class="form-input"
+            placeholder="Your full name"
+          />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">Gender</label>
+          <div class="destiny-gender-group">
+            <label class="destiny-gender-option">
+              <input type="radio" name="gender" value="male" checked />
+              <span>Male</span>
+            </label>
+            <label class="destiny-gender-option">
+              <input type="radio" name="gender" value="female" />
+              <span>Female</span>
+            </label>
           </div>
-
-          <!-- 出生日期 + 地区 -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="client-dob">Date of birth</label>
-              <input
-                id="client-dob"
-                name="dob"
-                type="date"
-                class="form-input"
-                min="1900-01-01"
-                max="2099-12-31"
-                required
-              />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="client-region">Region / City</label>
-              <input
-                id="client-region"
-                name="region"
-                type="text"
-                class="form-input"
-                placeholder="Country / city you live in"
-              />
-            </div>
-          </div>
-
-          <!-- 提问内容 -->
-          <div class="form-field" style="margin-top: 10px;">
-            <label class="form-label" for="client-question">What would you like to ask?</label>
-            <textarea
-              id="client-question"
-              name="question"
-              class="form-textarea"
-              placeholder="Please describe the situation and your main question in detail."
-              required
-            ></textarea>
-          </div>
-
-          <!-- WhatsApp + Email -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="client-whatsapp">WhatsApp</label>
-              <input
-                id="client-whatsapp"
-                name="whatsapp"
-                type="text"
-                class="form-input"
-                placeholder="+1 (555) 123-4567"
-              />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="client-email">Email</label>
-              <input
-                id="client-email"
-                name="email"
-                type="email"
-                class="form-input"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-          </div>
-
-          <!-- 价格 + 付款按钮 -->
-          <div class="destiny-price-row">
-            <div class="destiny-price">
-              <span class="destiny-price-label">Single written destiny reading</span>
-              <span class="destiny-price-amount">$39.95 USD</span>
-            </div>
-            <button type="submit" class="btn btn-primary destiny-pay-btn">
-              Proceed to payment
-            </button>
-          </div>
-
-          <p class="destiny-form-note">
-            After payment, you will receive a message from our team within 1–2 hours.
-            Please remember to check your inbox.
-          </p>
-        </form>
+        </div>
       </div>
-    </section>
+
+      <!-- Date of birth + Region -->
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="destiny-dob">Date of birth</label>
+          <input
+            id="destiny-dob"
+            name="dob"
+            type="date"
+            class="form-input"
+            max="2099-12-31"
+          />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="destiny-region">Region / City</label>
+          <input
+            id="destiny-region"
+            name="region"
+            type="text"
+            class="form-input"
+            placeholder="Country / city you live in"
+          />
+        </div>
+      </div>
+
+      <!-- Main question -->
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="destiny-question">
+            What would you like to ask?
+          </label>
+          <textarea
+            id="destiny-question"
+            name="question"
+            class="form-textarea"
+            placeholder="Please describe your situation and your main question in detail."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- WhatsApp + Email -->
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="destiny-whatsapp">WhatsApp</label>
+          <input
+            id="destiny-whatsapp"
+            name="whatsapp"
+            type="tel"
+            class="form-input"
+            placeholder="+1 555 123 4567"
+          />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="destiny-email">Email</label>
+          <input
+            id="destiny-email"
+            name="email"
+            type="email"
+            class="form-input"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+
+      <!-- Price + payment -->
+      <div class="destiny-price-row">
+        <div class="destiny-price">
+          <span class="destiny-price-label">Single written destiny reading</span>
+          <span class="destiny-price-amount">$39.95 USD</span>
+        </div>
+
+        <button type="button" class="btn btn-primary destiny-pay-btn">
+          Proceed to payment
+        </button>
+      </div>
+
+      <p class="destiny-form-note">
+        After payment, you will receive a message from our team within 1–2 hours.
+        Please remember to check your inbox.
+      </p>
+    </form>
+  </div>
+</section>
+
   </main>
 
   <footer class="footer">

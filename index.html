@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<!-- 顶部导航 -->
+<!-- 顶部导航栏 -->
 <header class="site-header">
   <div class="site-header-inner">
     <div class="logo"><a href="index.html">Taoist Destiny Studio</a></div>
@@ -21,79 +21,126 @@
   </div>
 </header>
 
-<!-- 顶部红色 Hero -->
+<!-- 顶部红色主页（保持） -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-kicker">TAOIST-INSPIRED GUIDANCE</div>
     <div class="hero-title">One question, one clear reading</div>
     <p class="hero-subtitle">
-      A quiet entrance into Taoist-inspired destiny readings, Feng Shui suggestions, symbolic items, and cultural background.
-      Everything here is for reflection only, not a promise to control fate.
+      A quiet entrance into Taoist-inspired destiny readings, Feng Shui suggestions,
+      symbolic items, and cultural background. Everything here is for reflection only,
+      not a promise to control fate.
     </p>
     <div class="hero-actions">
-      <a class="btn" href="destiny.html">Explore destiny readings</a>
-      <a class="btn btn-secondary" href="question.html">Go to question form</a>
+      <a href="destiny.html" class="btn">Explore destiny readings</a>
+      <a href="question.html" class="btn btn-secondary">Go to question form</a>
     </div>
   </div>
 </section>
 
-<!-- ===== Apple 风格：5 个整屏模块（纵向堆叠） ===== -->
+<!-- Hero 下面：模块区域 -->
+<main class="modules-container">
 
-<!-- 1. 命运解读（深色） -->
-<section class="feature dark">
-  <h2 class="title">命运解读</h2>
-  <p class="subtitle">One sincere question at a time · Career · Relationship · Health rhythm · Overview</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="destiny.html">进一步了解</a>
-    <a class="btn btn-outline" href="question.html">下单咨询</a>
-  </div>
-  <!-- 图片区域（现在用渐变当占位；若要换图：把 style 改成 background-image:url('你的图.jpg') ） -->
-  <div class="feature-visual visual-destiny"></div>
-</section>
+  <!-- 命运解读：单独一块横向卡片 -->
+  <section class="module-row">
+    <article class="module-card module-horizontal module-destiny">
+      <div class="module-inner">
+        <div class="module-copy">
+          <div class="module-tag">DESTINY READING</div>
+          <h2 class="module-title">命运解读 · One sincere question</h2>
+          <p class="module-subtitle">
+            Focused written readings around your key questions – career, relationships,
+            health rhythm, or long-term patterns. Spiritual reflection only, not medical
+            or financial advice.
+          </p>
+          <div class="module-cta">
+            <a href="destiny.html" class="btn btn-primary">进一步了解</a>
+            <a href="question.html" class="btn btn-outline">前往问卷表单</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
 
-<!-- 2. 风水（浅色） -->
-<section class="feature light">
-  <h2 class="title">风水</h2>
-  <p class="subtitle">Space, direction, and daily rhythm · Simple and realistic suggestions</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="fengshui.html">进一步了解</a>
-    <a class="btn btn-outline" href="contact.html">联系咨询</a>
-  </div>
-  <div class="feature-visual visual-fengshui"></div>
-</section>
+  <!-- 风水：单独一块横向卡片 -->
+  <section class="module-row">
+    <article class="module-card module-horizontal module-fengshui">
+      <div class="module-inner">
+        <div class="module-copy">
+          <div class="module-tag">FENG SHUI</div>
+          <h2 class="module-title">风水 · Space and daily rhythm</h2>
+          <p class="module-subtitle">
+            Gentle, realistic Feng Shui suggestions for your room, desk, or altar:
+            how to place symbolic objects so that they quietly support your daily life.
+          </p>
+          <div class="module-cta">
+            <a href="fengshui.html" class="btn btn-primary">进一步了解</a>
+            <a href="contact.html" class="btn btn-outline">联系咨询</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
 
-<!-- 3. 店铺（深色） -->
-<section class="feature dark">
-  <h2 class="title">店铺</h2>
-  <p class="subtitle">Symbolic items and talismans · Thoughtful reminders, not guarantees</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="shop.html">进入店铺</a>
-    <a class="btn btn-outline" href="contact.html">联系购买</a>
-  </div>
-  <div class="feature-visual visual-shop"></div>
-</section>
+  <!-- 店铺：单独一块横向卡片 -->
+  <section class="module-row">
+    <article class="module-card module-horizontal module-shop">
+      <div class="module-inner">
+        <div class="module-copy">
+          <div class="module-tag">SHOP</div>
+          <h2 class="module-title">店铺 · Symbolic items</h2>
+          <p class="module-subtitle">
+            A future place for talismans, bracelets, and Taoist-inspired items used as
+            reminders of your chosen direction. Not a guarantee of results, only symbols.
+          </p>
+          <div class="module-cta">
+            <a href="shop.html" class="btn btn-primary">进入店铺</a>
+            <a href="contact.html" class="btn btn-outline">联系购买</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
 
-<!-- 4. 道教历史（浅色） -->
-<section class="feature light">
-  <h2 class="title">道教历史</h2>
-  <p class="subtitle">A gentle overview of the Tao, yin–yang, timing, and balance</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="history.html">进一步了解</a>
-    <a class="btn btn-outline" href="destiny.html">理念如何用于解读</a>
-  </div>
-  <div class="feature-visual visual-history"></div>
-</section>
+  <!-- 道教历史 & 接触：左右并排的两块 -->
+  <section class="module-row module-row-split">
 
-<!-- 5. 接触（深色） -->
-<section class="feature dark">
-  <h2 class="title">接触</h2>
-  <p class="subtitle">Email & WhatsApp · Usually replies within 2–3 working days</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="contact.html">联系方式</a>
-    <a class="btn btn-outline" href="question.html">直接提交问题</a>
-  </div>
-  <div class="feature-visual visual-contact"></div>
-</section>
+    <article class="module-card module-small module-history">
+      <div class="module-inner">
+        <div class="module-copy">
+          <div class="module-tag">TAOIST HISTORY</div>
+          <h2 class="module-title">道教历史 · Background ideas</h2>
+          <p class="module-subtitle">
+            A brief overview of Taoist thought behind this site – Tao, yin–yang,
+            the idea of timing, and balance between action and stillness.
+          </p>
+          <div class="module-cta">
+            <a href="history.html" class="btn btn-primary">进一步了解</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="module-card module-small module-contact">
+      <div class="module-inner">
+        <div class="module-copy">
+          <div class="module-tag">CONTACT</div>
+          <h2 class="module-title">接触 · Reach the studio</h2>
+          <p class="module-subtitle">
+            Email and WhatsApp contact for readings and questions.
+            Usually replies within 2–3 working days.
+          </p>
+          <div class="module-cta">
+            <a href="contact.html" class="btn btn-primary">查看联系方式</a>
+            <a href="question.html" class="btn btn-outline">直接提交问题</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+</main>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -107,26 +154,49 @@
   <div class="popup">
     <button class="popup-close" type="button" aria-label="Close popup">×</button>
     <h2>Would you like a personal reading?</h2>
-    <p>If you are curious about a Taoist-inspired destiny reading, you can fill in the question form on a separate page.</p>
+    <p>
+      If you are curious about a Taoist-inspired destiny reading,
+      you can fill in the question form on a separate page.
+    </p>
     <div class="popup-actions">
       <button type="button" id="goToFormBtn" class="btn btn-primary">Go to question form</button>
       <button type="button" class="btn btn-secondary popup-close">Maybe later</button>
     </div>
-    <p class="popup-note">This popup appears only once per browser (using local storage).</p>
+    <p class="popup-note">
+      This popup appears only once per browser (using local storage).
+    </p>
   </div>
 </div>
 
 <script>
-  // 10 秒弹窗（只弹一次）
+  // 10 秒弹窗逻辑：只弹一次
   window.addEventListener('load', function () {
     if (localStorage.getItem('leadPopupShown') === 'yes') return;
+
     setTimeout(function () {
-      var o = document.getElementById('leadPopup');
-      if (o){ o.style.display='flex'; localStorage.setItem('leadPopupShown','yes'); }
+      var overlay = document.getElementById('leadPopup');
+      if (overlay) {
+        overlay.style.display = 'flex';
+        localStorage.setItem('leadPopupShown', 'yes');
+      }
     }, 10000);
-    function closePop(){ var o=document.getElementById('leadPopup'); if(o) o.style.display='none'; }
-    document.querySelectorAll('.popup-close').forEach(b=>b.addEventListener('click', closePop));
-    var go=document.getElementById('goToFormBtn'); if(go){ go.addEventListener('click',()=>{ closePop(); location.href='question.html'; }); }
+
+    function closePopup() {
+      var overlay = document.getElementById('leadPopup');
+      if (overlay) overlay.style.display = 'none';
+    }
+
+    document.querySelectorAll('.popup-close').forEach(function (btn) {
+      btn.addEventListener('click', closePopup);
+    });
+
+    var goBtn = document.getElementById('goToFormBtn');
+    if (goBtn) {
+      goBtn.addEventListener('click', function () {
+        closePopup();
+        window.location.href = 'question.html';
+      });
+    }
   });
 </script>
 

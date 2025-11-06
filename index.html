@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -165,7 +165,66 @@
   </div>
 </footer>
 
-<!-- Simple scripts: header color on scroll & fade-in animation -->
+<!-- Lead capture popup (shows once after ~10 seconds) -->
+<div class="popup-overlay" id="leadPopup">
+  <div class="popup">
+    <button class="popup-close" id="popupClose" aria-label="Close">×</button>
+    <h2>Receive a personal destiny insight</h2>
+    <p class="popup-text">
+      Leave your details and the studio can contact you with options for a personalised reading.
+    </p>
+
+    <form class="popup-form" id="popupForm">
+      <div class="popup-row">
+        <div class="popup-field">
+          <label class="popup-label" for="popupName">Preferred name</label>
+          <input class="popup-input" id="popupName" name="name" type="text" placeholder="Your name" />
+        </div>
+        <div class="popup-field">
+          <label class="popup-label" for="popupGender">Gender</label>
+          <select class="popup-input" id="popupGender" name="gender">
+            <option value="">Select</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other / Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="popup-row">
+        <div class="popup-field">
+          <label class="popup-label" for="popupBirth">Birth date</label>
+          <input class="popup-input" id="popupBirth" name="birth" type="date" />
+        </div>
+      </div>
+
+      <div class="popup-row">
+        <div class="popup-field">
+          <label class="popup-label" for="popupEmail">Email</label>
+          <input class="popup-input" id="popupEmail" name="email" type="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div class="popup-row">
+        <div class="popup-field">
+          <label class="popup-label" for="popupWhatsapp">WhatsApp</label>
+          <input class="popup-input" id="popupWhatsapp" name="whatsapp" type="text" placeholder="+86 ..." />
+        </div>
+      </div>
+
+      <div class="popup-actions">
+        <button type="submit" class="btn btn-primary">Submit details</button>
+        <button type="button" class="btn btn-secondary" id="popupSkip">Not now</button>
+      </div>
+    </form>
+
+    <p class="popup-note">
+      Your information is kept private and is only used so the studio can reply to your request.
+    </p>
+  </div>
+</div>
+
+<!-- Scripts: header color on scroll, fade-in, and popup -->
 <script>
   // change header style on scroll
   (function() {
@@ -196,6 +255,67 @@
       reveals.forEach(function(el) { observer.observe(el); });
     } else {
       reveals.forEach(function(el) { el.classList.add('in-view'); });
+    }
+  })();
+
+  // lead capture popup: show once after ~10 seconds
+  (function() {
+    var overlay = document.getElementById('leadPopup');
+    if (!overlay) return;
+
+    var closeBtn = document.getElementById('popupClose');
+    var skipBtn = document.getElementById('popupSkip');
+    var form = document.getElementById('popupForm');
+    var KEY = 'tds_lead_popup_shown';
+
+    // if already shown before, do nothing
+    try {
+      if (localStorage.getItem(KEY)) {
+        return;
+      }
+    } catch (e) {
+      // if localStorage not available, just continue
+    }
+
+    // show after ~10 seconds
+    setTimeout(function() {
+      overlay.style.display = 'flex';
+    }, 10000);
+
+    function closePopup() {
+      overlay.style.display = 'none';
+      try {
+        localStorage.setItem(KEY, '1');
+      } catch (e) {}
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closePopup();
+      });
+    }
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closePopup();
+      });
+    }
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closePopup();
+      }
+    });
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you could later hook to a real backend or Google Sheet.
+        closePopup();
+        alert('Thank you. Your details have been recorded on this device.');
+      });
     }
   })();
 </script>

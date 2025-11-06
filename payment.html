@@ -1,117 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Secure payment – Daoism & Destiny</title>
+  <title>安全结账 – 道教与命运工作室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
+
   <style>
-    /* ========== Checkout layout ========== */
-    .checkout-hero {
-      padding: 96px 24px 32px;
+    body {
       background: #020617;
       color: #e5e7eb;
-      text-align: center;
     }
 
-    .checkout-hero-title {
-      font-size: 26px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    main {
+      padding-top: 80px; /* 给导航留空间 */
     }
 
-    .checkout-hero-subtitle {
-      font-size: 14px;
-      color: #9ca3af;
-    }
-
-    .checkout-wrapper {
-      background: #020617;
-      padding: 0 24px 80px;
-    }
-
-    .checkout-layout {
-      max-width: 1050px;
+    /* 整体布局 */
+    .checkout-page {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 40px 24px 88px;
       display: flex;
-      gap: 28px;
+      gap: 32px;
       align-items: flex-start;
       color: #e5e7eb;
     }
 
-    .checkout-payment {
-      flex: 2;
+    .checkout-summary,
+    .checkout-contact {
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.92), #020617);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
     }
 
     .checkout-summary {
-      flex: 1;
+      flex: 1.1;
+      padding: 20px 20px 22px;
     }
 
-    .checkout-section-title {
-      font-size: 18px;
+    .checkout-contact {
+      flex: 1.3;
+      padding: 20px 22px 24px;
+    }
+
+    /* 左侧：摘要 */
+    .checkout-title-main {
+      font-size: 24px;
       margin-bottom: 4px;
     }
 
-    .checkout-secure-note {
-      font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 14px;
+    .checkout-sub {
+      font-size: 14px;
+      color: #cbd5f5;
+      margin-bottom: 18px;
     }
 
-    /* ========== Payment methods ========== */
-    .checkout-method {
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: #020617;
-      margin-bottom: 14px;
-      overflow: hidden;
+    .checkout-item-title {
+      font-size: 15px;
+      margin-bottom: 4px;
     }
 
-    .checkout-method-header {
+    .checkout-item-row {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      cursor: pointer;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
       font-size: 14px;
     }
 
-    .checkout-method-header input[type="radio"] {
-      accent-color: #facc15;
-      transform: scale(1.05);
+    .checkout-price-main {
+      font-weight: 600;
+      color: #facc15;
     }
 
-    .checkout-method-name {
-      font-weight: 500;
-    }
-
-    .checkout-card-logos {
-      margin-left: auto;
-      font-size: 12px;
-      color: #cbd5f5;
-    }
-
-    .checkout-method-body {
+    .checkout-line {
+      margin: 10px 0 12px;
       border-top: 1px solid rgba(55, 65, 81, 0.9);
-      padding: 14px;
-      background: #020617;
     }
 
-    .checkout-method-body p {
+    .checkout-bullets {
+      margin: 4px 0 10px;
+      padding-left: 18px;
       font-size: 13px;
       color: #cbd5f5;
     }
 
-    /* 简单模拟 “展开/收起”，默认只展开第一个 */
-    .checkout-method-body {
-      display: none;
-    }
-    .checkout-method.active .checkout-method-body {
-      display: block;
+    .checkout-bullets li + li {
+      margin-top: 4px;
     }
 
-    /* 表单样式复用全局 form-row / form-field，如没有可以用下面的 */
+    .checkout-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    /* 右侧：联系方式 + 付款方式 */
+    .checkout-contact-title {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .checkout-contact-sub {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+
     .form-row {
       display: flex;
       gap: 12px;
@@ -120,10 +117,6 @@
 
     .form-field {
       flex: 1;
-    }
-
-    .form-field.full {
-      flex: 1 1 100%;
     }
 
     .form-label {
@@ -139,9 +132,9 @@
       border: 1px solid #1f2937;
       padding: 8px 10px;
       font-size: 14px;
+      outline: none;
       background: #020617;
       color: #e5e7eb;
-      outline: none;
     }
 
     .form-input:focus {
@@ -149,73 +142,86 @@
       box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.25);
     }
 
-    /* ========== Summary card ========== */
-    .checkout-summary-card {
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      padding: 16px 16px 18px;
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-    }
-
-    .checkout-summary-title {
-      font-size: 15px;
-      margin-bottom: 2px;
-    }
-
-    .checkout-summary-item {
-      font-size: 13px;
-      color: #cbd5f5;
-      margin: 6px 0 12px;
-    }
-
-    .checkout-summary-row {
+    /* 付款方式选择 */
+    .pay-method {
+      margin-top: 18px;
+      padding: 12px 12px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(55, 65, 81, 1);
+      background: #020617;
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
       font-size: 14px;
-      margin-bottom: 6px;
+      cursor: pointer;
     }
 
-    .checkout-summary-total {
+    .pay-method + .pay-method {
       margin-top: 10px;
-      border-top: 1px solid rgba(55, 65, 81, 0.9);
-      padding-top: 8px;
-      font-weight: 600;
     }
 
-    .checkout-summary-price {
-      color: #facc15;
+    .pay-method input[type="radio"] {
+      accent-color: #facc15;
+      transform: scale(1.05);
     }
 
-    .checkout-submit {
+    .pay-method span {
+      margin-right: 4px;
+    }
+
+    .pay-method-active {
+      border-color: #facc15;
+      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.25);
+    }
+
+    .checkout-pay-btn {
       width: 100%;
-      margin-top: 14px;
+      margin-top: 20px;
       justify-content: center;
       display: inline-flex;
       align-items: center;
       text-align: center;
+      font-size: 15px;
     }
 
-    .checkout-summary-note {
+    .pay-logos-row {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pay-logo-pill {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 4px 10px 3px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+    }
+
+    .checkout-small-note {
       font-size: 11px;
       color: #9ca3af;
-      margin-top: 8px;
+      margin-top: 10px;
+      line-height: 1.6;
     }
 
-    /* ========== Responsive ========== */
-    @media (max-width: 900px) {
-      .checkout-layout {
+    /* 响应式 */
+    @media (max-width: 960px) {
+      .checkout-page {
         flex-direction: column;
+        padding: 32px 16px 72px;
       }
 
-      .checkout-summary {
+      .checkout-summary,
+      .checkout-contact {
         width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 顶部导航，结构和首页保持一致 -->
+  <!-- 顶部导航：和其它页面保持一致 -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -232,152 +238,110 @@
   </header>
 
   <main>
-  <section class="checkout-layout">
+    <section class="checkout-page">
+      <!-- 左侧：订单摘要 -->
+      <aside class="checkout-summary">
+        <h1 class="checkout-title-main">安全结账</h1>
+        <p class="checkout-sub">单一命运阅读——一个问题，一个清晰的未来。</p>
 
-    <!-- 左侧：付款表单（像 Shopify 那样） -->
-    <div class="checkout-left">
-
-      <h1 class="checkout-title">Payment</h1>
-      <p class="checkout-subtitle">All transactions are secure and encrypted.</p>
-
-      <!-- 1. 信用卡方式 -->
-      <div class="checkout-box checkout-box-active">
-        <div class="checkout-method-header">
-          <label class="checkout-radio-row">
-            <input type="radio" name="pay_method" value="card" checked>
-            <span>Credit card</span>
-          </label>
-          <div class="checkout-card-logos">
-            <span class="logo-pill">VISA</span>
-            <span class="logo-pill">MasterCard</span>
-          </div>
-        </div>
-
-        <!-- 下面这些输入只是 UI，占位用；真实收款要用第三方链接 -->
-        <div class="checkout-card-fields">
-          <label class="checkout-field">
-            <span class="checkout-label">Card number</span>
-            <input class="checkout-input" type="text" placeholder="1234 5678 9012 3456" disabled>
-          </label>
-
-          <div class="checkout-row">
-            <label class="checkout-field">
-              <span class="checkout-label">Expiration date (MM / YY)</span>
-              <input class="checkout-input" type="text" placeholder="MM / YY" disabled>
-            </label>
-            <label class="checkout-field">
-              <span class="checkout-label">Security code</span>
-              <input class="checkout-input" type="text" placeholder="CVC" disabled>
-            </label>
-          </div>
-
-          <label class="checkout-field">
-            <span class="checkout-label">Name on card</span>
-            <input class="checkout-input" type="text" placeholder="Full name on card" disabled>
-          </label>
-
-          <label class="checkout-checkbox-row">
-            <input type="checkbox" checked>
-            <span>Use contact details as billing address</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- 2. PayPal 方式 -->
-      <div class="checkout-box">
-        <label class="checkout-radio-row">
-          <input type="radio" name="pay_method" value="paypal">
-          <span>PayPal</span>
-          <span class="checkout-paypal-pill">PayPal</span>
-        </label>
-        <p class="checkout-helper">
-          When you choose PayPal, you will be taken to the PayPal page to complete your payment.
-        </p>
-      </div>
-
-      <!-- 3. 备注 / 记住信息（可选） -->
-      <div class="checkout-box">
-        <h2 class="checkout-section-title">Extra note</h2>
-        <label class="checkout-checkbox-row">
-          <input type="checkbox">
-          <span>Leave a small blessing for the Daoist practitioner.</span>
-        </label>
-      </div>
-
-      <div class="checkout-box">
-        <h2 class="checkout-section-title">Remember me</h2>
-        <label class="checkout-checkbox-row">
-          <input type="checkbox">
-          <span>Save my information for a faster checkout next time.</span>
-        </label>
-      </div>
-
-      <!-- 提交按钮：这里最终要改成你的 Stripe / PayPal 支付链接 -->
-      <button class="btn btn-primary checkout-submit">
-        Place order
-      </button>
-
-      <p class="checkout-security-note">
-        This is a visual checkout page. To accept real payments, connect your payment provider
-        (for example Stripe or PayPal) and update this button to open your actual payment link.
-      </p>
-
-    </div>
-
-    <!-- 右侧：订单摘要（用你原来的内容） -->
-    <aside class="checkout-right">
-      <div class="checkout-summary-box">
-        <h2 class="summary-title">Order summary</h2>
-
-        <div class="summary-item">
+        <div class="checkout-item-row">
           <div>
-            <div class="summary-item-name">Single written destiny reading</div>
-            <div class="summary-item-desc">
-              One question, one clear future. Personalised Taoist destiny reading delivered by email.
+            <div class="checkout-item-title">单条命运阅读</div>
+            <div style="font-size:13px;color:#cbd5f5;margin-top:2px;">
+              针对您最重要问题的个性化书面阅读，通过电子邮件传送。
             </div>
           </div>
-          <div class="summary-item-price">$39.95 USD</div>
+          <div class="checkout-price-main">39.95 美元</div>
         </div>
 
-        <div class="summary-line"></div>
+        <div class="checkout-line"></div>
 
-        <div class="summary-total-row">
-          <span>Total</span>
-          <span class="summary-total-amount">$39.95 USD</span>
-        </div>
-
-        <ul class="summary-bullets">
-          <li>Reading prepared personally by the Daoist practitioner.</li>
-          <li>Based on your birth details and current life situation.</li>
-          <li>Delivered in clear written form that you can revisit.</li>
+        <ul class="checkout-bullets">
+          <li>道教修行者亲自准备的读物。</li>
+          <li>基于您的出生详单信息和当前的生活状况。</li>
+          <li>以清晰的书面形式交付，您可以重新访问。</li>
         </ul>
 
-        <p class="summary-note">
-          After payment, you will receive a message from our team within <strong>1–2 hours</strong>.
-          Please remember to check your inbox or WhatsApp.
+        <p class="checkout-note">
+          付款后，您将在 <strong>1–2 小时</strong> 内收到我们团队的消息。请记得检查您的收件箱或 WhatsApp。
         </p>
-      </div>
-    </aside>
+      </aside>
 
-  </section>
-</main>
+      <!-- 右侧：联系方式 + 付款方式 -->
+      <section class="checkout-contact">
+        <h2 class="checkout-contact-title">联系方式</h2>
+        <p class="checkout-contact-sub">
+          请确认我们如何联系您了解您的阅读和付款。
+        </p>
+
+        <div class="form-field">
+          <label class="form-label" for="name">名字</label>
+          <input class="form-input" id="name" type="text" placeholder="您的全名" />
+        </div>
+
+        <div class="form-field" style="margin-top:10px;">
+          <label class="form-label" for="email">电子邮件</label>
+          <input class="form-input" id="email" type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="form-field" style="margin-top:10px;">
+          <label class="form-label" for="wa">WhatsApp</label>
+          <input class="form-input" id="wa" type="tel" placeholder="+1 555 123 4567" />
+        </div>
+
+        <div style="margin-top:18px;font-size:13px;color:#9ca3af;">
+          首选付款方式
+        </div>
+
+        <!-- 卡支付 -->
+        <label class="pay-method pay-method-active">
+          <input type="radio" name="pay_method" value="card" checked />
+          <span>卡（Visa / MasterCard）</span>
+        </label>
+
+        <!-- PayPal -->
+        <label class="pay-method">
+          <input type="radio" name="pay_method" value="paypal" />
+          <span>PayPal</span>
+        </label>
+
+        <!-- 按钮 -->
+        <button class="btn btn-primary checkout-pay-btn">
+          立即安全支付
+        </button>
+
+        <!-- logo -->
+        <div class="pay-logos-row">
+          <span class="pay-logo-pill">VISA</span>
+          <span class="pay-logo-pill">MasterCard</span>
+          <span class="pay-logo-pill">PayPal</span>
+        </div>
+
+        <p class="checkout-small-note">
+          这是一个可视化结账页面。要接受真实付款，请连接您的收款服务提供商
+          （例如 Stripe 或 PayPal），并把上面的按钮链接到您的实际收款链接。
+        </p>
+      </section>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>© Daoism & Destiny Studio</span>
-      <span>Spiritual guidance inspired by Taoist tradition.</span>
+      <span>© 道教与命运工作室</span>
+      <span>精神指引灵感 根据道教传统。</span>
     </div>
   </footer>
 
-  <!-- 简单切换“展开的付款方式” -->
+  <!-- 切换付款方式高亮 -->
   <script>
-    document.querySelectorAll('.checkout-method-header input[type="radio"]').forEach(function (radio) {
+    const payRadios = document.querySelectorAll('input[name="pay_method"]');
+    payRadios.forEach(function (radio) {
       radio.addEventListener('change', function () {
-        document.querySelectorAll('.checkout-method').forEach(function (block) {
-          block.classList.remove('active');
+        document.querySelectorAll('.pay-method').forEach(function (box) {
+          box.classList.remove('pay-method-active');
         });
-        const parent = this.closest('.checkout-method');
-        if (parent) parent.classList.add('active');
+        const parent = this.closest('.pay-method');
+        if (parent) parent.classList.add('pay-method-active');
       });
     });
   </script>

@@ -82,7 +82,7 @@ main {
 /* ===== 顶部红色 Hero（保持不动） ===== */
 .hero {
   min-height: 90vh;
-  padding: 120px 24px 80px; /* 顶部为导航留空间 */
+  padding: 120px 24px 80px;
   background: linear-gradient(135deg, #7f1d1d, #b91c1c);
   color: #fef2f2;
   display: flex;
@@ -161,19 +161,22 @@ main {
 
 /* ===== 首页全屏模块区域 ===== */
 
-/* 覆盖首页用的 main：让模块铺满宽度 */
+/* 覆盖首页用的 main：让模块铺满高度，但宽度只占 2/3 视口 */
 .modules-wrapper {
   max-width: 100%;
   margin: 0;
   padding: 0 0 80px;
 }
 
-/* 每个模块：用 a 标签整块可点击 */
+/* 全屏模块：整块可点击，宽度为屏幕三分之二，居中 */
 .module-full {
   display: block;
   position: relative;
-  width: 100%;
-  min-height: 75vh; /* 接近全屏 */
+  width: 66.666vw;       /* 视口宽度的 2/3 */
+  max-width: 1200px;     /* 最大不超过 1200px */
+  min-height: 85vh;      /* 高度接近一屏 */
+  margin-left: auto;
+  margin-right: auto;
   color: #ffffff;
   background-size: cover;
   background-position: center;
@@ -182,34 +185,42 @@ main {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 模块与模块之间留缝隙 */
+/* 模块之间空隙：改为 0，让 5 个模块挨在一起（中间不留横条） */
 .module-full + .module-full {
-  margin-top: 24px;
+  margin-top: 0;
 }
 
-/* 叠一层渐变，保证图片上文字清晰 */
+/* 渐变遮罩，保证文字可读，后续可以改透明度或去掉 */
 .module-full::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.55));
+  background: radial-gradient(
+    circle at 10% 0%,
+    rgba(15, 23, 42, 0.9),
+    rgba(15, 23, 42, 0.5)
+  );
   transition: background 0.2s ease;
 }
 
 .module-full:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.45);
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.5);
 }
 
 .module-full:hover::before {
-  background: radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.4));
+  background: radial-gradient(
+    circle at 10% 0%,
+    rgba(15, 23, 42, 0.86),
+    rgba(15, 23, 42, 0.4)
+  );
 }
 
-/* 模块内部内容区域：比全屏窄一点，居中 */
+/* 模块内部内容：居中且“窄一点” */
 .module-full-inner {
   position: relative;
-  max-width: 780px;   /* 内容宽度，决定“窄一点” */
-  padding: 60px 24px;
+  max-width: 920px;
+  padding: 80px 32px;
   margin: 0 auto;
   text-align: left;
 }
@@ -218,26 +229,26 @@ main {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  opacity: 0.7;
-  margin-bottom: 6px;
+  opacity: 0.75;
+  margin-bottom: 8px;
 }
 
 .module-title {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .module-subtitle {
   font-size: 15px;
-  line-height: 1.7;
-  opacity: 0.95;
+  line-height: 1.8;
+  opacity: 0.96;
 }
 
-/* 悬浮时出现的“进一步了解 →” */
+/* 悬浮时出现“进一步了解 →” */
 .module-cta-text {
   font-size: 13px;
-  margin-top: 14px;
+  margin-top: 16px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -255,7 +266,7 @@ main {
   font-size: 14px;
 }
 
-/* 每个模块的默认背景（你后续可以改为图片） */
+/* 每个模块的默认背景（用颜色/渐变代替图片占位） */
 .module-destiny {
   background-image: linear-gradient(135deg, #111827, #4b5563);
 }
@@ -438,11 +449,13 @@ main {
   }
 
   .module-full {
-    min-height: 65vh;
+    min-height: 70vh;
+    width: 90vw;        /* 手机 / 平板上适当放宽一点 */
   }
 
   .module-full-inner {
-    padding: 48px 20px;
+    padding: 64px 24px;
+    max-width: 90vw;
   }
 }
 

@@ -21,8 +21,9 @@ a {
   text-decoration: none;
 }
 
+/* 其他页面用到的 main 宽度 */
 main {
-  max-width: 1000px;   /* 内容区稍微窄一点 */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 24px 80px;
 }
@@ -78,7 +79,7 @@ main {
   border-bottom-color: #fef2f2;
 }
 
-/* ===== 顶部红色 Hero（保持不变的大图） ===== */
+/* ===== 顶部红色 Hero（保持） ===== */
 .hero {
   min-height: 90vh;
   padding: 120px 24px 80px; /* 顶部留出导航高度 */
@@ -122,7 +123,7 @@ main {
   flex-wrap: wrap;
 }
 
-/* ===== 按钮样式 ===== */
+/* ===== 按钮（只给 Hero 和弹窗用） ===== */
 .btn {
   display: inline-block;
   padding: 9px 22px;
@@ -148,7 +149,7 @@ main {
   background: rgba(254, 242, 242, 0.16);
 }
 
-/* 蓝色主按钮 / 线框按钮：给下面模块用，类似 Apple */
+/* 蓝色按钮给弹窗用 */
 .btn-primary {
   background: #0071e3;
   border-color: #0071e3;
@@ -159,71 +160,86 @@ main {
   filter: brightness(1.06);
 }
 
-.btn-outline {
-  background: transparent;
-  border-color: #0071e3;
-  color: #0071e3;
-}
+/* ===== 首页模块区域：Hero 下面 ===== */
 
-.btn-outline:hover {
-  background: rgba(0, 113, 227, 0.08);
-}
-
-/* ===== 首页模块容器（Hero 下面的区域） ===== */
+/* 容器更宽一点，不那么窄 */
 .modules-container {
-  max-width: 1000px;
+  max-width: 1120px;
   margin: 0 auto 80px;
   padding: 0 24px;
 }
 
+/* 每一排模块 */
 .module-row {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
-/* 通用模块卡片：整块用背景图 */
+/* 两列布局：一行左右两个模块（PC 上） */
+.module-row-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* 只有一个模块时：占一整行 */
+.module-row-single {
+  display: block;
+}
+
+/* 整块可点击 */
+.module-link {
+  display: block;
+}
+
+/* 模块卡片：将来背景换成图片 */
 .module-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 22px;
   overflow: hidden;
-  min-height: 220px;
+  min-height: 200px;
   color: #ffffff;
   background-size: cover;
   background-position: center;
   box-shadow: 0 14px 40px rgba(15, 23, 42, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* 叠一层渐变，让文字在照片上更清晰 */
+/* 叠一层渐变，保证文字在照片上也清晰 */
 .module-card::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.8),
+    125deg,
+    rgba(15, 23, 42, 0.9),
     rgba(15, 23, 42, 0.35)
+  );
+  transition: background 0.18s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.45);
+}
+
+.module-card:hover::before {
+  background: linear-gradient(
+    125deg,
+    rgba(15, 23, 42, 0.88),
+    rgba(15, 23, 42, 0.25)
   );
 }
 
+/* 模块内部布局：左右横向 */
 .module-inner {
   position: relative;
-  padding: 28px 32px;
+  padding: 26px 28px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  flex-direction: column; /* 文字为主，竖向排版更稳当 */
+  gap: 6px;
 }
 
-/* 三个模块：命运解读 / 风水 / 店铺 —— 横向布局 */
-.module-horizontal .module-inner {
-  flex-direction: row;
-}
-
-/* 两个模块：道教历史 / 接触 —— 卡片本身偏竖直，文字居左 */
-.module-small .module-inner {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
+/* 文案区 */
 .module-copy {
   max-width: 620px;
 }
@@ -233,56 +249,63 @@ main {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   opacity: 0.7;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .module-title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .module-subtitle {
   font-size: 14px;
   opacity: 0.9;
-  margin-bottom: 14px;
 }
 
-.module-cta {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+/* 鼠标移上去出现“进一步了解 →” */
+.module-cta-text {
+  font-size: 13px;
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-/* 道教历史 + 接触：左右并排 */
-.module-row-split {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+.module-card:hover .module-cta-text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* 每个模块的默认背景（先用渐变占位，将来你换成图片） */
+.module-cta-text .arrow {
+  font-size: 14px;
+}
+
+/* 每个模块默认背景（你后续可以换成图片） */
 .module-destiny {
   background-image: linear-gradient(140deg, #1f2937, #111827);
 }
 
 .module-fengshui {
-  background-image: linear-gradient(135deg, #d1fae5, #065f46);
+  background-image: linear-gradient(135deg, #065f46, #10b981);
 }
 
 .module-shop {
-  background-image: linear-gradient(135deg, #fee2e2, #9f1239);
+  background-image: linear-gradient(135deg, #9f1239, #fb7185);
 }
 
 .module-history {
-  background-image: linear-gradient(135deg, #e5e7eb, #4b5563);
+  background-image: linear-gradient(135deg, #4b5563, #9ca3af);
 }
 
 .module-contact {
-  background-image: linear-gradient(135deg, #ddd6fe, #4c1d95);
+  background-image: linear-gradient(135deg, #4c1d95, #a855f7);
 }
 
-/* ===== 表单样式（问题表单 / 联系表单用） ===== */
+/* ===== 表单样式（问卷页面等用） ===== */
 .form-block {
   margin-top: 24px;
   background: #ffffff;
@@ -339,7 +362,7 @@ main {
   margin-top: 12px;
 }
 
-/* ===== Section 通用标题（其他页面可用） ===== */
+/* ===== 通用 section 标题（其他页面用） ===== */
 .section {
   margin-top: 80px;
 }
@@ -442,14 +465,9 @@ main {
   .hero-title {
     font-size: 26px;
   }
-
-  .module-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .nav {
     gap: 12px;
   }
@@ -458,8 +476,8 @@ main {
     font-size: 12px;
   }
 
-  .module-row-split {
-    grid-template-columns: 1fr; /* 道教历史 / 接触 在手机上上下排 */
+  .module-row-two {
+    grid-template-columns: 1fr; /* 手机上改成一列往下排 */
   }
 
   .form-row {

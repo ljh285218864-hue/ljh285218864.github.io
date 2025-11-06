@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<!-- 顶部固定导航：左 logo，右 5 个中文标题，跳转到独立页面 -->
+<!-- 顶部导航：5 个按钮跳转各自页面 -->
 <header class="site-header">
   <div class="site-header-inner">
     <div class="logo">
@@ -23,7 +23,7 @@
   </div>
 </header>
 
-<!-- Hero 顶部红布局 -->
+<!-- 红色大图 Hero -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-kicker">TAOIST-INSPIRED GUIDANCE</div>
@@ -41,55 +41,176 @@
 </section>
 
 <main>
-  <!-- 简要介绍几个板块（只做概览） -->
-  <section class="section">
-    <div class="section-heading">Overview</div>
-    <div class="section-title">What you can find here</div>
+  <!-- 🔻 Hero 下面新增：5 个入口条（竖直排列，左图右文） -->
+  <section class="section" id="quick-access">
+    <div class="section-heading">Quick access</div>
+    <div class="section-title">Main areas of this site</div>
     <p class="section-intro">
-      This site gathers several related areas: written destiny readings, simple Feng Shui suggestions, 
-      symbolic items for personal altars, and a short introduction to Taoist ideas behind the work.
+      You can also enter each main area directly from here. 
+      Each row below is clickable and leads to the corresponding page.
+    </p>
+
+    <div class="entry-list">
+      <!-- 命运解读 -->
+      <a class="entry-link" href="destiny.html">
+        <div class="entry-item">
+          <div class="entry-thumb-block entry-thumb-destiny"></div>
+          <div class="entry-content">
+            <div class="entry-label">Destiny readings</div>
+            <div class="entry-title">命运解读 · One sincere question</div>
+            <p class="entry-text">
+              Focused written readings for your key questions about career, relationships, 
+              health rhythm, or long-term patterns.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 风水 -->
+      <a class="entry-link" href="fengshui.html">
+        <div class="entry-item">
+          <div class="entry-thumb-block entry-thumb-fengshui"></div>
+          <div class="entry-content">
+            <div class="entry-label">Feng Shui</div>
+            <div class="entry-title">风水 · Space and rhythm</div>
+            <p class="entry-text">
+              Simple, realistic suggestions about how your room, desk, and small symbolic objects 
+              can support your daily life.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 店铺 -->
+      <a class="entry-link" href="shop.html">
+        <div class="entry-item">
+          <div class="entry-thumb-block entry-thumb-shop"></div>
+          <div class="entry-content">
+            <div class="entry-label">Shop</div>
+            <div class="entry-title">店铺 · Symbolic items</div>
+            <p class="entry-text">
+              A future place for talismans, bracelets, and small altar pieces used as reminders of your chosen direction.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 道教历史 -->
+      <a class="entry-link" href="history.html">
+        <div class="entry-item">
+          <div class="entry-thumb-block entry-thumb-history"></div>
+          <div class="entry-content">
+            <div class="entry-label">Taoist history</div>
+            <div class="entry-title">道教历史 · Background ideas</div>
+            <p class="entry-text">
+              A gentle overview of Taoist ideas behind this site: the Tao, yin–yang, timing, and balance.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 接触 -->
+      <a class="entry-link" href="contact.html">
+        <div class="entry-item">
+          <div class="entry-thumb-block entry-thumb-contact"></div>
+          <div class="entry-content">
+            <div class="entry-label">Contact</div>
+            <div class="entry-title">接触 · Reach the studio</div>
+            <p class="entry-text">
+              Find email and messaging details, and how long it usually takes to receive a reply.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 下面保留你原来的首页内容（概览） -->
+  <section class="section" id="destiny">
+    <div class="section-heading">Destiny readings</div>
+    <div class="section-title">A framework for one sincere question</div>
+    <p class="section-intro">
+      This homepage gives a quick overview. For detailed structure and ordering,
+      please visit the separate page for <strong>命运解读</strong>.
     </p>
 
     <div class="cards-grid">
       <article class="card">
-        <div class="card-meta">命运解读</div>
-        <h3>Destiny readings</h3>
+        <div class="card-meta">Career · Work</div>
+        <h3>Career & direction reading</h3>
         <p>
-          Focused written readings that look at patterns and timing around career, relationships, health rhythm,
-          and long-term themes.
+          For questions about work direction, changing jobs, or feeling stuck in your current role.
         </p>
       </article>
+
       <article class="card">
-        <div class="card-meta">风水</div>
-        <h3>Feng Shui</h3>
+        <div class="card-meta">Marriage · Relationship</div>
+        <h3>Marriage & relationship reading</h3>
         <p>
-          Simple, realistic suggestions about space and direction – how your home and desk may quietly support you.
+          For questions about long-term partnerships or repeating emotional patterns.
         </p>
       </article>
+
       <article class="card">
-        <div class="card-meta">店铺</div>
-        <h3>Shop</h3>
+        <div class="card-meta">Health · Rhythm</div>
+        <h3>Health & life rhythm reading</h3>
         <p>
-          A future area for symbolic items, talismans, and small altar pieces used as daily reminders of intention.
+          Not medical advice. This reading looks at stress patterns, rest, habits,
+          and how you respond to pressure in daily life.
         </p>
       </article>
+
       <article class="card">
-        <div class="card-meta">道教历史</div>
-        <h3>Taoist history</h3>
+        <div class="card-meta">Long-term themes</div>
+        <h3>Destiny overview reading</h3>
         <p>
-          A gentle background page introducing key Taoist ideas: the Tao, yin–yang, timing, and balance.
+          A broader look at long-term tendencies and repeating themes in your life.
         </p>
       </article>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-heading">Note</div>
-    <div class="section-title">Spiritual reflection only</div>
+  <section class="section" id="fengshui">
+    <div class="section-heading">Feng Shui</div>
+    <div class="section-title">Space, direction, and daily rhythm</div>
     <p class="section-intro">
-      All services described here are spiritual and symbolic in nature. 
-      They are not a substitute for professional medical, legal, psychological, or financial advice.
+      Feng Shui on this site is kept realistic and gentle. 
+      For details, visit the dedicated <strong>风水</strong> page.
     </p>
+  </section>
+
+  <section class="section" id="shop">
+    <div class="section-heading">Shop</div>
+    <div class="section-title">Symbolic items and talismans (future)</div>
+    <p class="section-intro">
+      This homepage only shows a sample layout. 
+      Real items will be introduced on the dedicated <strong>店铺</strong> page later.
+    </p>
+  </section>
+
+  <section class="section" id="history">
+    <div class="section-heading">Taoist history</div>
+    <div class="section-title">A brief, quiet overview</div>
+    <p class="section-intro">
+      For a fuller explanation of Taoist ideas used on this site, 
+      visit the <strong>道教历史</strong> page. Here is only a short summary.
+    </p>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-heading">Contact</div>
+    <div class="section-title">How to reach the studio</div>
+    <p class="section-intro">
+      For more details and future updates, see the separate <strong>接触</strong> page.
+    </p>
+
+    <div class="form-block">
+      <p style="font-size: 14px; color: #4b5563;">
+        <strong>Email:</strong> yourname@example.com<br />
+        <strong>WhatsApp:</strong> +00 0000 000000<br />
+        <strong>Reply time:</strong> usually within 2–3 working days.
+      </p>
+    </div>
   </section>
 </main>
 
@@ -100,7 +221,7 @@
   </div>
 </footer>
 
-<!-- 10 秒弹窗：只在首页出现，并且每个浏览器只弹一次 -->
+<!-- 10 秒弹窗，只弹一次 -->
 <div class="popup-overlay" id="leadPopup">
   <div class="popup">
     <button class="popup-close" type="button" aria-label="Close popup">×</button>
@@ -116,23 +237,16 @@
     </div>
 
     <p class="popup-note">
-      This popup appears about 10 seconds after your first visit in this browser, 
-      and will not show again once it has been closed.
+      This popup appears only once per browser (using local storage), 
+      and simply guides you to the question form page.
     </p>
   </div>
 </div>
 
 <script>
-  // 10 秒后弹窗，并且在本浏览器只出现一次（使用 localStorage 记录）
+  // 10 秒弹窗，只弹一次
   window.addEventListener('load', function () {
-    try {
-      var alreadyShown = localStorage.getItem('leadPopupShown');
-    } catch (e) {
-      var alreadyShown = null;
-    }
-
-    if (alreadyShown === '1') {
-      // 已经弹出过，不再显示
+    if (localStorage.getItem('leadPopupShown') === 'yes') {
       return;
     }
 
@@ -140,12 +254,9 @@
       var overlay = document.getElementById('leadPopup');
       if (overlay) {
         overlay.style.display = 'flex';
-        // 记录为已展示
-        try {
-          localStorage.setItem('leadPopupShown', '1');
-        } catch (e) {}
+        localStorage.setItem('leadPopupShown', 'yes');
       }
-    }, 10000); // 约 10 秒
+    }, 10000);
 
     function closePopup() {
       var overlay = document.getElementById('leadPopup');

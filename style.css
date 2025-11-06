@@ -1,4 +1,4 @@
- /* ===== 基础重置 ===== */
+ /* ===== 重置 ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  background: radial-gradient(circle at top, #020617 0, #020617 30%, #020617 100%);
+  background: #020617;
   color: #e5e7eb;
   line-height: 1.6;
 }
@@ -31,7 +31,7 @@ a {
   background: rgba(3, 7, 18, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .site-header-inner {
@@ -51,7 +51,7 @@ a {
 }
 
 .logo a {
-  color: #e5e7eb;
+  color: inherit;
 }
 
 .nav {
@@ -109,7 +109,7 @@ a {
 
 .btn-outline {
   background: transparent;
-  border-color: rgba(148, 163, 184, 0.6);
+  border-color: rgba(148, 163, 184, 0.7);
   color: #e5e7eb;
 }
 
@@ -118,16 +118,16 @@ a {
   color: #fbbf24;
 }
 
-/* ===== 主内容 ===== */
+/* ===== 主体 ===== */
 main {
-  padding-top: 72px; /* 给固定导航留空间 */
+  padding-top: 72px; /* 给导航留空间 */
 }
 
-/* ===== Hero：人像主图 ===== */
+/* ===== 顶部神像 Hero（保持原样） ===== */
 .hero {
   position: relative;
   min-height: 100vh;
-  background-image: url("hero_main_statue.jpg");
+  background-image: url("hero_main_statue.jpg"); /* 你现在用的主图 */
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -140,8 +140,8 @@ main {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 0, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.85)),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.9));
+  background: radial-gradient(circle at 20% 0, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.88)),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.9));
 }
 
 .hero-inner {
@@ -185,103 +185,94 @@ main {
   flex-wrap: wrap;
 }
 
-/* ===== 下半部分：参考 sxd.cn 的展陈布局 ===== */
-.showcase-section {
-  background: radial-gradient(circle at top left, #020617 0, #020617 48%, #020617 100%);
-  border-top: 1px solid rgba(15, 23, 42, 0.9);
-}
-
-.showcase-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 24px;
+/* ===== 仿三星堆：整屏背景 + 右侧文字 ===== */
+.feature-panel {
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  gap: 72px;
-}
-
-.showcase-inner-reverse {
-  flex-direction: row-reverse;
-}
-
-.showcase-image {
-  flex: 0 0 42%;
-  height: 360px;
-  border-radius: 32px;
-  background-color: #020617;
+  justify-content: flex-end; /* 文字在右侧 */
+  padding: 0 6vw;
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center center;
-  box-shadow: 0 32px 60px rgba(15, 23, 42, 0.9);
-  position: relative;
-  overflow: hidden;
+  background-repeat: no-repeat;
 }
 
-.showcase-image::before {
+/* 左边是重图，右边是内容，所以做一个从右到左的渐变遮罩 */
+.feature-panel::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.6));
+  background: linear-gradient(
+    to left,
+    rgba(3, 7, 18, 0.96) 0%,
+    rgba(3, 7, 18, 0.82) 24%,
+    rgba(3, 7, 18, 0.4) 56%,
+    rgba(3, 7, 18, 0.05) 100%
+  );
 }
 
-/* 这里是每个模块对应的图片：你可以替换成自己的文件名 */
-.showcase-image-destiny {
-  background-image: url("destiny-section.jpg");
-}
-
-.showcase-image-fengshui {
-  background-image: url("fengshui-section.jpg");
-}
-
-.showcase-image-shop {
-  background-image: url("shop-section.jpg");
-}
-
-.showcase-image-history {
-  background-image: url("history-section.jpg");
-}
-
-.showcase-image-contact {
-  background-image: url("contact-section.jpg");
-}
-
-.showcase-copy {
-  flex: 1;
+.feature-inner {
+  position: relative;
+  max-width: 420px;
+  text-align: left;
   color: #e5e7eb;
 }
 
-.showcase-kicker {
+.feature-kicker {
   font-size: 11px;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: #facc15;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.showcase-heading {
+.feature-title {
   font-size: 26px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-.showcase-body {
+.feature-body {
   font-size: 14px;
   line-height: 1.9;
   color: #cbd5f5;
   margin-bottom: 10px;
 }
 
-.showcase-meta {
+.feature-note {
   font-size: 13px;
   color: #9ca3af;
   margin-bottom: 22px;
 }
 
-.showcase-actions {
+.feature-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+/* 每个模块对应自己的整屏背景图
+   ——你只要按这个文件名上传图片即可 */
+.feature-destiny {
+  background-image: url("destiny_bg.jpg");
+}
+
+.feature-fengshui {
+  background-image: url("fengshui_bg.jpg");
+}
+
+.feature-shop {
+  background-image: url("shop_bg.jpg");
+}
+
+.feature-history {
+  background-image: url("history_bg.jpg");
+}
+
+.feature-contact {
+  background-image: url("contact_bg.jpg");
 }
 
 /* ===== 页脚 ===== */
@@ -302,7 +293,7 @@ main {
   flex-wrap: wrap;
 }
 
-/* ===== 表单 / 弹窗样式 ===== */
+/* ===== 弹窗 / 表单 ===== */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -415,28 +406,25 @@ main {
     font-size: 30px;
   }
 
-  .showcase-inner,
-  .showcase-inner-reverse {
-    flex-direction: column;
-    padding: 56px 20px;
-    gap: 32px;
-  }
-
-  .showcase-image {
-    width: 100%;
-    height: 240px;
-  }
-
-  .showcase-heading {
-    font-size: 22px;
-  }
-
   .nav {
     gap: 12px;
   }
 
   .nav a {
     font-size: 11px;
+  }
+
+  .feature-panel {
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .feature-panel::before {
+    background: radial-gradient(circle at 50% 0, rgba(3, 7, 18, 0.96), rgba(3, 7, 18, 0.6));
+  }
+
+  .feature-inner {
+    max-width: 520px;
   }
 
   .form-row {

@@ -1,15 +1,24 @@
  /* ===== Reset & Base ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  background: #f5f5f5;
-  color: #111827;
+  background: #020617;            /* 整体深色底 */
+  color: #e5e7eb;
   line-height: 1.6;
 }
-a { color: inherit; text-decoration: none; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* 子页面 main 用（首页不用 main） */
+/* 子页面用的 main（首页不用 main） */
 main {
   max-width: 1000px;
   margin: 0 auto;
@@ -19,14 +28,16 @@ main {
 /* ===== Header & Navigation ===== */
 .site-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 40;
   background: transparent;
   transition: background .25s ease, box-shadow .25s ease;
 }
 .site-header.scrolled {
-  background: #ffffff;
-  box-shadow: 0 2px 12px rgba(15,23,42,.08);
+  background: rgba(2, 6, 23, 0.94);      /* 滚动后深色半透明导航 */
+  box-shadow: 0 2px 18px rgba(15, 23, 42, 0.65);
 }
 .site-header-inner {
   max-width: 1180px;
@@ -37,11 +48,13 @@ main {
 }
 .logo {
   font-size: 13px;
-  letter-spacing: .18em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
 }
-.logo a { color: #111827; }
+.logo a {
+  color: #e5e7eb;
+}
 
 .nav {
   margin-left: auto;
@@ -50,52 +63,63 @@ main {
 }
 .nav a {
   font-size: 13px;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #f9fafb;
+  color: #e5e7eb;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   transition: color .2s ease, border-color .2s ease;
 }
-.site-header.scrolled .nav a {
-  color: #111827;
-}
 .nav a:hover {
-  border-bottom-color: #111827;
+  border-bottom-color: #facc15;          /* 金色下划线 */
+  color: #facc15;
 }
 
 /* ===== Buttons ===== */
 .btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:9px 22px;
-  border-radius:999px;
-  font-size:13px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  cursor:pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
   transition: background .18s ease, color .18s ease, border-color .18s ease;
 }
+
+/* 主按钮：金色，仪式感一点 */
 .btn-primary {
-  background:#111827;
-  border-color:#111827;
-  color:#f9fafb;
+  background: #fbbf24;
+  border-color: #fbbf24;
+  color: #111827;
 }
-.btn-primary:hover { background:#020617; border-color:#020617; }
+.btn-primary:hover {
+  background: #facc15;
+  border-color: #facc15;
+}
+
+/* 透明按钮：白色描边，配合深色背景 */
 .btn-ghost {
-  background:transparent;
-  border-color:#e5e7eb;
-  color:#e5e7eb;
+  background: transparent;
+  border-color: rgba(248, 250, 252, 0.4);
+  color: #e5e7eb;
 }
-.btn-ghost:hover { background:rgba(249,250,251,.1); }
+.btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(248, 250, 252, 0.75);
+}
+
 .btn-secondary {
-  background:transparent;
-  border-color:#e5e7eb;
-  color:#111827;
+  background: transparent;
+  border-color: #4b5563;
+  color: #e5e7eb;
 }
-.btn-secondary:hover { background:#f3f4f6; }
+.btn-secondary:hover {
+  background: #111827;
+}
 
 /* ===== Hero with main statue image ===== */
 .hero {
@@ -106,18 +130,19 @@ main {
   justify-content: center;
   background:
     #020617
-    url("hero-main.jpg") center center / cover no-repeat;
+    url("hero-main.jpg") center center / cover no-repeat; /* 这里用你的主图文件名 */
   color: #f9fafb;
   position: relative;
 }
+
+/* 深色遮罩，保证文字清晰，但比之前更亮一点 */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  /* 适当减弱遮罩，让图片更亮一点 */
   background-image:
-    linear-gradient(120deg, rgba(15,23,42,.65), rgba(15,23,42,.20)),
-    linear-gradient(180deg, rgba(15,23,42,.05), rgba(15,23,42,.55));
+    linear-gradient(120deg, rgba(15, 23, 42, 0.60), rgba(15, 23, 42, 0.20)),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.55));
   opacity: 0.90;
   pointer-events: none;
 }
@@ -126,25 +151,25 @@ main {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
-  padding: 140px 0 100px;
+  padding: 140px 0 110px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .hero-copy {
   max-width: 640px;
-  text-align: center;           /* 文字居中 */
+  text-align: center;           /* 主图文字居中 */
 }
 .hero-kicker {
   font-size: 11px;
-  letter-spacing: .22em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #e5e7eb;
   margin-bottom: 16px;
 }
 .hero-title {
   font-size: 40px;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 18px;
 }
@@ -165,77 +190,107 @@ main {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;      /* 按钮也居中 */
+  justify-content: center;
 }
 
-/* ===== Home bands (five modules) ===== */
-.home-bands { background:#f5f5f5; }
+/* ===== Home bands (five modules) – 道教深色风格 ===== */
+.home-bands {
+  background: #020617;
+}
 
+/* 整块区域：深色背景 + 细分割线 */
 .band {
   width: 100%;
-  padding: 80px 24px;
-  background:#f9fafb;
+  padding: 90px 24px;
+  background: #020617;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
 }
-.band:nth-child(2n) { background:#ffffff; }
 
+/* 左图右文布局（与原 HTML 对应） */
 .band-inner {
   max-width: 1180px;
   margin: 0 auto;
-  display:grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: 40px;
-  align-items:center;
+  align-items: center;
 }
 .band.reverse .band-inner {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
 }
 
+/* 左边“色块 / 背景图” */
 .band-media {
-  position:relative;
-  border-radius: 26px;
-  overflow:hidden;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
   min-height: 260px;
-  background-size:cover;
-  background-position:center;
-  box-shadow:0 22px 62px rgba(15,23,42,.25);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.55);
 }
-.band.reverse .band-media { order: 2; }
+.band.reverse .band-media {
+  order: 2;
+}
 
-/* placeholder backgrounds, later you can replace with real images */
-.band-media.destiny { background-image: linear-gradient(135deg,#111827,#4b5563); }
-.band-media.fengshui { background-image: linear-gradient(135deg,#065f46,#10b981); }
-.band-media.shop { background-image: linear-gradient(135deg,#9f1239,#fb7185); }
-.band-media.history { background-image: linear-gradient(135deg,#374151,#9ca3af); }
-.band-media.contact { background-image: linear-gradient(135deg,#4c1d95,#a855f7); }
+/* 每个模块的颜色（后面你可以替换成具体图片） */
+.band-media.destiny {
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(248, 250, 252, 0.20), transparent 55%),
+    linear-gradient(135deg, #020617, #111827);
+}
+.band-media.fengshui {
+  background-image:
+    radial-gradient(circle at 0% 100%, rgba(45, 212, 191, 0.25), transparent 55%),
+    linear-gradient(135deg, #022c22, #065f46);
+}
+.band-media.shop {
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(248, 113, 113, 0.28), transparent 55%),
+    linear-gradient(135deg, #451a1a, #7f1d1d);
+}
+.band-media.history {
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(191, 219, 254, 0.25), transparent 55%),
+    linear-gradient(135deg, #111827, #4b5563);
+}
+.band-media.contact {
+  background-image:
+    radial-gradient(circle at 100% 100%, rgba(196, 181, 253, 0.28), transparent 55%),
+    linear-gradient(135deg, #1f2937, #312e81);
+}
 
-/* text block inside bands */
+/* 文案部分：浅色文字 + 金色小标题 */
 .band-copy-kicker {
-  font-size:11px;
-  letter-spacing:.20em;
-  text-transform:uppercase;
-  color:#9f1239;
-  margin-bottom:8px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #facc15;
+  margin-bottom: 8px;
 }
 .band-copy-title {
-  font-size:26px;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  margin-bottom:10px;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #f9fafb;
 }
 .band-copy-body {
-  font-size:14px;
-  color:#4b5563;
-  margin-bottom:16px;
+  font-size: 14px;
+  color: #e5e7eb;
+  max-width: 520px;
+  margin-bottom: 14px;
 }
 .band-copy-meta {
-  font-size:12px;
-  color:#9ca3af;
-  margin-bottom:16px;
+  font-size: 12px;
+  color: #9ca3af;
+  max-width: 520px;
+  margin-bottom: 18px;
 }
 .band-actions {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* ===== Fade-in animation for .reveal ===== */
@@ -251,40 +306,57 @@ main {
 
 /* ===== Footer ===== */
 .footer {
-  border-top:1px solid #e5e7eb;
-  padding:18px 24px 24px;
-  font-size:12px;
-  color:#9ca3af;
-  background:#ffffff;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 18px 24px 24px;
+  font-size: 12px;
+  color: #6b7280;
+  background: #020617;
   margin-top: 60px;
 }
 .footer-inner {
-  max-width:1180px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  flex-wrap:wrap;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .hero-inner {
     padding-top: 120px;
-    padding-bottom: 80px;
+    padding-bottom: 90px;
   }
-  .hero-title { font-size: 32px; }
-  .nav { gap: 14px; }
-  .nav a { font-size: 11px; }
+  .hero-title {
+    font-size: 32px;
+  }
+  .nav {
+    gap: 14px;
+  }
+  .nav a {
+    font-size: 11px;
+  }
+
   .band-inner {
     grid-template-columns: minmax(0, 1fr);
   }
-  .band.reverse .band-media { order: 0; }
+  .band.reverse .band-media {
+    order: 0;
+  }
 }
 
 @media (max-width: 640px) {
-  .hero-title { font-size: 26px; }
-  .hero-subtitle { font-size: 14px; }
-  main { padding-top: 90px; }
-  .band { padding: 60px 18px; }
+  .hero-title {
+    font-size: 26px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+  }
+  main {
+    padding-top: 90px;
+  }
+  .band {
+    padding: 70px 18px;
+  }
 }

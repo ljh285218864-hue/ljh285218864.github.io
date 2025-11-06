@@ -125,15 +125,11 @@ main {
 
 /* ===== 顶部神像 Hero（保持原样） ===== */
 /* ===== 顶部主图 Hero（神像） ===== */
+/* 顶部神像 Hero：只用图片当背景，不叠第一层深色渐变 */
 .hero {
   min-height: 100vh;
   padding: 120px 24px 80px;
-  background-image:
-    linear-gradient(
-      rgba(8, 11, 20, 0.78),
-      rgba(15, 23, 42, 0.88)
-    ),
-    url("hero_main_statue.jpg");
+  background-image: url("hero_main_statue.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -142,15 +138,20 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
+  position: relative; /* 让 overlay 可以绝对定位在内部 */
 }
 
 
+
+/* Hero 的蒙版：只保留一层，整体更亮一点 */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 0, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.88)),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.9));
+  background:
+    radial-gradient(circle at 20% 0, rgba(15, 23, 42, 0.10), rgba(15, 23, 42, 0.45)),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.20), rgba(15, 23, 42, 0.65));
 }
+
 
 .hero-inner {
   position: relative;

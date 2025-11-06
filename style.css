@@ -681,3 +681,136 @@ main {
     min-height: 180px;
   }
 }
+/* ===== Home lower bands – museum style ===== */
+
+.home-bands {
+  background: #020617;          /* 深蓝底，和主图衔接 */
+  padding: 80px 0 96px;
+}
+
+/* 每一块模块 */
+.band {
+  padding: 72px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+.band:last-child {
+  border-bottom: none;
+}
+
+.band-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+/* 左侧 / 右侧图片区域 */
+.band-media {
+  flex: 0 0 40%;
+  height: 360px;
+  border-radius: 34px;
+  background-color: #020617;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.9);
+  position: relative;
+}
+
+/* 在图片上加一点暗渐变，文字会更有气氛 */
+.band-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.55));
+}
+
+/* 右侧文字区域 */
+.band-copy {
+  flex: 1;
+  color: #e5e7eb;
+}
+
+.band-kicker {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #facc15;   /* 金色小标题 */
+  margin-bottom: 12px;
+}
+
+.band-title {
+  font-size: 28px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.band-body {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #cbd5f5;
+  margin-bottom: 18px;
+}
+
+.band-meta {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 22px;
+}
+
+.band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.band-actions .btn {
+  font-size: 13px;
+  padding: 8px 22px;
+  border-radius: 999px;
+}
+
+/* 交错布局：第 2、4、…块左右互换 */
+.band:nth-child(even) .band-inner {
+  flex-direction: row-reverse;
+}
+
+/* ===== 每个模块的图片（先用你自己的图片文件名替换） ===== */
+/* 没有图片时会只显示一个深色矩形，不影响排版 */
+
+.band-media-destiny {
+  background-image: url("destiny-section.jpg");
+}
+
+.band-media-fengshui {
+  background-image: url("fengshui-section.jpg");
+}
+
+.band-media-shop {
+  background-image: url("shop-section.jpg");
+}
+
+.band-media-history {
+  background-image: url("history-section.jpg");
+}
+
+.band-media-contact {
+  background-image: url("contact-section.jpg");
+}
+
+/* ===== 下半部分在手机上的显示 ===== */
+@media (max-width: 960px) {
+  .band-inner {
+    flex-direction: column;
+    padding: 0 24px;
+  }
+  .band:nth-child(even) .band-inner {
+    flex-direction: column;
+  }
+  .band-media {
+    width: 100%;
+    height: 240px;
+  }
+}

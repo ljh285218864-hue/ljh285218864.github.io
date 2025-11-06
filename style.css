@@ -549,7 +549,7 @@ main {
     flex-direction: column;
   }
 }
-/* ===== Destiny page layout (single-column, wide form) ===== */
+/* ===== Destiny page layout (single-column, centered) ===== */
 
 .destiny-hero {
   max-width: 1100px;
@@ -559,21 +559,23 @@ main {
 
 .destiny-hero-inner {
   max-width: 720px;
+  margin: 0 auto;        /* 整块居中 */
+  text-align: center;    /* 文案居中 */
 }
 
 .destiny-hero-kicker {
-  font-size: 11px;
+  font-size: 13px;       /* 比之前更大一点 */
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: #facc15;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .destiny-hero-title {
-  font-size: 30px;
+  font-size: 32px;       /* 主标题稍微变大一点 */
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .destiny-hero-subtitle {
@@ -583,9 +585,117 @@ main {
 }
 
 .destiny-hero-note {
-  font-size: 12px;
+  font-size: 13px;
   color: #9ca3af;
 }
+
+/* 一列布局：表单整体横向更宽，居中 */
+
+.destiny-layout {
+  max-width: 1100px;
+  margin: 0 auto 88px;
+  padding: 8px 24px 96px;
+}
+
+.destiny-form-wrap {
+  max-width: 640px;     /* 表单卡片更宽一些 */
+  margin: 0 auto;       /* 居中 */
+}
+
+.destiny-form-title {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.destiny-form-intro {
+  font-size: 14px;
+  color: #9ca3af;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.destiny-form {
+  width: 100%;
+  margin-top: 4px;
+  background: #020617;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 18px 18px 22px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+}
+
+/* 利用你原来的通用表单样式：
+   .form-row / .form-field / .form-input / .form-textarea ... */
+
+.destiny-gender-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.destiny-gender-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+/* 价格 + 付款按钮 横向排列 */
+
+.destiny-price-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.destiny-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.destiny-price-label {
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.destiny-price-amount {
+  font-size: 16px;
+  font-weight: 600;
+  color: #facc15;
+}
+
+.destiny-pay-btn {
+  white-space: nowrap;
+}
+
+.destiny-form-note {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 10px;
+}
+
+/* 响应式：手机上一样只是一列 */
+
+@media (max-width: 900px) {
+  .destiny-layout {
+    padding-bottom: 72px;
+  }
+
+  .destiny-form-wrap {
+    max-width: 100%;
+  }
+
+  .destiny-form {
+    padding: 16px 14px 18px;
+  }
+}
+
 
 /* 一列布局：表单整体横向更宽，居中 */
 

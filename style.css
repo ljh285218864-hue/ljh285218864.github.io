@@ -82,6 +82,9 @@ main {
 
 /* ===== Hero ===== */
 
+/* 顶部导航同之前，可以保持不动 */
+
+/* ===== Hero 部分 ===== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -92,13 +95,12 @@ main {
   text-align: center;
 
   background-image:
-    linear-gradient(to bottom, rgba(5, 10, 25, 0.25), rgba(5, 10, 25, 0.85)),
+    linear-gradient(to bottom, rgba(5, 10, 25, 0.25), rgba(5, 10, 25, 0.78)),
     url("hero-main.jpg");
   background-size: cover;
   background-position: center;
 }
 
-/* soft fade into dark background below */
 .hero::after {
   content: "";
   position: absolute;
@@ -111,7 +113,7 @@ main {
 }
 
 .hero-inner {
-  max-width: 720px;
+  max-width: 640px;   /* 稍微窄一点，看起来更聚焦 */
   margin: 0 auto;
 }
 
@@ -121,11 +123,11 @@ main {
   text-transform: uppercase;
   color: #e5e7eb;
   opacity: 0.9;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .hero-title {
-  font-size: 34px;
+  font-size: 32px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin: 0 0 18px;
@@ -142,7 +144,7 @@ main {
   font-size: 12px;
   color: #9ca3af;
   max-width: 540px;
-  margin: 0 auto 24px;
+  margin: 0 auto 22px;
 }
 
 .hero-actions {
@@ -151,6 +153,7 @@ main {
   gap: 14px;
   flex-wrap: wrap;
 }
+
 
 /* ===== Buttons ===== */
 

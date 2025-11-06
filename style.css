@@ -1,134 +1,468 @@
  /* ===== Reset & Base ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:#fdf2f2; color:#111827; line-height:1.6;
-}
-a { color: inherit; text-decoration: none; }
-main { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
-
-/* ===== 固定导航 ===== */
-.site-header{
-  position:fixed; inset:0 auto auto 0; right:0; height:auto;
-  background:rgba(127,29,29,.92); color:#fef2f2;
-  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-  z-index:50;
-}
-.site-header-inner{
-  max-width:1200px; margin:0 auto; padding:10px 24px;
-  display:flex; align-items:center;
-}
-.logo{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; }
-.logo a{ color:#fee2e2; }
-.nav{ margin-left:auto; display:flex; gap:22px; }
-.nav a{ font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#fee2e2; padding-bottom:2px; border-bottom:2px solid transparent; }
-.nav a:hover{ border-bottom-color:#fef2f2; }
-
-/* ===== 顶部红色 Hero ===== */
-.hero{
-  min-height:90vh; padding:120px 24px 80px;
-  background:linear-gradient(135deg,#7f1d1d,#b91c1c);
-  color:#fef2f2; display:flex; align-items:center; justify-content:center;
-}
-.hero-inner{ max-width:780px; text-align:center; }
-.hero-kicker{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#fecaca; margin-bottom:10px; }
-.hero-title{ font-size:32px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; }
-.hero-subtitle{ font-size:15px; color:#fee2e2; margin-bottom:22px; }
-.hero-actions{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
-
-/* ===== 按钮 ===== */
-.btn{
-  display:inline-block; padding:9px 22px; border-radius:999px; font-size:14px;
-  border:1px solid #fef2f2; background:#fef2f2; color:#7f1d1d; cursor:pointer;
-}
-.btn-secondary{ background:transparent; color:#fef2f2; }
-.btn:hover{ background:#fee2e2; color:#7f1d1d; }
-.btn-secondary:hover{ background:rgba(254,242,242,.16); }
-
-/* ===== Apple 风格：整屏 Feature 模块 ===== */
-.feature { 
-  padding:80px 0 60px; 
-  display:grid; place-items:center; text-align:center;
-}
-.feature.dark{ background:#000; color:#fff; }
-.feature.light{ background:#f6f6f6; color:#111; }
-.feature .title{
-  font-size:42px; font-weight:700; letter-spacing:.02em; margin-top:12px;
-}
-.feature .subtitle{
-  font-size:18px; opacity:.9; margin:8px 0 16px;
-}
-.feature .cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-.btn-primary{
-  background:#0071e3; border-color:#0071e3; color:#fff;
-}
-.btn-outline{
-  background:transparent; border-color:#0071e3; color:#0071e3;
-}
-.btn-primary:hover{ filter:brightness(1.06); }
-.btn-outline:hover{ background:rgba(0,113,227,.08); }
-
-/* 下方“图片区域”（可替换为你自己的图片） */
-.feature-visual{
-  width:min(1200px,96vw);
-  height:clamp(260px,42vw,520px);
-  border-radius:24px;
-  margin-top:22px;
-  background-size:cover; background-position:center;
-  box-shadow:0 22px 60px rgba(0,0,0,.28);
-}
-/* 5 个默认占位（渐变）。之后只要给相应模块改成 background-image:url(...) 即可 */
-.visual-destiny{
-  background-image:linear-gradient(140deg,#1f2937 0%,#111827 30%,#6b7280 100%);
-}
-.visual-fengshui{
-  background-image:linear-gradient(135deg,#d1fae5,#065f46);
-}
-.visual-shop{
-  background-image:linear-gradient(135deg,#fee2e2,#9f1239);
-}
-.visual-history{
-  background-image:linear-gradient(135deg,#e5e7eb,#4b5563);
-}
-.visual-contact{
-  background-image:linear-gradient(135deg,#ddd6fe,#4c1d95);
+  background: #fdf2f2;
+  color: #111827;
+  line-height: 1.6;
 }
 
-/* ===== 其余通用块（如果首页下面还保留你的内容） ===== */
-.section{ margin-top:80px; }
-.section-heading{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#9f1239; margin-bottom:6px; }
-.section-title{ font-size:24px; margin-bottom:8px; }
-.section-intro{ font-size:14px; color:#4b5563; max-width:680px; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* 表单/卡片等保留（省略原有部分可按需继续使用） */
-.form-block{ margin-top:24px; background:#fff; border-radius:18px; border:1px solid #fecaca; padding:18px 18px 20px; }
+main {
+  max-width: 1000px;   /* 内容区稍微窄一点 */
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ===== 顶部固定导航 ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(127, 29, 29, 0.92);
+  color: #fef2f2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.site-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.logo a {
+  color: #fee2e2;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fee2e2;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+  border-bottom-color: #fef2f2;
+}
+
+/* ===== 顶部红色 Hero（保持不变的大图） ===== */
+.hero {
+  min-height: 90vh;
+  padding: 120px 24px 80px; /* 顶部留出导航高度 */
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+  color: #fef2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-inner {
+  max-width: 780px;
+  text-align: center;
+}
+
+.hero-kicker {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fecaca;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: #fee2e2;
+  margin-bottom: 22px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ===== 按钮样式 ===== */
+.btn {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  border: 1px solid #fef2f2;
+  background: #fef2f2;
+  color: #7f1d1d;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fef2f2;
+}
+
+.btn:hover {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.btn-secondary:hover {
+  background: rgba(254, 242, 242, 0.16);
+}
+
+/* 蓝色主按钮 / 线框按钮：给下面模块用，类似 Apple */
+.btn-primary {
+  background: #0071e3;
+  border-color: #0071e3;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #0071e3;
+  color: #0071e3;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 113, 227, 0.08);
+}
+
+/* ===== 首页模块容器（Hero 下面的区域） ===== */
+.modules-container {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.module-row {
+  margin-top: 60px;
+}
+
+/* 通用模块卡片：整块用背景图 */
+.module-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 220px;
+  color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.35);
+}
+
+/* 叠一层渐变，让文字在照片上更清晰 */
+.module-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.8),
+    rgba(15, 23, 42, 0.35)
+  );
+}
+
+.module-inner {
+  position: relative;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* 三个模块：命运解读 / 风水 / 店铺 —— 横向布局 */
+.module-horizontal .module-inner {
+  flex-direction: row;
+}
+
+/* 两个模块：道教历史 / 接触 —— 卡片本身偏竖直，文字居左 */
+.module-small .module-inner {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.module-copy {
+  max-width: 620px;
+}
+
+.module-tag {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.module-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.module-subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.module-cta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 道教历史 + 接触：左右并排 */
+.module-row-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* 每个模块的默认背景（先用渐变占位，将来你换成图片） */
+.module-destiny {
+  background-image: linear-gradient(140deg, #1f2937, #111827);
+}
+
+.module-fengshui {
+  background-image: linear-gradient(135deg, #d1fae5, #065f46);
+}
+
+.module-shop {
+  background-image: linear-gradient(135deg, #fee2e2, #9f1239);
+}
+
+.module-history {
+  background-image: linear-gradient(135deg, #e5e7eb, #4b5563);
+}
+
+.module-contact {
+  background-image: linear-gradient(135deg, #ddd6fe, #4c1d95);
+}
+
+/* ===== 表单样式（问题表单 / 联系表单用） ===== */
+.form-block {
+  margin-top: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #fecaca;
+  padding: 22px 22px 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+.form-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.form-field {
+  flex: 1;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 9px 11px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 1px rgba(185, 28, 28, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-note {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 12px;
+}
+
+/* ===== Section 通用标题（其他页面可用） ===== */
+.section {
+  margin-top: 80px;
+}
+
+.section-heading {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9f1239;
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.section-intro {
+  font-size: 14px;
+  color: #4b5563;
+  max-width: 680px;
+}
 
 /* ===== Footer ===== */
-.footer{ border-top:1px solid #fecaca; padding:16px 24px 24px; font-size:12px; color:#9ca3af; }
-.footer-inner{ max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+.footer {
+  border-top: 1px solid #fecaca;
+  padding: 16px 24px 24px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
 /* ===== 10 秒弹窗 ===== */
-.popup-overlay{ position:fixed; inset:0; background:rgba(15,23,42,.7); display:none; align-items:center; justify-content:center; z-index:100; }
-.popup{
-  background:#fff; border-radius:18px; border:1px solid #e5e7eb;
-  padding:20px 18px 18px; max-width:420px; width:90%; position:relative; box-shadow:0 20px 40px rgba(15,23,42,.45);
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
-.popup h2{ font-size:18px; margin-bottom:4px; }
-.popup p{ font-size:13px; color:#4b5563; }
-.popup-close{ border:none; background:transparent; font-size:18px; line-height:1; cursor:pointer; position:absolute; top:10px; right:12px; color:#6b7280; }
-.popup-actions{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
-.popup-note{ font-size:11px; color:#9ca3af; margin-top:8px; }
+
+.popup {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 20px 18px 18px;
+  max-width: 420px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45);
+}
+
+.popup h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.popup p {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.popup-close {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #6b7280;
+}
+
+.popup-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.popup-note {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
 
 /* ===== 响应式 ===== */
-@media (max-width: 900px){
-  .feature .title{ font-size:36px; }
-  .feature .subtitle{ font-size:16px; }
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .module-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
-@media (max-width: 600px){
-  .nav{ gap:12px; }
-  .nav a{ font-size:12px; }
-  .feature{ padding:64px 0 48px; }
-  .feature .title{ font-size:28px; }
-  .feature-visual{ border-radius:16px; }
+
+@media (max-width: 640px) {
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  .module-row-split {
+    grid-template-columns: 1fr; /* 道教历史 / 接触 在手机上上下排 */
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
 }

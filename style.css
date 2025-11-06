@@ -124,18 +124,26 @@ main {
 }
 
 /* ===== 顶部神像 Hero（保持原样） ===== */
+/* ===== 顶部主图 Hero（神像） ===== */
 .hero {
-  position: relative;
   min-height: 100vh;
-  background-image: url("hero-main.jpg"); /* 你现在用的主图 */
+  padding: 120px 24px 80px;
+  background-image:
+    linear-gradient(
+      rgba(8, 11, 20, 0.78),
+      rgba(15, 23, 42, 0.88)
+    ),
+    url("hero_main_statue.jpg");
   background-size: cover;
   background-position: center center;
+  background-repeat: no-repeat;
+  color: #f9fafb;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #f9fafb;
 }
+
 
 .hero-overlay {
   position: absolute;

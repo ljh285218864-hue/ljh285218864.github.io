@@ -1,30 +1,30 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shop – Taoist Destiny Studio</title>
+  <title>店铺 – Taoist Destiny Studio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="site-header">
-  <div class="header-inner">
+  <div class="site-header-inner">
     <div class="logo">
       <a href="index.html">Taoist Destiny Studio</a>
     </div>
     <nav class="nav">
-      <a href="destiny.html">Destiny Readings</a>
-      <a href="fengshui.html">Feng Shui</a>
-      <a href="shop.html">Shop</a>
-      <a href="history.html">Taoist History</a>
-      <a href="contact.html">Contact</a>
+      <a href="destiny.html">命运解读</a>
+      <a href="fengshui.html">风水</a>
+      <a href="shop.html">店铺</a>
+      <a href="history.html">道教历史</a>
+      <a href="contact.html">接触</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">Shop</div>
+    <div class="hero-kicker">店铺</div>
     <div class="hero-title">Symbolic items & talismans</div>
     <p class="hero-subtitle">
       This page will host spiritual items such as talismans and small altar objects. 
@@ -33,7 +33,7 @@
   </div>
 </section>
 
-<main class="page">
+<main>
   <section class="section">
     <div class="section-heading">Structure</div>
     <div class="section-title">Example product layout</div>
@@ -44,25 +44,19 @@
 
     <div class="cards-grid">
       <article class="card">
-        <div class="card-meta">Talisman</div>
-        <h3>Protection talisman (example)</h3>
+        <div class="card-meta">Example item</div>
+        <h3>Protection talisman (placeholder)</h3>
         <p>
-          A symbolic paper or metal talisman intended as a reminder of protection and steadiness.
-          Not a guarantee of physical safety.
-        </p>
-        <p class="card-footer">
-          Placeholder: price, short instructions, and a “Contact to purchase” note.
+          A symbolic talisman meant as a reminder of steadiness and protection.
+          It is not a guarantee of physical safety or external outcomes.
         </p>
       </article>
 
       <article class="card">
-        <div class="card-meta">Altar piece</div>
-        <h3>Small altar ornament (example)</h3>
+        <div class="card-meta">Example item</div>
+        <h3>Intention bracelet (placeholder)</h3>
         <p>
-          A small object to place on a personal altar or quiet corner, used as a visual anchor for your intention.
-        </p>
-        <p class="card-footer">
-          Placeholder: material, size, and basic care instructions.
+          A bracelet used as a daily reminder of an intention such as patience, courage, or honesty.
         </p>
       </article>
     </div>
@@ -75,53 +69,6 @@
     <span>Spiritual reflection only · Not a substitute for professional advice.</span>
   </div>
 </footer>
-
-<div class="popup-overlay" id="leadPopup">
-  <div class="popup">
-    <button class="popup-close" type="button" aria-label="Close popup">×</button>
-    <h2>Ask about a product</h2>
-    <p>
-      If you see an item you like, you can later use this popup to send a request. 
-      For now, it shows the fields that will be needed.
-    </p>
-
-    <form class="popup-form">
-      <div class="form-field">
-        <label class="form-label">Which item are you interested in?</label>
-        <input class="form-input" type="text" placeholder="Name of talisman or item" />
-      </div>
-      <div class="form-field">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" />
-      </div>
-      <div class="form-field">
-        <label class="form-label">WhatsApp (optional)</label>
-        <input class="form-input" type="text" />
-      </div>
-
-      <p class="popup-note">
-        This popup will later be connected to a real request flow and table-based tracking.
-      </p>
-    </form>
-  </div>
-</div>
-
-<script>
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      var overlay = document.getElementById('leadPopup');
-      if (overlay) overlay.style.display = 'flex';
-    }, 10000);
-
-    var closeBtn = document.querySelector('.popup-close');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function () {
-        var overlay = document.getElementById('leadPopup');
-        if (overlay) overlay.style.display = 'none';
-      });
-    }
-  });
-</script>
 
 </body>
 </html>

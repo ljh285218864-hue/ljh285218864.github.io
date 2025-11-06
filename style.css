@@ -175,6 +175,10 @@ a {
 main {
   padding-top: 72px; /* 给导航留空间 */
 }
+/* 首页：让主内容顶到最上，让导航直接压在人像主图上 */
+.home main {
+  padding-top: 0;
+}
 
 /* ===== Hero 主图（人像） ===== */
 .hero {

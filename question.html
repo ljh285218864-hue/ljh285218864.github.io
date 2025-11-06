@@ -5,89 +5,86 @@
   <title>Question Form – Taoist Destiny Studio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="subpage">
 
-<!-- 导航：回到各个页面 -->
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="site-header-inner">
-    <div class="logo">
-      <a href="index.html">Taoist Destiny Studio</a>
-    </div>
+    <div class="logo"><a href="index.html">Taoist Destiny Studio</a></div>
     <nav class="nav">
-      <a href="destiny.html">命运解读</a>
-      <a href="fengshui.html">风水</a>
-      <a href="shop.html">店铺</a>
-      <a href="history.html">道教历史</a>
-      <a href="contact.html">接触</a>
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-kicker">Question form</div>
-    <div class="hero-title">Share your details for a reading</div>
-    <p class="hero-subtitle">
-      This page collects basic information for a Taoist-inspired destiny reading:
-      your question, gender, name, date of birth, email, and WhatsApp contact.
-      It is a structural example – later you can connect it to email or a spreadsheet.
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-kicker">QUESTION FORM</div>
+    <h1 class="page-title">Begin with one sincere question</h1>
+    <p class="page-intro">
+      This form collects the basic information needed for a written destiny reading:
+      your name, birth details, preferred contact, and one or a few questions.
+      Payment and final arrangements can be confirmed by email or WhatsApp.
     </p>
   </div>
-</section>
+</div>
 
 <main>
-  <section class="section">
-    <div class="section-heading">Main questionnaire</div>
-    <div class="section-title">Information to request a destiny reading</div>
-    <p class="section-intro">
-      Please note: this form is currently static and does not send or store data automatically.
-      It is designed as a framework so you can later connect it to a real collection tool.
-    </p>
-
-    <div class="form-block">
-      <form>
-        <div class="form-field">
-          <label class="form-label">What would you like to ask?</label>
-          <textarea class="form-textarea" placeholder="One main question in English"></textarea>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label">Full name</label>
-            <input class="form-input" type="text" placeholder="Name as you prefer to be addressed" />
+  <section class="page-section">
+    <div class="page-section-inner">
+      <div class="form-block">
+        <!-- 这里只是前端表单，你以后可以接第三方收集工具 -->
+        <form>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Full name</label>
+              <input type="text" class="form-input" placeholder="Your full name" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Gender (optional)</label>
+              <input type="text" class="form-input" placeholder="e.g. female / male / non-binary" />
+            </div>
           </div>
-          <div class="form-field">
-            <label class="form-label">Gender</label>
-            <select class="form-select">
-              <option value="">Prefer not to say</option>
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label">Date of birth</label>
-            <input class="form-input" type="date" />
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Date of birth</label>
+              <input type="text" class="form-input" placeholder="YYYY-MM-DD" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Time of birth (if known)</label>
+              <input type="text" class="form-input" placeholder="HH:MM and time zone" />
+            </div>
           </div>
-          <div class="form-field">
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" placeholder="Where to send your reading" />
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="your@email.com" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">WhatsApp (optional)</label>
+              <input type="text" class="form-input" placeholder="+00 000 000 000" />
+            </div>
           </div>
-        </div>
 
-        <div class="form-field" style="margin-top: 10px;">
-          <label class="form-label">WhatsApp (optional)</label>
-          <input class="form-input" type="text" placeholder="Include country code, e.g. +1..." />
-        </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Main question(s)</label>
+              <textarea class="form-textarea" placeholder="Describe one or a few sincere questions you would like the reading to focus on."></textarea>
+            </div>
+          </div>
 
-        <p class="form-note">
-          To collect these fields in a table for statistics, 
-          you can later connect this page to an email inbox, Google Form, or another online spreadsheet tool.
-        </p>
-      </form>
+          <p class="form-note">
+            This form does not automatically send your information yet. In the next step,
+            the studio can connect this interface to an email or form service according
+            to your preferences.
+          </p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
@@ -95,7 +92,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <span>© Taoist Destiny Studio · 2025</span>
-    <span>Spiritual reflection only · Not a substitute for professional advice.</span>
+    <span>Spiritual reflection only – not a substitute for professional advice.</span>
   </div>
 </footer>
 

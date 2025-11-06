@@ -1,470 +1,61 @@
- /* ===== Reset & Base ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #fdf2f2;
-  color: #111827;
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* 默认 main：给其他子页面用（命运解读等） */
-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 24px 80px;
-}
-
-/* ===== 顶部固定导航 ===== */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(127, 29, 29, 0.92);
-  color: #fef2f2;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 50;
-}
-
-.site-header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.logo a {
-  color: #fee2e2;
-}
-
-.nav {
-  margin-left: auto;
-  display: flex;
-  gap: 22px;
-}
-
-.nav a {
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fee2e2;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav a:hover {
-  border-bottom-color: #fef2f2;
-}
-
-/* ===== 顶部红色 Hero（保持不动） ===== */
-.hero {
-  min-height: 90vh;
-  padding: 120px 24px 80px;
-  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
-  color: #fef2f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-inner {
-  max-width: 780px;
-  text-align: center;
-}
-
-.hero-kicker {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #fecaca;
-  margin-bottom: 10px;
-}
-
-.hero-title {
-  font-size: 32px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.hero-subtitle {
-  font-size: 15px;
-  color: #fee2e2;
-  margin-bottom: 22px;
-}
-
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* ===== 按钮，仅 Hero 和 弹窗 用 ===== */
-.btn {
-  display: inline-block;
-  padding: 9px 22px;
-  border-radius: 999px;
-  font-size: 14px;
-  border: 1px solid #fef2f2;
-  background: #fef2f2;
-  color: #7f1d1d;
-  cursor: pointer;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #fef2f2;
-}
-
-.btn:hover {
-  background: #fee2e2;
-  color: #7f1d1d;
-}
-
-.btn-secondary:hover {
-  background: rgba(254, 242, 242, 0.16);
-}
-
-.btn-primary {
-  background: #0071e3;
-  border-color: #0071e3;
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  filter: brightness(1.06);
-}
-
-/* ===== 首页全屏模块区域 ===== */
-
-/* 覆盖首页用的 main：让模块铺满宽度 */
-.modules-wrapper {
-  max-width: 100%;
-  margin: 0;
-  padding: 0 0 80px;
-}
-
-/* 全屏模块：整块可点击 */
-.module-full {
-  display: block;
-  position: relative;
-  width: 100%;
-  min-height: 85vh; /* 比之前更高，空间更宽松 */
-  color: #ffffff;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* 模块之间空隙加大，避免拥挤 */
-.module-full + .module-full {
-  margin-top: 48px;
-}
-
-/* 渐变遮罩，保证文字可读，后续可以改透明度 */
-.module-full::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 10% 0%,
-    rgba(15, 23, 42, 0.9),
-    rgba(15, 23, 42, 0.5)
-  );
-  transition: background 0.2s ease;
-}
-
-.module-full:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.5);
-}
-
-.module-full:hover::before {
-  background: radial-gradient(
-    circle at 10% 0%,
-    rgba(15, 23, 42, 0.86),
-    rgba(15, 23, 42, 0.4)
-  );
-}
-
-/* 模块内部内容：居中且“窄一点” */
-.module-full-inner {
-  position: relative;
-  max-width: 920px;        /* 比 780 更宽，不那么窄 */
-  padding: 80px 32px;      /* 上下留白更大，更不拥挤 */
-  margin: 0 auto;
-  text-align: left;
-}
-
-.module-tag {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.75;
-  margin-bottom: 8px;
-}
-
-.module-title {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.module-subtitle {
-  font-size: 15px;
-  line-height: 1.8;   /* 行距大一点，看起来更松 */
-  opacity: 0.96;
-}
-
-/* 悬浮时出现“进一步了解 →” */
-.module-cta-text {
-  font-size: 13px;
-  margin-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.module-full:hover .module-cta-text {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.module-cta-text .arrow {
-  font-size: 14px;
-}
-
-/* 每个模块的默认背景（用颜色/渐变代替图片占位） */
-.module-destiny {
-  background-image: linear-gradient(135deg, #111827, #4b5563);
-}
-
-.module-fengshui {
-  background-image: linear-gradient(135deg, #065f46, #10b981);
-}
-
-.module-shop {
-  background-image: linear-gradient(135deg, #9f1239, #fb7185);
-}
-
-.module-history {
-  background-image: linear-gradient(135deg, #374151, #9ca3af);
-}
-
-.module-contact {
-  background-image: linear-gradient(135deg, #4c1d95, #a855f7);
-}
-
-/* ===== 表单样式（问题表单 / 联系） ===== */
-.form-block {
-  margin-top: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #fecaca;
-  padding: 22px 22px 24px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-}
-
-.form-row {
-  display: flex;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.form-field {
-  flex: 1;
-}
-
-.form-label {
-  display: block;
-  font-size: 12px;
-  color: #6b7280;
-  margin-bottom: 4px;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  padding: 9px 11px;
-  font-size: 14px;
-  outline: none;
-  background: #ffffff;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: #b91c1c;
-  box-shadow: 0 0 0 1px rgba(185, 28, 28, 0.15);
-}
-
-.form-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-note {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-top: 12px;
-}
-
-/* ===== 通用 section 标题（子页面用） ===== */
-.section {
-  margin-top: 80px;
-}
-
-.section-heading {
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #9f1239;
-  margin-bottom: 6px;
-}
-
-.section-title {
-  font-size: 24px;
-  margin-bottom: 8px;
-}
-
-.section-intro {
-  font-size: 14px;
-  color: #4b5563;
-  max-width: 680px;
-}
-
-/* ===== Footer ===== */
-.footer {
-  border-top: 1px solid #fecaca;
-  padding: 16px 24px 24px;
-  font-size: 12px;
-  color: #9ca3af;
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-/* ===== 10 秒弹窗 ===== */
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.popup {
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  padding: 20px 18px 18px;
-  max-width: 420px;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45);
-}
-
-.popup h2 {
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-
-.popup p {
-  font-size: 13px;
-  color: #4b5563;
-}
-
-.popup-close {
-  border: none;
-  background: transparent;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  color: #6b7280;
-}
-
-.popup-actions {
-  margin-top: 12px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.popup-note {
-  font-size: 11px;
-  color: #9ca3af;
-  margin-top: 8px;
-}
-
-/* ===== 响应式 ===== */
-@media (max-width: 900px) {
-  .hero-title {
-    font-size: 26px;
-  }
-
-  .module-full {
-    min-height: 70vh;
-  }
-
-  .module-full-inner {
-    padding: 64px 24px;
-    max-width: 90vw;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav {
-    gap: 12px;
-  }
-
-  .nav a {
-    font-size: 12px;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shop – Taoist Destiny Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="subpage">
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header-inner">
+    <div class="logo"><a href="index.html">Taoist Destiny Studio</a></div>
+    <nav class="nav">
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-kicker">SHOP</div>
+    <h1 class="page-title">Symbolic items</h1>
+    <p class="page-intro">
+      The shop will gradually offer Taoist-inspired bracelets, talismans, and altar pieces.
+      Each item is meant to be a quiet reminder of your intention, not a tool to control fate.
+    </p>
+  </div>
+</div>
+
+<main>
+  <section class="page-section">
+    <div class="page-section-inner">
+      <h2 class="page-section-title">Current status</h2>
+      <p class="page-section-text">
+        The shop is not yet fully open. When items are ready, this page will display
+        small collections with photos, descriptions, and ways to request them.
+      </p>
+      <p class="page-section-text" style="margin-top:8px;">
+        If you already have a specific type of item in mind, you can contact the studio
+        to ask whether it can be prepared for you.
+      </p>
+      <div style="margin-top:14px;">
+        <a href="contact.html" class="btn btn-primary">Contact the studio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Taoist Destiny Studio · 2025</span>
+    <span>Spiritual reflection only – not a substitute for professional advice.</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #fdf2f2; /* 淡淡的红背景 */
+  background: #fdf2f2; /* 淡红背景 */
   color: #111827;
   line-height: 1.6;
 }
@@ -28,13 +28,13 @@ main {
   padding: 0 24px 80px;
 }
 
-/* ===== 顶部固定导航（左 logo，右 5 个标题） ===== */
+/* ===== 顶部固定导航 ===== */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(127, 29, 29, 0.92); /* 深红半透明 */
+  background: rgba(127, 29, 29, 0.92);
   color: #fef2f2;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -79,11 +79,11 @@ main {
   border-bottom-color: #fef2f2;
 }
 
-/* ===== Hero 顶部大图区（红背景，可后续换背景图） ===== */
+/* ===== Hero 红色大图 ===== */
 .hero {
   min-height: 90vh;
-  padding: 120px 24px 80px; /* 顶部预留 header 高度 */
-  background: linear-gradient(135deg, #7f1d1d, #b91c1c); /* 深红渐变 */
+  padding: 120px 24px 80px;
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
   color: #fef2f2;
   display: flex;
   align-items: center;
@@ -148,7 +148,7 @@ main {
   background: rgba(254, 242, 242, 0.16);
 }
 
-/* ===== 通用 section ===== */
+/* ===== 通用 section 标题文字 ===== */
 .section {
   margin-top: 80px;
 }
@@ -172,7 +172,86 @@ main {
   max-width: 680px;
 }
 
-/* ===== 卡片网格 ===== */
+/* ===== 首页 5 个入口：一条条竖着排，每条里左右布局 ===== */
+.entry-list {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column; /* 垂直向下排列 */
+  gap: 16px;
+}
+
+.entry-link {
+  text-decoration: none;
+}
+
+.entry-item {
+  display: flex;              /* 每一条内部横向排版：左图右文 */
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #fecaca;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.entry-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(127, 29, 29, 0.18);
+  border-color: #fb7185;
+}
+
+/* 左边“图片块” */
+.entry-thumb-block {
+  flex: 0 0 120px;
+  height: 80px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 用渐变当图片占位，将来可改成 background-image:url(...) */
+.entry-thumb-destiny {
+  background: radial-gradient(circle at 20% 20%, #fecaca, #7f1d1d);
+}
+.entry-thumb-fengshui {
+  background: radial-gradient(circle at 20% 20%, #d1fae5, #065f46);
+}
+.entry-thumb-shop {
+  background: radial-gradient(circle at 20% 20%, #fee2e2, #9f1239);
+}
+.entry-thumb-history {
+  background: radial-gradient(circle at 20% 20%, #e5e7eb, #4b5563);
+}
+.entry-thumb-contact {
+  background: radial-gradient(circle at 20% 20%, #ddd6fe, #4c1d95);
+}
+
+/* 右边文字区 */
+.entry-content {
+  flex: 1;
+}
+
+.entry-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f97373;
+  margin-bottom: 2px;
+}
+
+.entry-title {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.entry-text {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* ===== 其它卡片网格（保留原有结构） ===== */
 .cards-grid {
   margin-top: 24px;
   display: grid;
@@ -205,7 +284,7 @@ main {
   color: #4b5563;
 }
 
-/* ===== 表单样式（命运测算表单 + 问卷页面） ===== */
+/* ===== 表单样式 ===== */
 .form-block {
   margin-top: 24px;
   background: #ffffff;
@@ -253,31 +332,10 @@ main {
   min-height: 80px;
 }
 
-/* 底部问卷备注 */
 .form-note {
   font-size: 11px;
   color: #9ca3af;
   margin-top: 10px;
-}
-
-/* ===== FAQ ===== */
-.faq-list {
-  margin-top: 18px;
-}
-
-.faq-item {
-  margin-top: 12px;
-}
-
-.faq-item h3 {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.faq-item p {
-  font-size: 14px;
-  color: #4b5563;
-  margin-top: 4px;
 }
 
 /* ===== Footer ===== */
@@ -297,7 +355,7 @@ main {
   flex-wrap: wrap;
 }
 
-/* ===== 10 秒弹窗 Layer ===== */
+/* ===== 10 秒弹窗 ===== */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -354,7 +412,7 @@ main {
   margin-top: 8px;
 }
 
-/* ===== Responsive ===== */
+/* ===== 响应式 ===== */
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
@@ -380,5 +438,21 @@ main {
 
   .form-row {
     flex-direction: column;
+  }
+
+  .entry-item {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 540px) {
+  .entry-item {
+    flex-direction: column; /* 特别窄的屏幕，图上文下 */
+    align-items: stretch;
+  }
+
+  .entry-thumb-block {
+    width: 100%;
   }
 }

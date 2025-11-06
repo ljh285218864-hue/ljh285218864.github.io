@@ -21,7 +21,7 @@ a {
   text-decoration: none;
 }
 
-/* 其他页面用到的 main 宽度 */
+/* 默认 main：给其他子页面用（命运解读等） */
 main {
   max-width: 1000px;
   margin: 0 auto;
@@ -79,10 +79,10 @@ main {
   border-bottom-color: #fef2f2;
 }
 
-/* ===== 顶部红色 Hero（保持） ===== */
+/* ===== 顶部红色 Hero（保持不动） ===== */
 .hero {
   min-height: 90vh;
-  padding: 120px 24px 80px; /* 顶部留出导航高度 */
+  padding: 120px 24px 80px; /* 顶部为导航留空间 */
   background: linear-gradient(135deg, #7f1d1d, #b91c1c);
   color: #fef2f2;
   display: flex;
@@ -123,7 +123,7 @@ main {
   flex-wrap: wrap;
 }
 
-/* ===== 按钮（只给 Hero 和弹窗用） ===== */
+/* ===== 按钮，仅 Hero 和 弹窗 用 ===== */
 .btn {
   display: inline-block;
   padding: 9px 22px;
@@ -149,7 +149,6 @@ main {
   background: rgba(254, 242, 242, 0.16);
 }
 
-/* 蓝色按钮给弹窗用 */
 .btn-primary {
   background: #0071e3;
   border-color: #0071e3;
@@ -160,88 +159,59 @@ main {
   filter: brightness(1.06);
 }
 
-/* ===== 首页模块区域：Hero 下面 ===== */
+/* ===== 首页全屏模块区域 ===== */
 
-/* 容器更宽一点，不那么窄 */
-.modules-container {
-  max-width: 1120px;
-  margin: 0 auto 80px;
-  padding: 0 24px;
+/* 覆盖首页用的 main：让模块铺满宽度 */
+.modules-wrapper {
+  max-width: 100%;
+  margin: 0;
+  padding: 0 0 80px;
 }
 
-/* 每一排模块 */
-.module-row {
-  margin-top: 40px;
-}
-
-/* 两列布局：一行左右两个模块（PC 上） */
-.module-row-two {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-/* 只有一个模块时：占一整行 */
-.module-row-single {
+/* 每个模块：用 a 标签整块可点击 */
+.module-full {
   display: block;
-}
-
-/* 整块可点击 */
-.module-link {
-  display: block;
-}
-
-/* 模块卡片：将来背景换成图片 */
-.module-card {
   position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  min-height: 200px;
+  width: 100%;
+  min-height: 75vh; /* 接近全屏 */
   color: #ffffff;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.35);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 叠一层渐变，保证文字在照片上也清晰 */
-.module-card::before {
+/* 模块与模块之间留缝隙 */
+.module-full + .module-full {
+  margin-top: 24px;
+}
+
+/* 叠一层渐变，保证图片上文字清晰 */
+.module-full::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    125deg,
-    rgba(15, 23, 42, 0.9),
-    rgba(15, 23, 42, 0.35)
-  );
-  transition: background 0.18s ease;
+  background: radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.55));
+  transition: background 0.2s ease;
 }
 
-.module-card:hover {
+.module-full:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.45);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.45);
 }
 
-.module-card:hover::before {
-  background: linear-gradient(
-    125deg,
-    rgba(15, 23, 42, 0.88),
-    rgba(15, 23, 42, 0.25)
-  );
+.module-full:hover::before {
+  background: radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.4));
 }
 
-/* 模块内部布局：左右横向 */
-.module-inner {
+/* 模块内部内容区域：比全屏窄一点，居中 */
+.module-full-inner {
   position: relative;
-  padding: 26px 28px;
-  display: flex;
-  flex-direction: column; /* 文字为主，竖向排版更稳当 */
-  gap: 6px;
-}
-
-/* 文案区 */
-.module-copy {
-  max-width: 620px;
+  max-width: 780px;   /* 内容宽度，决定“窄一点” */
+  padding: 60px 24px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .module-tag {
@@ -249,33 +219,34 @@ main {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   opacity: 0.7;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
 }
 
 .module-title {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
 }
 
 .module-subtitle {
-  font-size: 14px;
-  opacity: 0.9;
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.95;
 }
 
-/* 鼠标移上去出现“进一步了解 →” */
+/* 悬浮时出现的“进一步了解 →” */
 .module-cta-text {
   font-size: 13px;
-  margin-top: 10px;
+  margin-top: 14px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.module-card:hover .module-cta-text {
+.module-full:hover .module-cta-text {
   opacity: 1;
   transform: translateY(0);
 }
@@ -284,9 +255,9 @@ main {
   font-size: 14px;
 }
 
-/* 每个模块默认背景（你后续可以换成图片） */
+/* 每个模块的默认背景（你后续可以改为图片） */
 .module-destiny {
-  background-image: linear-gradient(140deg, #1f2937, #111827);
+  background-image: linear-gradient(135deg, #111827, #4b5563);
 }
 
 .module-fengshui {
@@ -298,14 +269,14 @@ main {
 }
 
 .module-history {
-  background-image: linear-gradient(135deg, #4b5563, #9ca3af);
+  background-image: linear-gradient(135deg, #374151, #9ca3af);
 }
 
 .module-contact {
   background-image: linear-gradient(135deg, #4c1d95, #a855f7);
 }
 
-/* ===== 表单样式（问卷页面等用） ===== */
+/* ===== 表单样式（问题表单 / 联系） ===== */
 .form-block {
   margin-top: 24px;
   background: #ffffff;
@@ -362,7 +333,7 @@ main {
   margin-top: 12px;
 }
 
-/* ===== 通用 section 标题（其他页面用） ===== */
+/* ===== 通用 section 标题（子页面用） ===== */
 .section {
   margin-top: 80px;
 }
@@ -465,6 +436,14 @@ main {
   .hero-title {
     font-size: 26px;
   }
+
+  .module-full {
+    min-height: 65vh;
+  }
+
+  .module-full-inner {
+    padding: 48px 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -474,10 +453,6 @@ main {
 
   .nav a {
     font-size: 12px;
-  }
-
-  .module-row-two {
-    grid-template-columns: 1fr; /* 手机上改成一列往下排 */
   }
 
   .form-row {

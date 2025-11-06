@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -67,7 +67,7 @@
           </p>
         </div>
 
-        <!-- 右侧：联系方式 + 付款按钮（静态占位） -->
+        <!-- 右侧：联系方式 + 付款方式 -->
         <div class="checkout-card checkout-form">
           <h2 class="checkout-form-title">Contact details</h2>
           <p class="checkout-form-intro">
@@ -116,27 +116,30 @@
               <div class="checkout-methods-row">
                 <label class="checkout-method-option">
                   <input type="radio" name="paymethod" value="card" checked />
-                  <span>Credit / Debit card</span>
+                  <span>Card (Visa / MasterCard)</span>
                 </label>
                 <label class="checkout-method-option">
                   <input type="radio" name="paymethod" value="paypal" />
                   <span>PayPal</span>
                 </label>
-                <label class="checkout-method-option">
-                  <input type="radio" name="paymethod" value="other" />
-                  <span>Other (we will confirm with you)</span>
-                </label>
               </div>
             </div>
 
             <button type="button" class="btn btn-primary checkout-pay-btn">
-              Complete order
+              Pay securely now
             </button>
 
+            <!-- 品牌标识行：Visa / MasterCard / PayPal -->
+            <div class="checkout-brands">
+              <span class="brand-pill brand-visa">VISA</span>
+              <span class="brand-pill brand-mastercard">MasterCard</span>
+              <span class="brand-pill brand-paypal">PayPal</span>
+            </div>
+
             <p class="checkout-small-note">
-              This is a demo checkout page. Connect your real payment provider
-              (for example Stripe or PayPal) to process payments, and update
-              this button to redirect to your payment link.
+              This is a visual checkout page. To accept real payments, connect
+              your provider (for example Stripe or PayPal) and update this button
+              to open your actual payment link.
             </p>
           </form>
         </div>

@@ -38,10 +38,9 @@
   </div>
 </section>
 
-<!-- Hero 下面：5 个“全屏模块” -->
+<!-- Hero 下面：5 个“全屏感模块”（宽度=2/3，整块可点，互相紧挨） -->
 <main class="modules-wrapper">
 
-  <!-- 命运解读 -->
   <a href="destiny.html" class="module-full module-destiny">
     <div class="module-full-inner">
       <div class="module-tag">DESTINY READING</div>
@@ -51,29 +50,22 @@
         health rhythm, or long-term patterns. Spiritual reflection only, not medical,
         financial, or legal advice.
       </p>
-      <div class="module-cta-text">
-        <span>进一步了解</span><span class="arrow">→</span>
-      </div>
+      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
     </div>
   </a>
 
-  <!-- 风水 -->
   <a href="fengshui.html" class="module-full module-fengshui">
     <div class="module-full-inner">
       <div class="module-tag">FENG SHUI</div>
       <h2 class="module-title">风水 · Space and daily rhythm</h2>
       <p class="module-subtitle">
-        Gentle, realistic Feng Shui suggestions for your room, desk, or altar.
-        The focus is how space, direction, and small symbolic objects can quietly
-        support your daily life.
+        Gentle, realistic Feng Shui suggestions for your room, desk, or altar. The focus
+        is how space, direction, and small symbolic objects can quietly support your daily life.
       </p>
-      <div class="module-cta-text">
-        <span>进一步了解</span><span class="arrow">→</span>
-      </div>
+      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
     </div>
   </a>
 
-  <!-- 店铺 -->
   <a href="shop.html" class="module-full module-shop">
     <div class="module-full-inner">
       <div class="module-tag">SHOP</div>
@@ -82,28 +74,22 @@
         A future place for Taoist-inspired talismans, bracelets, and small altar pieces,
         used as daily reminders of your chosen direction – symbols, not guarantees.
       </p>
-      <div class="module-cta-text">
-        <span>进一步了解</span><span class="arrow">→</span>
-      </div>
+      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
     </div>
   </a>
 
-  <!-- 道教历史 -->
   <a href="history.html" class="module-full module-history">
     <div class="module-full-inner">
       <div class="module-tag">TAOIST HISTORY</div>
       <h2 class="module-title">道教历史 · Background ideas</h2>
       <p class="module-subtitle">
-        A gentle overview of Taoist ideas behind this site: the Tao, yin–yang,
-        timing, and dynamic balance between action and stillness.
+        A gentle overview of Taoist ideas behind this site: the Tao, yin–yang, timing,
+        and dynamic balance between action and stillness.
       </p>
-      <div class="module-cta-text">
-        <span>进一步了解</span><span class="arrow">→</span>
-      </div>
+      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
     </div>
   </a>
 
-  <!-- 接触 -->
   <a href="contact.html" class="module-full module-contact">
     <div class="module-full-inner">
       <div class="module-tag">CONTACT</div>
@@ -112,9 +98,7 @@
         Email and WhatsApp contact for readings and questions. Usually replies within
         2–3 working days, depending on schedule and workload.
       </p>
-      <div class="module-cta-text">
-        <span>进一步了解</span><span class="arrow">→</span>
-      </div>
+      <div class="module-cta-text"><span>进一步了解</span><span class="arrow">→</span></div>
     </div>
   </a>
 
@@ -127,7 +111,7 @@
   </div>
 </footer>
 
-<!-- 10 秒弹窗（只弹一次，使用新的标记名 leadPopupShown_v2） -->
+<!-- 10 秒弹窗（只弹一次，使用 leadPopupShown_v3，并带兜底） -->
 <div class="popup-overlay" id="leadPopup">
   <div class="popup">
     <button class="popup-close" type="button" aria-label="Close popup">×</button>
@@ -141,41 +125,48 @@
       <button type="button" class="btn btn-secondary popup-close">Maybe later</button>
     </div>
     <p class="popup-note">
-      This popup appears only once per browser (using local storage).
+      This popup appears only once per browser (using local storage or session storage).
     </p>
   </div>
 </div>
 
 <script>
-  // 10 秒弹窗逻辑：只弹一次（使用新的 key: leadPopupShown_v2）
-  window.addEventListener('load', function () {
-    if (localStorage.getItem('leadPopupShown_v2') === 'yes') return;
+  // —— 10 秒弹窗：只弹一次（localStorage 优先，失败则用 sessionStorage）——
+  (function () {
+    var KEY = 'leadPopupShown_v3';
+    function storageAvailable(type) {
+      try {
+        var storage = window[type], x = '__test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+      } catch (e) { return false; }
+    }
+    var store = null;
+    if (storageAvailable('localStorage')) store = window.localStorage;
+    else if (storageAvailable('sessionStorage')) store = window.sessionStorage;
 
-    setTimeout(function () {
-      var overlay = document.getElementById('leadPopup');
-      if (overlay) {
+    var already = store ? store.getItem(KEY) === 'yes' : false;
+    if (already) return;
+
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var overlay = document.getElementById('leadPopup');
+        if (!overlay) return;
         overlay.style.display = 'flex';
-        localStorage.setItem('leadPopupShown_v2', 'yes');
-      }
-    }, 10000);
+        if (store) store.setItem(KEY, 'yes');
+      }, 10000); // 10 秒
+    });
 
     function closePopup() {
       var overlay = document.getElementById('leadPopup');
       if (overlay) overlay.style.display = 'none';
     }
-
-    document.querySelectorAll('.popup-close').forEach(function (btn) {
-      btn.addEventListener('click', closePopup);
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('popup-close')) closePopup();
+      if (e.target.id === 'goToFormBtn') { closePopup(); location.href = 'question.html'; }
     });
-
-    var goBtn = document.getElementById('goToFormBtn');
-    if (goBtn) {
-      goBtn.addEventListener('click', function () {
-        closePopup();
-        window.location.href = 'question.html';
-      });
-    }
-  });
+  })();
 </script>
 
 </body>

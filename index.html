@@ -206,25 +206,54 @@
   </footer>
 
   <!-- 10 秒后自动弹窗，每次打开首页都会弹 -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var overlay = document.getElementById("popup-overlay");
+   <script>
+    // 10 秒弹窗，只在当前会话弹一次
+    (function () {
+      const overlay = document.getElementById("popup");
       if (!overlay) return;
 
-      setTimeout(function () {
-        overlay.style.display = "flex";
-      }, 10000); // 10 秒
+      const closeBtn = document.getElementById("popupClose");
+      const laterBtn = document.getElementById("popupLater");
+
+      const alreadyShown = sessionStorage.getItem("tdsPopupShown");
+      if (!alreadyShown) {
+        setTimeout(() => {
+          overlay.style.display = "flex";
+          sessionStorage.setItem("tdsPopupShown", "yes");
+        }, 10000); // 10 秒
+      }
 
       function hidePopup() {
         overlay.style.display = "none";
       }
 
-      var closeBtn = document.getElementById("popup-close");
-      var laterBtn = document.getElementById("popup-later");
+      closeBtn && closeBtn.addEventListener("click", hidePopup);
+      laterBtn && laterBtn.addEventListener("click", hidePopup);
 
-      if (closeBtn) closeBtn.addEventListener("click", hidePopup);
-      if (laterBtn) laterBtn.addEventListener("click", hidePopup);
-    });
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) hidePopup();
+      });
+    })();
+
+    // 导航：滚动后加深色虚化背景
+    (function () {
+      const header = document.querySelector(".site-header");
+      if (!header) return;
+
+      function handleScroll() {
+        if (window.scrollY > 40) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // 进页面先执行一次
+    })();
   </script>
+</body>
+</html>
+
 </body>
 </html>

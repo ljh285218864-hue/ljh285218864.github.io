@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feng Shui – Taoist Destiny Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">Taoist Destiny Studio</a>
+    </div>
+    <nav class="nav">
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Feng Shui</div>
+    <div class="hero-title">Space, direction, and daily rhythm</div>
+    <p class="hero-subtitle">
+      This page will hold your Feng Shui guidance: how space, direction, and small symbolic objects 
+      can support your daily life. The structure is ready; you can add detailed content later.
+    </p>
+  </div>
+</section>
+
+<main class="page">
+  <section class="section">
+    <div class="section-heading">Framework</div>
+    <div class="section-title">How this page will be used</div>
+    <p class="section-intro">
+      You can divide this page into simple sections: home, workspace, sleeping area, 
+      and small symbolic corrections. For now, this is a placeholder with the navigation fully working.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Taoist Destiny Studio · 2025</span>
+    <span>Spiritual reflection only · Not a substitute for professional advice.</span>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="leadPopup">
+  <div class="popup">
+    <button class="popup-close" type="button" aria-label="Close popup">×</button>
+    <h2>Feng Shui consultation request</h2>
+    <p>
+      Share your main question and living or working situation. 
+      This popup is ready to be linked to a real collection method later.
+    </p>
+
+    <form class="popup-form">
+      <div class="form-field">
+        <label class="form-label">What would you like to ask?</label>
+        <textarea class="form-textarea" placeholder="One main Feng Shui question in English"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Full name</label>
+          <input class="form-input" type="text" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" />
+        </div>
+      </div>
+
+      <p class="popup-note">
+        This form does not save data yet. Later, you can connect it to a spreadsheet or inbox 
+        for table-based statistics.
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var overlay = document.getElementById('leadPopup');
+      if (overlay) overlay.style.display = 'flex';
+    }, 10000);
+
+    var closeBtn = document.querySelector('.popup-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        var overlay = document.getElementById('leadPopup');
+        if (overlay) overlay.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

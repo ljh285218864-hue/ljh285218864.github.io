@@ -114,12 +114,14 @@ main {
   content: "";
   position: absolute;
   inset: 0;
+  /* 适当减弱遮罩，让图片更亮一点 */
   background-image:
-    linear-gradient(120deg, rgba(15,23,42,.85), rgba(15,23,42,.35)),
-    linear-gradient(180deg, rgba(15,23,42,.10), rgba(15,23,42,.80));
-  opacity: 0.98;
+    linear-gradient(120deg, rgba(15,23,42,.65), rgba(15,23,42,.20)),
+    linear-gradient(180deg, rgba(15,23,42,.05), rgba(15,23,42,.55));
+  opacity: 0.90;
   pointer-events: none;
 }
+
 .hero-inner {
   position: relative;
   max-width: 980px;

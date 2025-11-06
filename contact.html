@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact – Taoist Destiny Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">Taoist Destiny Studio</a>
+    </div>
+    <nav class="nav">
+      <a href="destiny.html">Destiny Readings</a>
+      <a href="fengshui.html">Feng Shui</a>
+      <a href="shop.html">Shop</a>
+      <a href="history.html">Taoist History</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Contact</div>
+    <div class="hero-title">Reach Taoist Destiny Studio</div>
+    <p class="hero-subtitle">
+      This page gathers all contact information. 
+      You can update the email and messaging details below to match your real accounts.
+    </p>
+  </div>
+</section>
+
+<main class="page">
+  <section class="section">
+    <div class="section-heading">Main contact</div>
+    <div class="section-title">Email and messaging</div>
+    <p class="section-intro">
+      Replace the placeholders below with your real contact details when you are ready.
+    </p>
+
+    <div class="form-block">
+      <p style="font-size: 14px; color: #4b5563;">
+        <strong>Email:</strong> yourname@example.com<br />
+        <strong>WhatsApp:</strong> +00 0000 000000<br />
+        <strong>Reply time:</strong> Usually within 2–3 working days.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Taoist Destiny Studio · 2025</span>
+    <span>Spiritual reflection only · Not a substitute for professional advice.</span>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="leadPopup">
+  <div class="popup">
+    <button class="popup-close" type="button" aria-label="Close popup">×</button>
+    <h2>Contact request</h2>
+    <p>
+      You can edit this popup later to match your preferred contact workflow.
+    </p>
+
+    <form class="popup-form">
+      <div class="form-field">
+        <label class="form-label">Your name</label>
+        <input class="form-input" type="text" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Your question</label>
+        <textarea class="form-textarea"></textarea>
+      </div>
+
+      <p class="popup-note">
+        This popup is a placeholder. Later you can connect it to email or a table-based tool.
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var overlay = document.getElementById('leadPopup');
+      if (overlay) overlay.style.display = 'flex';
+    }, 10000);
+
+    var closeBtn = document.querySelector('.popup-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        var overlay = document.getElementById('leadPopup');
+        if (overlay) overlay.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

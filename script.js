@@ -77,3 +77,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+// Scroll reveal for home sections
+document.addEventListener('DOMContentLoaded', function () {
+  var blocks = document.querySelectorAll('.reveal-block');
+  if (!blocks.length) return;
+
+  // If IntersectionObserver is not supported, just show all blocks
+  if (!('IntersectionObserver' in window)) {
+    blocks.forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  blocks.forEach(function (el) {
+    observer.observe(el);
+  });
+});

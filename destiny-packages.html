@@ -2,37 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Destiny Reading Packages · Daoism & Destiny</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Destiny Readings · Choose Your Reading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Page-specific layout for the packages (safe to keep together here) -->
   <style>
-    /* 套餐页专用样式 */
-
-    .packages-hero {
-      padding: 120px 24px 40px;
-      text-align: center;
-      color: #e5e7eb;
-      background: radial-gradient(circle at top, #020617, #020617);
+    main {
+      padding-top: 72px;
     }
 
-    .packages-hero-kicker {
-      font-size: 11px;
+    .packages-hero {
+      padding: 96px 24px 40px;
+      text-align: center;
+      color: #e5e7eb;
+      background: #020617;
+    }
+
+    .packages-kicker {
+      font-size: 12px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #facc15;
       margin-bottom: 10px;
     }
 
-    .packages-hero-title {
-      font-size: 28px;
-      letter-spacing: 0.2em;
+    .packages-title {
+      font-size: 32px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
 
-    .packages-hero-subtitle {
-      max-width: 720px;
+    .packages-subtitle {
+      max-width: 760px;
       margin: 0 auto;
       font-size: 14px;
       color: #cbd5f5;
@@ -40,7 +43,8 @@
     }
 
     .packages-section {
-      padding: 30px 24px 96px;
+      background: #020617;
+      padding: 10px 24px 80px;
     }
 
     .packages-inner {
@@ -48,102 +52,103 @@
       margin: 0 auto;
     }
 
-    .plan-grid {
+    .packages-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
-    .plan-card {
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
-      border-radius: 24px;
+    .package-card {
+      border-radius: 26px;
       border: 1px solid rgba(148, 163, 184, 0.45);
-      padding: 26px 24px 28px;
+      padding: 26px 24px 22px;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.95), #020617);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.8);
       color: #e5e7eb;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 380px;
     }
 
-    .plan-title {
+    .package-header {
+      margin-bottom: 18px;
+    }
+
+    .package-title {
       font-size: 22px;
       margin-bottom: 6px;
     }
 
-    .plan-kicker {
+    .package-tagline {
       font-size: 14px;
       color: #cbd5f5;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
-    .plan-body {
+    .package-body p {
       font-size: 14px;
       color: #cbd5f5;
       line-height: 1.9;
-    }
-
-    .plan-body p {
       margin-bottom: 10px;
     }
 
-    .plan-body ul {
-      list-style: disc;
+    .package-list {
+      margin: 0;
       padding-left: 20px;
+      font-size: 14px;
+      color: #e5e7eb;
+      line-height: 1.8;
     }
 
-    .plan-body li + li {
+    .package-list li + li {
       margin-top: 4px;
     }
 
-    .plan-footer {
-      margin-top: 26px;
+    .package-footer {
+      margin-top: 22px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .plan-price {
+    .package-price {
       font-size: 22px;
-      font-weight: 700;
+      font-weight: 600;
       color: #facc15;
     }
 
-    .plan-price span {
-      font-size: 16px;
-      font-weight: 400;
+    .package-currency {
+      font-size: 14px;
       color: #e5e7eb;
-      margin-left: 4px;
+      margin-top: 2px;
     }
 
-    .plan-note {
+    .package-note {
       font-size: 12px;
       color: #9ca3af;
-      margin-top: 4px;
     }
 
-    .plan-btn {
-      padding-left: 26px;
-      padding-right: 26px;
-      white-space: nowrap;
+    .package-btn-wrap {
+      margin-top: 8px;
+    }
+
+    .package-btn-wrap .btn {
+      width: 100%;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      text-align: center;
     }
 
     @media (max-width: 1024px) {
-      .plan-grid {
+      .packages-grid {
         grid-template-columns: 1fr;
-      }
-
-      .plan-card {
-        min-height: 0;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 顶部导航 -->
+  <!-- Fixed header (same style as other pages) -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -160,111 +165,139 @@
   </header>
 
   <main>
-    <!-- 顶部说明 -->
+    <!-- Top hero for packages -->
     <section class="packages-hero">
-      <p class="packages-hero-kicker">DESTINY READING</p>
-      <h1 class="packages-hero-title">CHOOSE YOUR READING</h1>
-      <p class="packages-hero-subtitle">
-        每一份命运解读，都是围绕你当下最重要的问题与人生阶段，
-        借由道家智慧，为你照亮前路的一束灯光。
-        请选择最符合你目前需要的阅读方式。
+      <p class="packages-kicker">DESTINY READING</p>
+      <h1 class="packages-title">CHOOSE YOUR READING</h1>
+      <p class="packages-subtitle">
+        Each written destiny reading is crafted around the most important questions and life stage you
+        are facing now. Guided by Taoist wisdom, it shines a gentle light on your path and offers a way
+        of reading that best fits your current needs.
       </p>
     </section>
 
-    <!-- 三个套餐 -->
+    <!-- Three packages -->
     <section class="packages-section">
       <div class="packages-inner">
-        <div class="plan-grid">
-
-          <!-- 单个问题 -->
-          <article class="plan-card">
+        <div class="packages-grid">
+          <!-- Package 1: Single question -->
+          <article class="package-card">
             <div>
-              <h2 class="plan-title">单个问题</h2>
-              <p class="plan-kicker">一个问题，一个清晰的未来。</p>
+              <div class="package-header">
+                <h2 class="package-title">Single question</h2>
+                <p class="package-tagline">One question, one clear future.</p>
+              </div>
 
-              <div class="plan-body">
+              <div class="package-body">
                 <p>
-                  此刻，你心中只有一个念头、一段关系、一个决策或一个你无法忽视的转折点。
+                  For the moment when there is one situation, one relationship, or one decision you
+                  simply cannot ignore anymore.
                 </p>
-                <ul>
-                  <li>本文深入探讨了一个关键问题。</li>
-                  <li>通过电子邮件发送书面命运解读。</li>
-                  <li>受道家时序和平衡理念启发，提出简单的下一步建议。</li>
+                <ul class="package-list">
+                  <li>Goes in depth into one key question in your life.</li>
+                  <li>Delivered as a written destiny reading by email.</li>
+                  <li>
+                    Offers Taoist timing and balance inspired guidance for your very next step.
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div class="plan-footer">
+            <div class="package-footer">
               <div>
-                <div class="plan-price">39.95<span>美元</span></div>
-                <div class="plan-note">付款后 1–2 小时内内发送。</div>
+                <div class="package-price">39.95</div>
+                <div class="package-currency">USD</div>
               </div>
-              <a href="destiny.html?plan=single" class="btn btn-primary plan-btn">
-                选择此阅读
-              </a>
+              <div class="package-btn-wrap">
+                <!-- This can point to your existing single-question form page -->
+                <a href="destiny.html" class="btn btn-primary">Choose this reading</a>
+              </div>
+              <p class="package-note">
+                After payment, you will receive a message from our team within 1–2 hours.
+              </p>
             </div>
           </article>
 
-          <!-- 三个问题 -->
-          <article class="plan-card">
+          <!-- Package 2: Three questions -->
+          <article class="package-card">
             <div>
-              <h2 class="plan-title">三个问题</h2>
-              <p class="plan-kicker">为了更全面地了解你的发展道路。</p>
-
-              <div class="plan-body">
-                <p>
-                  当生活同时朝着多个方向发展——工作、爱情、家庭或健康——
-                  而你想看到这一切背后的模式时。
+              <div class="package-header">
+                <h2 class="package-title">Three questions</h2>
+                <p class="package-tagline">
+                  For a broader understanding of your path of development.
                 </p>
-                <ul>
-                  <li>一次阅读中最多可提出三个相关问题。</li>
-                  <li>重点关注这些领域如何相互影响。</li>
-                  <li>关于时机、优先事项和潜在紧张关系的指导。</li>
+              </div>
+
+              <div class="package-body">
+                <p>
+                  Ideal when several areas of life are moving at once — work, love, family, health —
+                  and you want to see the pattern behind it all.
+                </p>
+                <ul class="package-list">
+                  <li>Up to three related questions explored in one reading.</li>
+                  <li>Focus on how different areas of your life influence one another.</li>
+                  <li>Guidance on timing, priorities, and key relationship dynamics.</li>
                 </ul>
               </div>
             </div>
 
-            <div class="plan-footer">
+            <div class="package-footer">
               <div>
-                <div class="plan-price">89.95<span>美元</span></div>
-                <div class="plan-note">适合当下多个领域都在变化的阶段。</div>
+                <div class="package-price">89.95</div>
+                <div class="package-currency">USD</div>
               </div>
-              <a href="destiny.html?plan=triple" class="btn btn-primary plan-btn">
-                选择此阅读
-              </a>
+              <div class="package-btn-wrap">
+                <!-- Create this page next for the three-question form -->
+                <a href="destiny-three.html" class="btn btn-primary">Choose this reading</a>
+              </div>
+              <p class="package-note">
+                After payment, you will receive a message from our team within 1–2 hours.
+              </p>
             </div>
           </article>
 
-          <!-- 《命运》完整概述 -->
-          <article class="plan-card">
+          <!-- Package 3: Full destiny overview -->
+          <article class="package-card">
             <div>
-              <h2 class="plan-title">《命运》完整概述</h2>
-              <p class="plan-kicker">更深入地了解你的生命周期。</p>
-
-              <div class="plan-body">
-                <p>
-                  对于那些想要更全面了解情况的人来说——关键的生命周期、
-                  重复的模式，以及你现在所处时期的核心教训。
+              <div class="package-header">
+                <h2 class="package-title">Full destiny overview</h2>
+                <p class="package-tagline">
+                  A deeper look at your current life cycle.
                 </p>
-                <ul>
-                  <li>你当前命运周期的概览。</li>
-                  <li>围绕职业、人际关系和内在成长展开的关键主题。</li>
-                  <li>如何顺应潮流而不是与之对抗的建议。</li>
+              </div>
+
+              <div class="package-body">
+                <p>
+                  Best for those who want a more complete picture of their life patterns, repeating
+                  themes, and the teachings of this phase of destiny.
+                </p>
+                <ul class="package-list">
+                  <li>An overview of your current destiny period and its key lessons.</li>
+                  <li>
+                    Focus on work, relationships, and inner growth as core themes of this cycle.
+                  </li>
+                  <li>
+                    Suggestions on how to move with upcoming trends instead of struggling against
+                    them.
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div class="plan-footer">
+            <div class="package-footer">
               <div>
-                <div class="plan-price">129.95<span>美元</span></div>
-                <div class="plan-note">最适合进行更深入的年度或里程碑反思。</div>
+                <div class="package-price">129.95</div>
+                <div class="package-currency">USD</div>
               </div>
-              <a href="destiny.html?plan=full" class="btn btn-primary plan-btn">
-                选择此阅读
-              </a>
+              <div class="package-btn-wrap">
+                <!-- Create this page next for the full-overview form -->
+                <a href="destiny-full.html" class="btn btn-primary">Choose this reading</a>
+              </div>
+              <p class="package-note">
+                After payment, you will receive a message from our team within 1–2 hours.
+              </p>
             </div>
           </article>
-
         </div>
       </div>
     </section>
@@ -276,7 +309,5 @@
       <span>Spiritual guidance inspired by Taoist tradition.</span>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

@@ -1,228 +1,51 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Three-Question Destiny Reading · Daoism &amp; Destiny</title>
+  <title>Three-question destiny reading · Daoism & Destiny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles (form required marks + why-box) -->
   <style>
-    body {
-      background: #020617;
-      color: #e5e7eb;
+    /* red star for required fields */
+    .required-star {
+      color: #f97373;
+      margin-left: 4px;
     }
 
-    .destiny-hero {
-      padding: 96px 24px 32px;
-      text-align: center;
-    }
-
-    .destiny-hero-inner {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .destiny-hero-kicker {
-      font-size: 13px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #facc15;
-      margin-bottom: 10px;
-    }
-
-    .destiny-hero-title {
-      font-size: 30px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .destiny-hero-subtitle,
-    .destiny-hero-note {
-      font-size: 14px;
-      color: #9ca3af;
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-
-    .destiny-layout {
-      max-width: 1100px;
-      margin: 0 auto 88px;
-      padding: 8px 24px 96px;
-    }
-
-    .destiny-form-wrap {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .destiny-form-title {
-      font-size: 20px;
-      text-align: center;
-      margin-bottom: 4px;
-    }
-
-    .destiny-form-intro {
-      font-size: 14px;
-      color: #9ca3af;
-      text-align: center;
-      margin-bottom: 14px;
-    }
-
-    .destiny-form {
-      width: 100%;
+    .destiny-required-note {
       margin-top: 4px;
-      background: #020617;
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      padding: 18px 18px 22px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-    }
-
-    /* generic form layout – reuse your existing classes if you already have them */
-    .form-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .form-field {
-      flex: 1 1 0;
-      min-width: 0;
-    }
-
-    .form-label {
-      display: flex;
-      align-items: center;
-      gap: 4px;
       font-size: 12px;
       color: #9ca3af;
-      margin-bottom: 4px;
     }
 
-    .field-required {
-      color: #f97373; /* red asterisk */
-      font-size: 13px;
-    }
-
-    .form-input,
-    .form-textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid #1f2937;
-      padding: 8px 10px;
-      font-size: 14px;
-      background: #020617;
-      color: #e5e7eb;
-      outline: none;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus {
-      border-color: #facc15;
-      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.25);
-    }
-
-    .form-textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .destiny-gender-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .destiny-gender-option {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .destiny-price-row {
-      margin-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .destiny-price {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .destiny-price-label {
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .destiny-price-amount {
-      font-size: 16px;
-      font-weight: 600;
-      color: #facc15;
-    }
-
-    .destiny-pay-btn {
-      white-space: nowrap;
-    }
-
-    .destiny-form-note {
-      font-size: 12px;
-      color: #9ca3af;
+    .why-required-toggle {
       margin-top: 10px;
-    }
-
-    /* “Why do I need to fill in every field?” helper */
-    .why-link {
+      padding: 0;
+      border: none;
+      background: none;
       font-size: 12px;
       color: #facc15;
-      cursor: pointer;
       text-decoration: underline;
-      margin-top: 4px;
-      display: inline-block;
+      cursor: pointer;
     }
 
-    .why-box {
+    .why-required-text {
       display: none;
       margin-top: 6px;
       font-size: 12px;
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.95);
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 10px 12px;
+      color: #9ca3af;
+      line-height: 1.5;
     }
 
-    .why-box.open {
+    .why-required-text.visible {
       display: block;
-    }
-
-    @media (max-width: 900px) {
-      .destiny-layout {
-        padding-bottom: 72px;
-      }
-
-      .destiny-form-wrap {
-        max-width: 100%;
-      }
-
-      .destiny-form {
-        padding: 16px 14px 18px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- shared header -->
+  <!-- top nav -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -239,39 +62,44 @@
   </header>
 
   <main>
-    <!-- HERO COPY -->
+    <!-- hero text -->
     <section class="destiny-hero">
       <div class="destiny-hero-inner">
         <p class="destiny-hero-kicker">DESTINY READING</p>
-        <h1 class="destiny-hero-title">THREE QUESTIONS, DEEPER PERSPECTIVE.</h1>
+        <h1 class="destiny-hero-title">
+          THREE QUESTIONS, DEEPER PERSPECTIVE.
+        </h1>
         <p class="destiny-hero-subtitle">
-          When several areas of life are moving at once — work, love, family, health — this reading helps you
-          see the pattern behind it all through a Taoist lens.
+          When several areas of life are moving at once — work, love, family, health —
+          this reading helps you see the pattern behind it all through a Taoist lens.
         </p>
         <p class="destiny-hero-note">
-          Your answers are written personally for you, so you can understand how these threads tie together and
-          make clearer choices.
+          Your answers are written personally for you, so you can understand how these
+          threads tie together and make clearer choices.
         </p>
       </div>
     </section>
 
-    <!-- FORM -->
+    <!-- form -->
     <section class="destiny-layout">
       <div class="destiny-form-wrap">
         <h2 class="destiny-form-title">Tell me about your questions</h2>
         <p class="destiny-form-intro">
           Fill in the details below so your three-question reading can be prepared precisely for you.
         </p>
+        <p class="destiny-required-note">
+          Fields marked with <span class="required-star">*</span> are required.
+        </p>
 
-        <form class="destiny-form">
+        <form class="destiny-form" id="three-reading-form">
           <!-- Name + Gender -->
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label" for="name">
-                Name <span class="field-required">*</span>
+              <label class="form-label" for="destiny-name">
+                Name <span class="required-star">*</span>
               </label>
               <input
-                id="name"
+                id="destiny-name"
                 name="name"
                 type="text"
                 class="form-input"
@@ -282,11 +110,11 @@
 
             <div class="form-field">
               <label class="form-label">
-                Gender <span class="field-required">*</span>
+                Gender <span class="required-star">*</span>
               </label>
               <div class="destiny-gender-group">
                 <label class="destiny-gender-option">
-                  <input type="radio" name="gender" value="male" required />
+                  <input type="radio" name="gender" value="male" checked required />
                   <span>Male</span>
                 </label>
                 <label class="destiny-gender-option">
@@ -300,11 +128,11 @@
           <!-- Date of birth + Region -->
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label" for="dob">
-                Date of birth <span class="field-required">*</span>
+              <label class="form-label" for="destiny-dob">
+                Date of birth <span class="required-star">*</span>
               </label>
               <input
-                id="dob"
+                id="destiny-dob"
                 name="dob"
                 type="date"
                 class="form-input"
@@ -314,11 +142,11 @@
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="region">
-                Region / City <span class="field-required">*</span>
+              <label class="form-label" for="destiny-region">
+                Region / City <span class="required-star">*</span>
               </label>
               <input
-                id="region"
+                id="destiny-region"
                 name="region"
                 type="text"
                 class="form-input"
@@ -328,14 +156,14 @@
             </div>
           </div>
 
-          <!-- Question -->
+          <!-- Questions -->
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label" for="question">
-                What would you like to ask? <span class="field-required">*</span>
+              <label class="form-label" for="destiny-question">
+                What would you like to ask? <span class="required-star">*</span>
               </label>
               <textarea
-                id="question"
+                id="destiny-question"
                 name="question"
                 class="form-textarea"
                 placeholder="Please describe your situation and up to three main questions in detail."
@@ -347,11 +175,11 @@
           <!-- WhatsApp + Email -->
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label" for="whatsapp">
-                WhatsApp <span class="field-required">*</span>
+              <label class="form-label" for="destiny-whatsapp">
+                WhatsApp <span class="required-star">*</span>
               </label>
               <input
-                id="whatsapp"
+                id="destiny-whatsapp"
                 name="whatsapp"
                 type="tel"
                 class="form-input"
@@ -361,11 +189,11 @@
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="email">
-                Email <span class="field-required">*</span>
+              <label class="form-label" for="destiny-email">
+                Email <span class="required-star">*</span>
               </label>
               <input
-                id="email"
+                id="destiny-email"
                 name="email"
                 type="email"
                 class="form-input"
@@ -375,25 +203,25 @@
             </div>
           </div>
 
-          <!-- Price + payment -->
+          <!-- Price + button -->
           <div class="destiny-price-row">
             <div class="destiny-price">
               <span class="destiny-price-label">Three-question destiny reading</span>
               <span class="destiny-price-amount">$89.95 USD</span>
-              <a href="#" id="why-link-three" class="why-link">
-                Why do I need to fill in every field?
-              </a>
-              <div id="why-box-three" class="why-box">
-                Your birth details, region, and contact information allow the Daoist practitioner to read the
-                timing of your situation more accurately and to send your written guidance safely.
-                Clear questions also help focus the reading on what is most important to you right now.
-              </div>
             </div>
 
-         <a href="checkout.html?plan=three" class="btn btn-primary destiny-pay-btn">
-  Proceed to payment
-</a>
+            <button type="submit" class="btn btn-primary destiny-pay-btn">
+              Proceed to payment
+            </button>
+          </div>
 
+          <button type="button" class="why-required-toggle" id="why-required-btn">
+            Why do I need to fill in every field?
+          </button>
+          <div class="why-required-text" id="why-required-text">
+            The details you share (name, date of birth, region, and your questions) are what allow the
+            Taoist destiny reading to be prepared accurately for your situation. Without them, the
+            interpretation would be too general to be truly helpful.
           </div>
 
           <p class="destiny-form-note">
@@ -412,16 +240,27 @@
     </div>
   </footer>
 
-  <!-- small script for the why-box toggle -->
   <script>
+    // show / hide explanation text
     (function () {
-      var link = document.getElementById('why-link-three');
-      var box = document.getElementById('why-box-three');
+      var btn = document.getElementById('why-required-btn');
+      var box = document.getElementById('why-required-text');
+      if (btn && box) {
+        btn.addEventListener('click', function () {
+          box.classList.toggle('visible');
+        });
+      }
 
-      if (link && box) {
-        link.addEventListener('click', function (e) {
+      // intercept submit: HTML5 validation first, then jump to correct checkout plan
+      var form = document.getElementById('three-reading-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
           e.preventDefault();
-          box.classList.toggle('open');
+          if (!form.reportValidity()) {
+            return; // browser will show which field is missing
+          }
+          // IMPORTANT: go to checkout with plan=three so price becomes 89.95
+          window.location.href = 'checkout.html?plan=three';
         });
       }
     })();

@@ -1,138 +1,155 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Destiny Reading Packages – Daoism & Destiny</title>
+  <title>Destiny Reading Packages · Daoism & Destiny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
+
   <style>
-    main {
-      padding-top: 80px;
-      background: #020617;
-      color: #e5e7eb;
-      min-height: 100vh;
-    }
+    /* 套餐页专用样式 */
+
     .packages-hero {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px 16px;
+      padding: 120px 24px 40px;
       text-align: center;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top, #020617, #020617);
     }
-    .packages-kicker {
+
+    .packages-hero-kicker {
       font-size: 11px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #facc15;
-      margin-bottom: 8px;
-    }
-    .packages-title {
-      font-size: 26px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       margin-bottom: 10px;
-    }
-    .packages-subtitle {
-      font-size: 14px;
-      color: #9ca3af;
-      max-width: 640px;
-      margin: 0 auto 8px;
     }
 
-    .packages-wrap {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 24px 24px 80px;
+    .packages-hero-title {
+      font-size: 28px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .package-grid {
+
+    .packages-hero-subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: #cbd5f5;
+      line-height: 1.8;
+    }
+
+    .packages-section {
+      padding: 30px 24px 96px;
+    }
+
+    .packages-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .plan-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 24px;
     }
-    .package-card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+
+    .plan-card {
       background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.7);
-      padding: 18px 18px 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 26px 24px 28px;
+      color: #e5e7eb;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 380px;
     }
-    .package-name {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+
+    .plan-title {
+      font-size: 22px;
       margin-bottom: 6px;
     }
-    .package-tagline {
-      font-size: 13px;
+
+    .plan-kicker {
+      font-size: 14px;
       color: #cbd5f5;
+      margin-bottom: 18px;
+    }
+
+    .plan-body {
+      font-size: 14px;
+      color: #cbd5f5;
+      line-height: 1.9;
+    }
+
+    .plan-body p {
       margin-bottom: 10px;
     }
-    .package-desc {
-      font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 10px;
-      line-height: 1.7;
+
+    .plan-body ul {
+      list-style: disc;
+      padding-left: 20px;
     }
-    .package-list {
-      font-size: 13px;
-      color: #e5e7eb;
-      margin: 8px 0 10px;
-      padding-left: 16px;
-    }
-    .package-list li + li {
+
+    .plan-body li + li {
       margin-top: 4px;
     }
-    .package-footer {
-      margin-top: 10px;
+
+    .plan-footer {
+      margin-top: 26px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
     }
-    .package-price-group {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .package-price {
-      font-size: 18px;
+
+    .plan-price {
+      font-size: 22px;
+      font-weight: 700;
       color: #facc15;
-      font-weight: 600;
     }
-    .package-note {
-      font-size: 11px;
+
+    .plan-price span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #e5e7eb;
+      margin-left: 4px;
+    }
+
+    .plan-note {
+      font-size: 12px;
       color: #9ca3af;
+      margin-top: 4px;
     }
-    .package-btn {
+
+    .plan-btn {
+      padding-left: 26px;
+      padding-right: 26px;
       white-space: nowrap;
     }
 
-    .packages-disclaimer {
-      font-size: 11px;
-      color: #6b7280;
-      text-align: center;
-      margin-top: 18px;
-    }
-
-    @media (max-width: 960px) {
-      .package-grid {
+    @media (max-width: 1024px) {
+      .plan-grid {
         grid-template-columns: 1fr;
+      }
+
+      .plan-card {
+        min-height: 0;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 顶部导航（和其它页面一致） -->
+  <!-- 顶部导航 -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
-        <a href="index.html">DAOISM & DESTINY</a>
+        <a href="index.html">DAOISM &amp; DESTINY</a>
       </div>
       <nav class="nav">
-        <!-- 注意这里先指向本页 destiny-packages.html -->
         <a href="destiny-packages.html">Destiny Readings</a>
         <a href="fengshui.html">Feng Shui</a>
         <a href="shop.html">Shop</a>
@@ -143,118 +160,123 @@
   </header>
 
   <main>
-    <!-- 顶部文案 -->
+    <!-- 顶部说明 -->
     <section class="packages-hero">
-      <div class="packages-kicker">TAOIST-INSPIRED GUIDANCE</div>
-      <h1 class="packages-title">Destiny reading packages</h1>
-      <p class="packages-subtitle">
-        Choose the level of depth that feels right for you in this moment.
-        Each reading is prepared personally, based on your birth details
-        and the real situation you are facing now.
-      </p>
-      <p class="packages-subtitle">
-        All guidance here is spiritual reflection only and not a substitute
-        for professional medical, legal, or financial advice.
+      <p class="packages-hero-kicker">DESTINY READING</p>
+      <h1 class="packages-hero-title">CHOOSE YOUR READING</h1>
+      <p class="packages-hero-subtitle">
+        每一份命运解读，都是围绕你当下最重要的问题与人生阶段，
+        借由道家智慧，为你照亮前路的一束灯光。
+        请选择最符合你目前需要的阅读方式。
       </p>
     </section>
 
-    <!-- 套餐卡片 -->
-    <section class="packages-wrap">
-      <div class="package-grid">
+    <!-- 三个套餐 -->
+    <section class="packages-section">
+      <div class="packages-inner">
+        <div class="plan-grid">
 
-        <!-- 套餐 1：单问题（对应你现在的 39.95 表单 + 付款流程） -->
-        <article class="package-card">
-          <div>
-            <div class="package-name">SINGLE QUESTION</div>
-            <div class="package-tagline">One question, one clear future.</div>
-            <p class="package-desc">
-              For a single focus that is on your heart right now – a relationship,
-              a decision, or a turning point you cannot ignore.
-            </p>
-            <ul class="package-list">
-              <li>One key question explored in depth.</li>
-              <li>Written destiny reading delivered by email.</li>
-              <li>Simple next-step suggestions inspired by Taoist timing and balance.</li>
-            </ul>
-          </div>
-          <div class="package-footer">
-            <div class="package-price-group">
-              <span class="package-price">$39.95 USD</span>
-              <span class="package-note">Delivered within 1–2 hours after payment.</span>
+          <!-- 单个问题 -->
+          <article class="plan-card">
+            <div>
+              <h2 class="plan-title">单个问题</h2>
+              <p class="plan-kicker">一个问题，一个清晰的未来。</p>
+
+              <div class="plan-body">
+                <p>
+                  此刻，你心中只有一个念头、一段关系、一个决策或一个你无法忽视的转折点。
+                </p>
+                <ul>
+                  <li>本文深入探讨了一个关键问题。</li>
+                  <li>通过电子邮件发送书面命运解读。</li>
+                  <li>受道家时序和平衡理念启发，提出简单的下一步建议。</li>
+                </ul>
+              </div>
             </div>
-            <!-- 现在先全部跳到 destiny.html 的表单页 -->
-            <a href="destiny.html" class="btn btn-primary package-btn">
-              Choose this reading
-            </a>
-          </div>
-        </article>
 
-        <!-- 套餐 2：三问题（暂时也可以先跳到同一个 destiny.html，将来再拆分） -->
-        <article class="package-card">
-          <div>
-            <div class="package-name">THREE QUESTIONS</div>
-            <div class="package-tagline">For a wider view of your path.</div>
-            <p class="package-desc">
-              When life is moving in several directions at once – work, love,
-              family, or health – and you want to see the pattern beneath it all.
-            </p>
-            <ul class="package-list">
-              <li>Up to three connected questions in one reading.</li>
-              <li>Focus on how these areas influence each other.</li>
-              <li>Guidance on timing, priorities, and hidden tension.</li>
-            </ul>
-          </div>
-          <div class="package-footer">
-            <div class="package-price-group">
-              <span class="package-price">$89.95 USD</span>
-              <span class="package-note">Ideal when several areas of life are shifting.</span>
+            <div class="plan-footer">
+              <div>
+                <div class="plan-price">39.95<span>美元</span></div>
+                <div class="plan-note">付款后 1–2 小时内内发送。</div>
+              </div>
+              <a href="destiny.html?plan=single" class="btn btn-primary plan-btn">
+                选择此阅读
+              </a>
             </div>
-            <a href="destiny.html" class="btn btn-outline package-btn">
-              Choose this reading
-            </a>
-          </div>
-        </article>
+          </article>
 
-        <!-- 套餐 3：全局命运概览 -->
-        <article class="package-card">
-          <div>
-            <div class="package-name">FULL DESTINY OVERVIEW</div>
-            <div class="package-tagline">A deeper map of your cycle.</div>
-            <p class="package-desc">
-              For those who want a broader picture – key life cycles, repeating
-              patterns, and the core lesson of the period you are in now.
-            </p>
-            <ul class="package-list">
-              <li>Overview of your current destiny cycle.</li>
-              <li>Key themes around career, relationships, and inner growth.</li>
-              <li>Suggestions on how to cooperate with the flow instead of fighting it.</li>
-            </ul>
-          </div>
-          <div class="package-footer">
-            <div class="package-price-group">
-              <span class="package-price">$129.95 USD</span>
-              <span class="package-note">Best for deeper annual or milestone reflection.</span>
+          <!-- 三个问题 -->
+          <article class="plan-card">
+            <div>
+              <h2 class="plan-title">三个问题</h2>
+              <p class="plan-kicker">为了更全面地了解你的发展道路。</p>
+
+              <div class="plan-body">
+                <p>
+                  当生活同时朝着多个方向发展——工作、爱情、家庭或健康——
+                  而你想看到这一切背后的模式时。
+                </p>
+                <ul>
+                  <li>一次阅读中最多可提出三个相关问题。</li>
+                  <li>重点关注这些领域如何相互影响。</li>
+                  <li>关于时机、优先事项和潜在紧张关系的指导。</li>
+                </ul>
+              </div>
             </div>
-            <a href="destiny.html" class="btn btn-outline package-btn">
-              Choose this reading
-            </a>
-          </div>
-        </article>
 
+            <div class="plan-footer">
+              <div>
+                <div class="plan-price">89.95<span>美元</span></div>
+                <div class="plan-note">适合当下多个领域都在变化的阶段。</div>
+              </div>
+              <a href="destiny.html?plan=triple" class="btn btn-primary plan-btn">
+                选择此阅读
+              </a>
+            </div>
+          </article>
+
+          <!-- 《命运》完整概述 -->
+          <article class="plan-card">
+            <div>
+              <h2 class="plan-title">《命运》完整概述</h2>
+              <p class="plan-kicker">更深入地了解你的生命周期。</p>
+
+              <div class="plan-body">
+                <p>
+                  对于那些想要更全面了解情况的人来说——关键的生命周期、
+                  重复的模式，以及你现在所处时期的核心教训。
+                </p>
+                <ul>
+                  <li>你当前命运周期的概览。</li>
+                  <li>围绕职业、人际关系和内在成长展开的关键主题。</li>
+                  <li>如何顺应潮流而不是与之对抗的建议。</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="plan-footer">
+              <div>
+                <div class="plan-price">129.95<span>美元</span></div>
+                <div class="plan-note">最适合进行更深入的年度或里程碑反思。</div>
+              </div>
+              <a href="destiny.html?plan=full" class="btn btn-primary plan-btn">
+                选择此阅读
+              </a>
+            </div>
+          </article>
+
+        </div>
       </div>
-
-      <p class="packages-disclaimer">
-        All readings are spiritual reflection only and do not replace professional medical,
-        legal, or financial advice.
-      </p>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>© Daoism & Destiny Studio</span>
+      <span>© Daoism &amp; Destiny Studio</span>
       <span>Spiritual guidance inspired by Taoist tradition.</span>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

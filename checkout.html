@@ -8,60 +8,226 @@
 
   <style>
     /* ====== layout ====== */
-    .checkout-section{padding:96px 24px 80px;background:#020617;color:#e5e7eb}
-    .checkout-inner{max-width:1100px;margin:0 auto;display:flex;gap:28px;align-items:flex-start}
-    .checkout-card{border:1px solid rgba(148,163,184,.5);border-radius:18px;background:radial-gradient(circle at 0 0,rgba(15,23,42,.9),#020617);box-shadow:0 20px 48px rgba(15,23,42,.7)}
-    .checkout-summary{flex:1;padding:20px}
-    .checkout-form{flex:1.4;padding:20px}
+    .checkout-section {
+      padding: 96px 24px 80px;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    .checkout-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .checkout-card {
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      border-radius: 18px;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.7);
+    }
+    .checkout-summary {
+      flex: 1;
+      padding: 20px;
+    }
+    .checkout-form {
+      flex: 1.4;
+      padding: 20px;
+    }
 
-    .checkout-title{font-size:26px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
-    .checkout-subtitle{font-size:14px;color:#9ca3af;margin-bottom:12px}
-    .checkout-item{display:flex;justify-content:space-between;gap:12px;margin:10px 0 6px}
-    .checkout-item-name{font-size:15px}
-    .checkout-item-desc{font-size:13px;color:#cbd5f5}
-    .checkout-item-price{white-space:nowrap}
-    .checkout-divider{height:1px;background:rgba(55,65,81,.9);margin:10px 0}
-    .checkout-total-row{display:flex;justify-content:space-between;font-weight:600}
-    .checkout-total-amount{color:#facc15}
-    .checkout-list{margin:10px 0 6px;padding-left:18px}
-    .checkout-list li{margin:6px 0}
+    .checkout-title {
+      font-size: 26px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .checkout-subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
+    .checkout-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 10px 0 6px;
+    }
+    .checkout-item-name {
+      font-size: 15px;
+    }
+    .checkout-item-desc {
+      font-size: 13px;
+      color: #cbd5f5;
+    }
+    .checkout-item-price {
+      white-space: nowrap;
+    }
+    .checkout-divider {
+      height: 1px;
+      background: rgba(55, 65, 81, 0.9);
+      margin: 10px 0;
+    }
+    .checkout-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+    .checkout-total-amount {
+      color: #facc15;
+    }
+    .checkout-list {
+      margin: 10px 0 6px;
+      padding-left: 18px;
+    }
+    .checkout-list li {
+      margin: 6px 0;
+    }
 
     /* ====== payment box ====== */
-    .pay-title{font-size:22px;margin-bottom:4px}
-    .pay-note{font-size:14px;color:#9ca3af;margin-bottom:12px}
+    .pay-title {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    .pay-note {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
 
-    .pay-box{border:1px solid rgba(148,163,184,.55);border-radius:14px;background:#020617;margin-bottom:14px;overflow:hidden}
-    .pay-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
-    .pay-head input[type=radio]{accent-color:#facc15;transform:scale(1.05)}
-    .pay-name{font-size:14px}
-    .card-logos{margin-left:auto;display:flex;gap:6px}
-    .pill{border:1px solid rgba(148,163,184,.6);border-radius:999px;padding:4px 10px;font-size:12px}
-    .paypal-pill{margin-left:auto}
+    .pay-box {
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      border-radius: 14px;
+      background: #020617;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .pay-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+    }
+    .pay-head input[type="radio"] {
+      accent-color: #facc15;
+      transform: scale(1.05);
+      margin-right: 6px;
+    }
+    .pay-name {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-logos {
+      margin-left: auto;
+      display: flex;
+      gap: 6px;
+    }
+    .pill {
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+    .paypal-pill {
+      margin-left: auto;
+    }
 
-    .pay-body{display:none;border-top:1px solid rgba(55,65,81,.9);padding:14px}
-    .pay-box.active .pay-body{display:block}
+    .pay-body {
+      display: none;
+      border-top: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 14px;
+    }
+    .pay-box.active .pay-body {
+      display: block;
+    }
 
-    .row{display:flex;gap:12px;margin-top:10px}
-    .field{flex:1}
-    .label{display:block;font-size:12px;color:#9ca3af;margin-bottom:4px}
-    .input{width:100%;border-radius:12px;border:1px solid #1f2937;padding:9px 10px;font-size:14px;background:#020617;color:#e5e7eb;outline:none}
-    .input:focus{border-color:#facc15;box-shadow:0 0 0 1px rgba(250,204,21,.25)}
-    .checkbox{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14px;color:#e5e7eb}
+    .row {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .field {
+      flex: 1;
+    }
+    .label {
+      display: block;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+    .input {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      padding: 9px 10px;
+      font-size: 14px;
+      background: #020617;
+      color: #e5e7eb;
+      outline: none;
+    }
+    .input:focus {
+      border-color: #facc15;
+      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.25);
+    }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #e5e7eb;
+    }
 
-    .pay-illustration{height:140px;border-radius:12px;background:linear-gradient(180deg,rgba(148,163,184,.18),rgba(148,163,184,.06));display:flex;align-items:center;justify-content:center;margin:8px 0 6px;color:#cbd5f5;font-size:13px}
+    .pay-illustration {
+      height: 140px;
+      border-radius: 12px;
+      background: linear-gradient(
+        180deg,
+        rgba(148, 163, 184, 0.18),
+        rgba(148, 163, 184, 0.06)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0 6px;
+      color: #cbd5f5;
+      font-size: 13px;
+      text-align: center;
+      padding: 0 12px;
+    }
 
-    .pay-btn{width:100%;margin-top:12px}
-    .secure-copy{font-size:12px;color:#9ca3af;margin-top:10px}
+    .pay-btn {
+      width: 100%;
+      margin-top: 12px;
+      justify-content: center;
+    }
+    .secure-copy {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 10px;
+    }
 
-    .brand-row{display:flex;gap:10px;margin-top:8px}
-    @media (max-width:900px){.checkout-inner{flex-direction:column}}
+    .brand-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .checkout-inner {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- 固定导航（与你站内一致） -->
+  <!-- 顶部导航 -->
   <header class="site-header">
     <div class="site-header-inner">
-      <div class="logo"><a href="index.html">DAOISM & DESTINY</a></div>
+      <div class="logo">
+        <a href="index.html">DAOISM & DESTINY</a>
+      </div>
       <nav class="nav">
         <a href="destiny.html">Destiny Readings</a>
         <a href="fengshui.html">Feng Shui</a>
@@ -78,7 +244,9 @@
         <!-- 左：订单摘要 -->
         <aside class="checkout-card checkout-summary">
           <h1 class="checkout-title">Secure checkout</h1>
-          <p class="checkout-subtitle">Single written destiny reading — one question, one clear future.</p>
+          <p class="checkout-subtitle">
+            Single written destiny reading — one question, one clear future.
+          </p>
 
           <div class="checkout-item">
             <div>
@@ -104,21 +272,22 @@
           </ul>
 
           <p class="checkout-subtitle">
-            After payment, you will receive a message from our team within <strong>1–2 hours</strong>.
-            Please remember to check your inbox or WhatsApp.
+            After payment, you will receive a message from our team within
+            <strong>1–2 hours</strong>. Please remember to check your inbox or WhatsApp.
           </p>
         </aside>
 
-        <!-- 右：付款方式（不再显示联系信息/祝福/记住账号） -->
+        <!-- 右：付款方式（接入 PayPal.me 链接） -->
         <section class="checkout-card checkout-form">
           <h2 class="pay-title">Payment</h2>
           <p class="pay-note">All transactions are secure and encrypted.</p>
 
-          <!-- Credit card -->
+          <!-- Credit card 区块 -->
           <div class="pay-box active" id="box-card">
             <div class="pay-head">
               <label class="pay-name">
-                <input type="radio" name="paymethod" value="card" checked /> Credit card
+                <input type="radio" name="paymethod" value="card" checked />
+                Credit card
               </label>
               <div class="card-logos">
                 <span class="pill">VISA</span>
@@ -152,21 +321,27 @@
             </div>
           </div>
 
-          <!-- PayPal -->
+          <!-- PayPal 区块 -->
           <div class="pay-box" id="box-paypal">
             <div class="pay-head">
               <label class="pay-name">
-                <input type="radio" name="paymethod" value="paypal" /> PayPal
+                <input type="radio" name="paymethod" value="paypal" />
+                PayPal
               </label>
               <span class="pill paypal-pill">PayPal</span>
             </div>
             <div class="pay-body">
-              <div class="pay-illustration">You will be redirected to PayPal to complete your purchase securely.</div>
+              <div class="pay-illustration">
+                You will be redirected to PayPal to complete your purchase securely
+                using your balance or card.
+              </div>
             </div>
           </div>
 
           <!-- 主按钮 + 品牌 + 安全文案 -->
-          <button id="payButton" class="btn btn-primary pay-btn">Place order</button>
+          <button id="payButton" class="btn btn-primary pay-btn">
+            Place order
+          </button>
 
           <div class="brand-row">
             <span class="pill">VISA</span>
@@ -175,7 +350,8 @@
           </div>
 
           <p class="secure-copy">
-            Protected by SSL encryption. Your card details are never stored on our servers.
+            Payments are processed securely via PayPal. Your card details are encrypted and never
+            stored on this site.
           </p>
         </section>
       </div>
@@ -187,26 +363,38 @@
   </main>
 
   <script>
-    // 切换方式：控制展开与主按钮文案
+    // 切换 Credit card / PayPal 展开面板 + 按钮文案
     const radioCard = document.querySelector('input[name="paymethod"][value="card"]');
     const radioPayPal = document.querySelector('input[name="paymethod"][value="paypal"]');
     const boxCard = document.getElementById('box-card');
     const boxPayPal = document.getElementById('box-paypal');
     const payBtn = document.getElementById('payButton');
 
-    function setMode(mode){
-      if(mode === 'paypal'){
-        boxPayPal.classList.add('active');  boxCard.classList.remove('active');
+    function setMode(mode) {
+      if (mode === 'paypal') {
+        boxPayPal.classList.add('active');
+        boxCard.classList.remove('active');
         payBtn.textContent = 'Pay with PayPal';
-      }else{
-        boxCard.classList.add('active');     boxPayPal.classList.remove('active');
+      } else {
+        boxCard.classList.add('active');
+        boxPayPal.classList.remove('active');
         payBtn.textContent = 'Place order';
       }
     }
-    radioCard.addEventListener('change', () => setMode('card'));
-    radioPayPal.addEventListener('change', () => setMode('paypal'));
-    // 默认信用卡
+
+    if (radioCard && radioPayPal) {
+      radioCard.addEventListener('change', () => setMode('card'));
+      radioPayPal.addEventListener('change', () => setMode('paypal'));
+    }
+    // 默认信用卡模式
     setMode('card');
+
+    // 点击按钮：无论选 Credit card 还是 PayPal，都跳转你的 PayPal.me 收款链接
+    const PAYPAL_ME_LINK = 'https://paypal.me/suanmingfuwu/39.95';
+
+    payBtn.addEventListener('click', function () {
+      window.open(PAYPAL_ME_LINK, '_blank', 'noopener');
+    });
   </script>
 </body>
 </html>

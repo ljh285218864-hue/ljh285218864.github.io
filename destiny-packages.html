@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Destiny Reading Packages – Daoism & Destiny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      padding-top: 80px;
+      background: #020617;
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+    .packages-hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 16px;
+      text-align: center;
+    }
+    .packages-kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #facc15;
+      margin-bottom: 8px;
+    }
+    .packages-title {
+      font-size: 26px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .packages-subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      max-width: 640px;
+      margin: 0 auto 8px;
+    }
+
+    .packages-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 24px 80px;
+    }
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .package-card {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.7);
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .package-name {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+    .package-tagline {
+      font-size: 13px;
+      color: #cbd5f5;
+      margin-bottom: 10px;
+    }
+    .package-desc {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .package-list {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin: 8px 0 10px;
+      padding-left: 16px;
+    }
+    .package-list li + li {
+      margin-top: 4px;
+    }
+    .package-footer {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .package-price-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .package-price {
+      font-size: 18px;
+      color: #facc15;
+      font-weight: 600;
+    }
+    .package-note {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .package-btn {
+      white-space: nowrap;
+    }
+
+    .packages-disclaimer {
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航（和其它页面一致） -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo">
+        <a href="index.html">DAOISM & DESTINY</a>
+      </div>
+      <nav class="nav">
+        <!-- 注意这里先指向本页 destiny-packages.html -->
+        <a href="destiny-packages.html">Destiny Readings</a>
+        <a href="fengshui.html">Feng Shui</a>
+        <a href="shop.html">Shop</a>
+        <a href="history.html">Taoist History</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 顶部文案 -->
+    <section class="packages-hero">
+      <div class="packages-kicker">TAOIST-INSPIRED GUIDANCE</div>
+      <h1 class="packages-title">Destiny reading packages</h1>
+      <p class="packages-subtitle">
+        Choose the level of depth that feels right for you in this moment.
+        Each reading is prepared personally, based on your birth details
+        and the real situation you are facing now.
+      </p>
+      <p class="packages-subtitle">
+        All guidance here is spiritual reflection only and not a substitute
+        for professional medical, legal, or financial advice.
+      </p>
+    </section>
+
+    <!-- 套餐卡片 -->
+    <section class="packages-wrap">
+      <div class="package-grid">
+
+        <!-- 套餐 1：单问题（对应你现在的 39.95 表单 + 付款流程） -->
+        <article class="package-card">
+          <div>
+            <div class="package-name">SINGLE QUESTION</div>
+            <div class="package-tagline">One question, one clear future.</div>
+            <p class="package-desc">
+              For a single focus that is on your heart right now – a relationship,
+              a decision, or a turning point you cannot ignore.
+            </p>
+            <ul class="package-list">
+              <li>One key question explored in depth.</li>
+              <li>Written destiny reading delivered by email.</li>
+              <li>Simple next-step suggestions inspired by Taoist timing and balance.</li>
+            </ul>
+          </div>
+          <div class="package-footer">
+            <div class="package-price-group">
+              <span class="package-price">$39.95 USD</span>
+              <span class="package-note">Delivered within 1–2 hours after payment.</span>
+            </div>
+            <!-- 现在先全部跳到 destiny.html 的表单页 -->
+            <a href="destiny.html" class="btn btn-primary package-btn">
+              Choose this reading
+            </a>
+          </div>
+        </article>
+
+        <!-- 套餐 2：三问题（暂时也可以先跳到同一个 destiny.html，将来再拆分） -->
+        <article class="package-card">
+          <div>
+            <div class="package-name">THREE QUESTIONS</div>
+            <div class="package-tagline">For a wider view of your path.</div>
+            <p class="package-desc">
+              When life is moving in several directions at once – work, love,
+              family, or health – and you want to see the pattern beneath it all.
+            </p>
+            <ul class="package-list">
+              <li>Up to three connected questions in one reading.</li>
+              <li>Focus on how these areas influence each other.</li>
+              <li>Guidance on timing, priorities, and hidden tension.</li>
+            </ul>
+          </div>
+          <div class="package-footer">
+            <div class="package-price-group">
+              <span class="package-price">$89.95 USD</span>
+              <span class="package-note">Ideal when several areas of life are shifting.</span>
+            </div>
+            <a href="destiny.html" class="btn btn-outline package-btn">
+              Choose this reading
+            </a>
+          </div>
+        </article>
+
+        <!-- 套餐 3：全局命运概览 -->
+        <article class="package-card">
+          <div>
+            <div class="package-name">FULL DESTINY OVERVIEW</div>
+            <div class="package-tagline">A deeper map of your cycle.</div>
+            <p class="package-desc">
+              For those who want a broader picture – key life cycles, repeating
+              patterns, and the core lesson of the period you are in now.
+            </p>
+            <ul class="package-list">
+              <li>Overview of your current destiny cycle.</li>
+              <li>Key themes around career, relationships, and inner growth.</li>
+              <li>Suggestions on how to cooperate with the flow instead of fighting it.</li>
+            </ul>
+          </div>
+          <div class="package-footer">
+            <div class="package-price-group">
+              <span class="package-price">$129.95 USD</span>
+              <span class="package-note">Best for deeper annual or milestone reflection.</span>
+            </div>
+            <a href="destiny.html" class="btn btn-outline package-btn">
+              Choose this reading
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="packages-disclaimer">
+        All readings are spiritual reflection only and do not replace professional medical,
+        legal, or financial advice.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© Daoism & Destiny Studio</span>
+      <span>Spiritual guidance inspired by Taoist tradition.</span>
+    </div>
+  </footer>
+</body>
+</html>

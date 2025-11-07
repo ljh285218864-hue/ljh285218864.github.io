@@ -2,21 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Destiny Readings · Daoism & Destiny</title>
+  <title>Destiny Reading · Daoism & Destiny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* 顶部文字区域 */
+    .destiny-hero {
+      padding: 120px 24px 32px;
+      text-align: center;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top, #020617, #020617);
+    }
+
+    .destiny-hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .destiny-hero-kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    .destiny-hero-title {
+      font-size: 26px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .destiny-hero-subtitle,
+    .destiny-hero-note {
+      font-size: 14px;
+      color: #cbd5f5;
+      line-height: 1.9;
+    }
+
+    .destiny-hero-subtitle {
+      margin-bottom: 8px;
+    }
+
+    .destiny-hero-note {
+      opacity: 0.9;
+    }
+
+    /* 表单整体 */
+    .destiny-layout {
+      max-width: 1100px;
+      margin: 0 auto 88px;
+      padding: 8px 24px 96px;
+    }
+
+    .destiny-form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .destiny-form-title {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .destiny-form-intro {
+      font-size: 14px;
+      color: #9ca3af;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .destiny-form {
+      width: 100%;
+      margin-top: 4px;
+      background: #020617;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 18px 18px 22px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .form-field {
+      flex: 1;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 3px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      padding: 8px 10px;
+      font-size: 14px;
+      outline: none;
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: #facc15;
+      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.25);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .destiny-gender-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .destiny-gender-option {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    .destiny-price-row {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .destiny-price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .destiny-price-label {
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    .destiny-price-amount {
+      font-size: 16px;
+      font-weight: 600;
+      color: #facc15;
+    }
+
+    .destiny-pay-btn {
+      white-space: nowrap;
+    }
+
+    .destiny-form-note {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .destiny-layout {
+        padding-bottom: 72px;
+      }
+
+      .destiny-form-wrap {
+        max-width: 100%;
+      }
+
+      .destiny-form {
+        padding: 16px 14px 18px;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- 顶部悬浮英文导航 -->
+  <!-- 顶部导航 -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
         <a href="index.html">DAOISM &amp; DESTINY</a>
       </div>
       <nav class="nav">
-        <!-- 这里用 destiny.html 自己，不再指向 destiny-packages.html -->
-        <a href="destiny.html">Destiny Readings</a>
+        <a href="destiny-packages.html">Destiny Readings</a>
         <a href="fengshui.html">Feng Shui</a>
         <a href="shop.html">Shop</a>
         <a href="history.html">Taoist History</a>
@@ -26,7 +213,7 @@
   </header>
 
   <main>
-    <!-- 顶部文案区域 -->
+    <!-- 顶部文案 -->
     <section class="destiny-hero">
       <div class="destiny-hero-inner">
         <p class="destiny-hero-kicker">DESTINY READING</p>
@@ -43,114 +230,7 @@
       </div>
     </section>
 
-    <!-- ===== 新增：三个命运阅读套餐区（主页 Explore 会跳到这里） ===== -->
-    <section class="destiny-plans" id="plans">
-      <div class="destiny-plans-inner">
-
-        <!-- 单个问题 -->
-        <article class="plan-card">
-          <h2 class="plan-title">单个问题</h2>
-          <p class="plan-subtitle">一个问题，一个清晰的未来。</p>
-
-          <p class="plan-text">
-            此刻，你心中只有一个念头——一段关系、一个决定或一个你无法忽视的转折点。
-          </p>
-
-          <ul class="plan-list">
-            <li>本文深入探讨了一个关键问题。</li>
-            <li>通过电子邮件发送书面命运解读。</li>
-            <li>受道家时序和平衡理念启发，提出简明的下一步建议。</li>
-          </ul>
-
-          <div class="plan-footer">
-            <div class="plan-price-row">
-              <div class="plan-price">
-                <span class="plan-price-amount">39.95 <span class="plan-price-currency">美元</span></span>
-                <span class="plan-price-note">付款后 1–2 小时内发送。</span>
-              </div>
-              <!-- 单个问题：39.95 美元 PayPal 链接 -->
-              <a
-                href="https://paypal.me/suanmingfuwu/39.95"
-                class="btn btn-primary plan-cta"
-                target="_blank"
-              >
-                选择此阅读
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 三个问题 -->
-        <article class="plan-card">
-          <h2 class="plan-title">三个问题</h2>
-          <p class="plan-subtitle">为了更全面地了解你的发展道路。</p>
-
-          <p class="plan-text">
-            当生活同时朝着多个方向发展——工作、爱情、家庭或健康——而你想看到这一切背后的模式时。
-          </p>
-
-          <ul class="plan-list">
-            <li>一次阅读中最多可提出三个相关问题。</li>
-            <li>重点关注这些领域如何相互影响。</li>
-            <li>关于时机、优先事项和潜在紧张关系的指导。</li>
-          </ul>
-
-          <div class="plan-footer">
-            <div class="plan-price-row">
-              <div class="plan-price">
-                <span class="plan-price-amount">89.95 <span class="plan-price-currency">美元</span></span>
-                <span class="plan-price-note">适合当下多个领域都在变化的阶段。</span>
-              </div>
-              <!-- 三个问题：89.95 美元 PayPal 链接 -->
-              <a
-                href="https://paypal.me/suanmingfuwu/89.95"
-                class="btn btn-outline plan-cta"
-                target="_blank"
-              >
-                选择此阅读
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 《命运》完整概述 -->
-        <article class="plan-card">
-          <h2 class="plan-title">《命运》完整概述</h2>
-          <p class="plan-subtitle">更深入地了解你的生命周期。</p>
-
-          <p class="plan-text">
-            对于那些想要更全面了解情况的人来说——关键的生命周期、重复的模式，以及你现在所处时期的核心教训。
-          </p>
-
-          <ul class="plan-list">
-            <li>你当前命运周期的概览。</li>
-            <li>围绕职业、人际关系和内在成长展开的关键主题。</li>
-            <li>如何顺应潮流而不是与之对抗的建议。</li>
-          </ul>
-
-          <div class="plan-footer">
-            <div class="plan-price-row">
-              <div class="plan-price">
-                <span class="plan-price-amount">129.95 <span class="plan-price-currency">美元</span></span>
-                <span class="plan-price-note">最适合进行更深入的年度或里程碑反思。</span>
-              </div>
-              <!-- 完整概述：129.95 美元 PayPal 链接 -->
-              <a
-                href="https://paypal.me/suanmingfuwu/129.95"
-                class="btn btn-outline plan-cta"
-                target="_blank"
-              >
-                选择此阅读
-              </a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-    <!-- ===== 套餐区结束 ===== -->
-
-    <!-- 下面是你原来的「填写信息」表单，保留不动 -->
+    <!-- 表单主体 -->
     <section class="destiny-layout">
       <div class="destiny-form-wrap">
         <h2 class="destiny-form-title">Tell me about your question</h2>
@@ -255,11 +335,19 @@
           <!-- Price + payment -->
           <div class="destiny-price-row">
             <div class="destiny-price">
-              <span class="destiny-price-label">Single written destiny reading</span>
-              <span class="destiny-price-amount">$39.95 USD</span>
+              <span id="destiny-price-label" class="destiny-price-label">
+                Single written destiny reading
+              </span>
+              <span id="destiny-price-amount" class="destiny-price-amount">
+                $39.95 USD
+              </span>
             </div>
 
-            <a href="checkout.html" class="btn btn-primary destiny-pay-btn">
+            <a
+              id="destiny-pay-btn"
+              href="checkout.html?plan=single"
+              class="btn btn-primary destiny-pay-btn"
+            >
               Proceed to payment
             </a>
           </div>
@@ -271,7 +359,6 @@
         </form>
       </div>
     </section>
-
   </main>
 
   <footer class="footer">

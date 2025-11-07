@@ -14,14 +14,14 @@
       <div class="logo">
         <a href="index.html">DAOISM &amp; DESTINY</a>
       </div>
-   <nav class="nav">
-  <a href="destiny-packages.html">Destiny Readings</a>
-  <a href="fengshui.html">Feng Shui</a>
-  <a href="shop.html">Shop</a>
-  <a href="history.html">Taoist History</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+      <nav class="nav">
+        <!-- 这里用 destiny.html 自己，不再指向 destiny-packages.html -->
+        <a href="destiny.html">Destiny Readings</a>
+        <a href="fengshui.html">Feng Shui</a>
+        <a href="shop.html">Shop</a>
+        <a href="history.html">Taoist History</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -43,127 +43,234 @@
       </div>
     </section>
 
-<section class="destiny-layout">
-  <div class="destiny-form-wrap">
-    <h2 class="destiny-form-title">Tell me about your question</h2>
-    <p class="destiny-form-intro">
-      Fill in the details below so your reading can be prepared precisely for you.
-    </p>
+    <!-- ===== 新增：三个命运阅读套餐区（主页 Explore 会跳到这里） ===== -->
+    <section class="destiny-plans" id="plans">
+      <div class="destiny-plans-inner">
 
-    <form class="destiny-form">
-      <!-- Name + Gender -->
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="destiny-name">Name</label>
-          <input
-            id="destiny-name"
-            name="name"
-            type="text"
-            class="form-input"
-            placeholder="Your full name"
-          />
-        </div>
+        <!-- 单个问题 -->
+        <article class="plan-card">
+          <h2 class="plan-title">单个问题</h2>
+          <p class="plan-subtitle">一个问题，一个清晰的未来。</p>
 
-        <div class="form-field">
-          <label class="form-label">Gender</label>
-          <div class="destiny-gender-group">
-            <label class="destiny-gender-option">
-              <input type="radio" name="gender" value="male" checked />
-              <span>Male</span>
-            </label>
-            <label class="destiny-gender-option">
-              <input type="radio" name="gender" value="female" />
-              <span>Female</span>
-            </label>
+          <p class="plan-text">
+            此刻，你心中只有一个念头——一段关系、一个决定或一个你无法忽视的转折点。
+          </p>
+
+          <ul class="plan-list">
+            <li>本文深入探讨了一个关键问题。</li>
+            <li>通过电子邮件发送书面命运解读。</li>
+            <li>受道家时序和平衡理念启发，提出简明的下一步建议。</li>
+          </ul>
+
+          <div class="plan-footer">
+            <div class="plan-price-row">
+              <div class="plan-price">
+                <span class="plan-price-amount">39.95 <span class="plan-price-currency">美元</span></span>
+                <span class="plan-price-note">付款后 1–2 小时内发送。</span>
+              </div>
+              <!-- 单个问题：39.95 美元 PayPal 链接 -->
+              <a
+                href="https://paypal.me/suanmingfuwu/39.95"
+                class="btn btn-primary plan-cta"
+                target="_blank"
+              >
+                选择此阅读
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- Date of birth + Region -->
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="destiny-dob">Date of birth</label>
-          <input
-            id="destiny-dob"
-            name="dob"
-            type="date"
-            class="form-input"
-            max="2099-12-31"
-          />
-        </div>
+        <!-- 三个问题 -->
+        <article class="plan-card">
+          <h2 class="plan-title">三个问题</h2>
+          <p class="plan-subtitle">为了更全面地了解你的发展道路。</p>
 
-        <div class="form-field">
-          <label class="form-label" for="destiny-region">Region / City</label>
-          <input
-            id="destiny-region"
-            name="region"
-            type="text"
-            class="form-input"
-            placeholder="Country / city you live in"
-          />
-        </div>
-      </div>
+          <p class="plan-text">
+            当生活同时朝着多个方向发展——工作、爱情、家庭或健康——而你想看到这一切背后的模式时。
+          </p>
 
-      <!-- Main question -->
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="destiny-question">
-            What would you like to ask?
-          </label>
-          <textarea
-            id="destiny-question"
-            name="question"
-            class="form-textarea"
-            placeholder="Please describe your situation and your main question in detail."
-          ></textarea>
-        </div>
-      </div>
+          <ul class="plan-list">
+            <li>一次阅读中最多可提出三个相关问题。</li>
+            <li>重点关注这些领域如何相互影响。</li>
+            <li>关于时机、优先事项和潜在紧张关系的指导。</li>
+          </ul>
 
-      <!-- WhatsApp + Email -->
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="destiny-whatsapp">WhatsApp</label>
-          <input
-            id="destiny-whatsapp"
-            name="whatsapp"
-            type="tel"
-            class="form-input"
-            placeholder="+1 555 123 4567"
-          />
-        </div>
+          <div class="plan-footer">
+            <div class="plan-price-row">
+              <div class="plan-price">
+                <span class="plan-price-amount">89.95 <span class="plan-price-currency">美元</span></span>
+                <span class="plan-price-note">适合当下多个领域都在变化的阶段。</span>
+              </div>
+              <!-- 三个问题：89.95 美元 PayPal 链接 -->
+              <a
+                href="https://paypal.me/suanmingfuwu/89.95"
+                class="btn btn-outline plan-cta"
+                target="_blank"
+              >
+                选择此阅读
+              </a>
+            </div>
+          </div>
+        </article>
 
-        <div class="form-field">
-          <label class="form-label" for="destiny-email">Email</label>
-          <input
-            id="destiny-email"
-            name="email"
-            type="email"
-            class="form-input"
-            placeholder="you@example.com"
-          />
-        </div>
-      </div>
+        <!-- 《命运》完整概述 -->
+        <article class="plan-card">
+          <h2 class="plan-title">《命运》完整概述</h2>
+          <p class="plan-subtitle">更深入地了解你的生命周期。</p>
 
-      <!-- Price + payment -->
-      <div class="destiny-price-row">
-        <div class="destiny-price">
-          <span class="destiny-price-label">Single written destiny reading</span>
-          <span class="destiny-price-amount">$39.95 USD</span>
-        </div>
+          <p class="plan-text">
+            对于那些想要更全面了解情况的人来说——关键的生命周期、重复的模式，以及你现在所处时期的核心教训。
+          </p>
 
-       <a href="checkout.html" class="btn btn-primary destiny-pay-btn">
-  Proceed to payment
-</a>
+          <ul class="plan-list">
+            <li>你当前命运周期的概览。</li>
+            <li>围绕职业、人际关系和内在成长展开的关键主题。</li>
+            <li>如何顺应潮流而不是与之对抗的建议。</li>
+          </ul>
+
+          <div class="plan-footer">
+            <div class="plan-price-row">
+              <div class="plan-price">
+                <span class="plan-price-amount">129.95 <span class="plan-price-currency">美元</span></span>
+                <span class="plan-price-note">最适合进行更深入的年度或里程碑反思。</span>
+              </div>
+              <!-- 完整概述：129.95 美元 PayPal 链接 -->
+              <a
+                href="https://paypal.me/suanmingfuwu/129.95"
+                class="btn btn-outline plan-cta"
+                target="_blank"
+              >
+                选择此阅读
+              </a>
+            </div>
+          </div>
+        </article>
 
       </div>
+    </section>
+    <!-- ===== 套餐区结束 ===== -->
 
-      <p class="destiny-form-note">
-        After payment, you will receive a message from our team within 1–2 hours.
-        Please remember to check your inbox.
-      </p>
-    </form>
-  </div>
-</section>
+    <!-- 下面是你原来的「填写信息」表单，保留不动 -->
+    <section class="destiny-layout">
+      <div class="destiny-form-wrap">
+        <h2 class="destiny-form-title">Tell me about your question</h2>
+        <p class="destiny-form-intro">
+          Fill in the details below so your reading can be prepared precisely for you.
+        </p>
+
+        <form class="destiny-form">
+          <!-- Name + Gender -->
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="destiny-name">Name</label>
+              <input
+                id="destiny-name"
+                name="name"
+                type="text"
+                class="form-input"
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">Gender</label>
+              <div class="destiny-gender-group">
+                <label class="destiny-gender-option">
+                  <input type="radio" name="gender" value="male" checked />
+                  <span>Male</span>
+                </label>
+                <label class="destiny-gender-option">
+                  <input type="radio" name="gender" value="female" />
+                  <span>Female</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date of birth + Region -->
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="destiny-dob">Date of birth</label>
+              <input
+                id="destiny-dob"
+                name="dob"
+                type="date"
+                class="form-input"
+                max="2099-12-31"
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="destiny-region">Region / City</label>
+              <input
+                id="destiny-region"
+                name="region"
+                type="text"
+                class="form-input"
+                placeholder="Country / city you live in"
+              />
+            </div>
+          </div>
+
+          <!-- Main question -->
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="destiny-question">
+                What would you like to ask?
+              </label>
+              <textarea
+                id="destiny-question"
+                name="question"
+                class="form-textarea"
+                placeholder="Please describe your situation and your main question in detail."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- WhatsApp + Email -->
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="destiny-whatsapp">WhatsApp</label>
+              <input
+                id="destiny-whatsapp"
+                name="whatsapp"
+                type="tel"
+                class="form-input"
+                placeholder="+1 555 123 4567"
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="destiny-email">Email</label>
+              <input
+                id="destiny-email"
+                name="email"
+                type="email"
+                class="form-input"
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+
+          <!-- Price + payment -->
+          <div class="destiny-price-row">
+            <div class="destiny-price">
+              <span class="destiny-price-label">Single written destiny reading</span>
+              <span class="destiny-price-amount">$39.95 USD</span>
+            </div>
+
+            <a href="checkout.html" class="btn btn-primary destiny-pay-btn">
+              Proceed to payment
+            </a>
+          </div>
+
+          <p class="destiny-form-note">
+            After payment, you will receive a message from our team within 1–2 hours.
+            Please remember to check your inbox.
+          </p>
+        </form>
+      </div>
+    </section>
 
   </main>
 

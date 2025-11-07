@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Full Destiny Overview · Daoism & Destiny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .form-label .required-indicator {
+      color: #f97373;
+      margin-left: 4px;
+    }
+    .destiny-gender-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .destiny-gender-option {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .destiny-gender-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .destiny-gender-option span {
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      font-size: 13px;
+      color: #e5e7eb;
+      transition: all 0.16s ease-out;
+    }
+    .destiny-gender-option input:checked + span {
+      background: #facc15;
+      color: #020617;
+      border-color: #facc15;
+    }
+    .destiny-required-info {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+    .required-info-btn {
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+      color: #facc15;
+      cursor: pointer;
+      font-size: 12px;
+      text-decoration: underline;
+    }
+    .required-popup {
+      margin-top: 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #020617;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #e5e7eb;
+      display: none;
+    }
+    .required-popup.is-visible {
+      display: block;
+    }
+    .required-popup-close {
+      margin-top: 6px;
+      font-size: 12px;
+      border: none;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: #facc15;
+      color: #020617;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo">
+        <a href="index.html">DAOISM &amp; DESTINY</a>
+      </div>
+      <nav class="nav">
+        <a href="destiny-packages.html">Destiny Readings</a>
+        <a href="fengshui.html">Feng Shui</a>
+        <a href="shop.html">Shop</a>
+        <a href="history.html">Taoist History</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="destiny-hero">
+      <div class="destiny-hero-inner">
+        <p class="destiny-hero-kicker">DESTINY READING</p>
+        <h1 class="destiny-hero-title">FULL DESTINY OVERVIEW.</h1>
+        <p class="destiny-hero-subtitle">
+          A deeper look at your current life cycle, repeating patterns, and key themes, so you can
+          understand what this chapter of destiny is asking of you.
+        </p>
+        <p class="destiny-hero-note">
+          This reading explores your work, relationships, and inner growth together, offering
+          guidance on how to move with the tide instead of against it.
+        </p>
+      </div>
+    </section>
+
+    <section class="destiny-layout">
+      <div class="destiny-form-wrap">
+        <h2 class="destiny-form-title">Tell me about your situation</h2>
+        <p class="destiny-form-intro">
+          Fill in the details below so your full destiny overview can be prepared precisely for you.
+        </p>
+
+        <form class="destiny-form" action="checkout.html" method="get">
+          <input type="hidden" name="plan" value="full" />
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="full-name">
+                Name <span class="required-indicator">*</span>
+              </label>
+              <input
+                id="full-name"
+                name="name"
+                type="text"
+                class="form-input"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">
+                Gender <span class="required-indicator">*</span>
+              </label>
+              <div class="destiny-gender-group">
+                <label class="destiny-gender-option">
+                  <input type="radio" name="gender" value="male" required />
+                  <span>Male</span>
+                </label>
+                <label class="destiny-gender-option">
+                  <input type="radio" name="gender" value="female" />
+                  <span>Female</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="full-dob">
+                Date of birth <span class="required-indicator">*</span>
+              </label>
+              <input
+                id="full-dob"
+                name="dob"
+                type="date"
+                class="form-input"
+                max="2099-12-31"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="full-region">
+                Region / City <span class="required-indicator">*</span>
+              </label>
+              <input
+                id="full-region"
+                name="region"
+                type="text"
+                class="form-input"
+                placeholder="Country / city you live in"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="full-question">
+                What would you like to ask? <span class="required-indicator">*</span>
+              </label>
+              <textarea
+                id="full-question"
+                name="question"
+                class="form-textarea"
+                placeholder="Please describe your current life situation and the main themes you would like to understand."
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="full-whatsapp">
+                WhatsApp <span class="required-indicator">*</span>
+              </label>
+              <input
+                id="full-whatsapp"
+                name="whatsapp"
+                type="tel"
+                class="form-input"
+                placeholder="+1 555 123 4567"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="full-email">
+                Email <span class="required-indicator">*</span>
+              </label>
+              <input
+                id="full-email"
+                name="email"
+                type="email"
+                class="form-input"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="destiny-price-row">
+            <div class="destiny-price">
+              <span class="destiny-price-label">Full destiny overview reading</span>
+              <span class="destiny-price-amount">$129.95 USD</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary destiny-pay-btn">
+              Proceed to payment
+            </button>
+          </div>
+
+          <div class="destiny-required-info">
+            <button
+              type="button"
+              class="required-info-btn"
+              data-required-info-btn
+              data-target="required-popup-full"
+            >
+              Why do I need to fill in every field?
+            </button>
+
+            <div id="required-popup-full" class="required-popup">
+              <p>
+                For a full overview, the practitioner needs a clear picture of your life:
+                your basic details, where you live, and what you are currently facing.
+                This allows the reading to speak directly to your real circumstances.
+                Your information is used only for this work and is kept confidential.
+              </p>
+              <button type="button" class="required-popup-close">Got it</button>
+            </div>
+          </div>
+
+          <p class="destiny-form-note">
+            After payment, you will receive a message from our team within 1–2 hours.
+            Please remember to check your inbox or WhatsApp.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© Daoism &amp; Destiny Studio</span>
+      <span>Spiritual guidance inspired by Taoist tradition.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-required-info-btn]').forEach(function (btn) {
+        var targetId = btn.getAttribute('data-target');
+        var popup = document.getElementById(targetId);
+        if (!popup) return;
+
+        btn.addEventListener('click', function () {
+          popup.classList.toggle('is-visible');
+        });
+
+        var closeBtn = popup.querySelector('.required-popup-close');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function () {
+            popup.classList.remove('is-visible');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

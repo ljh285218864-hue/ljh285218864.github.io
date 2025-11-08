@@ -89,28 +89,34 @@
     }
 
     /* --- Plan cards --- */
-    .plan-card {
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.96), #020617);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
-      padding: 24px 24px 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
+  .plan-card {
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  /* 原来是特别实心的深色，现在带一点透明 + 模糊，背景隐约透出来 */
+  background: rgba(2, 6, 23, 0.88);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
+  padding: 24px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-      /* entrance + hover base */
-      transform: translateY(18px);
-      opacity: 0;
-      transition:
-        transform 0.28s ease,
-        opacity 0.4s ease,
-        box-shadow 0.28s ease,
-        border-color 0.28s ease,
-        background 0.28s ease;
-    }
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+
+  /* 进入动画 */
+  opacity: 0;
+  transform: translateY(18px);
+  animation: plan-enter 0.7s ease-out forwards;
+
+  /* 磨砂玻璃效果（不支持的浏览器会自动忽略） */
+  backdrop-filter: blur(6px);
+}
+
 
     /* scroll reveal visible state */
     .plan-card.is-visible {

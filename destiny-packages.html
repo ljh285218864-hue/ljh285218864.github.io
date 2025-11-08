@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles for the incense background + cards -->
+  <!-- Page-specific styles for incense background + packages -->
   <style>
-    /* --- Page background with incense image --- */
+    /* ========= Base for this page ========= */
     body.page-packages {
       min-height: 100vh;
       background-color: #020617;
@@ -17,34 +17,32 @@
         "Segoe UI", sans-serif;
     }
 
-    /* Fixed background layer so content scrolls over the incense */
-    /* 背景图：三炷香更亮、更靠中间一点 */
-.packages-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  /* 上面一点点蓝光 + 下面几乎纯图 */
-  background:
-    radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.25), rgba(2, 6, 23, 0.85) 70%),
-    url("incense-bg.jpg") center 70% / cover no-repeat fixed;
-  opacity: 1; /* 原来是 0.8~0.85，现在让整张图亮一点 */
-}
+    /* Fixed incense background */
+    .packages-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(15, 23, 42, 0.12),
+          rgba(2, 6, 23, 0.5) 68%,
+          rgba(2, 6, 23, 0.9) 100%
+        ),
+        url("incense-bg.jpg") center 72% / cover no-repeat fixed;
+      opacity: 1; /* make incense clearly visible */
+    }
 
-/* 遮罩：只留很轻的一层，保证文字还能看清 */
-.packages-bg-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  /* 比之前透明很多，主要是略微压一下亮度 */
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(2, 6, 23, 0.18),
-    rgba(2, 6, 23, 0.55) 80%
-  );
-  pointer-events: none;
-}
+    /* Soft dark veil to keep text readable but not kill the photo */
+    .packages-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: rgba(2, 6, 23, 0.22);
+      pointer-events: none;
+    }
 
-    /* --- Layout --- */
+    /* ========= Layout ========= */
     .packages-main {
       padding: 96px 24px 80px;
     }
@@ -52,7 +50,7 @@
     .packages-hero {
       text-align: center;
       max-width: 780px;
-      margin: 0 auto 36px;
+      margin: 0 auto 40px;
     }
 
     .packages-kicker {
@@ -73,12 +71,12 @@
     .packages-subtitle {
       font-size: 14px;
       color: #9ca3af;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .packages-layout {
       max-width: 1100px;
-      margin: 24px auto 0;
+      margin: 28px auto 0;
       padding: 0 12px;
     }
 
@@ -88,43 +86,40 @@
       gap: 24px;
     }
 
-    /* --- Plan cards --- */
-  .plan-card {
-  border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  /* 原来是特别实心的深色，现在带一点透明 + 模糊，背景隐约透出来 */
-  background: rgba(2, 6, 23, 0.88);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
-  padding: 24px 24px 26px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    /* ========= Package cards ========= */
+    .plan-card {
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(2, 6, 23, 0.76);  /* more transparent */
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
 
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    border-color 0.28s ease,
-    background 0.28s ease;
+      /* basic animation state */
+      transform: translateY(18px);
+      opacity: 0;
+      transition:
+        transform 0.28s ease,
+        opacity 0.4s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
 
-  /* 进入动画 */
-  opacity: 0;
-  transform: translateY(18px);
-  animation: plan-enter 0.7s ease-out forwards;
+      /* frosted glass look – background softly visible */
+      backdrop-filter: blur(10px);
+    }
 
-  /* 磨砂玻璃效果（不支持的浏览器会自动忽略） */
-  backdrop-filter: blur(6px);
-}
-
-
-    /* scroll reveal visible state */
+    /* when scroll into view */
     .plan-card.is-visible {
       transform: translateY(0);
       opacity: 1;
     }
 
-    /* subtle highlight layer */
+    /* highlight layer */
     .plan-card::before {
       content: "";
       position: absolute;
@@ -140,12 +135,12 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    /* hover: lift + glow + gold frame */
+    /* hover state */
     .plan-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
       border-color: #facc15;
-      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.88), #020617);
+      background: rgba(15, 23, 42, 0.82);
     }
 
     .plan-card:hover::before {
@@ -246,16 +241,15 @@
       background: #fde047;
     }
 
-    /* small note under all plans */
     .packages-small-note {
       max-width: 720px;
-      margin: 24px auto 0;
+      margin: 26px auto 0;
       font-size: 12px;
       color: #9ca3af;
       text-align: center;
     }
 
-    /* --- Responsive --- */
+    /* ========= Responsive ========= */
     @media (max-width: 960px) {
       .packages-main {
         padding-top: 88px;
@@ -273,11 +267,11 @@
 </head>
 
 <body class="page-packages">
-  <!-- Background layers -->
+  <!-- background layers -->
   <div class="packages-bg"></div>
   <div class="packages-bg-overlay"></div>
 
-  <!-- Shared site header (keep consistent with other pages) -->
+  <!-- shared header -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -294,7 +288,7 @@
   </header>
 
   <main class="packages-main">
-    <!-- Top copy -->
+    <!-- hero copy -->
     <section class="packages-hero">
       <p class="packages-kicker">DESTINY READING</p>
       <h1 class="packages-title">CHOOSE YOUR READING</h1>
@@ -305,7 +299,7 @@
       </p>
     </section>
 
-    <!-- Three plans -->
+    <!-- three packages -->
     <section class="packages-layout">
       <div class="plan-grid">
         <!-- Single question -->
@@ -335,7 +329,6 @@
             <p class="plan-note">
               After payment, you will receive a message from our team within 1–2 hours.
             </p>
-            <!-- Single-question form page -->
             <a href="destiny.html" class="btn-plan">Choose this reading</a>
           </div>
         </article>
@@ -367,7 +360,6 @@
             <p class="plan-note">
               After payment, you will receive a message from our team within 1–2 hours.
             </p>
-            <!-- Three-question form page -->
             <a href="destiny-three.html" class="btn-plan">Choose this reading</a>
           </div>
         </article>
@@ -399,15 +391,14 @@
             <p class="plan-note">
               After payment, you will receive a message from our team within 1–2 hours.
             </p>
-            <!-- Full-overview form page -->
             <a href="destiny-full.html" class="btn-plan">Choose this reading</a>
           </div>
         </article>
       </div>
 
       <p class="packages-small-note">
-        Payments for all readings are made securely online. If you have questions about which option to choose,
-        you can contact us first and we will help you select the most suitable reading.
+        Payments for all readings are made securely online. If you are unsure which option fits best,
+        you are welcome to contact us and we will help you choose the most suitable reading.
       </p>
     </section>
   </main>
@@ -419,11 +410,13 @@
     </div>
   </footer>
 
-  <!-- Simple scroll-reveal just for these cards -->
+  <!-- scroll reveal for cards -->
   <script>
     (function () {
       const cards = document.querySelectorAll(".plan-card");
-      if (!("IntersectionObserver" in window) || !cards.length) {
+      if (!cards.length) return;
+
+      if (!("IntersectionObserver" in window)) {
         cards.forEach(c => c.classList.add("is-visible"));
         return;
       }
@@ -440,11 +433,11 @@
         { threshold: 0.2 }
       );
 
-      cards.forEach((card) => observer.observe(card));
+      cards.forEach(card => observer.observe(card));
     })();
   </script>
 
-  <!-- 如果你有全站通用的 script.js，可以保留这一行 -->
+  <!-- your global script (if needed) -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -2,20 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Destiny Reading Packages · Daoism &amp; Destiny</title>
+  <title>Destiny Reading Packages · Daoism & Destiny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Styles only for this packages page -->
+  <!-- Page-specific styles for the incense background + cards -->
   <style>
-    body {
-      background: #020617;
+    /* --- Page background with incense image --- */
+    body.page-packages {
+      min-height: 100vh;
+      background-color: #020617;
       color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    /* Fixed background layer so content scrolls over the incense */
+    .packages-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.8), #020617 60%),
+        url("incense-bg.jpg") center 40% / cover no-repeat fixed;
+      opacity: 0.85;           /* 调整整体明暗，防止文字看不清 */
+    }
+
+    /* A very soft dark overlay to keep text readable */
+    .packages-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 50% 15%, rgba(15, 23, 42, 0.35), transparent 55%);
+      pointer-events: none;
+    }
+
+    /* --- Layout --- */
+    .packages-main {
+      padding: 96px 24px 80px;
     }
 
     .packages-hero {
-      padding: 96px 24px 32px;
       text-align: center;
+      max-width: 780px;
+      margin: 0 auto 36px;
     }
 
     .packages-kicker {
@@ -36,15 +66,13 @@
     .packages-subtitle {
       font-size: 14px;
       color: #9ca3af;
-      max-width: 720px;
-      margin: 0 auto;
       line-height: 1.7;
     }
 
     .packages-layout {
       max-width: 1100px;
-      margin: 32px auto 88px;
-      padding: 0 24px 40px;
+      margin: 24px auto 0;
+      padding: 0 12px;
     }
 
     .plan-grid {
@@ -53,58 +81,58 @@
       gap: 24px;
     }
 
-    /* 套餐卡片：进入动画 + 悬浮动效 */
+    /* --- Plan cards --- */
     .plan-card {
       border-radius: 24px;
       border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.95), #020617);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.96), #020617);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
       padding: 24px 24px 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
-      /* hover baseline */
       position: relative;
       overflow: hidden;
+
+      /* entrance + hover base */
+      transform: translateY(18px);
+      opacity: 0;
       transition:
         transform 0.28s ease,
+        opacity 0.4s ease,
         box-shadow 0.28s ease,
         border-color 0.28s ease,
         background 0.28s ease;
-
-      /* 进入时从下往上淡入 */
-      opacity: 0;
-      transform: translateY(18px);
-      animation: plan-enter 0.7s ease-out forwards;
     }
 
-    .plan-card:nth-child(2) {
-      animation-delay: 0.12s;
+    /* scroll reveal visible state */
+    .plan-card.is-visible {
+      transform: translateY(0);
+      opacity: 1;
     }
 
-    .plan-card:nth-child(3) {
-      animation-delay: 0.24s;
-    }
-
-    /* 卡片上方细腻高光，模拟光线 */
+    /* subtle highlight layer */
     .plan-card::before {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.16), transparent 55%);
+      background: radial-gradient(
+        circle at 0 0,
+        rgba(248, 250, 252, 0.16),
+        transparent 55%
+      );
       opacity: 0;
       transform: translate3d(-8%, -12%, 0);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    /* 悬浮时上浮 + 阴影加深 + 金色边框 + 背景偏蓝金 */
+    /* hover: lift + glow + gold frame */
     .plan-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 26px 60px rgba(15, 23, 42, 0.9);
       border-color: #facc15;
-      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.85), #020617);
+      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.88), #020617);
     }
 
     .plan-card:hover::before {
@@ -118,13 +146,6 @@
 
     .plan-card:hover .plan-tagline {
       color: #e5e7eb;
-    }
-
-    @keyframes plan-enter {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .plan-header {
@@ -200,7 +221,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background 0.1s ease-out;
+      transition:
+        transform 0.1s ease-out,
+        box-shadow 0.1s ease-out,
+        background 0.1s ease-out;
     }
 
     .btn-plan:hover {
@@ -209,16 +233,38 @@
       background: #fde047;
     }
 
+    /* small note under all plans */
+    .packages-small-note {
+      max-width: 720px;
+      margin: 24px auto 0;
+      font-size: 12px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    /* --- Responsive --- */
     @media (max-width: 960px) {
+      .packages-main {
+        padding-top: 88px;
+      }
+
+      .packages-title {
+        font-size: 26px;
+      }
+
       .plan-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
-<body>
 
-  <!-- Shared header: make sure this matches other pages -->
+<body class="page-packages">
+  <!-- Background layers -->
+  <div class="packages-bg"></div>
+  <div class="packages-bg-overlay"></div>
+
+  <!-- Shared site header (keep consistent with other pages) -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -234,21 +280,21 @@
     </div>
   </header>
 
-  <main>
+  <main class="packages-main">
     <!-- Top copy -->
     <section class="packages-hero">
       <p class="packages-kicker">DESTINY READING</p>
       <h1 class="packages-title">CHOOSE YOUR READING</h1>
       <p class="packages-subtitle">
         Each destiny reading is crafted for your most important questions and your current stage of life.
-        Please choose the format that best matches the depth of guidance you need right now.
+        Step into a quiet inner space, let Taoist wisdom read the pattern of your path, and choose the
+        format that best matches the depth of guidance you need right now.
       </p>
     </section>
 
     <!-- Three plans -->
     <section class="packages-layout">
       <div class="plan-grid">
-
         <!-- Single question -->
         <article class="plan-card">
           <div>
@@ -276,6 +322,7 @@
             <p class="plan-note">
               After payment, you will receive a message from our team within 1–2 hours.
             </p>
+            <!-- Single-question form page -->
             <a href="destiny.html" class="btn-plan">Choose this reading</a>
           </div>
         </article>
@@ -285,16 +332,16 @@
           <div>
             <div class="plan-header">
               <h2 class="plan-name">Three questions</h2>
-              <p class="plan-tagline">A broader view of your path.</p>
+              <p class="plan-tagline">Broader perspective on your path.</p>
             </div>
             <div class="plan-body">
               <p>
-                Ideal when several parts of life are moving at once – for example work, love, family, or health –
-                and you want to see how they connect.
+                Ideal when several areas of life are moving at once – for example work, love, family, or
+                health – and you want to see how they connect.
               </p>
               <ul class="plan-list">
                 <li>Covers up to three related questions in one reading.</li>
-                <li>Looks at patterns and timing across different areas of life.</li>
+                <li>Looks at timing and patterns across different areas of life.</li>
                 <li>Helps you prioritise what truly matters right now.</li>
               </ul>
             </div>
@@ -307,6 +354,7 @@
             <p class="plan-note">
               After payment, you will receive a message from our team within 1–2 hours.
             </p>
+            <!-- Three-question form page -->
             <a href="destiny-three.html" class="btn-plan">Choose this reading</a>
           </div>
         </article>
@@ -320,12 +368,12 @@
             </div>
             <div class="plan-body">
               <p>
-                Best for understanding a whole season of life – repeating patterns, major themes, and the lessons
-                this chapter of destiny is asking you to embody.
+                Best for understanding a whole chapter of life – repeating patterns, major themes, and the
+                lessons this season of destiny is asking you to embody.
               </p>
               <ul class="plan-list">
                 <li>Overview of your current destiny cycle.</li>
-                <li>Focus on career, relationships, and inner growth together.</li>
+                <li>Brings career, relationships, and inner growth together.</li>
                 <li>Suggestions on moving with the tide instead of against it.</li>
               </ul>
             </div>
@@ -338,11 +386,16 @@
             <p class="plan-note">
               After payment, you will receive a message from our team within 1–2 hours.
             </p>
+            <!-- Full-overview form page -->
             <a href="destiny-full.html" class="btn-plan">Choose this reading</a>
           </div>
         </article>
-
       </div>
+
+      <p class="packages-small-note">
+        Payments for all readings are made securely online. If you have questions about which option to choose,
+        you can contact us first and we will help you select the most suitable reading.
+      </p>
     </section>
   </main>
 
@@ -352,5 +405,33 @@
       <span>Spiritual guidance inspired by Taoist tradition.</span>
     </div>
   </footer>
+
+  <!-- Simple scroll-reveal just for these cards -->
+  <script>
+    (function () {
+      const cards = document.querySelectorAll(".plan-card");
+      if (!("IntersectionObserver" in window) || !cards.length) {
+        cards.forEach(c => c.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+
+  <!-- 如果你有全站通用的 script.js，可以保留这一行 -->
+  <script src="script.js"></script>
 </body>
 </html>

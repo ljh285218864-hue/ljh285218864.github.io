@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles for Feng Shui packages (same layout as destiny-packages) -->
+  <!-- Page-specific styles for Feng Shui packages (same layout as destiny-packages)
+       and using luopan photo as background -->
   <style>
     /* ========= Base for this page ========= */
     body.page-fengpackages {
@@ -15,10 +16,26 @@
       color: #e5e7eb;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* 这里先不用三柱香背景，用纯暗色渐变，保持简洁。
-       如果以后想换成风水罗盘 / 房间照片，再加背景层即可。 */
+    /* 背景罗盘照片 + 暗色叠加，让前景文字依然清晰 */
+    body.page-fengpackages::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: url("fengshui-luopan.jpg");
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      /* 加一点暗色渐变叠加，避免太亮抢戏 */
+      background-color: #020617;
+      background-blend-mode: multiply;
+      opacity: 0.9;
+    }
+
     .feng-main {
       padding: 96px 24px 80px;
     }
@@ -46,14 +63,15 @@
 
     .feng-subtitle {
       font-size: 14px;
-      color: #9ca3af;
+      color: #e5e7eb;
+      text-shadow: 0 12px 30px rgba(0, 0, 0, 0.95);
       line-height: 1.8;
     }
 
     .feng-layout {
       max-width: 1100px;
       margin: 28px auto 0;
-      padding: 0 12px;
+      padding: 0 12px 40px;
     }
 
     .feng-grid {
@@ -62,12 +80,13 @@
       gap: 24px;
     }
 
-    /* ========= Package cards (copy 3-column layout from destiny-packages) ========= */
+    /* ========= Package cards ========= */
     .feng-card {
       border-radius: 24px;
       border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(2, 6, 23, 0.76);  /* 半透明 + 磨砂感 */
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      /* 更透明一点，让罗盘若隐若现 */
+      background: rgba(2, 6, 23, 0.7);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
       padding: 24px 24px 26px;
       display: flex;
       flex-direction: column;
@@ -75,7 +94,6 @@
       position: relative;
       overflow: hidden;
 
-      /* 进入动画初始状态 */
       transform: translateY(18px);
       opacity: 0;
       transition:
@@ -85,16 +103,15 @@
         border-color 0.28s ease,
         background 0.28s ease;
 
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
-    /* 被观察到时淡入 */
     .feng-card.is-visible {
       transform: translateY(0);
       opacity: 1;
     }
 
-    /* 高光层 */
     .feng-card::before {
       content: "";
       position: absolute;
@@ -102,18 +119,17 @@
       pointer-events: none;
       background: radial-gradient(
         circle at 0 0,
-        rgba(248, 250, 252, 0.16),
-        transparent 55%
+        rgba(248, 250, 252, 0.2),
+        transparent 60%
       );
       opacity: 0;
       transform: translate3d(-8%, -12%, 0);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    /* hover 状态 */
     .feng-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.98);
       border-color: #facc15;
       background: rgba(15, 23, 42, 0.82);
     }
@@ -187,7 +203,7 @@
 
     .feng-note {
       font-size: 12px;
-      color: #9ca3af;
+      color: #cbd5f5;
     }
 
     .btn-feng {
@@ -222,9 +238,9 @@
       font-size: 12px;
       color: #9ca3af;
       text-align: center;
+      text-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
     }
 
-    /* ========= Responsive ========= */
     @media (max-width: 960px) {
       .feng-main {
         padding-top: 88px;
@@ -242,7 +258,7 @@
 </head>
 
 <body class="page-fengpackages">
-  <!-- 顶部导航：保持和其他页面一致 -->
+  <!-- Shared header -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -259,7 +275,7 @@
   </header>
 
   <main class="feng-main">
-    <!-- 上面标题文案（内容用你之前的风水说明） -->
+    <!-- Top copy -->
     <section class="feng-hero">
       <p class="feng-kicker">FENG SHUI</p>
       <h1 class="feng-title">CHOOSE YOUR FENG SHUI FOCUS</h1>
@@ -271,10 +287,10 @@
       </p>
     </section>
 
-    <!-- 三个风水套餐：布局和三柱香命运套餐一样，只是内容换成风水 -->
+    <!-- Three Feng Shui plans -->
     <section class="feng-layout">
       <div class="feng-grid">
-        <!-- Plan 1: Home corner refresh -->
+        <!-- 1. Home corner refresh -->
         <article class="feng-card">
           <div>
             <div class="feng-header">
@@ -301,12 +317,12 @@
             <p class="feng-note">
               Recommended if you want to try Feng Shui with a small, focused change.
             </p>
-            <!-- 这里可以以后改成 fengshui-corner.html 等填写信息页面 -->
+            <!-- 之后可以改成独立表单页面，例如 fengshui-corner.html -->
             <a href="fengshui.html" class="btn-feng">Choose this focus</a>
           </div>
         </article>
 
-        <!-- Plan 2: Whole home review -->
+        <!-- 2. Whole home review -->
         <article class="feng-card">
           <div>
             <div class="feng-header">
@@ -337,7 +353,7 @@
           </div>
         </article>
 
-        <!-- Plan 3: Workspace & career -->
+        <!-- 3. Workspace & career -->
         <article class="feng-card">
           <div>
             <div class="feng-header">

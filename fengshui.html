@@ -6,22 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles for Feng Shui page -->
+  <!-- Page-specific styles for Feng Shui packages (same layout as destiny-packages) -->
   <style>
-    body.feng-page {
-      background: #020617;
+    /* ========= Base for this page ========= */
+    body.page-fengpackages {
+      min-height: 100vh;
+      background-color: #020617;
       color: #e5e7eb;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
     }
 
+    /* 这里先不用三柱香背景，用纯暗色渐变，保持简洁。
+       如果以后想换成风水罗盘 / 房间照片，再加背景层即可。 */
     .feng-main {
       padding: 96px 24px 80px;
-      max-width: 1100px;
-      margin: 0 auto;
     }
 
-    /* Hero 部分 */
     .feng-hero {
       text-align: center;
       max-width: 780px;
@@ -37,7 +38,7 @@
     }
 
     .feng-title {
-      font-size: 30px;
+      font-size: 32px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 16px;
@@ -49,131 +50,155 @@
       line-height: 1.8;
     }
 
-    /* 三个方案卡片 */
-    .feng-plans {
-      margin-top: 40px;
+    .feng-layout {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      padding: 0 12px;
     }
 
-    .feng-plans-heading {
-      font-size: 14px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 12px;
-    }
-
-    .feng-plans-grid {
+    .feng-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
-    .feng-plan-card {
-      border-radius: 22px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.95), #020617);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.75);
-      padding: 20px 20px 22px;
+    /* ========= Package cards (copy 3-column layout from destiny-packages) ========= */
+    .feng-card {
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(2, 6, 23, 0.76);  /* 半透明 + 磨砂感 */
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      padding: 24px 24px 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
+
+      /* 进入动画初始状态 */
+      transform: translateY(18px);
+      opacity: 0;
       transition:
-        transform 0.24s ease,
-        box-shadow 0.24s ease,
-        border-color 0.24s ease,
-        background 0.24s ease;
+        transform 0.28s ease,
+        opacity 0.4s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
+
+      backdrop-filter: blur(10px);
     }
 
-    .feng-plan-card::before {
+    /* 被观察到时淡入 */
+    .feng-card.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* 高光层 */
+    .feng-card::before {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 0 0,
-                  rgba(250, 204, 21, 0.18),
-                  transparent 60%);
+      background: radial-gradient(
+        circle at 0 0,
+        rgba(248, 250, 252, 0.16),
+        transparent 55%
+      );
       opacity: 0;
-      transform: translate3d(-8%, -16%, 0);
+      transform: translate3d(-8%, -12%, 0);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    .feng-plan-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.9);
+    /* hover 状态 */
+    .feng-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
       border-color: #facc15;
-      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.9), #020617);
+      background: rgba(15, 23, 42, 0.82);
     }
 
-    .feng-plan-card:hover::before {
+    .feng-card:hover::before {
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
 
-    .feng-plan-name {
-      font-size: 18px;
+    .feng-card:hover .feng-name {
+      color: #facc15;
+    }
+
+    .feng-card:hover .feng-tagline {
+      color: #e5e7eb;
+    }
+
+    .feng-header {
+      margin-bottom: 10px;
+    }
+
+    .feng-name {
+      font-size: 22px;
       margin-bottom: 4px;
     }
 
-    .feng-plan-tagline {
-      font-size: 13px;
+    .feng-tagline {
+      font-size: 14px;
       color: #e5e7eb;
-      margin-bottom: 10px;
     }
 
-    .feng-plan-body {
-      font-size: 13px;
+    .feng-body {
+      margin-top: 18px;
+      font-size: 14px;
       color: #e5e7eb;
-      margin-bottom: 10px;
     }
 
-    .feng-plan-list {
+    .feng-body p {
+      margin-bottom: 12px;
+    }
+
+    .feng-list {
       margin: 0;
-      padding-left: 18px;
+      padding-left: 20px;
       list-style: disc;
-      font-size: 13px;
-      color: #e5e7eb;
     }
 
-    .feng-plan-list li + li {
+    .feng-list li + li {
       margin-top: 4px;
     }
 
-    .feng-plan-footer {
-      margin-top: 16px;
+    .feng-footer {
+      margin-top: 22px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 10px;
     }
 
-    .feng-plan-price {
-      font-size: 15px;
+    .feng-price {
+      font-size: 16px;
       font-weight: 600;
       color: #facc15;
     }
 
-    .feng-plan-price span {
-      font-size: 12px;
+    .feng-price span {
+      font-size: 13px;
+      font-weight: 400;
       color: #e5e7eb;
       margin-left: 4px;
-      font-weight: 400;
     }
 
-    .feng-plan-note {
-      font-size: 11px;
+    .feng-note {
+      font-size: 12px;
       color: #9ca3af;
     }
 
-    .btn-feng-plan {
+    .btn-feng {
       align-self: flex-start;
-      padding: 8px 18px;
+      padding: 10px 22px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       background: #facc15;
       color: #020617;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       text-decoration: none;
       display: inline-flex;
@@ -185,93 +210,39 @@
         background 0.1s ease-out;
     }
 
-    .btn-feng-plan:hover {
+    .btn-feng:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(250, 204, 21, 0.32);
+      box-shadow: 0 10px 25px rgba(250, 204, 21, 0.35);
       background: #fde047;
     }
 
-    /* 表单区域 */
-    .feng-form-section {
-      margin-top: 52px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .feng-form-card {
-      background: #020617;
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      padding: 20px 20px 22px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
-    }
-
-    .feng-form-title {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .feng-form-intro {
-      font-size: 13px;
+    .feng-small-note {
+      max-width: 720px;
+      margin: 26px auto 0;
+      font-size: 12px;
       color: #9ca3af;
-      margin-bottom: 12px;
+      text-align: center;
     }
 
-    /* 这里复用你全局的 .form-row / .form-field / .form-label / .form-input / .form-textarea */
-
-    .feng-form-note {
-      font-size: 11px;
-      color: #9ca3af;
-      margin-top: 10px;
-    }
-
-    .feng-side-copy-title {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .feng-side-copy-text {
-      font-size: 13px;
-      color: #e5e7eb;
-      margin-bottom: 8px;
-    }
-
-    .feng-side-list {
-      margin: 0;
-      padding-left: 18px;
-      list-style: disc;
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .feng-side-list li + li {
-      margin-top: 4px;
-    }
-
-    .feng-side-disclaimer {
-      margin-top: 12px;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
+    /* ========= Responsive ========= */
     @media (max-width: 960px) {
       .feng-main {
         padding-top: 88px;
       }
-      .feng-plans-grid {
-        grid-template-columns: 1fr;
+
+      .feng-title {
+        font-size: 26px;
       }
-      .feng-form-section {
+
+      .feng-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
-<body class="feng-page">
-  <!-- 顶部导航：和其他页面保持一致 -->
+<body class="page-fengpackages">
+  <!-- 顶部导航：保持和其他页面一致 -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="logo">
@@ -288,10 +259,10 @@
   </header>
 
   <main class="feng-main">
-    <!-- Hero -->
+    <!-- 上面标题文案（内容用你之前的风水说明） -->
     <section class="feng-hero">
       <p class="feng-kicker">FENG SHUI</p>
-      <h1 class="feng-title">Feng Shui for home, work, and inner balance</h1>
+      <h1 class="feng-title">CHOOSE YOUR FENG SHUI FOCUS</h1>
       <p class="feng-subtitle">
         A Taoist-inspired Feng Shui session looks at how the flow of qi in your space
         supports or blocks the season of life you are in. Together, we gently adjust
@@ -300,235 +271,109 @@
       </p>
     </section>
 
-    <!-- 三个风水方案 -->
-    <section class="feng-plans">
-      <div class="feng-plans-heading">CHOOSE A FENG SHUI FOCUS</div>
-      <div class="feng-plans-grid">
-
+    <!-- 三个风水套餐：布局和三柱香命运套餐一样，只是内容换成风水 -->
+    <section class="feng-layout">
+      <div class="feng-grid">
         <!-- Plan 1: Home corner refresh -->
-        <article class="feng-plan-card">
+        <article class="feng-card">
           <div>
-            <h2 class="feng-plan-name">Home corner refresh</h2>
-            <p class="feng-plan-tagline">One key area, one new flow of qi.</p>
-            <div class="feng-plan-body">
+            <div class="feng-header">
+              <h2 class="feng-name">Home corner refresh</h2>
+              <p class="feng-tagline">One key area, one new flow of qi.</p>
+            </div>
+            <div class="feng-body">
               <p>
                 Perfect when one area of your home feels heavy, stuck, or always chaotic –
                 such as the bedroom, entrance, or desk corner.
               </p>
-              <ul class="feng-plan-list">
+              <ul class="feng-list">
                 <li>Focus on one main area of your home.</li>
                 <li>Review of layout, light, and elemental balance.</li>
                 <li>Simple adjustments you can apply within a few days.</li>
               </ul>
             </div>
           </div>
-          <div class="feng-plan-footer">
-            <div class="feng-plan-price">
+          <div class="feng-footer">
+            <div class="feng-price">
               $49.95 USD
               <span>single area consultation</span>
             </div>
-            <p class="feng-plan-note">
+            <p class="feng-note">
               Recommended if you want to try Feng Shui with a small, focused change.
             </p>
-            <a href="#feng-form" class="btn-feng-plan">Start with this focus</a>
+            <!-- 这里可以以后改成 fengshui-corner.html 等填写信息页面 -->
+            <a href="fengshui.html" class="btn-feng">Choose this focus</a>
           </div>
         </article>
 
-        <!-- Plan 2: Whole home -->
-        <article class="feng-plan-card">
+        <!-- Plan 2: Whole home review -->
+        <article class="feng-card">
           <div>
-            <h2 class="feng-plan-name">Whole home review</h2>
-            <p class="feng-plan-tagline">Align your living space with your destiny.</p>
-            <div class="feng-plan-body">
+            <div class="feng-header">
+              <h2 class="feng-name">Whole home review</h2>
+              <p class="feng-tagline">Align your living space with your destiny.</p>
+            </div>
+            <div class="feng-body">
               <p>
                 For apartments or small houses where you want to understand how the entire
                 space is working with your life direction and relationships.
               </p>
-              <ul class="feng-plan-list">
+              <ul class="feng-list">
                 <li>Overview of your home’s main qi flow and key sectors.</li>
                 <li>Attention to wealth, relationship, and health areas.</li>
                 <li>Step-by-step suggestions you can follow gently over time.</li>
               </ul>
             </div>
           </div>
-          <div class="feng-plan-footer">
-            <div class="feng-plan-price">
+          <div class="feng-footer">
+            <div class="feng-price">
               $119.95 USD
               <span>full home consultation</span>
             </div>
-            <p class="feng-plan-note">
+            <p class="feng-note">
               Best suited if you are ready to invite a new chapter into your home and life.
             </p>
-            <a href="#feng-form" class="btn-feng-plan">Start with this focus</a>
+            <a href="fengshui.html" class="btn-feng">Choose this focus</a>
           </div>
         </article>
 
-        <!-- Plan 3: Workspace -->
-        <article class="feng-plan-card">
+        <!-- Plan 3: Workspace & career -->
+        <article class="feng-card">
           <div>
-            <h2 class="feng-plan-name">Workspace & career</h2>
-            <p class="feng-plan-tagline">Support your work, study, and reputation.</p>
-            <div class="feng-plan-body">
+            <div class="feng-header">
+              <h2 class="feng-name">Workspace &amp; career</h2>
+              <p class="feng-tagline">Support your work, study, and reputation.</p>
+            </div>
+            <div class="feng-body">
               <p>
                 For offices, studios, or home desks where you want clearer thinking, more
                 stable focus, and a calmer relationship with achievement.
               </p>
-              <ul class="feng-plan-list">
+              <ul class="feng-list">
                 <li>Desk and seating position for better support.</li>
                 <li>Use of elements to soften pressure and burnout.</li>
                 <li>Suggestions to invite recognition and steady progress.</li>
               </ul>
             </div>
           </div>
-          <div class="feng-plan-footer">
-            <div class="feng-plan-price">
+          <div class="feng-footer">
+            <div class="feng-price">
               $89.95 USD
               <span>workspace consultation</span>
             </div>
-            <p class="feng-plan-note">
+            <p class="feng-note">
               A good fit if your main tension right now sits in work, study, or finances.
             </p>
-            <a href="#feng-form" class="btn-feng-plan">Start with this focus</a>
+            <a href="fengshui.html" class="btn-feng">Choose this focus</a>
           </div>
         </article>
-
-      </div>
-    </section>
-
-    <!-- 表单 + 说明 -->
-    <section class="feng-form-section" id="feng-form">
-      <!-- 左：表单 -->
-      <div class="feng-form-card">
-        <h2 class="feng-form-title">Tell me about your space</h2>
-        <p class="feng-form-intro">
-          Please share a few details so your Feng Shui review can be prepared with care.
-          All information is kept private and used only for your consultation.
-        </p>
-
-        <form>
-          <!-- Name + Region -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="feng-name">Name</label>
-              <input
-                id="feng-name"
-                name="name"
-                type="text"
-                class="form-input"
-                placeholder="Your full name"
-              />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="feng-region">Region / city</label>
-              <input
-                id="feng-region"
-                name="region"
-                type="text"
-                class="form-input"
-                placeholder="Country / city you live in"
-              />
-            </div>
-          </div>
-
-          <!-- Space type + floor -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="feng-space-type">Space type</label>
-              <select id="feng-space-type" name="spaceType" class="form-input">
-                <option value="">Select an option</option>
-                <option value="apartment">Apartment / flat</option>
-                <option value="house">House</option>
-                <option value="room">Single room / studio</option>
-                <option value="office">Office / studio workspace</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="feng-floor">Floor level (if any)</label>
-              <input
-                id="feng-floor"
-                name="floor"
-                type="text"
-                class="form-input"
-                placeholder="For example: 12th floor, ground floor"
-              />
-            </div>
-          </div>
-
-          <!-- Main concern -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="feng-concern">Main concern</label>
-              <textarea
-                id="feng-concern"
-                name="concern"
-                class="form-textarea"
-                placeholder="Please describe what feels most out of balance (for example: sleep, money flow, conflict at home, lack of focus at work)."
-              ></textarea>
-            </div>
-          </div>
-
-          <!-- WhatsApp + Email -->
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="feng-whatsapp">WhatsApp</label>
-              <input
-                id="feng-whatsapp"
-                name="whatsapp"
-                type="tel"
-                class="form-input"
-                placeholder="+1 555 123 4567"
-              />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="feng-email">Email</label>
-              <input
-                id="feng-email"
-                name="email"
-                type="email"
-                class="form-input"
-                placeholder="you@example.com"
-              />
-            </div>
-          </div>
-
-          <!-- 按钮：后面你可以改成跳转 checkout -->
-          <div style="margin-top: 16px;">
-            <button type="button" class="btn btn-primary">
-              Request a Feng Shui review
-            </button>
-          </div>
-
-          <p class="feng-form-note">
-            After you confirm your chosen focus and complete payment, you will receive a
-            message from our team within <strong>1–2 hours</strong>.
-          </p>
-        </form>
       </div>
 
-      <!-- 右：说明文字 -->
-      <div>
-        <h3 class="feng-side-copy-title">What you receive from a Feng Shui session</h3>
-        <p class="feng-side-copy-text">
-          Each session is prepared by hand, guided by Taoist ideas of timing, balance,
-          and the rhythm of your current life chapter.
-        </p>
-        <ul class="feng-side-list">
-          <li>A clear written summary of what your space is currently supporting.</li>
-          <li>Specific, gentle adjustments you can apply step by step.</li>
-          <li>Suggestions on colours, elements, and small habit shifts.</li>
-          <li>Focus on creating a space that calms your nervous system.</li>
-        </ul>
-        <p class="feng-side-copy-text">
-          You are welcome to send simple photos or a sketch of your floor plan by email
-          or WhatsApp after you submit this form. They will help the Feng Shui reading
-          become even more precise.
-        </p>
-        <p class="feng-side-disclaimer">
-          Feng Shui sessions are spiritual and energetic guidance only. They are not a
-          replacement for professional medical, legal, or financial advice, nor for
-          safety checks on your building or home.
-        </p>
-      </div>
+      <p class="feng-small-note">
+        Payments for Feng Shui sessions will later be made through the same secure online
+        checkout as your destiny readings. If you are unsure which option fits your space,
+        you are welcome to contact us and we will help you choose.
+      </p>
     </section>
   </main>
 
@@ -538,5 +383,34 @@
       <span>Spiritual guidance inspired by Taoist tradition.</span>
     </div>
   </footer>
+
+  <!-- scroll reveal for Feng Shui cards -->
+  <script>
+    (function () {
+      const cards = document.querySelectorAll(".feng-card");
+      if (!cards.length) return;
+
+      if (!("IntersectionObserver" in window)) {
+        cards.forEach(c => c.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      cards.forEach(card => observer.observe(card));
+    })();
+  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>

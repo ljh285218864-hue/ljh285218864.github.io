@@ -2,476 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Secure Checkout – Daoism &amp; Destiny</title>
+  <title>Secure Checkout · Daoism & Destiny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Secure checkout for your chosen reading or Feng Shui session." />
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    body {
-      background: #020617;
-      color: #e5e7eb;
-    }
-
-    .checkout-section {
-      padding: 96px 24px 80px;
-      background: #020617;
-    }
-
-    .checkout-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .co-card {
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      padding: 18px 18px 20px;
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-    }
-
-    .co-summary {
-      flex: 1.1;
-    }
-
-    .co-payment {
-      flex: 1.2;
-    }
-
-    .co-title {
-      font-size: 22px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .co-subtitle {
-      font-size: 14px;
-      color: #9ca3af;
-      margin-bottom: 14px;
-    }
-
-    .co-line {
-      margin: 14px 0;
-      height: 1px;
-      background: rgba(55, 65, 81, 0.9);
-    }
-
-    .co-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .co-product-name {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .co-product-desc {
-      font-size: 13px;
-      color: #cbd5f5;
-    }
-
-    .co-price,
-    .co-total {
-      font-size: 14px;
-      font-weight: 600;
-      color: #facc15;
-      white-space: nowrap;
-    }
-
-    .co-bullets {
-      margin: 10px 0 8px;
-      padding-left: 18px;
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .co-bullets li + li {
-      margin-top: 4px;
-    }
-
-    .co-note {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 8px;
-    }
-
-    .co-payment-title {
-      font-size: 18px;
-      margin-bottom: 4px;
-    }
-
-    .co-payment-subtitle {
-      font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 14px;
-    }
-
-    .co-method-box {
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: #020617;
-      margin-bottom: 14px;
-      overflow: hidden;
-    }
-
-    .co-method-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .co-method-header input[type="radio"] {
-      accent-color: #facc15;
-      transform: scale(1.05);
-    }
-
-    .co-method-logos {
-      margin-left: auto;
-      display: flex;
-      gap: 6px;
-      font-size: 11px;
-    }
-
-    .co-pill {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 3px 9px;
-      font-size: 11px;
-    }
-
-    .co-paypal-logo {
-      margin-left: auto;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .co-method-body {
-      display: none;
-      border-top: 1px solid rgba(55, 65, 81, 0.9);
-      padding: 12px 14px 14px;
-      background: #020617;
-      font-size: 13px;
-      color: #cbd5f5;
-    }
-
-    .co-method-box.active .co-method-body {
-      display: block;
-    }
-
-    .co-input-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .co-field {
-      flex: 1;
-    }
-
-    .co-label {
-      display: block;
-      font-size: 12px;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-
-    .co-input {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #1f2937;
-      padding: 7px 9px;
-      font-size: 13px;
-      background: #020617;
-      color: #6b7280;
-    }
-
-    .co-input:disabled {
-      opacity: 0.8;
-    }
-
-    .co-pay-btn {
-      width: 100%;
-      margin-top: 10px;
-      justify-content: center;
-      display: inline-flex;
-      align-items: center;
-      text-align: center;
-    }
-
-    .co-brand-row {
-      margin-top: 10px;
-      display: flex;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .co-security-text {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 6px;
-    }
-
-    @media (max-width: 900px) {
-      .checkout-inner {
-        flex-direction: column;
-      }
-    }
-  </style>
 </head>
 <body>
-
-  <!-- shared header -->
   <header class="site-header">
-    <div class="site-header-inner">
-      <div class="logo">
-        <a href="index.html">DAOISM &amp; DESTINY</a>
-      </div>
+    <div class="site-header-inner container">
+      <div class="logo"><a href="index.html">DAOISM &amp; DESTINY</a></div>
       <nav class="nav">
         <a href="destiny-packages.html">Destiny Readings</a>
-        <a href="fengshui.html">Feng Shui</a>
+        <a href="fengshui-packages.html">Feng Shui</a>
         <a href="shop.html">Shop</a>
         <a href="history.html">Taoist History</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="cta">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="checkout-section">
-      <div class="checkout-inner">
-        <!-- LEFT: summary -->
-        <div class="co-card co-summary">
-          <h1 class="co-title">SECURE CHECKOUT</h1>
-          <p class="co-subtitle js-product-tagline">
-            Single written destiny reading – one question, one clear future.
-          </p>
-
-          <div class="co-line"></div>
-
-          <div class="co-row">
-            <div>
-              <div class="co-product-name js-product-name">
-                Single written destiny reading
-              </div>
-              <div class="co-product-desc js-product-desc">
-                One personalised written reading for your most important question, delivered by email.
-              </div>
-            </div>
-            <div class="co-price js-price-label">$39.95 USD</div>
-          </div>
-
-          <div class="co-line"></div>
-
-          <div class="co-row">
-            <span>Total</span>
-            <span class="co-total js-total-amount">$39.95 USD</span>
-          </div>
-
-          <ul class="co-bullets js-bullets">
-            <li>Reading prepared personally by the Daoist practitioner.</li>
-            <li>Based on your birth details and current life situation.</li>
-            <li>Delivered in clear written form that you can revisit.</li>
-          </ul>
-
-          <p class="co-note">
-            After payment, you will receive a message from our team within
-            <strong>1–2 hours</strong>. Please remember to check your inbox or WhatsApp.
-          </p>
-        </div>
-
-        <!-- RIGHT: payment -->
-        <div class="co-card co-payment">
-          <h2 class="co-payment-title">Payment</h2>
-          <p class="co-payment-subtitle">
-            All transactions are secure and encrypted.
-          </p>
-
-          <!-- card -->
-          <div class="co-method-box co-method-box--card">
-            <label class="co-method-header">
-              <input type="radio" name="paymethod" value="card" checked />
-              <span>Credit card</span>
-              <span class="co-method-logos">
-                <span class="co-pill">VISA</span>
-                <span class="co-pill">MasterCard</span>
-              </span>
-            </label>
-            <div class="co-method-body">
-              <p>
-                Card details are entered securely on the PayPal checkout page. The fields below are for
-                visual layout only.
-              </p>
-
-              <div class="co-field" style="margin-top:8px;">
-                <label class="co-label">Card number</label>
-                <input class="co-input" type="text" placeholder="1234 5678 9012 3456" disabled />
-              </div>
-
-              <div class="co-input-row">
-                <div class="co-field">
-                  <label class="co-label">Expiration date (MM / YY)</label>
-                  <input class="co-input" type="text" placeholder="MM / YY" disabled />
-                </div>
-                <div class="co-field">
-                  <label class="co-label">Security code</label>
-                  <input class="co-input" type="text" placeholder="CVC" disabled />
-                </div>
-              </div>
-
-              <div class="co-field" style="margin-top:8px;">
-                <label class="co-label">Name on card</label>
-                <input class="co-input" type="text" placeholder="Full name on card" disabled />
-              </div>
-            </div>
-          </div>
-
-          <!-- PayPal -->
-          <div class="co-method-box co-method-box--paypal">
-            <label class="co-method-header">
-              <input type="radio" name="paymethod" value="paypal" />
-              <span>PayPal</span>
-              <span class="co-paypal-logo">PayPal</span>
-            </label>
-            <div class="co-method-body">
-              <p>
-                After clicking “Pay securely now”, you will be redirected to PayPal to complete your
-                payment. You can pay with your PayPal balance or bank / card inside PayPal.
-              </p>
-            </div>
-          </div>
-
-          <button id="co-pay-btn" class="btn btn-primary co-pay-btn">
-            Pay securely now
-          </button>
-
-          <div class="co-brand-row">
-            <span class="co-pill">VISA</span>
-            <span class="co-pill">MasterCard</span>
-            <span class="co-pill">PayPal</span>
-          </div>
-
-          <p class="co-security-text">
-            Your payment is processed through trusted providers using encrypted connections to help keep
-            your details safe.
-          </p>
-        </div>
-      </div>
+  <main class="container" data-checkout>
+    <section class="section-hero" style="padding:42px 0 16px">
+      <h1 class="h1" style="text-align:left">SECURE CHECKOUT</h1>
+      <p class="muted">All transactions are secure and encrypted.</p>
     </section>
+
+    <div class="grid3" style="grid-template-columns:1.1fr 1.9fr">
+      <!-- Summary -->
+      <div class="card reveal">
+        <h3 data-item-title>Chosen item</h3>
+        <p class="muted">One personalised service prepared for you and delivered by email.</p>
+        <hr style="border:none;border-top:1px solid var(--border);margin:12px 0">
+        <p><strong>Total</strong> <span class="price" style="float:right" data-item-price>$39.95 USD</span></p>
+        <ul class="muted" style="margin-top:12px">
+          <li>Prepared personally by the Daoist practitioner.</li>
+          <li>Based on your birth details and current life situation.</li>
+          <li>Delivered in clear written form that you can revisit.</li>
+        </ul>
+        <p class="muted" style="margin-top:12px">After payment, you will receive a message from our team within <strong>1–2 hours</strong>. Please remember to check your inbox.</p>
+      </div>
+
+      <!-- Form + payment -->
+      <div class="card reveal">
+        <h3>Contact details</h3>
+        <p class="muted">Please confirm how we can reach you about your reading and payment.</p>
+
+        <form class="form" onsubmit="return false">
+          <div class="form-row">
+            <div class="field">
+              <label class="label">Name <span class="req">*</span></label>
+              <input class="input" required placeholder="Your full name">
+            </div>
+            <div class="field">
+              <label class="label">Gender <span class="req">*</span></label>
+              <div style="display:flex;gap:12px;padding:8px 0">
+                <label><input type="radio" name="g" required checked> Male</label>
+                <label><input type="radio" name="g"> Female</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label class="label">Date of birth <span class="req">*</span></label>
+              <input class="input" type="date" required>
+            </div>
+            <div class="field">
+              <label class="label">Region / City <span class="req">*</span></label>
+              <input class="input" required placeholder="Country / city you live in">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">What would you like to ask? <span class="req">*</span></label>
+            <textarea class="textarea" required placeholder="Please describe your situation and your main question in detail."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label class="label">WhatsApp <span class="req">*</span></label>
+              <input class="input" type="tel" required placeholder="+1 555 123 4567">
+            </div>
+            <div class="field">
+              <label class="label">Email <span class="req">*</span></label>
+              <input class="input" type="email" required placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="note">
+            <span>We ask for these details so your reading can be prepared precisely for you.</span>
+            <span class="link" data-why>Why do I need to fill in every field?</span>
+          </div>
+
+          <h3 style="margin-top:18px">Preferred payment method</h3>
+          <div class="paybox">
+            <label class="payrow"><input type="radio" name="paymethod" value="card" checked> Card (Visa / MasterCard)</label>
+            <label class="payrow"><input type="radio" name="paymethod" value="paypal"> PayPal</label>
+          </div>
+
+          <div style="margin-top:14px">
+            <button class="btn" data-pay type="button" style="width:100%">Pay securely now</button>
+          </div>
+          <p class="muted" style="margin-top:12px">This is a secure checkout. To accept real card payments in future, connect your provider (e.g. Stripe or PayPal card). PayPal option works now.</p>
+        </form>
+      </div>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>© Daoism &amp; Destiny Studio</span>
-      <span>Spiritual guidance inspired by Taoist tradition.</span>
+  <!-- why modal -->
+  <div class="modal" id="why-modal" aria-hidden="true">
+    <div class="modal-card">
+      <h3>Why are all fields required?</h3>
+      <p class="muted">Your reading is prepared personally based on your birth details, region, and the exact situation you describe. These details ensure timing &amp; patterns are interpreted correctly, and that we can reach you quickly with the finished reading.</p>
+      <div style="margin-top:12px;display:flex;justify-content:flex-end">
+        <button class="btn outline" data-close>Got it</button>
+      </div>
     </div>
+  </div>
+
+  <footer class="container" style="padding:34px 20px 60px;opacity:.8">
+    © Daoism &amp; Destiny Studio — Spiritual guidance inspired by Taoist tradition.
   </footer>
 
-  <script>
-    (function () {
-      // 1) Define 3 plans with price + PayPal link
-      var plans = {
-        single: {
-          name: 'Single written destiny reading',
-          tagline: 'Single written destiny reading – one question, one clear future.',
-          desc: 'One personalised written reading for your most important question, delivered by email.',
-          price: '39.95',
-          bullets: [
-            'Reading prepared personally by the Daoist practitioner.',
-            'Based on your birth details and current life situation.',
-            'Delivered in clear written form that you can revisit.'
-          ],
-          paypal: 'https://paypal.me/suanmingfuwu/39.95'
-        },
-        three: {
-          name: 'Three-question destiny reading',
-          tagline: 'Three-question destiny reading – deeper perspective on several areas of life.',
-          desc: 'Written guidance for up to three key questions across work, love, family, health or other themes.',
-          price: '89.95',
-          bullets: [
-            'Answers prepared personally for your three main questions.',
-            'Helps you see how different areas of life are connected.',
-            'Delivered in clear written form that you can return to.'
-          ],
-          paypal: 'https://paypal.me/suanmingfuwu/89.95'
-        },
-        full: {
-          name: 'Full destiny overview',
-          tagline: 'Full destiny overview – a wider view of your current life cycle.',
-          desc: 'A more in-depth reading for understanding your current destiny cycle and key themes.',
-          price: '129.95',
-          bullets: [
-            'Broad overview of your current destiny period.',
-            'Focus on career, relationships and inner growth.',
-            'Guidance for moving with the larger cycle instead of against it.'
-          ],
-          paypal: 'https://paypal.me/suanmingfuwu/129.95'
-        }
-      };
-
-      // 2) Read plan from URL: ?plan=single / three / full
-      function getPlanFromUrl() {
-        var params = new URLSearchParams(window.location.search);
-        var key = params.get('plan');
-        if (!key || !plans[key]) return plans.single;
-        return plans[key];
-      }
-
-      var plan = getPlanFromUrl();
-
-      // 3) Fill in texts and price
-      var priceText = '$' + plan.price + ' USD';
-
-      document.querySelector('.js-product-name').textContent = plan.name;
-      document.querySelector('.js-product-tagline').textContent = plan.tagline;
-      document.querySelector('.js-product-desc').textContent = plan.desc;
-      document.querySelector('.js-price-label').textContent = priceText;
-      document.querySelector('.js-total-amount').textContent = priceText;
-
-      var bulletsEl = document.querySelector('.js-bullets');
-      bulletsEl.innerHTML = '';
-      plan.bullets.forEach(function (text) {
-        var li = document.createElement('li');
-        li.textContent = text;
-        bulletsEl.appendChild(li);
-      });
-
-      // 4) Pay button -> PayPal link of current plan
-      var payBtn = document.getElementById('co-pay-btn');
-      payBtn.addEventListener('click', function () {
-        window.location.href = plan.paypal;
-      });
-
-      // 5) Toggle credit card / PayPal panels
-      var methodBoxes = {
-        card: document.querySelector('.co-method-box--card'),
-        paypal: document.querySelector('.co-method-box--paypal')
-      };
-      var radios = document.querySelectorAll('input[name="paymethod"]');
-
-      function updateMethods() {
-        var value = document.querySelector('input[name="paymethod"]:checked').value;
-        Object.keys(methodBoxes).forEach(function (key) {
-          methodBoxes[key].classList.remove('active');
-        });
-        methodBoxes[value].classList.add('active');
-      }
-
-      radios.forEach(function (r) {
-        r.addEventListener('change', updateMethods);
-      });
-      updateMethods();
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

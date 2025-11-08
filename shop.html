@@ -2,45 +2,422 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shop – Taoist Destiny Studio</title>
+  <title>Shop · Daoism & Destiny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Shop page specific styles -->
+  <style>
+    body.page-shop {
+      background: radial-gradient(circle at top, #020617 0%, #020617 55%, #020617 100%);
+      color: #e5e7eb;
+    }
+
+    .shop-hero {
+      padding: 96px 24px 32px;
+      text-align: center;
+    }
+
+    .shop-kicker {
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    .shop-title {
+      font-size: 32px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .shop-subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .shop-layout {
+      max-width: 1100px;
+      margin: 24px auto 88px;
+      padding: 0 24px 40px;
+    }
+
+    /* 分类标签（只是视觉标签，不需要功能） */
+    .shop-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      justify-content: center;
+    }
+
+    .shop-filter-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 12px;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.85);
+      cursor: default;
+    }
+
+    .shop-filter-pill.active {
+      border-color: #facc15;
+      background: #facc15;
+      color: #020617;
+      font-weight: 500;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .shop-card {
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(2, 6, 23, 0.72);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .shop-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.16), transparent 55%);
+      opacity: 0;
+      transform: translate3d(-8%, -12%, 0);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .shop-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
+      border-color: #facc15;
+      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.75), rgba(2, 6, 23, 0.9));
+    }
+
+    .shop-card:hover::before {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .shop-card-top {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .shop-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.1), rgba(15, 23, 42, 0.95));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .shop-tag {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .shop-name {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .shop-desc {
+      font-size: 13px;
+      color: #cbd5f5;
+      line-height: 1.6;
+    }
+
+    .shop-card-bottom {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .shop-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: #facc15;
+    }
+
+    .shop-price span {
+      font-size: 12px;
+      font-weight: 400;
+      color: #e5e7eb;
+      margin-left: 4px;
+    }
+
+    .btn-shop {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #facc15;
+      color: #020617;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+    }
+
+    .btn-shop:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(250, 204, 21, 0.4);
+      background: #fde047;
+    }
+
+    .shop-footnote {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 26px;
+      text-align: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 960px) {
+      .shop-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shop-title {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
-<body>
-
-<header class="site-header">
-  <div class="site-header-inner">
-    <div class="logo">
-      <a href="index.html">TAOISM &amp; DESTINY</a>
+<body class="page-shop">
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo">
+        <a href="index.html">DAOISM &amp; DESTINY</a>
+      </div>
+      <nav class="nav">
+        <a href="destiny-packages.html">Destiny Readings</a>
+        <a href="fengshui-packages.html">Feng Shui</a>
+        <a href="shop.html">Shop</a>
+        <a href="history.html">Taoist History</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
+  </header>
 
-   <nav class="nav">
-  <a href="destiny-packages.html">Destiny Readings</a>
-  <a href="fengshui.html">Feng Shui</a>
-  <a href="shop.html">Shop</a>
-  <a href="history.html">Taoist History</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <main>
+    <!-- Hero -->
+    <section class="shop-hero">
+      <p class="shop-kicker">TAOIST SHOP</p>
+      <h1 class="shop-title">OBJECTS &amp; SESSIONS FOR YOUR PATH</h1>
+      <p class="shop-subtitle">
+        A curated selection of destiny readings, Feng Shui sessions, and ritual-inspired objects.
+        Each piece is chosen to bring a little more clarity, calm, and harmony into the chapter of life you are living now.
+      </p>
+    </section>
 
-  </div>
-</header>
+    <!-- Products -->
+    <section class="shop-layout">
+      <div class="shop-filter">
+        <span class="shop-filter-pill active">All</span>
+        <span class="shop-filter-pill">Destiny readings</span>
+        <span class="shop-filter-pill">Feng Shui sessions</span>
+        <span class="shop-filter-pill">Ritual objects</span>
+      </div>
 
-<main>
-  <section class="section">
-    <div class="section-heading">SHOP</div>
-    <h1 class="section-title">Symbolic items</h1>
-    <p class="section-intro">
-      This page will gradually introduce Taoist-inspired bracelets, talismans, and altar pieces.
-      Each item is meant as a quiet reminder of your intention, not a guarantee to change fate.
-    </p>
-  </section>
-</main>
+      <div class="shop-grid">
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span>© Taoist Destiny Studio · 2025</span>
-    <span>Spiritual reflection only – not a substitute for professional advice.</span>
-  </div>
-</footer>
+        <!-- 1. Single question destiny reading -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">✉️</div>
+              <div>
+                <div class="shop-tag">Destiny reading</div>
+                <div class="shop-name">Single question written reading</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              A personalised written reading for one key situation or decision. Ideal when you want clear guidance on a
+              single turning point on your path.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $39.95 USD <span>email delivery</span>
+            </div>
+            <a href="destiny.html" class="btn-shop">View details</a>
+          </div>
+        </article>
 
+        <!-- 2. Three-question destiny reading -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">📜</div>
+              <div>
+                <div class="shop-tag">Destiny reading</div>
+                <div class="shop-name">Three-question destiny reading</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              For times when several areas of life are moving at once. Ask up to three main questions and receive a
+              reading that connects the patterns between them.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $89.95 USD <span>written reading</span>
+            </div>
+            <a href="destiny-three.html" class="btn-shop">View details</a>
+          </div>
+        </article>
+
+        <!-- 3. Full destiny overview -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">☯️</div>
+              <div>
+                <div class="shop-tag">Destiny reading</div>
+                <div class="shop-name">Full destiny overview</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              A deeper look at your current life cycle – major themes, repeating patterns, and the lessons this chapter
+              is asking you to embody, all in one written overview.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $129.95 USD <span>complete reading</span>
+            </div>
+            <a href="destiny-full.html" class="btn-shop">View details</a>
+          </div>
+        </article>
+
+        <!-- 4. Home corner Feng Shui -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">🏠</div>
+              <div>
+                <div class="shop-tag">Feng Shui session</div>
+                <div class="shop-name">Home corner refresh</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              A focused Feng Shui consultation on one key area of your home – such as the bedroom, entrance, or a
+              special corner that feels stuck or heavy.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $49.95 USD <span>single area session</span>
+            </div>
+            <a href="fengshui-packages.html" class="btn-shop">View details</a>
+          </div>
+        </article>
+
+        <!-- 5. Whole home Feng Shui -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">🏡</div>
+              <div>
+                <div class="shop-tag">Feng Shui session</div>
+                <div class="shop-name">Whole home review</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              A broader consultation that looks at the qi flow of your entire living space, with suggestions you can
+              apply gradually to support your direction and wellbeing.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $119.95 USD <span>full home consultation</span>
+            </div>
+            <a href="fengshui-packages.html" class="btn-shop">View details</a>
+          </div>
+        </article>
+
+        <!-- 6. Workspace Feng Shui -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">💼</div>
+              <div>
+                <div class="shop-tag">Feng Shui session</div>
+                <div class="shop-name">Workspace &amp; career</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              For studios, offices, or home desks where you want clearer focus and a calmer relationship with work.
+              We look at layout, elements, and simple rituals for progress.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $89.95 USD <span>workspace session</span>
+            </div>
+            <a href="fengshui-packages.html" class="btn-shop">View details</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="shop-footnote">
+        Payments for readings and Feng Shui sessions will use the same secure checkout flow as on your main
+        service pages. If you are unsure which option fits best, you are always welcome to contact us and we will
+        help you choose.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© Daoism &amp; Destiny Studio</span>
+      <span>Spiritual guidance inspired by Taoist tradition.</span>
+    </div>
+  </footer>
 </body>
 </html>

@@ -47,7 +47,7 @@
       padding: 0 24px 40px;
     }
 
-    /* 分类标签（只是视觉标签，不需要功能） */
+    /* Category pills (visual only for now) */
     .shop-filter {
       display: flex;
       flex-wrap: wrap;
@@ -82,7 +82,7 @@
     .shop-card {
       border-radius: 22px;
       border: 1px solid rgba(148, 163, 184, 0.55);
-      background: rgba(2, 6, 23, 0.72);
+      background: rgba(2, 6, 23, 0.78);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
       padding: 18px 18px 20px;
       display: flex;
@@ -112,7 +112,7 @@
       transform: translateY(-8px);
       box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
       border-color: #facc15;
-      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.75), rgba(2, 6, 23, 0.9));
+      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.75), rgba(2, 6, 23, 0.95));
     }
 
     .shop-card:hover::before {
@@ -130,7 +130,7 @@
       width: 44px;
       height: 44px;
       border-radius: 14px;
-      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.1), rgba(15, 23, 42, 0.95));
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.12), rgba(15, 23, 42, 0.96));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -247,10 +247,11 @@
     <!-- Hero -->
     <section class="shop-hero">
       <p class="shop-kicker">TAOIST SHOP</p>
-      <h1 class="shop-title">OBJECTS &amp; SESSIONS FOR YOUR PATH</h1>
+      <h1 class="shop-title">RITUAL JEWELRY &amp; ALTAR OBJECTS</h1>
       <p class="shop-subtitle">
-        A curated selection of destiny readings, Feng Shui sessions, and ritual-inspired objects.
-        Each piece is chosen to bring a little more clarity, calm, and harmony into the chapter of life you are living now.
+        A small collection of rings, necklaces, bracelets, talismans, and altar pieces chosen to carry
+        a quiet Taoist feeling into daily life. Each item is intended as a reminder of balance, protection,
+        and gentle alignment with your path.
       </p>
     </section>
 
@@ -258,157 +259,158 @@
     <section class="shop-layout">
       <div class="shop-filter">
         <span class="shop-filter-pill active">All</span>
-        <span class="shop-filter-pill">Destiny readings</span>
-        <span class="shop-filter-pill">Feng Shui sessions</span>
-        <span class="shop-filter-pill">Ritual objects</span>
+        <span class="shop-filter-pill">Rings &amp; necklaces</span>
+        <span class="shop-filter-pill">Bracelets &amp; cords</span>
+        <span class="shop-filter-pill">Talismans</span>
+        <span class="shop-filter-pill">Altar objects</span>
       </div>
 
       <div class="shop-grid">
 
-        <!-- 1. Single question destiny reading -->
+        <!-- 1. Ring -->
         <article class="shop-card">
           <div>
             <div class="shop-card-top">
-              <div class="shop-thumb">✉️</div>
+              <div class="shop-thumb">💍</div>
               <div>
-                <div class="shop-tag">Destiny reading</div>
-                <div class="shop-name">Single question written reading</div>
+                <div class="shop-tag">Ring</div>
+                <div class="shop-name">Golden harmony ring</div>
               </div>
             </div>
             <p class="shop-desc">
-              A personalised written reading for one key situation or decision. Ideal when you want clear guidance on a
-              single turning point on your path.
+              A slim brass-gold ring engraved with a subtle yin–yang motif on the inside. Worn as a quiet reminder
+              to return to center when life pulls you to the extremes.
             </p>
           </div>
           <div class="shop-card-bottom">
             <div class="shop-price">
-              $39.95 USD <span>email delivery</span>
+              $59.00 USD <span>adjustable size</span>
             </div>
-            <a href="destiny.html" class="btn-shop">View details</a>
+            <a href="contact.html" class="btn-shop">Contact to order</a>
           </div>
         </article>
 
-        <!-- 2. Three-question destiny reading -->
+        <!-- 2. Necklace -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">📿</div>
+              <div>
+                <div class="shop-tag">Necklace</div>
+                <div class="shop-name">Lotus knot pendant</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              A dark cord necklace with a small metal lotus-knot pendant, symbolising a heart that stays open and
+              soft even when life becomes complicated.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $69.00 USD <span>waxed cotton cord</span>
+            </div>
+            <a href="contact.html" class="btn-shop">Contact to order</a>
+          </div>
+        </article>
+
+        <!-- 3. Bracelet -->
+        <article class="shop-card">
+          <div>
+            <div class="shop-card-top">
+              <div class="shop-thumb">🧶</div>
+              <div>
+                <div class="shop-tag">Bracelet</div>
+                <div class="shop-name">River calm bracelet</div>
+              </div>
+            </div>
+            <p class="shop-desc">
+              A hand-knotted bracelet in deep blue and gold tones. Made to be worn on busy days as a reminder
+              to let thoughts flow like water instead of getting stuck.
+            </p>
+          </div>
+          <div class="shop-card-bottom">
+            <div class="shop-price">
+              $42.00 USD <span>hand-knotted</span>
+            </div>
+            <a href="contact.html" class="btn-shop">Contact to order</a>
+          </div>
+        </article>
+
+        <!-- 4. Pocket talisman -->
         <article class="shop-card">
           <div>
             <div class="shop-card-top">
               <div class="shop-thumb">📜</div>
               <div>
-                <div class="shop-tag">Destiny reading</div>
-                <div class="shop-name">Three-question destiny reading</div>
+                <div class="shop-tag">Talisman</div>
+                <div class="shop-name">Travel protection charm</div>
               </div>
             </div>
             <p class="shop-desc">
-              For times when several areas of life are moving at once. Ask up to three main questions and receive a
-              reading that connects the patterns between them.
+              A small hand-drawn paper talisman, folded into a dark envelope. Meant to be kept in your wallet or
+              travel bag when moving between cities or countries.
             </p>
           </div>
           <div class="shop-card-bottom">
             <div class="shop-price">
-              $89.95 USD <span>written reading</span>
+              $35.00 USD <span>single charm</span>
             </div>
-            <a href="destiny-three.html" class="btn-shop">View details</a>
+            <a href="contact.html" class="btn-shop">Contact to order</a>
           </div>
         </article>
 
-        <!-- 3. Full destiny overview -->
+        <!-- 5. Door blessing set -->
         <article class="shop-card">
           <div>
             <div class="shop-card-top">
-              <div class="shop-thumb">☯️</div>
+              <div class="shop-thumb">🧧</div>
               <div>
-                <div class="shop-tag">Destiny reading</div>
-                <div class="shop-name">Full destiny overview</div>
+                <div class="shop-tag">Talisman set</div>
+                <div class="shop-name">Prosperity door talismans</div>
               </div>
             </div>
             <p class="shop-desc">
-              A deeper look at your current life cycle – major themes, repeating patterns, and the lessons this chapter
-              is asking you to embody, all in one written overview.
+              A pair of matching yellow-red talismans designed to be placed on either side of a doorway, inviting
+              steady prosperity and harmonious qi into the space.
             </p>
           </div>
           <div class="shop-card-bottom">
             <div class="shop-price">
-              $129.95 USD <span>complete reading</span>
+              $48.00 USD <span>set of two</span>
             </div>
-            <a href="destiny-full.html" class="btn-shop">View details</a>
+            <a href="contact.html" class="btn-shop">Contact to order</a>
           </div>
         </article>
 
-        <!-- 4. Home corner Feng Shui -->
+        <!-- 6. Altar statue -->
         <article class="shop-card">
           <div>
             <div class="shop-card-top">
-              <div class="shop-thumb">🏠</div>
+              <div class="shop-thumb">🕯️</div>
               <div>
-                <div class="shop-tag">Feng Shui session</div>
-                <div class="shop-name">Home corner refresh</div>
+                <div class="shop-tag">Altar object</div>
+                <div class="shop-name">Brass incense bowl &amp; stand</div>
               </div>
             </div>
             <p class="shop-desc">
-              A focused Feng Shui consultation on one key area of your home – such as the bedroom, entrance, or a
-              special corner that feels stuck or heavy.
+              A small brass incense burner with a simple stand, suitable for three sticks of incense. Made for a
+              compact home altar or a quiet corner of your desk.
             </p>
           </div>
           <div class="shop-card-bottom">
             <div class="shop-price">
-              $49.95 USD <span>single area session</span>
+              $79.00 USD <span>incense bowl + base</span>
             </div>
-            <a href="fengshui-packages.html" class="btn-shop">View details</a>
-          </div>
-        </article>
-
-        <!-- 5. Whole home Feng Shui -->
-        <article class="shop-card">
-          <div>
-            <div class="shop-card-top">
-              <div class="shop-thumb">🏡</div>
-              <div>
-                <div class="shop-tag">Feng Shui session</div>
-                <div class="shop-name">Whole home review</div>
-              </div>
-            </div>
-            <p class="shop-desc">
-              A broader consultation that looks at the qi flow of your entire living space, with suggestions you can
-              apply gradually to support your direction and wellbeing.
-            </p>
-          </div>
-          <div class="shop-card-bottom">
-            <div class="shop-price">
-              $119.95 USD <span>full home consultation</span>
-            </div>
-            <a href="fengshui-packages.html" class="btn-shop">View details</a>
-          </div>
-        </article>
-
-        <!-- 6. Workspace Feng Shui -->
-        <article class="shop-card">
-          <div>
-            <div class="shop-card-top">
-              <div class="shop-thumb">💼</div>
-              <div>
-                <div class="shop-tag">Feng Shui session</div>
-                <div class="shop-name">Workspace &amp; career</div>
-              </div>
-            </div>
-            <p class="shop-desc">
-              For studios, offices, or home desks where you want clearer focus and a calmer relationship with work.
-              We look at layout, elements, and simple rituals for progress.
-            </p>
-          </div>
-          <div class="shop-card-bottom">
-            <div class="shop-price">
-              $89.95 USD <span>workspace session</span>
-            </div>
-            <a href="fengshui-packages.html" class="btn-shop">View details</a>
+            <a href="contact.html" class="btn-shop">Contact to order</a>
           </div>
         </article>
 
       </div>
 
       <p class="shop-footnote">
-        Payments for readings and Feng Shui sessions will use the same secure checkout flow as on your main
-        service pages. If you are unsure which option fits best, you are always welcome to contact us and we will
-        help you choose.
+        At this time, all items are arranged personally rather than through an automatic checkout.
+        To purchase or ask about shipping, please click “Contact to order” and send your request by email
+        or WhatsApp. We will confirm availability, price in your currency, and delivery options before payment.
       </p>
     </section>
   </main>

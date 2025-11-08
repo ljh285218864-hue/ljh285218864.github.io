@@ -18,24 +18,31 @@
     }
 
     /* Fixed background layer so content scrolls over the incense */
-    .packages-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.8), #020617 60%),
-        url("incense-bg.jpg") center 40% / cover no-repeat fixed;
-      opacity: 0.85;           /* 调整整体明暗，防止文字看不清 */
-    }
+    /* 背景图：三炷香更亮、更靠中间一点 */
+.packages-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  /* 上面一点点蓝光 + 下面几乎纯图 */
+  background:
+    radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.25), rgba(2, 6, 23, 0.85) 70%),
+    url("incense-bg.jpg") center 70% / cover no-repeat fixed;
+  opacity: 1; /* 原来是 0.8~0.85，现在让整张图亮一点 */
+}
 
-    /* A very soft dark overlay to keep text readable */
-    .packages-bg-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: radial-gradient(circle at 50% 15%, rgba(15, 23, 42, 0.35), transparent 55%);
-      pointer-events: none;
-    }
+/* 遮罩：只留很轻的一层，保证文字还能看清 */
+.packages-bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* 比之前透明很多，主要是略微压一下亮度 */
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(2, 6, 23, 0.18),
+    rgba(2, 6, 23, 0.55) 80%
+  );
+  pointer-events: none;
+}
 
     /* --- Layout --- */
     .packages-main {

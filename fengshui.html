@@ -21,20 +21,22 @@
     }
 
     /* 背景罗盘照片 + 暗色叠加，让前景文字依然清晰 */
-    body.page-fengpackages::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background-image: url("fengshui-luopan.jpg");
-      background-size: cover;
-      background-position: center bottom;
-      background-repeat: no-repeat;
-      /* 加一点暗色渐变叠加，避免太亮抢戏 */
-      background-color: #020617;
-      background-blend-mode: multiply;
-      opacity: 0.9;
-    }
+  body.page-fengpackages::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("fengshui-luopan.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  /* 用半透明叠加，不把罗盘压得太暗 */
+  background-color: rgba(2, 6, 23, 0.75);
+  background-blend-mode: multiply;
+  /* 罗盘更清楚一些 */
+  opacity: 1;
+}
+
 
     .feng-main {
       padding: 96px 24px 80px;
@@ -85,7 +87,9 @@
       border-radius: 24px;
       border: 1px solid rgba(148, 163, 184, 0.7);
       /* 更透明一点，让罗盘若隐若现 */
-      background: rgba(2, 6, 23, 0.7);
+       /* 原来是 0.7，可以试 0.6–0.65 自己感觉一下 */
+  background: rgba(2, 6, 23, 0.62);
+
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
       padding: 24px 24px 26px;
       display: flex;

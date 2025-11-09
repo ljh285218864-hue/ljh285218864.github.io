@@ -3,291 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <title>Destiny Reading Packages · Daoism & Destiny</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Choose a Taoist-inspired destiny reading: single question, three questions, or a full destiny overview." />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Styles only for this packages page -->
-  <style>
-    body {
-      background: #020617;
-      color: #e5e7eb;
-    }
-
-    .packages-hero {
-      padding: 96px 24px 32px;
-      text-align: center;
-    }
-
-    .packages-kicker {
-      font-size: 13px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #facc15;
-      margin-bottom: 10px;
-    }
-
-    .packages-title {
-      font-size: 32px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .packages-subtitle {
-      font-size: 14px;
-      color: #9ca3af;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    .packages-layout {
-      max-width: 1100px;
-      margin: 32px auto 88px;
-      padding: 0 24px 40px;
-    }
-
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .plan-card {
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.95), #020617);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
-      padding: 24px 24px 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .plan-header {
-      margin-bottom: 10px;
-    }
-
-    .plan-name {
-      font-size: 22px;
-      margin-bottom: 4px;
-    }
-
-    .plan-tagline {
-      font-size: 14px;
-      color: #e5e7eb;
-    }
-
-    .plan-body {
-      margin-top: 18px;
-      font-size: 14px;
-      color: #e5e7eb;
-    }
-
-    .plan-body p {
-      margin-bottom: 12px;
-    }
-
-    .plan-list {
-      margin: 0;
-      padding-left: 20px;
-      list-style: disc;
-    }
-
-    .plan-list li + li {
-      margin-top: 4px;
-    }
-
-    .plan-footer {
-      margin-top: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .plan-price {
-      font-size: 16px;
-      font-weight: 600;
-      color: #facc15;
-    }
-
-    .plan-price span {
-      font-size: 13px;
-      font-weight: 400;
-      color: #e5e7eb;
-      margin-left: 4px;
-    }
-
-    .plan-note {
-      font-size: 12px;
-      color: #9ca3af;
-    }
-
-    .btn-plan {
-      align-self: flex-start;
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #facc15;
-      color: #020617;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background 0.1s ease-out;
-    }
-
-    .btn-plan:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(250, 204, 21, 0.35);
-      background: #fde047;
-    }
-
-    @media (max-width: 960px) {
-      .plan-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
-
-  <!-- Shared header: make sure this matches other pages -->
   <header class="site-header">
-    <div class="site-header-inner">
-      <div class="logo">
-        <a href="index.html">DAOISM &amp; DESTINY</a>
-      </div>
+    <div class="site-header-inner container">
+      <div class="logo"><a href="index.html">DAOISM &amp; DESTINY</a></div>
       <nav class="nav">
         <a href="destiny-packages.html">Destiny Readings</a>
-        <a href="fengshui.html">Feng Shui</a>
+        <a href="fengshui-packages.html">Feng Shui</a>
         <a href="shop.html">Shop</a>
         <a href="history.html">Taoist History</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="cta">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Top copy -->
-    <section class="packages-hero">
-      <p class="packages-kicker">DESTINY READING</p>
-      <h1 class="packages-title">CHOOSE YOUR READING</h1>
-      <p class="packages-subtitle">
-        Each destiny reading is crafted for your most important questions and your current stage of life.
-        Please choose the format that best matches the depth of guidance you need right now.
-      </p>
+    <section class="section-hero bright">
+      <div class="bg-img bg-incense"></div>
+      <div class="bg-overlay"></div>
+      <div class="container">
+        <p class="kicker">DESTINY READING</p>
+        <h1 class="h1">CHOOSE YOUR READING</h1>
+        <p class="lead">
+          Each destiny reading is crafted for your most important questions and your current stage of life.
+          Please choose the format that best matches the depth of guidance you need right now.
+        </p>
+      </div>
     </section>
 
-    <!-- Three plans -->
-    <section class="packages-layout">
-      <div class="plan-grid">
-
-        <!-- Single question -->
-        <article class="plan-card">
-          <div>
-            <div class="plan-header">
-              <h2 class="plan-name">Single question</h2>
-              <p class="plan-tagline">One question, one clear future.</p>
-            </div>
-            <div class="plan-body">
-              <p>
-                When there is one relationship, decision, or turning point you cannot ignore, this reading
-                focuses deeply on that single key topic.
-              </p>
-              <ul class="plan-list">
-                <li>Explores one central question in depth.</li>
-                <li>Written destiny reading delivered by email.</li>
-                <li>Guidance inspired by Taoist timing and balance.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="plan-footer">
-            <div class="plan-price">
-              $39.95 USD
-              <span>single written reading</span>
-            </div>
-            <p class="plan-note">
-              After payment, you will receive a message from our team within 1–2 hours.
-            </p>
-            <a href="destiny.html" class="btn-plan">Choose this reading</a>
-          </div>
+    <section class="container reveal">
+      <div class="grid3">
+        <!-- Single -->
+        <article class="card">
+          <h3>Single question</h3>
+          <p class="muted">One question, one clear future.</p>
+          <ul>
+            <li>Explores one central question in depth.</li>
+            <li>Written destiny reading delivered by email.</li>
+            <li>Guidance inspired by Taoist timing and balance.</li>
+          </ul>
+          <p class="price" style="margin-top:10px">
+            $39.95 USD <small>single written reading</small>
+          </p>
+          <p class="muted" style="margin:6px 0 12px">
+            After payment, you will receive a message from our team within 1–2 hours.
+          </p>
+          <a class="btn" href="checkout.html?sku=single">Choose this reading</a>
         </article>
 
-        <!-- Three questions -->
-        <article class="plan-card">
-          <div>
-            <div class="plan-header">
-              <h2 class="plan-name">Three questions</h2>
-              <p class="plan-tagline">A broader view of your path.</p>
-            </div>
-            <div class="plan-body">
-              <p>
-                Ideal when several parts of life are moving at once – for example work, love, family, or health –
-                and you want to see how they connect.
-              </p>
-              <ul class="plan-list">
-                <li>Covers up to three related questions in one reading.</li>
-                <li>Looks at patterns and timing across different areas of life.</li>
-                <li>Helps you prioritise what truly matters right now.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="plan-footer">
-            <div class="plan-price">
-              $89.95 USD
-              <span>three-question reading</span>
-            </div>
-            <p class="plan-note">
-              After payment, you will receive a message from our team within 1–2 hours.
-            </p>
-            <a href="destiny-three.html" class="btn-plan">Choose this reading</a>
-          </div>
+        <!-- Three -->
+        <article class="card">
+          <h3>Three questions</h3>
+          <p class="muted">A broader view of your path.</p>
+          <ul>
+            <li>Covers up to three related questions in one reading.</li>
+            <li>Looks at patterns and timing across different areas of life.</li>
+            <li>Helps you prioritise what truly matters right now.</li>
+          </ul>
+          <p class="price" style="margin-top:10px">
+            $89.95 USD <small>three-question reading</small>
+          </p>
+          <p class="muted" style="margin:6px 0 12px">
+            After payment, you will receive a message from our team within 1–2 hours.
+          </p>
+          <a class="btn" href="checkout.html?sku=three">Choose this reading</a>
         </article>
 
-        <!-- Full destiny overview -->
-        <article class="plan-card">
-          <div>
-            <div class="plan-header">
-              <h2 class="plan-name">Full destiny overview</h2>
-              <p class="plan-tagline">A deeper look at your life cycle.</p>
-            </div>
-            <div class="plan-body">
-              <p>
-                Best for understanding a whole season of life – repeating patterns, major themes, and the lessons
-                this chapter of destiny is asking you to embody.
-              </p>
-              <ul class="plan-list">
-                <li>Overview of your current destiny cycle.</li>
-                <li>Focus on career, relationships, and inner growth together.</li>
-                <li>Suggestions on moving with the tide instead of against it.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="plan-footer">
-            <div class="plan-price">
-              $129.95 USD
-              <span>full written overview</span>
-            </div>
-            <p class="plan-note">
-              After payment, you will receive a message from our team within 1–2 hours.
-            </p>
-            <a href="destiny-full.html" class="btn-plan">Choose this reading</a>
-          </div>
+        <!-- Full -->
+        <article class="card">
+          <h3>Full destiny overview</h3>
+          <p class="muted">A deeper look at your life cycle.</p>
+          <ul>
+            <li>Overview of your current destiny cycle.</li>
+            <li>Focus on career, relationships, and inner growth together.</li>
+            <li>Suggestions on moving with the tide instead of against it.</li>
+          </ul>
+          <p class="price" style="margin-top:10px">
+            $129.95 USD <small>full written overview</small>
+          </p>
+          <p class="muted" style="margin:6px 0 12px">
+            After payment, you will receive a message from our team within 1–2 hours.
+          </p>
+          <a class="btn" href="checkout.html?sku=full">Choose this reading</a>
         </article>
-
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>© Daoism &amp; Destiny Studio</span>
-      <span>Spiritual guidance inspired by Taoist tradition.</span>
-    </div>
+  <footer class="container" style="padding:34px 20px 60px;opacity:.8">
+    © Daoism &amp; Destiny Studio — Spiritual guidance inspired by Taoist tradition.
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

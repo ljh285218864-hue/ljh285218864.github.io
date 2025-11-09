@@ -2,266 +2,331 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taoist Destiny Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daoism & Destiny</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 样式优化 */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #020617;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+    }
+    /* 顶部导航 */
+    header.site-header {
+      position: fixed;
+      width: 100%;
+      background-color: #020617;
+      z-index: 999;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo a {
+      font-size: 1.8rem;
+      color: #facc15;
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .nav a:hover {
+      color: #facc15;
+    }
+
+    .btn-primary {
+      background-color: #facc15;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      color: #020617;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #fde047;
+    }
+
+    /* Hero Section */
+    .destiny-hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 30px;
+      background: url('your-hero-image.jpg') no-repeat center center;
+      background-size: cover;
+      color: #ffffff;
+      height: 100vh;
+    }
+
+    .destiny-hero-inner {
+      width: 50%;
+    }
+
+    .destiny-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .destiny-hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .destiny-hero .btn-primary {
+      margin-top: 20px;
+    }
+
+    /* Section 2 - Is this you */
+    .is-this-you-section {
+      padding: 60px 30px;
+      background-color: #1f1f1f;
+      text-align: center;
+    }
+
+    .is-this-you-section h2 {
+      font-size: 2rem;
+      color: #facc15;
+      margin-bottom: 20px;
+    }
+
+    .cards-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #e5e7eb;
+    }
+
+    /* Section 3 - Quick Trust Strip */
+    .trust-strip {
+      background-color: #212121;
+      color: #e5e7eb;
+      padding: 30px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .trust-strip .icon {
+      font-size: 2rem;
+    }
+
+    /* Section 4 - Three Core Sessions */
+    .three-core-sessions {
+      display: flex;
+      justify-content: space-between;
+      padding: 60px 30px;
+      background-color: #020617;
+      color: #e5e7eb;
+    }
+
+    .three-core-sessions .left-column {
+      width: 30%;
+    }
+
+    .three-core-sessions .right-column {
+      width: 65%;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 30px;
+    }
+
+    .card-container .card {
+      width: 30%;
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-container .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Section 5 - How it works */
+    .how-it-works {
+      background-color: #020617;
+      padding: 60px 30px;
+      color: #e5e7eb;
+    }
+
+    .how-it-works h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #facc15;
+    }
+
+    .how-it-works .steps {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .step {
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 12px;
+      width: 30%;
+    }
+
+    .step h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #facc15;
+    }
+
+    .step p {
+      font-size: 1rem;
+      color: #e5e7eb;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 20px;
+      background-color: #020617;
+      color: #e5e7eb;
+      text-align: center;
+    }
+    
+    footer a {
+      color: #facc15;
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .is-this-you-section .cards-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .three-core-sessions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card-container .card {
+        width: 80%;
+      }
+    }
+  </style>
 </head>
-<body class="home">
 
-  <!-- 顶部导航：道教命运工作室 + 中文菜单 -->
-   <!-- 顶部导航：透明悬浮在主图上 -->
- <header class="site-header">
-  <div class="site-header-inner">
-    <div class="logo">
-      <a href="index.html">DAOISM &amp; DESTINY</a>
+<body>
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo">
+        <a href="#">Daoism & Destiny</a>
+      </div>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">Sessions</a>
+        <a href="#">How it works</a>
+        <a href="#">About</a>
+        <a href="#">FAQ</a>
+      </nav>
+      <a href="#" class="btn-primary">Book a reading</a>
     </div>
+  </header>
 
-    <!-- 这里全部都是普通导航链接，不再用 btn 按钮样式 -->
-    <nav class="nav">
-      <!-- 这个就是你想要的“探索命运读物 / Destiny Readings”，样式会跟右边几个完全一致 -->
-      <a href="destiny-packages.html">Destiny Readings</a>
-      <a href="fengshui.html">Feng Shui</a>
-      <a href="shop.html">Shop</a>
-      <a href="history.html">Taoist History</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- Hero Section -->
+  <section class="destiny-hero">
+    <div class="destiny-hero-inner">
+      <h1>Clarity, timing and space for your next chapter</h1>
+      <p>Feng Shui & destiny readings for people who feel “something is off” in money, love, or home—but don’t want superstition or fear.</p>
+      <a href="#" class="btn-primary">Book a reading</a>
+      <a href="#" class="btn-primary ghost">How this works</a>
+    </div>
+  </section>
 
-
-
-
-  <main>
-    <!-- 人像主图：不要再动这个布局，只调亮度 -->
-    <section class="hero">
-      <hero-inner">
-        <div class="hero-kicker">TAOIST DESTINY STUDIO</div>
-        <h1 class="hero-title">ONE QUESTION, ONE CLEAR READING.</h1>
-        <p class="hero-subtitle">
-          Rooted in Taoist traditions of timing and balance, this studio offers written destiny
-          readings, gentle Feng Shui guidance, and symbolic items to accompany the next chapter
-          of your life.
-        </p>
-        <p class="hero-note">
-          All work here is spiritual reflection only — not a substitute for professional medical,
-          legal, or financial advice.
-        </p>
-<div class="hero-actions">
-  <!-- 这里改成套餐页面 destiny-packages.html -->
-  <a href="destiny-packages.html" class="btn btn-primary">Explore destiny readings</a>
-
-  <!-- 这个灰色按钮可以继续保持原来跳到提问页（如果你想以后再改也很方便） -->
-  <a href="question.html" class="btn btn-secondary">Submit your question</a>
-</div>
-
-
+  <!-- Section 2: Is This You -->
+  <section class="is-this-you-section">
+    <h2>Does any of this feel like you right now?</h2>
+    <div class="cards-wrapper">
+      <div class="card">
+        <h3>Money & Work</h3>
+        <p>You work hard, but money feels unstable and opportunities slip away.</p>
       </div>
-    </section>
-
-    <!-- 命运读数 模块 -->
-    <section class="feature-panel feature-destiny" id="destiny">
-      <div class="feature-inner">
-        <div class="feature-kicker">DESTINY</div>
-        <h2 class="feature-title">Destiny readings written with care.</h2>
-        <p class="feature-body">
-          Readings focus on one or a few sincere questions: timing for career decisions,
-          emotional patterns in relationships, or the overall rhythm of coming years.
-        </p>
-        <p class="feature-note">
-          Each reading is delivered as a written document so you can revisit it quietly.
-        </p>
-        <div class="feature-actions">
-          <a href="destiny.html" class="btn btn-primary">View reading formats</a>
-        </div>
+      <div class="card">
+        <h3>Love & People</h3>
+        <p>You keep repeating the same patterns in love or family, and you’re tired of it.</p>
       </div>
-    </section>
-
-    <!-- 风水 模块 -->
-    <section class="feature-panel feature-fengshui" id="fengshui">
-      <div class="feature-inner">
-        <div class="feature-kicker">FENG SHUI</div>
-        <h2 class="feature-title">Feng Shui as quiet support.</h2>
-        <p class="feature-body">
-          Gentle adjustments to your room, desk, or altar so that the space supports your daily
-          rhythm instead of fighting it.
-        </p>
-        <p class="feature-note">
-          Suggestions are realistic and simple, designed for real apartments and real schedules.
-        </p>
-        <div class="feature-actions">
-          <a href="fengshui.html" class="btn btn-primary">Learn about Feng Shui notes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 店铺 模块 -->
-    <section class="feature-panel feature-shop" id="shop">
-      <div class="feature-inner">
-        <div class="feature-kicker">SHOP</div>
-        <h2 class="feature-title">Symbolic pieces to carry with you.</h2>
-        <p class="feature-body">
-          Bracelets, talismans and altar items chosen to echo the themes of your reading and
-          support your practice.
-        </p>
-        <p class="feature-note">
-          Each item description explains the symbolism so you can choose what truly resonates.
-        </p>
-        <div class="feature-actions">
-          <a href="shop.html" class="btn btn-primary">Enter the shop</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 道教历史 模块 -->
-    <section class="feature-panel feature-history" id="history">
-      <div class="feature-inner">
-        <div class="feature-kicker">TAOIST HISTORY</div>
-        <h2 class="feature-title">Roots in Taoist culture.</h2>
-        <p class="feature-body">
-          Short essays about classical Taoist concepts such as timing, balance, and harmony with
-          the cycles of nature.
-        </p>
-        <p class="feature-note">
-          These notes are written in everyday language to help modern readers connect with
-          traditional wisdom.
-        </p>
-        <div class="feature-actions">
-          <a href="history.html" class="btn btn-primary">Read Taoist history</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 联系 模块 -->
-    <section class="feature-panel feature-contact" id="contact">
-      <div class="feature-inner">
-        <div class="feature-kicker">CONTACT</div>
-        <h2 class="feature-title">Stay in touch with the studio.</h2>
-        <p class="feature-body">
-          Send a message if you have questions about a reading, need help choosing a service,
-          or would like to collaborate.
-        </p>
-        <p class="feature-note">
-          Responses are usually within 1–2 working days.
-        </p>
-        <div class="feature-actions">
-          <a href="contact.html" class="btn btn-primary">Contact the studio</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10 秒弹出的信息采集弹窗（只在首页） -->
-    <div class="popup-overlay" id="popup-overlay">
-      <div class="popup">
-        <button class="popup-close" id="popup-close">&times;</button>
-        <h2>Share your details</h2>
-        <p>
-          Tell us your basic information so we can prepare a more accurate Taoist destiny reading.
-        </p>
-
-        <form class="popup-form">
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="popup-name">Name</label>
-              <input id="popup-name" type="text" class="form-input" />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="popup-gender">Gender</label>
-              <select id="popup-gender" class="form-select">
-                <option value="">Select</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="popup-birthdate">Date of birth</label>
-              <input id="popup-birthdate" type="date" class="form-input" />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="popup-email">Email</label>
-              <input id="popup-email" type="email" class="form-input" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="popup-whatsapp">WhatsApp</label>
-              <input id="popup-whatsapp" type="text" class="form-input" />
-            </div>
-          </div>
-
-          <div class="popup-actions">
-            <button type="submit" class="btn btn-primary">Send</button>
-            <button type="button" class="btn btn-outline" id="popup-later">Maybe later</button>
-          </div>
-
-          <div class="popup-note">
-            Your information is used only to reply to your request and will not be shared.
-          </div>
-        </form>
+      <div class="card">
+        <h3>Home & Energy</h3>
+        <p>Your home feels heavy. You don’t truly rest or recharge there.</p>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>© Taoist Destiny Studio</div>
-      <div>Spiritual guidance only — not medical, legal, or financial advice.</div>
-    </div>
+  <!-- Section 3: Quick Trust Strip -->
+  <section class="trust-strip">
+    <div class="icon">🔮</div>
+    <div>10+ years in Chinese metaphysics (BaZi & Feng Shui)</div>
+    <div>Clients from US, Europe & Asia</div>
+    <div>Private one-on-one sessions, online only</div>
+    <div>Your information is never shared or sold</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2025 Daoism & Destiny</div>
+    <div><a href="#">Contact</a> | <a href="#">Privacy Policy</a></div>
   </footer>
-
-  <!-- 10 秒后自动弹窗，每次打开首页都会弹 -->
-   <script>
-    // 10 秒弹窗，只在当前会话弹一次
-    (function () {
-      const overlay = document.getElementById("popup");
-      if (!overlay) return;
-
-      const closeBtn = document.getElementById("popupClose");
-      const laterBtn = document.getElementById("popupLater");
-
-      const alreadyShown = sessionStorage.getItem("tdsPopupShown");
-      if (!alreadyShown) {
-        setTimeout(() => {
-          overlay.style.display = "flex";
-          sessionStorage.setItem("tdsPopupShown", "yes");
-        }, 10000); // 10 秒
-      }
-
-      function hidePopup() {
-        overlay.style.display = "none";
-      }
-
-      closeBtn && closeBtn.addEventListener("click", hidePopup);
-      laterBtn && laterBtn.addEventListener("click", hidePopup);
-
-      overlay.addEventListener("click", function (e) {
-        if (e.target === overlay) hidePopup();
-      });
-    })();
-
-    // 导航：滚动后加深色虚化背景
-    (function () {
-      const header = document.querySelector(".site-header");
-      if (!header) return;
-
-      function handleScroll() {
-        if (window.scrollY > 40) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      }
-
-      window.addEventListener("scroll", handleScroll);
-      handleScroll(); // 进页面先执行一次
-    })();
-  </script>
-</body>
-</html>
 
 </body>
 </html>

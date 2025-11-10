@@ -2,1588 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Destiny Reading, Feng Shui & Spiritual Shop | Your Name</title>
+  <title>Your Name | Destiny Reading, Feng Shui & Spiritual Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Online destiny reading and feng shui consultation services, plus a curated spiritual shop. Book one-on-one sessions and buy feng shui objects for your home.">
+  <meta name="description" content="Official site for destiny reading, feng shui consultation, and a curated spiritual shop. Book one-on-one sessions and buy feng shui objects online.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #050814;
-      --bg-soft: #0b1021;
-      --accent: #d4af37;
-      --accent-soft: rgba(212, 175, 55, 0.14);
-      --text-main: #f5f1e5;
-      --text-soft: #b5b7c4;
-      --border-soft: rgba(255, 255, 255, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at top, #101532 0, #050814 45%, #020310 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header & Nav */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
-    }
-
-    .site-header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .site-header.scrolled {
-      background: rgba(5, 8, 20, 0.92);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-mark {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-link {
-      font-size: 14px;
-      color: var(--text-soft);
-      position: relative;
-      padding-bottom: 4px;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), #f3e4b2);
-      transition: width 0.25s ease;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .nav-link.active {
-      color: var(--text-main);
-    }
-
-    .nav-cta {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15), rgba(5, 8, 20, 1));
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.3), rgba(5, 8, 20, 1));
-    }
-
-    /* Mobile nav */
-    .nav-toggle {
-      display: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(5, 8, 20, 0.9);
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .nav-toggle-line {
-      width: 18px;
-      height: 2px;
-      background: #ffffff;
-      border-radius: 999px;
-      position: relative;
-    }
-
-    .nav-toggle-line::before,
-    .nav-toggle-line::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 18px;
-      height: 2px;
-      background: #ffffff;
-      border-radius: 999px;
-      transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease, bottom 0.2s ease;
-    }
-
-    .nav-toggle-line::before {
-      top: -6px;
-    }
-
-    .nav-toggle-line::after {
-      bottom: -6px;
-    }
-
-    .nav-toggle.open .nav-toggle-line {
-      background: transparent;
-    }
-
-    .nav-toggle.open .nav-toggle-line::before {
-      top: 0;
-      transform: rotate(45deg);
-    }
-
-    .nav-toggle.open .nav-toggle-line::after {
-      bottom: 0;
-      transform: rotate(-45deg);
-    }
-
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      padding: 10px 20px 16px;
-      background: rgba(5, 8, 20, 0.96);
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .nav-mobile .nav-link {
-      font-size: 15px;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 120px 0 70px;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 56px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-soft);
-      max-width: 520px;
-      margin-bottom: 24px;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .btn-primary {
-      padding: 12px 22px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(120deg, var(--accent), #f3e4b2);
-      color: #151515;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
-      filter: brightness(1.02);
-    }
-
-    .btn-ghost {
-      padding: 12px 22px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      background: rgba(8, 11, 28, 0.8);
-      color: var(--text-main);
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.18s ease;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      background: rgba(12, 17, 40, 0.9);
-      transform: translateY(-1px);
-    }
-
-    .hero-note {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .hero-note span {
-      color: var(--accent);
-    }
-
-    .hero-visual {
-      position: relative;
-      padding: 26px;
-      border-radius: 24px;
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.12), rgba(5, 8, 20, 0.98));
-      border: 1px solid var(--border-soft);
-      overflow: hidden;
-    }
-
-    .hero-orb {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(252, 248, 219, 0.3), rgba(212, 175, 55, 0.02));
-      top: -60px;
-      right: -40px;
-      filter: blur(1px);
-      opacity: 0.8;
-      animation: float 10s ease-in-out infinite alternate;
-    }
-
-    .hero-smoke {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at bottom, rgba(255, 255, 255, 0.06), transparent 60%);
-      opacity: 0.65;
-      mix-blend-mode: screen;
-      animation: drift 16s linear infinite alternate;
-    }
-
-    .hero-card {
-      position: relative;
-      border-radius: 18px;
-      background: rgba(4, 7, 18, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1;
-    }
-
-    .hero-card-title {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .hero-card-main {
-      font-size: 18px;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .hero-card-meta {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .hero-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(8, 10, 22, 0.9);
-      color: var(--text-soft);
-    }
-
-    .hero-badge {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--text-soft);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #2ecc71;
-      box-shadow: 0 0 12px rgba(46, 204, 113, 0.7);
-    }
-
-    @keyframes float {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-14px, 18px, 0); }
-    }
-
-    @keyframes drift {
-      0% { transform: translate3d(-10px, 0, 0) scale(1); }
-      100% { transform: translate3d(10px, -6px, 0) scale(1.05); }
-    }
-
-    /* Sections */
-    section {
-      padding: 64px 0;
-    }
-
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      font-size: 15px;
-      color: var(--text-soft);
-      max-width: 540px;
-      margin-bottom: 24px;
-    }
-
-    /* Overview */
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .overview-card {
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      background: var(--bg-soft);
-      padding: 18px 16px 16px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      cursor: pointer;
-    }
-
-    .overview-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-      border-color: rgba(212, 175, 55, 0.55);
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.09), #050814);
-    }
-
-    .overview-title {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .overview-desc {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    .overview-link {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    /* Services */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      border-radius: 20px;
-      background: var(--bg-soft);
-      border: 1px solid var(--border-soft);
-      padding: 22px 20px 20px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .service-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.18), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      pointer-events: none;
-    }
-
-    .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-      border-color: rgba(212, 175, 55, 0.6);
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.09), #050814);
-    }
-
-    .service-card:hover::before {
-      opacity: 0.6;
-    }
-
-    .service-label {
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .service-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
-
-    .service-desc {
-      font-size: 14px;
-      color: var(--text-soft);
-      margin-bottom: 14px;
-    }
-
-    .service-list {
-      list-style: none;
-      margin-bottom: 14px;
-    }
-
-    .service-list li {
-      font-size: 14px;
-      color: var(--text-soft);
-      padding-left: 18px;
-      position: relative;
-      margin-bottom: 6px;
-    }
-
-    .service-list li::before {
-      content: "•";
-      position: absolute;
-      left: 4px;
-      top: 0;
-      color: var(--accent);
-    }
-
-    .service-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .service-price {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .service-duration {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .service-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn-outline {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(6, 9, 24, 0.9);
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-outline:hover {
-      background: rgba(16, 21, 48, 0.95);
-      transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .btn-minor {
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px dashed var(--border-soft);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-soft);
-      background: transparent;
-      cursor: pointer;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .btn-minor:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .payment-note {
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-top: 8px;
-    }
-
-    /* Shop */
-    .shop-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .product-card {
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      background: rgba(5, 8, 20, 0.96);
-      padding: 16px 14px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .product-name {
-      font-size: 15px;
-      font-weight: 500;
-    }
-
-    .product-desc {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .product-price {
-      font-size: 16px;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    .product-meta {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    .product-cta {
-      margin-top: 8px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-product {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(8, 11, 28, 0.9);
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-product:hover {
-      background: rgba(16, 21, 48, 0.95);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
-    }
-
-    /* About */
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    .about-highlight {
-      font-size: 15px;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    .about-highlight strong {
-      color: var(--accent);
-    }
-
-    .about-text {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.7;
-      margin-bottom: 8px;
-    }
-
-    .about-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .tag {
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      background: rgba(8, 10, 24, 0.9);
-      color: var(--text-soft);
-    }
-
-    .about-card {
-      border-radius: 20px;
-      border: 1px solid var(--border-soft);
-      background: radial-gradient(circle at top, var(--accent-soft), #050814);
-      padding: 20px 18px;
-    }
-
-    .about-card-title {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .about-card-body {
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-
-    /* Pricing & Booking */
-    .pricing-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .pricing-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .pricing-card {
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      background: rgba(7, 10, 24, 0.96);
-      padding: 16px 16px 14px;
-    }
-
-    .pricing-name {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .pricing-meta {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    .pricing-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .pricing-price {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .pricing-note {
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .booking-card {
-      border-radius: 20px;
-      border: 1px solid var(--border-soft);
-      background: rgba(5, 8, 20, 0.96);
-      padding: 18px 18px 16px;
-    }
-
-    .booking-title {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .booking-intro {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-bottom: 12px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 10px;
-    }
-
-    .form-label {
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .form-input,
-    .form-select,
-    .form-textarea {
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(5, 8, 20, 0.9);
-      color: var(--text-main);
-      font-size: 13px;
-      padding: 8px 10px;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.45);
-      background: rgba(5, 8, 20, 0.98);
-    }
-
-    .form-textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .form-helper {
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-top: 2px;
-    }
-
-    .form-success {
-      display: none;
-      margin-top: 10px;
-      font-size: 12px;
-      color: #7fd38a;
-    }
-
-    .form-success.visible {
-      display: block;
-    }
-
-    /* FAQ */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 700px;
-    }
-
-    .faq-item {
-      border-radius: 14px;
-      border: 1px solid var(--border-soft);
-      background: rgba(6, 9, 22, 0.96);
-      padding: 12px 14px;
-    }
-
-    .faq-q {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .faq-a {
-      font-size: 13px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    /* Footer */
-    .site-footer {
-      padding: 28px 0 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(2, 3, 10, 0.95);
-      margin-top: 40px;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-links a {
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    /* Fade-in sections */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 32px;
-      }
-
-      .hero {
-        padding-top: 100px;
-      }
-
-      .overview-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .shop-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about-layout,
-      .pricing-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 720px) {
-      .site-header-inner {
-        padding: 10px 20px;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: inline-flex;
-      }
-
-      .hero-title {
-        font-size: 30px;
-      }
-
-      .hero-subtitle {
-        font-size: 14px;
-      }
-
-      .hero-cta-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      section {
-        padding: 52px 0;
-      }
-
-      .shop-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .pricing-layout {
-        gap: 20px;
-      }
-
-      .form-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
-    <!-- Header -->
-    <header class="site-header" id="site-header">
-      <div class="site-header-inner">
-        <div class="logo">
-          <div class="logo-mark">◎</div>
-          <span>Your Name</span>
-        </div>
-        <nav class="nav">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#services" class="nav-link">Services</a>
-          <a href="#shop" class="nav-link">Shop</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#pricing" class="nav-link">Pricing</a>
-          <a href="#faq" class="nav-link">FAQ</a>
-          <a href="#pricing" class="nav-cta">Book Now</a>
-        </nav>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-          <div class="nav-toggle-line"></div>
-        </button>
-      </div>
-      <nav class="nav-mobile" id="nav-mobile">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#shop" class="nav-link">Shop</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="#faq" class="nav-link">FAQ</a>
+<div class="page">
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">◎</div>
+        <span>Your Name</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html#contact" class="nav-link">Contact</a>
+        <a href="services.html#pricing" class="nav-cta">Book Now</a>
       </nav>
-    </header>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <div class="nav-toggle-line"></div>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="about.html#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-      <!-- Hero -->
-      <section id="home" class="hero fade-section">
-        <div class="container">
-          <div class="hero-inner">
-            <div>
-              <div class="eyebrow">Destiny Reading · Feng Shui · Spiritual Shop</div>
-              <h1 class="hero-title">Destiny Reading, Feng Shui & Spiritual Objects You Can Book and Buy Online</h1>
-              <p class="hero-subtitle">
-                Two focused services—personal destiny readings and feng shui consultations—plus a curated shop of spiritual objects to support the energy of your home.
-              </p>
-              <div class="hero-cta-row">
-                <button class="btn-primary" data-scroll-target="#pricing" data-service="destiny">
-                  Book a Destiny Reading
-                </button>
-                <button class="btn-ghost" data-scroll-target="#pricing" data-service="fengshui">
-                  Book a Feng Shui Session
-                </button>
-                <button class="btn-ghost" data-scroll-target="#shop">
-                  Browse the Shop
-                </button>
-              </div>
-              <p class="hero-note">
-                1:1 online sessions · Ships within the U.S. · <span>Confidential & judgement-free</span>
-              </p>
-            </div>
-            <div class="hero-visual">
-              <div class="hero-orb"></div>
-              <div class="hero-smoke"></div>
-              <div class="hero-card">
-                <div class="hero-card-title">One place for guidance & objects</div>
-                <div class="hero-card-main">
-                  Get clarity through destiny and feng shui sessions, then support that energy with carefully chosen objects for your space.
-                </div>
-                <div class="hero-card-meta">
-                  Everything is designed to work together: insight for your life and improvements for the energy of the place you live and work in.
-                </div>
-                <div class="hero-pill-row">
-                  <div class="pill">Life cycles & timing</div>
-                  <div class="pill">Home & office energy</div>
-                  <div class="pill">Incense burners & objects</div>
-                </div>
-                <div class="hero-badge">
-                  <span class="hero-badge-dot"></span>
-                  <span>Online sessions · U.S. shipping</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Overview -->
-      <section id="overview" class="fade-section">
-        <div class="container">
-          <div class="section-label">What you can do here</div>
-          <h2 class="section-title">Three main ways to work with me</h2>
-          <p class="section-subtitle">
-            This site is built around just three core offerings: destiny reading, feng shui consultation, and a small spiritual shop. Everything is designed to be simple and clear.
-          </p>
-
-          <div class="overview-grid">
-            <div class="overview-card" data-scroll-target="#services" data-service="destiny">
-              <div class="overview-title">Destiny Reading</div>
-              <p class="overview-desc">
-                Get a personal reading of your life cycles, patterns, and next steps so you can make more confident decisions.
-              </p>
-              <span class="overview-link">View destiny details →</span>
-            </div>
-            <div class="overview-card" data-scroll-target="#services" data-service="fengshui">
-              <div class="overview-title">Feng Shui Consultation</div>
-              <p class="overview-desc">
-                Let your home or office support your rest, focus, and financial flow instead of draining you.
-              </p>
-              <span class="overview-link">View feng shui details →</span>
-            </div>
-            <div class="overview-card" data-scroll-target="#shop">
-              <div class="overview-title">Spiritual Shop</div>
-              <p class="overview-desc">
-                Buy incense burners, feng shui items, and other spiritual objects that complement the sessions.
-              </p>
-              <span class="overview-link">Go to shop →</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Services -->
-      <section id="services" class="fade-section">
-        <div class="container">
-          <div class="section-label">Services</div>
-          <h2 class="section-title">Destiny reading and feng shui consultation</h2>
-          <p class="section-subtitle">
-            I specialize in just two services: destiny reading and feng shui consultation. Each one is focused, practical, and designed to give you clarity you can act on.
-          </p>
-
-          <div class="services-grid">
-            <!-- Destiny Reading -->
-            <article class="service-card">
-              <div class="service-label">Service · Online</div>
-              <h3 class="service-name">Destiny Reading</h3>
-              <p class="service-desc">
-                Gain clarity on your life cycles, career direction, money flow, and relationships so you can make more confident decisions.
-              </p>
-              <ul class="service-list">
-                <li>Overview of your upcoming supportive and challenging timing cycles</li>
-                <li>Key strengths, blind spots, and repeating patterns in your life</li>
-                <li>Guidance for big choices: job changes, moving, starting a business, or relationships</li>
-              </ul>
-              <div class="service-meta">
-                <div class="service-price">$189</div>
-                <div class="service-duration">Approx. 60 minutes · 1:1 online</div>
-              </div>
-              <div class="service-cta-row">
-                <!-- TODO: replace # with your payment link -->
-                <a href="#" class="btn-outline">
-                  <span>Pay for Destiny Reading</span>
-                </a>
-                <button class="btn-minor" data-scroll-target="#pricing" data-service="destiny">
-                  Just book first
-                </button>
-              </div>
-              <p class="payment-note">
-                You can either pay directly using the button above, or submit the booking form below and I’ll send payment instructions by email.
-              </p>
-            </article>
-
-            <!-- Feng Shui -->
-            <article class="service-card">
-              <div class="service-label">Service · Online</div>
-              <h3 class="service-name">Feng Shui Consultation</h3>
-              <p class="service-desc">
-                Align the energy of your home or office so it supports your rest, focus, and financial growth instead of working against you.
-              </p>
-              <ul class="service-list">
-                <li>Review of your layout and key areas like bed, desk, entrance, and money corner</li>
-                <li>Simple, realistic changes you can make without rebuilding everything</li>
-                <li>Suggested timing windows for bigger changes when possible</li>
-              </ul>
-              <div class="service-meta">
-                <div class="service-price">$249</div>
-                <div class="service-duration">Approx. 60–90 minutes · 1:1 online</div>
-              </div>
-              <div class="service-cta-row">
-                <!-- TODO: replace # with your payment link -->
-                <a href="#" class="btn-outline">
-                  <span>Pay for Feng Shui Consultation</span>
-                </a>
-                <button class="btn-minor" data-scroll-target="#pricing" data-service="fengshui">
-                  Just book first
-                </button>
-              </div>
-              <p class="payment-note">
-                Many clients start with photos and a simple sketch of their space. I’ll guide you step by step during the session.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Shop -->
-      <section id="shop" class="fade-section">
-        <div class="container">
-          <div class="section-label">Spiritual shop</div>
-          <h2 class="section-title">Objects to support the energy of your space</h2>
-          <p class="section-subtitle">
-            A small, curated selection of incense burners, feng shui items, and other spiritual objects chosen to work well with the services I offer.
-          </p>
-
-          <div class="shop-grid">
-            <!-- Product 1 -->
-            <article class="product-card">
-              <h3 class="product-name">Brass Incense Burner · Calm Focus</h3>
-              <p class="product-desc">
-                A minimal brass incense burner designed for steady, clean burning during meditation, work, or feng shui rituals.
-              </p>
-              <div class="product-price">$49</div>
-              <div class="product-meta">Ships within the U.S. in 5–7 business days.</div>
-              <div class="product-cta">
-                <!-- TODO: replace # with product payment link -->
-                <a href="#" class="btn-product">
-                  <span>Buy now</span>
-                </a>
-                <span class="product-meta">Limited quantity</span>
-              </div>
-            </article>
-
-            <!-- Product 2 -->
-            <article class="product-card">
-              <h3 class="product-name">Feng Shui Wealth Coins Set</h3>
-              <p class="product-desc">
-                A traditional-style coin set to support money-related areas of your home or office when placed with intention.
-              </p>
-              <div class="product-price">$29</div>
-              <div class="product-meta">Includes a short guide with suggested placements.</div>
-              <div class="product-cta">
-                <!-- TODO: replace # with product payment link -->
-                <a href="#" class="btn-product">
-                  <span>Buy now</span>
-                </a>
-                <span class="product-meta">Popular item</span>
-              </div>
-            </article>
-
-            <!-- Product 3 -->
-            <article class="product-card">
-              <h3 class="product-name">Clarity & Protection Crystal Set</h3>
-              <p class="product-desc">
-                A small set of crystals chosen to support mental clarity and emotional grounding in your workspace or bedroom.
-              </p>
-              <div class="product-price">$59</div>
-              <div class="product-meta">Each set is slightly unique in shape and pattern.</div>
-              <div class="product-cta">
-                <!-- TODO: replace # with product payment link -->
-                <a href="#" class="btn-product">
-                  <span>Buy now</span>
-                </a>
-                <span class="product-meta">Hand-selected</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="fade-section">
-        <div class="container">
-          <div class="section-label">About</div>
-          <h2 class="section-title">Who you’ll be working and shopping with</h2>
-          <div class="about-layout">
-            <div>
-              <p class="about-highlight">
-                I focus on just two services—<strong>destiny reading</strong> and <strong>feng shui</strong>—plus a small shop of objects I personally select.
-              </p>
-              <p class="about-text">
-                I was born and raised in China and have been studying Chinese destiny systems and feng shui for years. Now I work online with clients across the U.S., bringing traditional wisdom into modern, busy lives.
-              </p>
-              <p class="about-text">
-                My style is calm, direct, and practical. I don’t use fear-based superstition. Instead, I help you see patterns, timing, and options, so you can make your own decisions with more confidence.
-              </p>
-              <p class="about-text">
-                The objects in the shop are things I would actually use myself in a home or workspace—chosen to support the same energy we talk about in sessions.
-              </p>
-              <div class="about-tag-row">
-                <span class="tag">1:1 online sessions</span>
-                <span class="tag">English only</span>
-                <span class="tag">U.S. shipping</span>
-                <span class="tag">Confidential & non-judgmental</span>
-              </div>
-            </div>
-            <aside class="about-card">
-              <div class="about-card-title">What clients often say</div>
-              <div class="about-card-body">
-                “I finally understood why certain patterns kept repeating, and what to do differently this time.”
-                <br><br>
-                “After the feng shui session and a few simple changes, my sleep and focus improved more than I expected.”
-                <br><br>
-                “The incense burner and crystal set feel like a natural extension of the work we did in the session.”
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pricing & Booking -->
-      <section id="pricing" class="fade-section">
-        <div class="container">
-          <div class="section-label">Pricing & Booking</div>
-          <h2 class="section-title">Choose your session and send your request</h2>
-          <p class="section-subtitle">
-            You can pay directly through your preferred payment links, or simply fill out the form and I’ll reply with available times and payment instructions.
-          </p>
-
-          <div class="pricing-layout">
-            <div>
-              <div class="pricing-list">
-                <div class="pricing-card">
-                  <div class="pricing-name">Destiny Reading Session</div>
-                  <div class="pricing-meta">Approx. 60 minutes · Online · 1:1</div>
-                  <div class="pricing-row">
-                    <div class="pricing-price">$189</div>
-                    <div class="pricing-note">Best if you want clarity about your direction, timing, and big decisions.</div>
-                  </div>
-                </div>
-                <div class="pricing-card">
-                  <div class="pricing-name">Feng Shui Consultation</div>
-                  <div class="pricing-meta">Approx. 60–90 minutes · Online · 1:1</div>
-                  <div class="pricing-row">
-                    <div class="pricing-price">$249</div>
-                    <div class="pricing-note">Best if you want to improve how your home or office supports you.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div class="booking-card">
-                <div class="booking-title">Book Your Session</div>
-                <p class="booking-intro">
-                  Fill in the form below to request a session. I’ll reply by email with available times and next steps.
-                </p>
-                <form id="booking-form">
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label class="form-label" for="name">Full Name</label>
-                      <input class="form-input" type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label" for="email">Email</label>
-                      <input class="form-input" type="email" id="email" name="email" required>
-                    </div>
-                  </div>
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label class="form-label" for="timezone">Time Zone</label>
-                      <input class="form-input" type="text" id="timezone" name="timezone" placeholder="e.g. PST, EST" required>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label" for="service">Which service do you want to book?</label>
-                      <select class="form-select" id="service" name="service" required>
-                        <option value="">Select an option</option>
-                        <option value="Destiny Reading">Destiny Reading</option>
-                        <option value="Feng Shui Consultation">Feng Shui Consultation</option>
-                        <option value="Not sure yet">I’m not sure yet</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="message">Briefly describe your situation or questions</label>
-                    <textarea class="form-textarea" id="message" name="message" required></textarea>
-                    <p class="form-helper">
-                      Please don’t include sensitive details. Birth date/time and address can be shared later through email.
-                    </p>
-                  </div>
-                  <button type="submit" class="btn-primary" style="width: 100%; margin-top: 4px;">
-                    Submit Request
-                  </button>
-                  <p class="form-helper" style="margin-top: 6px;">
-                    This form doesn’t charge your card. It simply sends your request so we can confirm details and payment securely by email.
-                  </p>
-                  <p id="form-success" class="form-success">
-                    Thank you — your request has been sent.
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" class="fade-section">
-        <div class="container">
-          <div class="section-label">FAQ</div>
-          <h2 class="section-title">Answers to common questions</h2>
-          <div class="faq-list">
-            <div class="faq-item">
-              <div class="faq-q">Are the sessions fully online?</div>
-              <div class="faq-a">
-                Yes. All destiny reading and feng shui sessions are held online through a video call. You can join from anywhere in the U.S. as long as you have a stable internet connection.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q">What information do you need from me?</div>
-              <div class="faq-a">
-                For destiny readings, I’ll need your birth date, time, and city. For feng shui consultations, I’ll ask for photos or a simple layout of your home or office. We can share those privately by email after your booking is confirmed.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q">How do payments work?</div>
-              <div class="faq-a">
-                You can pay through the payment links on this page or after we confirm your booking by email. All payments are processed in USD through recognized platforms like Stripe or PayPal.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q">Do you ship outside the U.S. for products?</div>
-              <div class="faq-a">
-                At the moment, physical products ship within the U.S. only. If you’re outside the U.S., you can still book online sessions.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q">Do you guarantee specific results?</div>
-              <div class="faq-a">
-                I don’t guarantee specific outcomes. My role is to provide insight into timing, patterns, and options so you can make better-informed choices. Many clients find the sessions surprisingly accurate and helpful.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
+  <main>
+    <!-- Hero -->
+    <section class="hero fade-section">
       <div class="container">
-        <div class="footer-inner">
+        <div class="hero-inner">
           <div>
-            © 2025 Your Name. All rights reserved.
+            <div class="hero-eyebrow">Official site · Destiny Reading · Feng Shui · Spiritual Shop</div>
+            <h1 class="hero-title">Destiny Reading, Feng Shui & Spiritual Objects for Modern Life</h1>
+            <p class="hero-subtitle">
+              I offer two core services—personal destiny readings and feng shui consultations—plus a curated shop of spiritual objects to support the energy of your home.
+            </p>
+            <div class="hero-cta-row">
+              <a href="services.html" class="btn-primary">View services</a>
+              <a href="shop.html" class="btn-ghost">Browse the shop</a>
+            </div>
+            <p class="hero-note">
+              1:1 online sessions · U.S. based clients · <span>Simple, calm, confidential</span>
+            </p>
           </div>
-          <div class="footer-links">
-            <span>Modern destiny reading & feng shui for real life in the U.S.</span>
+          <div class="hero-visual">
+            <div class="hero-orb"></div>
+            <div class="hero-smoke"></div>
+            <div class="hero-card">
+              <div class="hero-card-title">A focused, three-part website</div>
+              <div class="hero-card-main">
+                One place for destiny reading, feng shui, and objects chosen to support the energy we work on together.
+              </div>
+              <div class="hero-card-meta">
+                This is not a huge marketplace or a long list of services. Just two core sessions and a small shop, designed to stay clear and personal.
+              </div>
+              <div class="hero-pill-row">
+                <div class="pill">Destiny & life cycles</div>
+                <div class="pill">Home & office feng shui</div>
+                <div class="pill">Incense burners & objects</div>
+              </div>
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span>Modern design · Traditional wisdom</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <script>
-    // Header scroll effect
-    const header = document.getElementById('site-header');
-    const onScroll = () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-    onScroll();
+    <!-- Overview: 三大板块总览 -->
+    <section class="section fade-section">
+      <div class="container">
+        <div class="section-label">What you can do here</div>
+        <h2 class="section-title">Three main sections of this site</h2>
+        <p class="section-subtitle">
+          The website is structured into three clear areas so you always know where to go: services for sessions, a shop for objects, and information about who I am.
+        </p>
 
-    // Smooth scroll helper
-    function smoothScrollTo(targetId) {
-      const el = document.querySelector(targetId);
-      if (!el) return;
-      const headerOffset = 72;
-      const rect = el.getBoundingClientRect();
-      const offsetTop = rect.top + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    }
+        <div class="overview-grid">
+          <a class="overview-card" href="services.html#destiny">
+            <div class="overview-title">Destiny Reading</div>
+            <p class="overview-desc">
+              Book a personal destiny reading to understand your timing, patterns, and next steps in career, money, and relationships.
+            </p>
+            <span class="overview-link">View destiny service →</span>
+          </a>
+          <a class="overview-card" href="services.html#fengshui">
+            <div class="overview-title">Feng Shui Consultation</div>
+            <p class="overview-desc">
+              Schedule a feng shui session to review your home or office and receive practical adjustments you can actually make.
+            </p>
+            <span class="overview-link">View feng shui service →</span>
+          </a>
+          <a class="overview-card" href="shop.html">
+            <div class="overview-title">Spiritual Shop</div>
+            <p class="overview-desc">
+              Buy incense burners, feng shui items, and other spiritual objects that complement the guidance from our sessions.
+            </p>
+            <span class="overview-link">Enter the shop →</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    // Nav links
-    document.querySelectorAll('a.nav-link[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          smoothScrollTo(href);
-          navMobile.style.display = 'none';
-          navToggle.classList.remove('open');
-        }
-      });
-    });
+    <!-- 小部分服务预览 -->
+    <section class="section fade-section">
+      <div class="container">
+        <div class="section-label">Services preview</div>
+        <h2 class="section-title">Two focused services, no long menu</h2>
+        <p class="section-subtitle">
+          Instead of many options, I offer just two services: destiny reading and feng shui. Each one is deep, personal, and designed for real life.
+        </p>
 
-    // Buttons / overview cards with data-scroll-target
-    document.querySelectorAll('[data-scroll-target]').forEach(el => {
-      el.addEventListener('click', () => {
-        const target = el.getAttribute('data-scroll-target');
-        const service = el.getAttribute('data-service');
-        if (target) {
-          smoothScrollTo(target);
-        }
-        if (service) {
-          const select = document.getElementById('service');
-          if (select) {
-            if (service === 'destiny') {
-              select.value = 'Destiny Reading';
-            } else if (service === 'fengshui') {
-              select.value = 'Feng Shui Consultation';
-            }
-          }
-        }
-      });
-    });
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-label">Service</div>
+            <h3 class="service-name">Destiny Reading</h3>
+            <p class="service-desc">
+              A one-on-one online session to read your life cycles, strengths, and blind spots so you can make important decisions with more clarity.
+            </p>
+            <ul class="service-list">
+              <li>See upcoming supportive and challenging periods</li>
+              <li>Understand repeating patterns in career, money, or relationships</li>
+              <li>Get guidance for big changes like job moves or relocation</li>
+            </ul>
+            <div class="service-meta">
+              <div class="service-price">From $189</div>
+              <div class="service-duration">Approx. 60 minutes · Online</div>
+            </div>
+            <a href="services.html#destiny" class="btn-ghost">View full details</a>
+          </article>
 
-    // Mobile nav toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navMobile = document.getElementById('nav-mobile');
-    if (navToggle && navMobile) {
-      navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('open');
-        if (navMobile.style.display === 'flex') {
-          navMobile.style.display = 'none';
-        } else {
-          navMobile.style.display = 'flex';
-        }
-      });
+          <article class="service-card">
+            <div class="service-label">Service</div>
+            <h3 class="service-name">Feng Shui Consultation</h3>
+            <p class="service-desc">
+              An online consultation to review your home or office and suggest simple changes that support rest, focus, and financial flow.
+            </p>
+            <ul class="service-list">
+              <li>Review of key areas like bed, desk, entrance, and money corner</li>
+              <li>Realistic adjustments that fit your current home</li>
+              <li>Guidance on timing bigger changes when possible</li>
+            </ul>
+            <div class="service-meta">
+              <div class="service-price">From $249</div>
+              <div class="service-duration">Approx. 60–90 minutes · Online</div>
+            </div>
+            <a href="services.html#fengshui" class="btn-ghost">View full details</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      navMobile.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navMobile.style.display = 'none';
-          navToggle.classList.remove('open');
-        });
-      });
-    }
+    <!-- Shop 预览 -->
+    <section class="section fade-section">
+      <div class="container">
+        <div class="section-label">Shop preview</div>
+        <h2 class="section-title">Spiritual objects chosen to match the work</h2>
+        <p class="section-subtitle">
+          The shop is not a big marketplace. It’s a small collection of objects I personally select to support the same energy we talk about in your sessions.
+        </p>
 
-    // Section fade-in on scroll
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+        <div class="shop-grid">
+          <article class="product-card">
+            <h3 class="product-name">Brass Incense Burner · Calm Focus</h3>
+            <p class="product-desc">
+              A minimal brass incense burner designed for steady, clean burning during meditation, work, or simple rituals at home.
+            </p>
+            <div class="product-price">$49</div>
+            <div class="product-meta">Preview item · See full details in the shop.</div>
+          </article>
+          <article class="product-card">
+            <h3 class="product-name">Feng Shui Wealth Coins Set</h3>
+            <p class="product-desc">
+              Traditional-style coins to place in money-related areas of your home or office with intention.
+            </p>
+            <div class="product-price">$29</div>
+            <div class="product-meta">Preview item · See full details in the shop.</div>
+          </article>
+          <article class="product-card">
+            <h3 class="product-name">Clarity & Protection Crystal Set</h3>
+            <p class="product-desc">
+              A small crystal set chosen to support mental clarity and emotional grounding.
+            </p>
+            <div class="product-price">$59</div>
+            <div class="product-meta">Preview item · See full details in the shop.</div>
+          </article>
+        </div>
 
-    document.querySelectorAll('.fade-section').forEach(section => {
-      observer.observe(section);
-    });
+        <div style="margin-top: 18px;">
+          <a href="shop.html" class="btn-primary">Go to full shop</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    // Simple fake submit handling for booking form
-    const bookingForm = document.getElementById('booking-form');
-    const formSuccess = document.getElementById('form-success');
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Your Name. All rights reserved.</div>
+        <div class="footer-links">
+          <span>Destiny reading · Feng shui · Spiritual shop</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
 
-    if (bookingForm && formSuccess) {
-      bookingForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        formSuccess.classList.add('visible');
-        bookingForm.reset();
-        setTimeout(() => {
-          formSuccess.classList.remove('visible');
-        }, 5000);
-      });
-    }
-  </script>
+<script src="script.js"></script>
 </body>
 </html>

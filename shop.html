@@ -1,46 +1,108 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Shop – Taoist Destiny Studio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Spiritual Shop | Your Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spiritual shop with incense burners, feng shui items, and crystals curated by Your Name.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header class="site-header">
-  <div class="site-header-inner">
-    <div class="logo">
-      <a href="index.html">TAOISM &amp; DESTINY</a>
+<div class="page">
+  <header class="site-header" id="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">◎</div>
+        <span>Your Name</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html#contact" class="nav-link">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <div class="nav-toggle-line"></div>
+      </button>
     </div>
+    <nav class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="about.html#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-   <nav class="nav">
-  <a href="destiny-packages.html">Destiny Readings</a>
-  <a href="fengshui.html">Feng Shui</a>
-  <a href="shop.html">Shop</a>
-  <a href="history.html">Taoist History</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <main>
+    <section class="section hero fade-section">
+      <div class="container">
+        <div class="section-label">Spiritual shop</div>
+        <h1 class="section-title">Objects to support the energy of your space</h1>
+        <p class="section-subtitle">
+          Each item in this shop is personally selected to work well with the destiny and feng shui work we do together. Small, intentional, and simple to use at home.
+        </p>
+      </div>
+    </section>
 
-  </div>
-</header>
+    <section class="section fade-section">
+      <div class="container">
+        <div class="shop-grid">
+          <!-- 复制这个 product-card 模板，增加你自己的商品 -->
+          <article class="product-card">
+            <h3 class="product-name">Brass Incense Burner · Calm Focus</h3>
+            <p class="product-desc">
+              Minimal brass incense burner for steady, clean burning during meditation, work, or simple rituals.
+            </p>
+            <div class="product-price">$49</div>
+            <div class="product-meta">Ships within the U.S. in 5–7 business days.</div>
+            <div style="margin-top:8px;">
+              <!-- TODO: 换成你的支付链接 -->
+              <a href="#" class="btn-product">Buy now</a>
+            </div>
+          </article>
 
-<main>
-  <section class="section">
-    <div class="section-heading">SHOP</div>
-    <h1 class="section-title">Symbolic items</h1>
-    <p class="section-intro">
-      This page will gradually introduce Taoist-inspired bracelets, talismans, and altar pieces.
-      Each item is meant as a quiet reminder of your intention, not a guarantee to change fate.
-    </p>
-  </section>
-</main>
+          <article class="product-card">
+            <h3 class="product-name">Feng Shui Wealth Coins Set</h3>
+            <p class="product-desc">
+              Traditional-style coins to place in money-related areas of your home or office with intention.
+            </p>
+            <div class="product-price">$29</div>
+            <div class="product-meta">Includes a short placement guide.</div>
+            <div style="margin-top:8px;">
+              <a href="#" class="btn-product">Buy now</a>
+            </div>
+          </article>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span>© Taoist Destiny Studio · 2025</span>
-    <span>Spiritual reflection only – not a substitute for professional advice.</span>
-  </div>
-</footer>
+          <article class="product-card">
+            <h3 class="product-name">Clarity & Protection Crystal Set</h3>
+            <p class="product-desc">
+              A small set of crystals chosen to support mental clarity and emotional grounding.
+            </p>
+            <div class="product-price">$59</div>
+            <div class="product-meta">Each set is unique in shape and pattern.</div>
+            <div style="margin-top:8px;">
+              <a href="#" class="btn-product">Buy now</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Your Name. All rights reserved.</div>
+        <div class="footer-links">
+          <span>Destiny reading · Feng shui · Spiritual shop</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

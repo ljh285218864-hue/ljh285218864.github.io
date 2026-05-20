@@ -1,0 +1,131 @@
+name: Build Liu Qi Landing Page
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-liuqi-landing.yml
+      - .github/liuqi-build-trigger.txt
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build original-layout Liu Qi page
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install beautifulsoup4
+          python - <<'PY'
+          from urllib.request import urlopen, Request
+          from bs4 import BeautifulSoup, NavigableString
+          import re
+
+          url = 'https://thecoffeecuporacle.com/sp/the-turkish-coffee-cup-oracle-official-page/'
+          req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+          html = urlopen(req, timeout=30).read().decode('utf-8', errors='replace')
+          soup = BeautifulSoup(html, 'html.parser')
+
+          replacements = [
+              (r'\$11\.11', '$19.90'),
+              (r'\$49\.95', '$69.90'),
+              (r'75%\s*Off', '72% Off'),
+              (r'75%\s*OFF', '72% OFF'),
+              (r'75%', '72%'),
+              (r'The Turkish Coffee Cup Oracle Official Page', 'Liu Qi Chinese Metaphysics Official Page'),
+              (r'Turkish Coffee Cup Oracle', 'Liu Qi Chinese Metaphysics'),
+              (r'The Coffee Cup Oracle', 'Liu Qi Chinese Metaphysics'),
+              (r'Coffee Cup Oracle', 'Liu Qi Chinese Metaphysics'),
+              (r'Turkish Coffee Cup Love Reading', 'Chinese Metaphysics Love Reading'),
+              (r'Turkish Coffee Cup Readings', 'Chinese Metaphysics Readings'),
+              (r'Turkish Coffee Cup Reading', 'Chinese Metaphysics Reading'),
+              (r'Turkish coffee cup readings', 'Chinese metaphysics readings'),
+              (r'Turkish coffee cup reading', 'Chinese metaphysics reading'),
+              (r'Turkish Coffee Cup', 'Chinese Metaphysics'),
+              (r'Turkish coffee cup', 'Chinese metaphysics'),
+              (r'Turkish Coffee Reading', 'Chinese Metaphysics Reading'),
+              (r'Turkish coffee reading', 'Chinese metaphysics reading'),
+              (r'Turkish Coffee', 'Chinese Metaphysics'),
+              (r'Turkish coffee', 'Chinese metaphysics'),
+              (r'Turkish', 'Chinese'),
+              (r'coffee cup oracle', 'Chinese metaphysics reader'),
+              (r'Coffee cup oracle', 'Chinese metaphysics reader'),
+              (r'Coffee Cup oracle', 'Chinese Metaphysics reader'),
+              (r'Coffee Cup Readings', 'Chinese Metaphysics Readings'),
+              (r'Coffee Cup Reading', 'Chinese Metaphysics Reading'),
+              (r'coffee cup readings', 'Chinese metaphysics readings'),
+              (r'coffee cup reading', 'Chinese metaphysics reading'),
+              (r'Coffee Readings', 'Metaphysics Readings'),
+              (r'Coffee Reading', 'Metaphysics Reading'),
+              (r'coffee readings', 'metaphysics readings'),
+              (r'coffee reading', 'metaphysics reading'),
+              (r'Coffee Cup', 'Chinese Metaphysics'),
+              (r'coffee cup', 'Chinese metaphysics'),
+              (r'Coffee grounds', 'Metaphysical signs'),
+              (r'coffee grounds', 'metaphysical signs'),
+              (r'Coffee symbols', 'Metaphysical symbols'),
+              (r'coffee symbols', 'metaphysical symbols'),
+              (r'Coffee', 'Metaphysics'),
+              (r'coffee', 'metaphysics'),
+              (r'Amara \(left\), Nacaan \(middle\), Berfin \(right\)', 'Liu Qi'),
+              (r'Amara', 'Liu Qi'),
+              (r'Nacaan', 'Liu Qi'),
+              (r'Berfin', 'Liu Qi'),
+          ]
+
+          def transform(value):
+              if not value:
+                  return value
+              out = value
+              for pattern, repl in replacements:
+                  out = re.sub(pattern, repl, out)
+              out = out.replace('Liu Qi (left), Liu Qi (middle), Liu Qi (right)', 'Liu Qi')
+              out = out.replace('metaphysics cup', 'Chinese metaphysics')
+              out = out.replace('Metaphysics Cup', 'Chinese Metaphysics')
+              return out
+
+          for node in soup.find_all(string=True):
+              if node.parent and node.parent.name in ['script', 'style', 'noscript']:
+                  continue
+              new_text = transform(str(node))
+              if new_text != str(node):
+                  node.replace_with(NavigableString(new_text))
+
+          for tag in soup.find_all(True):
+              for attr in ['title', 'alt', 'aria-label', 'placeholder', 'content', 'data-settings']:
+                  if tag.has_attr(attr):
+                      val = tag.get(attr)
+                      if isinstance(val, str) and any(x in val for x in ['Coffee', 'coffee', 'Turkish', 'Amara', 'Nacaan', 'Berfin', '11.11', '49.95', '75%']):
+                          tag[attr] = transform(val)
+
+          # Tracking scripts only: update page_title strings without touching asset/payment URLs.
+          output = str(soup)
+          output = output.replace('The Turkish Coffee Cup Oracle Official Page', 'Liu Qi Chinese Metaphysics Official Page')
+          output = output.replace('Turkish Coffee Cup Oracle', 'Liu Qi Chinese Metaphysics')
+          output = output.replace('$11.11', '$19.90').replace('$49.95', '$69.90').replace('75% Off', '72% Off').replace('75% OFF', '72% OFF')
+
+          with open('index.html', 'w', encoding='utf-8') as f:
+              f.write(output)
+          PY
+
+      - name: Commit updated page
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update original landing page copy for Liu Qi"
+            git push origin HEAD:main
+            git push origin HEAD:gh-pages --force
+          fi

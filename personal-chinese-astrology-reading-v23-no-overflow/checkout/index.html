@@ -4,79 +4,67 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Checkout | Love Clarity Reading</title>
-<meta name="description" content="Choose card or PayPal checkout for your private Love Clarity Reading." />
+<meta name="description" content="Secure checkout for your private Love Clarity Reading." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;background:#fff;color:#111;font-family:'Plus Jakarta Sans',Arial,sans-serif;letter-spacing:-.025em}a{text-decoration:none;color:inherit}.page{min-height:100svh;padding:28px 16px 42px;background:linear-gradient(180deg,#fff 0%,#f8f4ff 48%,#f09aff 100%);position:relative;overflow:hidden}.page:before{content:"";position:absolute;inset:-10%;background:radial-gradient(ellipse at 50% 12%,rgba(240,147,251,.35),transparent 38%),radial-gradient(ellipse at 50% 92%,rgba(102,126,234,.22),transparent 44%);filter:blur(12px);pointer-events:none}.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:42px}.brand{font-size:24px;font-weight:800}.back{height:38px;border-radius:999px;background:rgba(255,255,255,.65);border:1px solid rgba(0,0,0,.08);display:inline-flex;align-items:center;justify-content:center;padding:0 15px;font-size:13px;font-weight:700}.hero{text-align:center;max-width:720px;margin:0 auto 26px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.52);margin-bottom:12px}.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,9vw,78px);line-height:1.02;margin:0 0 14px}.hero p{font-size:15px;line-height:1.65;color:rgba(0,0,0,.66);max-width:620px;margin:0 auto}.summary{max-width:760px;margin:0 auto 22px;border-radius:28px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.72);box-shadow:0 18px 50px rgba(76,24,86,.11);padding:18px;display:grid;grid-template-columns:1fr;gap:12px}.summary-row{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid rgba(0,0,0,.07);padding-bottom:12px}.summary-row:last-child{border-bottom:0;padding-bottom:0}.summary-label{font-size:13px;color:rgba(0,0,0,.55)}.summary-value{font-size:14px;font-weight:800;text-align:right}.price{font-size:24px;font-weight:800}.checkout-panel{max-width:760px;margin:0 auto 24px;display:grid;gap:12px}.method{background:rgba(255,255,255,.95);border-radius:26px;border:1px solid rgba(255,255,255,.76);box-shadow:0 20px 55px rgba(76,24,86,.13);overflow:hidden}.method-head{width:100%;border:0;background:transparent;color:#111;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 18px;cursor:pointer;font-family:inherit;text-align:left}.method-left{display:flex;align-items:center;gap:13px}.method-icon{width:42px;height:42px;border-radius:50%;background:#f4efff;color:#6d4cff;display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto}.method-title{font-size:17px;font-weight:800;letter-spacing:-.04em}.method-sub{font-size:12px;color:rgba(0,0,0,.52);margin-top:3px}.method-right{display:flex;align-items:center;gap:10px}.method-price{font-size:15px;font-weight:800}.chev{width:28px;height:28px;border-radius:50%;background:#f6f6f6;border:1px solid #e9e9e9;display:flex;align-items:center;justify-content:center;transition:transform .24s ease}.method.open .chev{transform:rotate(180deg)}.method-body{max-height:0;overflow:hidden;transition:max-height .34s ease}.method.open .method-body{max-height:680px}.method-inner{padding:0 18px 18px}.divider{height:1px;background:rgba(0,0,0,.07);margin-bottom:16px}.field-grid{display:grid;grid-template-columns:1fr;gap:12px}.field{display:grid;gap:7px}.field label{font-size:12px;font-weight:800;color:rgba(0,0,0,.62)}.field input{height:48px;border-radius:15px;border:1px solid #e5e5e5;background:#fff;padding:0 14px;font-size:14px;font-family:inherit;outline:none;transition:border-color .18s ease,box-shadow .18s ease}.field input:focus{border-color:#7d5cff;box-shadow:0 0 0 4px rgba(125,92,255,.12)}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card-icons{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}.card-icons span{height:26px;min-width:46px;border-radius:8px;background:#f6f6f6;border:1px solid #e7e7e7;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#333}.secure-row{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(0,0,0,.52);margin:12px 0 14px}.pay-btn{height:50px;border-radius:999px;border:0;width:100%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;font-family:inherit;cursor:pointer}.card-pay{background:#111;color:#fff}.paypal-pay{background:#ffc439;color:#111}.paypal-box{border-radius:18px;background:#fff9df;border:1px solid rgba(180,132,0,.16);padding:16px;margin-bottom:14px}.paypal-box h3{margin:0 0 8px;font-size:16px}.paypal-box p{margin:0;color:rgba(0,0,0,.62);font-size:13px;line-height:1.55}.pay-note{font-size:11px;color:rgba(0,0,0,.48);margin:10px 0 0;line-height:1.45}.steps{max-width:760px;margin:0 auto;border-radius:24px;background:rgba(17,17,25,.9);color:#fff;padding:18px;text-align:left}.steps h2{font-size:18px;margin:0 0 12px}.steps ol{margin:0;padding-left:20px}.steps li{font-size:13px;line-height:1.65;color:rgba(255,255,255,.82)}.trust{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;margin-top:20px;font-size:12px;color:rgba(0,0,0,.64)}.footer{text-align:center;margin-top:30px;font-size:11px;color:rgba(0,0,0,.48)}@media(min-width:760px){.page{padding:34px 24px 56px}.summary{grid-template-columns:repeat(3,1fr)}.summary-row{border-bottom:0;border-right:1px solid rgba(0,0,0,.07);padding:0 14px 0 0}.summary-row:last-child{border-right:0;padding-right:0}.field-grid.two{grid-template-columns:1fr 1fr}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;background:#f6f7f9;color:#111827;font-family:'Plus Jakarta Sans',Arial,sans-serif;letter-spacing:-.015em}a{text-decoration:none;color:inherit}button,input{font-family:inherit}.topbar{height:64px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:10}.topbar-inner{width:100%;max-width:1120px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:20px;font-weight:800;color:#111827}.secure{display:flex;align-items:center;gap:8px;font-size:13px;color:#6b7280}.back{font-size:13px;font-weight:700;color:#374151}.page{padding:34px 16px 52px}.layout{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px}.checkout-main,.summary-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;box-shadow:0 12px 32px rgba(17,24,39,.04)}.checkout-main{padding:22px}.summary-card{padding:20px;height:max-content}.section-title{font-size:22px;font-weight:800;margin:0 0 6px}.section-sub{font-size:14px;line-height:1.55;color:#6b7280;margin:0 0 22px}.label-title{font-size:13px;font-weight:800;color:#374151;margin:0 0 10px}.contact-box{display:grid;gap:12px;margin-bottom:24px}.field{display:grid;gap:7px}.field label{font-size:12px;font-weight:700;color:#4b5563}.field input{height:46px;border-radius:10px;border:1px solid #d1d5db;background:#fff;padding:0 12px;font-size:14px;color:#111827;outline:none;transition:border-color .16s ease,box-shadow .16s ease}.field input:focus{border-color:#111827;box-shadow:0 0 0 3px rgba(17,24,39,.08)}.payment-list{display:grid;gap:10px}.method{border:1px solid #d1d5db;border-radius:14px;background:#fff;overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}.method.open{border-color:#111827;box-shadow:0 0 0 1px #111827}.method-head{width:100%;border:0;background:#fff;color:#111827;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px;cursor:pointer;text-align:left}.method-left{display:flex;align-items:center;gap:12px;min-width:0}.radio{width:18px;height:18px;border-radius:50%;border:2px solid #9ca3af;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.radio:after{content:"";width:8px;height:8px;border-radius:50%;background:#111827;opacity:0}.method.open .radio{border-color:#111827}.method.open .radio:after{opacity:1}.method-icon{width:38px;height:28px;border-radius:6px;border:1px solid #e5e7eb;background:#f9fafb;display:flex;align-items:center;justify-content:center;color:#374151;font-size:14px;flex:0 0 auto}.method-title{font-size:15px;font-weight:800}.method-sub{font-size:12px;color:#6b7280;margin-top:2px}.method-right{display:flex;align-items:center;gap:10px}.card-icons{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.card-icons span{height:22px;min-width:36px;border-radius:4px;border:1px solid #d1d5db;background:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#4b5563}.chev{font-size:14px;color:#6b7280;transition:transform .2s ease}.method.open .chev{transform:rotate(180deg)}.method-body{max-height:0;overflow:hidden;transition:max-height .28s ease;background:#fff}.method.open .method-body{max-height:620px}.method-inner{border-top:1px solid #e5e7eb;padding:16px}.field-grid{display:grid;grid-template-columns:1fr;gap:12px}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.helper{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.45;color:#6b7280;background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:10px;margin:14px 0}.pay-btn{height:48px;border:0;border-radius:10px;width:100%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;cursor:pointer}.card-pay{background:#111827;color:#fff}.paypal-pay{background:#ffc439;color:#111827}.paypal-note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:13px;font-size:13px;line-height:1.5;color:#4b5563;margin-bottom:14px}.paypal-note strong{display:block;color:#111827;margin-bottom:4px}.pay-note{font-size:11px;color:#6b7280;margin:10px 0 0;line-height:1.45}.summary-title{font-size:16px;font-weight:800;margin:0 0 16px}.product{display:flex;gap:12px;padding-bottom:16px;border-bottom:1px solid #e5e7eb}.product-icon{width:48px;height:48px;border-radius:12px;background:#f3e8ff;color:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto}.product-name{font-size:14px;font-weight:800;margin-bottom:4px}.product-meta{font-size:12px;color:#6b7280;line-height:1.45}.totals{display:grid;gap:10px;padding:16px 0;border-bottom:1px solid #e5e7eb}.total-row{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#4b5563}.total-row.final{font-size:18px;font-weight:800;color:#111827;padding-top:4px}.after{padding-top:16px}.after h3{font-size:14px;margin:0 0 10px}.after ol{margin:0;padding-left:18px;color:#6b7280}.after li{font-size:12px;line-height:1.6;margin-bottom:4px}.trust{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.trust span{font-size:11px;color:#4b5563;background:#f9fafb;border:1px solid #e5e7eb;border-radius:999px;padding:7px 10px}.footer{max-width:1120px;margin:24px auto 0;text-align:center;font-size:11px;color:#6b7280;line-height:1.5}@media(min-width:860px){.page{padding:44px 24px 60px}.layout{grid-template-columns:minmax(0,1.18fr) 390px;align-items:start}.checkout-main{padding:28px}.summary-card{position:sticky;top:88px}.field-grid.two{grid-template-columns:1fr 1fr}.contact-box{grid-template-columns:1fr 1fr}}@media(max-width:520px){.topbar-inner{padding:0 14px}.secure{display:none}.checkout-main,.summary-card{border-radius:16px}.method-head{padding:14px}.method-icon{display:none}.card-icons span{min-width:32px}.section-title{font-size:20px}}
 </style>
 </head>
 <body>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="../">Liu Qi</a><div class="secure"><i class="fa fa-lock"></i> Secure checkout</div><a class="back" href="../">Back</a></div></header>
 <main class="page">
-  <div class="wrap">
-    <div class="top"><a class="brand" href="../">Liu Qi</a><a class="back" href="../">Back to reading page</a></div>
-    <section class="hero">
-      <div class="eyebrow">Secure checkout</div>
-      <h1>Choose your payment method.</h1>
-      <p>After payment, you will complete a short reading form with your birth details and one focused love question. Your private written reading is delivered within 24–48 hours.</p>
-    </section>
-    <section class="summary" aria-label="Order summary">
-      <div class="summary-row"><div class="summary-label">Reading</div><div class="summary-value">Love Clarity Reading</div></div>
-      <div class="summary-row"><div class="summary-label">Includes</div><div class="summary-value">One love question</div></div>
-      <div class="summary-row"><div class="summary-label">Total</div><div class="summary-value price">$15.90</div></div>
-    </section>
-    <section class="checkout-panel" aria-label="Payment methods">
-      <article class="method" id="cardMethod">
-        <button class="method-head" type="button" data-method="card" aria-expanded="false">
-          <span class="method-left"><span class="method-icon"><i class="fa fa-credit-card"></i></span><span><span class="method-title">Credit / Debit Card</span><span class="method-sub">Visa, Mastercard, Amex, Discover</span></span></span>
-          <span class="method-right"><span class="method-price">$15.90</span><span class="chev"><i class="fa fa-angle-down"></i></span></span>
-        </button>
-        <div class="method-body">
-          <div class="method-inner">
-            <div class="divider"></div>
-            <div class="card-icons"><span>VISA</span><span>MC</span><span>AMEX</span><span>DISC</span></div>
-            <form>
-              <div class="field-grid two">
-                <div class="field"><label for="name">Name on card</label><input id="name" type="text" placeholder="Jane Smith" autocomplete="cc-name"></div>
-                <div class="field"><label for="email">Email for delivery</label><input id="email" type="email" placeholder="you@example.com" autocomplete="email"></div>
-              </div>
-              <div class="field" style="margin-top:12px"><label for="cardNumber">Card number</label><input id="cardNumber" type="text" placeholder="1234 1234 1234 1234" inputmode="numeric" autocomplete="cc-number"></div>
+  <div class="layout">
+    <section class="checkout-main">
+      <h1 class="section-title">Checkout</h1>
+      <p class="section-sub">Choose a payment method. After payment, you will complete the reading form with your birth details and one love question.</p>
+      <div class="contact-box" aria-label="Contact information">
+        <div class="field"><label for="contactEmail">Email for delivery</label><input id="contactEmail" type="email" placeholder="you@example.com" autocomplete="email"></div>
+        <div class="field"><label for="fullName">Full name</label><input id="fullName" type="text" placeholder="Jane Smith" autocomplete="name"></div>
+      </div>
+      <p class="label-title">Payment method</p>
+      <div class="payment-list">
+        <article class="method" id="cardMethod">
+          <button class="method-head" type="button" aria-expanded="false">
+            <span class="method-left"><span class="radio"></span><span class="method-icon"><i class="fa fa-credit-card"></i></span><span><span class="method-title">Credit or debit card</span><span class="method-sub">Pay securely by card</span></span></span>
+            <span class="method-right"><span class="card-icons"><span>Visa</span><span>MC</span><span>Amex</span></span><span class="chev"><i class="fa fa-angle-down"></i></span></span>
+          </button>
+          <div class="method-body">
+            <div class="method-inner">
+              <div class="field"><label for="cardNumber">Card number</label><input id="cardNumber" type="text" placeholder="1234 1234 1234 1234" inputmode="numeric" autocomplete="cc-number"></div>
               <div class="mini-grid" style="margin-top:12px"><div class="field"><label for="expiry">Expiration</label><input id="expiry" type="text" placeholder="MM / YY" autocomplete="cc-exp"></div><div class="field"><label for="cvc">CVC</label><input id="cvc" type="text" placeholder="123" inputmode="numeric" autocomplete="cc-csc"></div></div>
-              <div class="secure-row"><i class="fa fa-lock"></i><span>Secure card checkout placeholder. Processor will be connected later.</span></div>
-              <button class="pay-btn card-pay" type="button">Pay $15.90 by Card</button>
-              <p class="pay-note">This card form is a front-end design placeholder. Stripe, PayPal Card, or another processor can be connected later.</p>
-            </form>
+              <div class="field" style="margin-top:12px"><label for="cardName">Name on card</label><input id="cardName" type="text" placeholder="Jane Smith" autocomplete="cc-name"></div>
+              <div class="helper"><i class="fa fa-lock"></i><span>This is a front-end checkout design. A real card processor such as Stripe or PayPal Card can be connected later.</span></div>
+              <button class="pay-btn card-pay" type="button">Pay $15.90</button>
+            </div>
           </div>
-        </div>
-      </article>
-      <article class="method" id="paypalMethod">
-        <button class="method-head" type="button" data-method="paypal" aria-expanded="false">
-          <span class="method-left"><span class="method-icon"><i class="fa fa-paypal"></i></span><span><span class="method-title">PayPal</span><span class="method-sub">PayPal balance, bank, or linked card</span></span></span>
-          <span class="method-right"><span class="method-price">$15.90</span><span class="chev"><i class="fa fa-angle-down"></i></span></span>
-        </button>
-        <div class="method-body">
-          <div class="method-inner">
-            <div class="divider"></div>
-            <div class="paypal-box"><h3>Pay with PayPal</h3><p>You will be redirected to PayPal to complete payment. After payment, complete the short reading form with your birth details and one love question.</p></div>
-            <a class="pay-btn paypal-pay" href="https://paypal.me/MRMingyun/15.90" target="_blank" rel="noreferrer">Continue with PayPal</a>
-            <p class="pay-note">Temporary PayPal link. Final PayPal checkout interface can be connected later.</p>
+        </article>
+        <article class="method" id="paypalMethod">
+          <button class="method-head" type="button" aria-expanded="false">
+            <span class="method-left"><span class="radio"></span><span class="method-icon"><i class="fa fa-paypal"></i></span><span><span class="method-title">PayPal</span><span class="method-sub">Pay with PayPal or linked card</span></span></span>
+            <span class="method-right"><span class="card-icons"><span>PayPal</span></span><span class="chev"><i class="fa fa-angle-down"></i></span></span>
+          </button>
+          <div class="method-body">
+            <div class="method-inner">
+              <div class="paypal-note"><strong>Continue with PayPal</strong>You will be redirected to PayPal to complete payment. After payment, complete the reading form.</div>
+              <a class="pay-btn paypal-pay" href="https://paypal.me/MRMingyun/15.90" target="_blank" rel="noreferrer">Pay with PayPal</a>
+              <p class="pay-note">Temporary PayPal link. Final PayPal checkout can be connected later.</p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </section>
-    <section class="steps">
-      <h2>What happens after payment?</h2>
-      <ol>
-        <li>Complete the short reading form with your birth details and one love question.</li>
-        <li>Your reading is written personally around your relationship situation.</li>
-        <li>You receive your written reading within 24–48 hours after your details are received.</li>
-      </ol>
-    </section>
-    <div class="trust"><span><i class="fa fa-shield"></i> Private reading</span><span><i class="fa fa-clock-o"></i> 24–48h delivery</span><span><i class="fa fa-check-circle-o"></i> One focused love question</span></div>
-    <div class="footer">© 2026 Liu Qi. Readings are for personal insight and reflection only. Results are not guaranteed.</div>
+    <aside class="summary-card" aria-label="Order summary">
+      <h2 class="summary-title">Order summary</h2>
+      <div class="product"><div class="product-icon"><i class="fa fa-heart-o"></i></div><div><div class="product-name">Love Clarity Reading</div><div class="product-meta">One focused love question · Human-written · 24–48h delivery</div></div></div>
+      <div class="totals"><div class="total-row"><span>Subtotal</span><span>$15.90</span></div><div class="total-row"><span>Tax</span><span>$0.00</span></div><div class="total-row final"><span>Total</span><span>$15.90</span></div></div>
+      <div class="after"><h3>After payment</h3><ol><li>Complete the short reading form.</li><li>Send birth details and one love question.</li><li>Receive the written reading within 24–48 hours.</li></ol></div>
+      <div class="trust"><span><i class="fa fa-shield"></i> Private</span><span><i class="fa fa-clock-o"></i> 24–48h</span><span><i class="fa fa-check"></i> One question</span></div>
+    </aside>
   </div>
+  <div class="footer">© 2026 Liu Qi. Readings are for personal insight and reflection only. Results are not guaranteed.</div>
 </main>
 <script>
 const methods=document.querySelectorAll('.method');

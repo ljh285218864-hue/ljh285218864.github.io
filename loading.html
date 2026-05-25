@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>正在排盘分析</title>
+  <style>
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;padding:0;min-height:100%;background:#f8df86;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:#7a5623}
+    body{overflow-x:hidden}
+    .page{width:100%;max-width:480px;min-height:100vh;margin:0 auto;background:radial-gradient(circle at 50% 8%,#fff7ba 0,#f8e48f 34%,#f5d575 72%,#f2cb68 100%);padding-bottom:58px;position:relative;overflow:hidden}
+    .top{height:54px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#c28b4c;font-size:16px;letter-spacing:1px}
+    .top span{display:flex;align-items:center;gap:7px}.logo{padding:24px 20px 8px;text-align:right;color:#b98a35;font-weight:700;font-size:13px;letter-spacing:5px}.title{text-align:center;margin:10px 0 20px;font-weight:900;font-size:29px;letter-spacing:2px;color:#1e1e1e;text-shadow:0 2px 0 #fff,0 3px 8px rgba(120,80,0,.18)}.title b{color:#d6241f;margin-right:5px}.chart-wrap{width:93.5%;margin:0 auto;background:rgba(255,255,255,.78);border:2px solid #e8c77d;padding:8px;box-shadow:0 4px 14px rgba(155,108,32,.12)}.chart{border:1.5px solid #c9a846;border-radius:10px;padding:16px;background:#fff7df;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.cell{min-height:76px;background:#c96825;border-radius:6px;position:relative;color:#ffe5a8;padding:8px;font-size:15px;line-height:1.2;box-shadow:inset 0 0 0 2px rgba(255,223,122,.35)}.cell small{position:absolute;left:8px;bottom:7px;background:#fff5d8;color:#a12d24;padding:2px 8px;border-radius:3px;font-weight:800}.center{grid-column:2;grid-row:2;background:rgba(255,245,209,.9);color:#9c4a35;min-height:128px;font-size:15px;line-height:1.55;padding:12px}.center b{color:#7b392b}.status{text-align:center;margin:34px 0 18px;color:#826523;font-size:20px;font-weight:900;letter-spacing:1px}.bar{width:80%;height:13px;background:#fff4c8;border-radius:999px;margin:0 auto;overflow:hidden;box-shadow:inset 0 1px 2px rgba(126,92,20,.18)}.fill{height:100%;width:12%;border-radius:999px;background:linear-gradient(90deg,#ee6b3a,#db2f23);animation:load 7.5s ease-in-out forwards}@keyframes load{0%{width:8%}18%{width:24%}38%{width:42%}58%{width:62%}78%{width:78%}100%{width:92%}}.skip{display:block;text-align:center;margin:28px auto 0;color:#4b36cf;font-size:18px;font-weight:800;text-decoration:none}.tip{text-align:center;margin:14px 30px 0;color:#9b6c27;font-size:13px;line-height:1.45}.fade{animation:fadein .55s ease both}@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@media(max-width:390px){.title{font-size:26px}.cell{min-height:70px;font-size:14px}.center{font-size:14px}.status{font-size:18px}}
+  </style>
+</head>
+<body>
+  <main class="page fade">
+    <header class="top"><span>⌂ 更多测算</span><span>✺ 免费运势</span></header>
+    <div class="logo">先知命局</div>
+    <h1 class="title"><b>2026</b>紫微流年命盘</h1>
+    <section class="chart-wrap">
+      <div class="chart">
+        <div class="cell">天机<br>权<small>年兄弟</small></div><div class="cell">紫微<small>年命宫</small></div><div class="cell">破军<small>年福德</small></div>
+        <div class="cell">七杀<small>年夫妻</small></div><div class="center"><b>姓名：</b><span id="n">明后</span><br><b>性别：</b><span id="g">男</span><br><b>出生：</b><span id="b">信息已录入</span><br><br><b>命局：</b>火六局<br><b>命主：</b>贪狼<br><b>身主：</b>火星</div><div class="cell">天府<small>年田宅</small></div>
+        <div class="cell">太阳<br>天梁<small>年子女</small></div><div class="cell">天同<br>巨门<small>年疾厄</small></div><div class="cell">廉贞<br>贪狼<small>年迁移</small></div>
+      </div>
+    </section>
+    <div class="status" id="status">1. 正在校验出生信息</div>
+    <div class="bar"><div class="fill"></div></div>
+    <a class="skip" id="skip" href="./checkout.html">跳过排盘，立即查看</a>
+    <p class="tip">系统正在根据你填写的信息生成流年盘，通常需要几秒钟。</p>
+  </main>
+  <script>
+    (function(){
+      var q=new URLSearchParams(location.search);
+      var name=q.get('name')||'明后', gender=q.get('gender')||'男', birth=q.get('birthday')||'信息已录入', time=q.get('birthTime')||'';
+      document.getElementById('n').textContent=name;document.getElementById('g').textContent=gender;document.getElementById('b').textContent=birth+(time?' '+time:'');
+      var final='./checkout.html'+(location.search||'');document.getElementById('skip').href=final;
+      var texts=['1. 正在校验出生信息','2. 正在生成紫微命盘','3. 正在推演流年宫位','4. 正在分析事业、财运、感情','5. 正在分析流年机遇、运势变化'];
+      var i=0, el=document.getElementById('status');
+      var t=setInterval(function(){i++; if(i<texts.length){el.textContent=texts[i];}else{clearInterval(t);el.textContent='排盘完成，正在打开结果';setTimeout(function(){location.href=final;},900)}},1500);
+    })();
+  </script>
+</body>
+</html>

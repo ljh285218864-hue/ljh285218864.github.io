@@ -2,44 +2,56 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>2026流年运势测算</title>
-  <link rel="preload" as="image" href="./Untitled%20design.png" fetchpriority="high">
-  <link rel="prefetch" href="./start.html?v=20260525a">
-  <link rel="prefetch" as="image" href="./F0AF9B1A-CDAC-44A1-8FAB-41FAA937B236.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>2026紫微流年运势测算</title>
+  <meta name="description" content="2026流年运势、紫微流年命盘、命理测算">
+  <link rel="preload" as="image" href="assets/home-1-hero.svg">
+  <link rel="preload" as="image" href="assets/home-btn.svg">
+  <link rel="prefetch" as="image" href="assets/form-bg.svg">
+  <link rel="prefetch" as="image" href="assets/form-btn.svg">
   <style>
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-    html,body{margin:0;padding:0;background:#f4e2a6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;overscroll-behavior-y:none}
-    body{overflow-x:hidden}
-    .page{width:100%;max-width:480px;margin:0 auto;background:#f4e2a6;min-height:100vh;padding-bottom:96px}
-    .page img{display:block;width:100%;height:auto;border:0}
-    .bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,rgba(108,0,0,.92),rgba(108,0,0,0));will-change:transform}
-    .btn{display:block;width:min(92%,430px);margin:0 auto;padding:16px 18px;border-radius:999px;background:linear-gradient(180deg,#e5281e 0%,#b90000 100%);color:#fff6cc;text-decoration:none;text-align:center;font-size:20px;line-height:1;font-weight:900;letter-spacing:1px;border:2px solid #ffd15b;box-shadow:0 8px 22px rgba(126,0,0,.42);touch-action:manipulation;user-select:none}
-    .btn:active{transform:scale(.98)}
-    .loading{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;background:rgba(244,226,166,.72);color:#9b0000;font-size:18px;font-weight:800}
-    body.is-loading .loading{display:flex}
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #160504; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-tap-highlight-color: transparent; }
+    .page { width: 100%; max-width: 480px; min-height: 100vh; margin: 0 auto; position: relative; overflow: hidden; background: #260907; }
+    .section { position: relative; }
+    img { width: 100%; height: auto; display: block; }
+    .home-btn {
+      position: absolute;
+      left: 50%;
+      top: 78.8%;
+      width: 76%;
+      display: block;
+      transform: translateX(-50%);
+      animation: btnFloat 1.65s ease-in-out infinite;
+      z-index: 4;
+      touch-action: manipulation;
+    }
+    .home-btn:active { animation: none; transform: translateX(-50%) scale(.96); }
+    .home-btn img { pointer-events: none; }
+    @keyframes btnFloat {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px rgba(255, 80, 30, .45));
+      }
+      50% {
+        transform: translateX(-50%) translateY(-6px) scale(1.025);
+        filter: drop-shadow(0 0 18px rgba(255, 80, 30, .85));
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="page">
-    <img src="./Untitled%20design.png" alt="2026流年运势测算" fetchpriority="high" decoding="async">
+  <main class="page" aria-label="2026紫微流年运势测算首页">
+    <section class="section">
+      <img src="assets/home-1-hero.svg" alt="2026紫微流年命盘首屏">
+      <a class="home-btn" href="form.html" aria-label="立即开始测算">
+        <img src="assets/home-btn.svg" alt="立即开始测算">
+      </a>
+    </section>
+    <section class="section"><img src="assets/home-2-change.svg" alt="2026你的人生会如何变化"></section>
+    <section class="section"><img src="assets/home-3-value.svg" alt="紫微流年核心价值"></section>
+    <section class="section"><img src="assets/home-4-benefits.svg" alt="您将获得"></section>
   </main>
-  <div class="bar">
-    <a id="startBtn" class="btn" href="./start.html?v=20260525a">立即开始测算</a>
-  </div>
-  <div class="loading">正在进入测算页面...</div>
-  <script>
-    (function(){
-      var btn=document.getElementById('startBtn');
-      if(!btn)return;
-      var target=btn.getAttribute('href');
-      var go=function(e){
-        e.preventDefault();
-        document.body.classList.add('is-loading');
-        window.location.href=target;
-      };
-      btn.addEventListener('click',go,{passive:false});
-    })();
-  </script>
 </body>
 </html>

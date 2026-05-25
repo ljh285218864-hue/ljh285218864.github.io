@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>填写测算信息</title>
   <link rel="preload" as="image" href="./F0AF9B1A-CDAC-44A1-8FAB-41FAA937B236.png" fetchpriority="high">
+  <link rel="prefetch" href="./loading.html">
   <style>
     *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
     html,body{margin:0;padding:0;min-height:100%;background:#f4e2a6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:#5b2b1d}
@@ -12,28 +13,17 @@
     .stage{position:relative;width:100%;max-width:480px;min-height:100vh;margin:0 auto;overflow:hidden;background:#f4e2a6}
     .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;user-select:none;pointer-events:none}
     .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(255,244,202,.05),rgba(255,235,172,.26) 55%,rgba(255,238,183,.42))}
-    .form-wrap{position:relative;z-index:2;padding:18vh 15px 36px}
+    .form-wrap{position:relative;z-index:2;padding:18vh 15px 36px;animation:rise .52s ease both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     .panel{position:relative;border:2px solid rgba(170,92,42,.52);border-radius:18px;background:rgba(255,250,226,.91);box-shadow:0 10px 28px rgba(112,43,16,.25);padding:58px 18px 22px;backdrop-filter:blur(1.5px)}
-    .ribbon{position:absolute;left:22px;right:22px;top:-26px;height:54px;border-radius:8px 8px 14px 14px;background:linear-gradient(180deg,#bb2d26,#8f211b);box-shadow:0 6px 10px rgba(85,25,14,.22);display:flex;align-items:center;justify-content:center;color:#ffe8b6;font-size:21px;font-weight:800;letter-spacing:2px;text-shadow:0 1px 0 rgba(0,0,0,.18)}
-    .ribbon:before,.ribbon:after{content:"";position:absolute;top:0;width:28px;height:100%;background:rgba(255,245,214,.92)}
-    .ribbon:before{left:-1px;clip-path:polygon(0 0,100% 0,65% 100%,0 100%)}
-    .ribbon:after{right:-1px;clip-path:polygon(0 0,100% 0,100% 100%,35% 100%)}
+    .ribbon{position:absolute;left:22px;right:22px;top:-26px;height:54px;border-radius:8px 8px 14px 14px;background:linear-gradient(180deg,#bb2d26,#8f211b);box-shadow:0 6px 10px rgba(85,25,14,.22);display:flex;align-items:center;justify-content:center;color:#ffe8b6;font-size:21px;font-weight:800;letter-spacing:2px;text-shadow:0 1px 0 rgba(0,0,0,.18);overflow:hidden}
+    .ribbon:after{content:"";position:absolute;top:0;bottom:0;width:46px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);animation:shine 2.4s ease-in-out infinite}@keyframes shine{0%{left:-70px}55%,100%{left:110%}}
     .field{margin:0 0 13px;border-radius:10px;background:rgba(245,236,204,.94);display:flex;align-items:center;min-height:58px;padding:0 15px;gap:10px}
     .label{font-size:17px;font-weight:800;color:#6b3524;white-space:nowrap;letter-spacing:.5px}
     input,select{appearance:none;-webkit-appearance:none;border:0;outline:0;background:transparent;color:#3e2a22;font-size:17px;font-weight:700;min-width:0;width:100%;font-family:inherit}
-    input::placeholder{color:#937766;font-weight:600}
-    .sex{display:flex;gap:32px;align-items:center;flex:1}
-    .sex label{display:flex;align-items:center;gap:7px;font-size:17px;font-weight:800;color:#6b2c22}
-    .sex input{width:22px;height:22px;border:2px solid #9e3c31;border-radius:50%;background:#fff8df;position:relative;flex:0 0 auto}
-    .sex input:checked:after{content:"";position:absolute;inset:4px;border-radius:50%;background:#9e3c31}
-    .two{display:grid;grid-template-columns:86px 1fr;gap:8px;width:100%;align-items:center}
-    .agree{display:flex;align-items:center;gap:9px;margin:14px 2px 18px;color:#6b3524;font-size:14px;line-height:1.45}
-    .agree input{width:24px;height:24px;border-radius:5px;background:#8a4d25;position:relative;flex:0 0 auto}
-    .agree input:checked:after{content:"✓";position:absolute;left:4px;top:-4px;color:white;font-size:25px;font-weight:900}
-    .agree b{color:#9b2b25;font-weight:800}
-    .submit{width:92%;margin:8px auto 0;display:block;border:0;border-radius:999px;padding:15px 18px;background:linear-gradient(180deg,#fff2a6 0%,#ffd778 50%,#ea4b2f 51%,#d52b20 100%);box-shadow:0 8px 18px rgba(150,40,20,.25);color:#d33824;font-size:24px;font-weight:900;letter-spacing:2px;font-family:inherit;text-shadow:0 1px 0 rgba(255,255,255,.52)}
-    .submit:active{transform:scale(.985)}
-    .hint{margin:13px 0 0;text-align:center;color:#8a5b3a;font-size:13px;line-height:1.5}
+    input::placeholder{color:#937766;font-weight:600}.sex{display:flex;gap:32px;align-items:center;flex:1}.sex label{display:flex;align-items:center;gap:7px;font-size:17px;font-weight:800;color:#6b2c22}.sex input{width:22px;height:22px;border:2px solid #9e3c31;border-radius:50%;background:#fff8df;position:relative;flex:0 0 auto}.sex input:checked:after{content:"";position:absolute;inset:4px;border-radius:50%;background:#9e3c31}
+    .agree{display:flex;align-items:center;gap:9px;margin:14px 2px 18px;color:#6b3524;font-size:14px;line-height:1.45}.agree input{width:24px;height:24px;border-radius:5px;background:#8a4d25;position:relative;flex:0 0 auto}.agree input:checked:after{content:"✓";position:absolute;left:4px;top:-4px;color:white;font-size:25px;font-weight:900}.agree b{color:#9b2b25;font-weight:800}
+    .submit{width:92%;margin:8px auto 0;display:block;border:0;border-radius:999px;padding:15px 18px;background:linear-gradient(180deg,#fff2a6 0%,#ffd778 50%,#ea4b2f 51%,#d52b20 100%);box-shadow:0 8px 18px rgba(150,40,20,.25);color:#d33824;font-size:24px;font-weight:900;letter-spacing:2px;font-family:inherit;text-shadow:0 1px 0 rgba(255,255,255,.52);animation:pulse 1.7s ease-in-out infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.018)}}
+    .hint{margin:13px 0 0;text-align:center;color:#8a5b3a;font-size:13px;line-height:1.5}.busy{display:none;position:fixed;inset:0;z-index:9;align-items:center;justify-content:center;background:rgba(255,238,183,.55);color:#9b2b25;font-size:18px;font-weight:900}body.submitting .busy{display:flex}
     @media (max-height:740px){.form-wrap{padding-top:14vh}.panel{padding-top:50px}.field{min-height:52px}.submit{padding:13px 18px}}
   </style>
 </head>
@@ -44,67 +34,19 @@
     <section class="form-wrap">
       <form class="panel" id="birthForm">
         <div class="ribbon">请填写排盘所需信息</div>
-        <div class="field">
-          <span class="label">您的名字：</span>
-          <input id="userName" name="name" type="text" placeholder="请输入姓名或昵称" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <span class="label">您的性别：</span>
-          <div class="sex">
-            <label><input type="radio" name="gender" value="男" checked>男</label>
-            <label><input type="radio" name="gender" value="女">女</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="two">
-            <span class="label">历法：</span>
-            <select name="calendar" aria-label="历法">
-              <option value="农历">农历</option>
-              <option value="公历">公历</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <span class="label">出生日期：</span>
-          <input name="birthday" type="date" required>
-        </div>
-        <div class="field">
-          <span class="label">出生时辰：</span>
-          <select name="birthTime" required>
-            <option value="不确定">不确定</option>
-            <option value="子时 23:00-00:59">子时 23:00-00:59</option>
-            <option value="丑时 01:00-02:59">丑时 01:00-02:59</option>
-            <option value="寅时 03:00-04:59">寅时 03:00-04:59</option>
-            <option value="卯时 05:00-06:59">卯时 05:00-06:59</option>
-            <option value="辰时 07:00-08:59">辰时 07:00-08:59</option>
-            <option value="巳时 09:00-10:59">巳时 09:00-10:59</option>
-            <option value="午时 11:00-12:59">午时 11:00-12:59</option>
-            <option value="未时 13:00-14:59">未时 13:00-14:59</option>
-            <option value="申时 15:00-16:59">申时 15:00-16:59</option>
-            <option value="酉时 17:00-18:59">酉时 17:00-18:59</option>
-            <option value="戌时 19:00-20:59">戌时 19:00-20:59</option>
-            <option value="亥时 21:00-22:59">亥时 21:00-22:59</option>
-          </select>
-        </div>
+        <div class="field"><span class="label">您的名字：</span><input name="name" type="text" placeholder="请输入姓名或昵称" autocomplete="name" required></div>
+        <div class="field"><span class="label">您的性别：</span><div class="sex"><label><input type="radio" name="gender" value="男" checked>男</label><label><input type="radio" name="gender" value="女">女</label></div></div>
+        <div class="field"><span class="label">出生日期：</span><input name="birthday" type="date" required></div>
+        <div class="field"><span class="label">出生时辰：</span><select name="birthTime" required><option value="时辰不清楚">时辰不清楚</option><option value="子时 23:00-00:59">子时 23:00-00:59</option><option value="丑时 01:00-02:59">丑时 01:00-02:59</option><option value="寅时 03:00-04:59">寅时 03:00-04:59</option><option value="卯时 05:00-06:59">卯时 05:00-06:59</option><option value="辰时 07:00-08:59">辰时 07:00-08:59</option><option value="巳时 09:00-10:59">巳时 09:00-10:59</option><option value="午时 11:00-12:59">午时 11:00-12:59</option><option value="未时 13:00-14:59">未时 13:00-14:59</option><option value="申时 15:00-16:59">申时 15:00-16:59</option><option value="酉时 17:00-18:59">酉时 17:00-18:59</option><option value="戌时 19:00-20:59">戌时 19:00-20:59</option><option value="亥时 21:00-22:59">亥时 21:00-22:59</option></select></div>
         <label class="agree"><input type="checkbox" required checked>我已阅读并同意 <b>用户隐私协议</b> 及 <b>服务条款</b></label>
         <button class="submit" type="submit">立即测算</button>
         <p class="hint">信息仅用于排盘测算，请尽量填写准确。</p>
       </form>
     </section>
+    <div class="busy">正在进入排盘...</div>
   </main>
   <script>
-    (function(){
-      var form=document.getElementById('birthForm');
-      if(!form)return;
-      form.addEventListener('submit',function(e){
-        e.preventDefault();
-        if(!form.checkValidity()){form.reportValidity();return;}
-        var data=new FormData(form);
-        var params=new URLSearchParams();
-        data.forEach(function(value,key){params.append(key,value)});
-        window.location.href='./checkout.html?'+params.toString();
-      });
-    })();
+    (function(){var form=document.getElementById('birthForm');if(!form)return;form.addEventListener('submit',function(e){e.preventDefault();if(!form.checkValidity()){form.reportValidity();return;}document.body.classList.add('submitting');var data=new FormData(form),params=new URLSearchParams();data.forEach(function(v,k){params.append(k,v)});setTimeout(function(){location.href='./loading.html?'+params.toString();},260);});})();
   </script>
 </body>
 </html>

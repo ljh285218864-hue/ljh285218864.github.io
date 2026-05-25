@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>填写排盘信息</title>
+  <link rel="preload" as="image" href="assets/form-bg.svg">
+  <link rel="preload" as="image" href="assets/form-btn.svg">
+  <link rel="prefetch" as="image" href="assets/loading-bg.svg">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #160504; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-tap-highlight-color: transparent; }
+    .page { width: 100%; max-width: 480px; min-height: 100vh; margin: 0 auto; position: relative; overflow: hidden; background: #260907; }
+    img { width: 100%; height: auto; display: block; }
+    .stage { position: relative; }
+    .field, .select, .radio-hit, .agree-hit, .submit-btn {
+      position: absolute;
+      z-index: 3;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #5b1d10;
+      font-size: clamp(14px, 4vw, 18px);
+      line-height: 1;
+    }
+    .field, .select { height: 4.4%; padding: 0 4%; }
+    .field::placeholder { color: rgba(91, 29, 16, .52); }
+    .select { appearance: none; -webkit-appearance: none; }
+    .name { left: 28%; top: 26.3%; width: 56%; }
+    .birthday { left: 28%; top: 46.7%; width: 56%; }
+    .birth-time { left: 28%; top: 56.9%; width: 56%; }
+    .radio-hit { top: 36.4%; width: 22%; height: 5.2%; opacity: 0; }
+    .radio-male { left: 30%; }
+    .radio-female { left: 54%; }
+    .agree-hit { left: 15%; top: 67.7%; width: 10%; height: 4%; opacity: 0; }
+    .submit-btn {
+      left: 50%;
+      top: 75.9%;
+      width: 76%;
+      display: block;
+      transform: translateX(-50%);
+      animation: btnFloat 1.65s ease-in-out infinite;
+      touch-action: manipulation;
+    }
+    .submit-btn:active { animation: none; transform: translateX(-50%) scale(.96); }
+    .submit-btn img { pointer-events: none; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      top: 44%;
+      width: max-content;
+      max-width: 78%;
+      transform: translateX(-50%);
+      z-index: 20;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, .72);
+      color: #fff;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease;
+    }
+    .toast.show { opacity: 1; }
+    @keyframes btnFloat {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px rgba(255, 80, 30, .45));
+      }
+      50% {
+        transform: translateX(-50%) translateY(-6px) scale(1.025);
+        filter: drop-shadow(0 0 18px rgba(255, 80, 30, .85));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="填写排盘信息">
+    <form class="stage" id="fortuneForm" novalidate>
+      <img src="assets/form-bg.svg" alt="请填写排盘所需信息">
+      <input class="field name" id="name" name="name" autocomplete="name" placeholder="请输入姓名" required>
+      <input class="radio-hit radio-male" type="radio" name="gender" value="男" checked aria-label="男">
+      <input class="radio-hit radio-female" type="radio" name="gender" value="女" aria-label="女">
+      <input class="field birthday" id="birthday" name="birthday" type="date" required aria-label="出生日期">
+      <select class="select birth-time" id="birthTime" name="birthTime" aria-label="出生时辰">
+        <option value="不清楚">不清楚</option>
+        <option value="子时">子时 23:00-00:59</option>
+        <option value="丑时">丑时 01:00-02:59</option>
+        <option value="寅时">寅时 03:00-04:59</option>
+        <option value="卯时">卯时 05:00-06:59</option>
+        <option value="辰时">辰时 07:00-08:59</option>
+        <option value="巳时">巳时 09:00-10:59</option>
+        <option value="午时">午时 11:00-12:59</option>
+        <option value="未时">未时 13:00-14:59</option>
+        <option value="申时">申时 15:00-16:59</option>
+        <option value="酉时">酉时 17:00-18:59</option>
+        <option value="戌时">戌时 19:00-20:59</option>
+        <option value="亥时">亥时 21:00-22:59</option>
+      </select>
+      <input class="agree-hit" id="agree" name="agree" type="checkbox" checked aria-label="同意协议">
+      <button class="submit-btn" type="submit" aria-label="立即测算">
+        <img src="assets/form-btn.svg" alt="立即测算">
+      </button>
+    </form>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const form = document.getElementById('fortuneForm');
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1400);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const payload = {
+        name: String(data.get('name') || '').trim(),
+        gender: String(data.get('gender') || '男'),
+        birthday: String(data.get('birthday') || ''),
+        birthTime: String(data.get('birthTime') || '不清楚')
+      };
+
+      if (!payload.name) {
+        showToast('请填写姓名');
+        document.getElementById('name').focus();
+        return;
+      }
+
+      if (!payload.birthday) {
+        showToast('请选择出生日期');
+        document.getElementById('birthday').focus();
+        return;
+      }
+
+      if (!document.getElementById('agree').checked) {
+        showToast('请勾选并同意相关协议');
+        return;
+      }
+
+      localStorage.setItem('fortuneUser', JSON.stringify(payload));
+      showToast('正在进入排盘');
+      const params = new URLSearchParams(payload);
+      window.setTimeout(() => {
+        window.location.href = `loading.html?${params.toString()}`;
+      }, 200);
+    });
+  </script>
+</body>
+</html>

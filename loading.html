@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>正在排盘分析</title>
-  <link rel="preload" as="image" href="./details-v2/Untitled%20design.png" fetchpriority="low">
   <style>
     *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
     html,body{margin:0;padding:0;min-height:100%;background:#f8df86;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:#7a5623}
@@ -14,8 +13,9 @@
     .top span{display:flex;align-items:center;gap:7px}.logo{padding:24px 20px 8px;text-align:right;color:#b98a35;font-weight:700;font-size:13px;letter-spacing:5px}.title{text-align:center;margin:10px 0 20px;font-weight:900;font-size:29px;letter-spacing:2px;color:#1e1e1e;text-shadow:0 2px 0 #fff,0 3px 8px rgba(120,80,0,.18)}.title b{color:#d6241f;margin-right:5px}
     .chart-wrap{width:93.5%;margin:0 auto;background:rgba(255,255,255,.78);border:2px solid #e8c77d;padding:8px;box-shadow:0 4px 14px rgba(155,108,32,.12)}.chart{border:1.5px solid #c9a846;border-radius:10px;padding:16px;background:#fff7df;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.cell{min-height:76px;background:#c96825;border-radius:6px;position:relative;color:#ffe5a8;padding:8px;font-size:15px;line-height:1.2;box-shadow:inset 0 0 0 2px rgba(255,223,122,.35)}.cell small{position:absolute;left:8px;bottom:7px;background:#fff5d8;color:#a12d24;padding:2px 8px;border-radius:3px;font-weight:800}.center{grid-column:2;grid-row:2;background:rgba(255,245,209,.9);color:#9c4a35;min-height:128px;font-size:15px;line-height:1.55;padding:12px}.center b{color:#7b392b}
     .status{text-align:center;margin:34px 0 18px;color:#826523;font-size:20px;font-weight:900;letter-spacing:1px;transition:all .35s ease}.progress-area{transition:opacity .42s ease,transform .42s ease,max-height .42s ease;max-height:90px;overflow:hidden}.bar{width:80%;height:13px;background:#fff4c8;border-radius:999px;margin:0 auto;overflow:hidden;box-shadow:inset 0 1px 2px rgba(126,92,20,.18)}.fill{height:100%;width:12%;border-radius:999px;background:linear-gradient(90deg,#ee6b3a,#db2f23);animation:load 7.5s ease-in-out forwards}@keyframes load{0%{width:8%}18%{width:24%}38%{width:42%}58%{width:62%}78%{width:82%}100%{width:100%}}
-    .tip{text-align:center;margin:14px 30px 0;color:#9b6c27;font-size:13px;line-height:1.45;transition:opacity .35s ease}.result-action{display:none;text-align:center;margin:28px auto 0;padding:0 14px 26px;animation:pop .46s cubic-bezier(.2,1.15,.35,1) both}.result-action.show{display:block}.result-btn{display:block;width:92%;margin:0 auto 18px;padding:16px 18px;border-radius:999px;background:linear-gradient(180deg,#fff3a8 0%,#ffd66f 48%,#ef5133 49%,#d92b1e 100%);color:#d32920;text-decoration:none;text-align:center;font-size:22px;line-height:1;font-weight:900;letter-spacing:1px;border:2px solid #fff0a8;box-shadow:0 9px 22px rgba(150,55,20,.28);text-shadow:0 1px 0 rgba(255,255,255,.62)}.result-btn:active{transform:scale(.985)}.complete-text{margin:0 0 16px;color:#8a5f1f;font-size:18px;font-weight:900;letter-spacing:1px}.detail-img{display:block;width:100%;height:auto;border:0;border-radius:8px;box-shadow:0 6px 18px rgba(120,70,20,.18);background:#f8df86}
-    .fade{animation:fadein .55s ease both}.done .progress-area{opacity:0;transform:translateY(-8px);max-height:0}.done .tip{opacity:0}@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}@media(max-width:390px){.title{font-size:26px}.cell{min-height:70px;font-size:14px}.center{font-size:14px}.status{font-size:18px}.result-btn{font-size:20px}}
+    .tip{text-align:center;margin:14px 30px 0;color:#9b6c27;font-size:13px;line-height:1.45;transition:opacity .35s ease}.fade{animation:fadein .55s ease both}.done .progress-area{opacity:0;transform:translateY(-8px);max-height:0}.done .tip{opacity:0}@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .result-action{display:none;margin:28px 14px 30px;animation:pop .46s cubic-bezier(.2,1.15,.35,1) both}.result-action.show{display:block}.unlock-card{position:relative;background:linear-gradient(180deg,#fff8da,#fff1bd);border:2px solid #d7ab48;border-radius:16px;box-shadow:0 10px 26px rgba(140,82,18,.22);padding:22px 16px 18px;overflow:hidden}.unlock-card:before{content:"";position:absolute;inset:8px;border:1px solid rgba(184,127,38,.38);border-radius:11px;pointer-events:none}.card-title{margin:0 0 15px;text-align:center;color:#b9251b;font-size:23px;font-weight:900;letter-spacing:1px}.card-title:before,.card-title:after{content:"—";color:#b88732;margin:0 5px}.unlock-lines{position:relative;text-align:left;padding:4px 6px 8px}.unlock-line{font-size:18px;line-height:1.7;color:#1f1b16;font-weight:800;margin:4px 0}.unlock-line b{color:#d5231d;font-weight:900}.blur-zone{position:relative;margin:8px 0 16px;padding:12px 10px;border-radius:8px;background:rgba(255,255,255,.48);overflow:hidden}.fake-text{height:10px;margin:8px 0;border-radius:99px;background:rgba(120,90,50,.22);filter:blur(2.2px)}.fake-text:nth-child(2){width:88%}.fake-text:nth-child(3){width:73%}.fake-text:nth-child(4){width:94%}.fake-text:nth-child(5){width:63%}.lock-mask{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,247,217,.18),rgba(255,247,217,.72));backdrop-filter:blur(1px)}.result-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:92%;margin:4px auto 0;padding:15px 18px;border-radius:999px;background:linear-gradient(180deg,#e84d32 0%,#c61f17 100%);color:#fff7cf;text-decoration:none;text-align:center;font-size:22px;line-height:1;font-weight:900;letter-spacing:1px;border:2px solid #ffd46b;box-shadow:0 9px 22px rgba(150,55,20,.28)}.lock{font-size:21px}.result-btn:active{transform:scale(.985)}.mini-note{text-align:center;color:#9a6830;font-size:13px;font-weight:700;margin:12px 0 0}
+    @media(max-width:390px){.title{font-size:26px}.cell{min-height:70px;font-size:14px}.center{font-size:14px}.status{font-size:18px}.result-btn{font-size:20px}.card-title{font-size:21px}.unlock-line{font-size:17px}}
   </style>
 </head>
 <body>
@@ -27,9 +27,19 @@
     <div class="status" id="status">1. 正在校验出生信息</div>
     <div class="progress-area"><div class="bar"><div class="fill"></div></div><p class="tip">系统正在根据你填写的信息生成流年盘，通常需要几秒钟。</p></div>
     <div class="result-action" id="resultAction">
-      <p class="complete-text">排盘完成，完整解析已生成</p>
-      <a class="result-btn" id="resultBtn" href="./checkout.html">立即解锁</a>
-      <img class="detail-img" src="./details-v2/Untitled%20design.png" alt="完整解析预览" decoding="async">
+      <section class="unlock-card">
+        <h2 class="card-title">月度运程与改运指南</h2>
+        <div class="unlock-lines">
+          <p class="unlock-line">• 2026年 <b>每月运势详解</b></p>
+          <p class="unlock-line">• 2026年 <b>专属风水布局改运法</b></p>
+          <div class="blur-zone">
+            <div class="fake-text"></div><div class="fake-text"></div><div class="fake-text"></div><div class="fake-text"></div><div class="fake-text"></div>
+            <div class="lock-mask"></div>
+          </div>
+          <a class="result-btn" id="resultBtn" href="./checkout.html"><span class="lock">🔒</span>立即解锁</a>
+          <p class="mini-note">解锁后可查看完整流年解析与改运建议</p>
+        </div>
+      </section>
     </div>
   </main>
   <script>

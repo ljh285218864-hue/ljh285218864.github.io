@@ -1,0 +1,1 @@
+Upload detail page images in this folder. Recommended filenames: detail-1.png, detail-2.png, detail-3.png.

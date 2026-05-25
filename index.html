@@ -4,23 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>2026流年运势测算</title>
+  <link rel="preload" as="image" href="./Untitled%20design.png" fetchpriority="high">
+  <link rel="prefetch" href="./start.html?v=20260525a">
+  <link rel="prefetch" as="image" href="./F0AF9B1A-CDAC-44A1-8FAB-41FAA937B236.png">
   <style>
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#f4e2a6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;padding:0;background:#f4e2a6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;overscroll-behavior-y:none}
     body{overflow-x:hidden}
     .page{width:100%;max-width:480px;margin:0 auto;background:#f4e2a6;min-height:100vh;padding-bottom:96px}
     .page img{display:block;width:100%;height:auto;border:0}
-    .bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,rgba(108,0,0,.92),rgba(108,0,0,0))}
-    .btn{display:block;width:min(92%,430px);margin:0 auto;padding:16px 18px;border-radius:999px;background:linear-gradient(180deg,#e5281e 0%,#b90000 100%);color:#fff6cc;text-decoration:none;text-align:center;font-size:20px;line-height:1;font-weight:900;letter-spacing:1px;border:2px solid #ffd15b;box-shadow:0 8px 22px rgba(126,0,0,.42)}
+    .bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,rgba(108,0,0,.92),rgba(108,0,0,0));will-change:transform}
+    .btn{display:block;width:min(92%,430px);margin:0 auto;padding:16px 18px;border-radius:999px;background:linear-gradient(180deg,#e5281e 0%,#b90000 100%);color:#fff6cc;text-decoration:none;text-align:center;font-size:20px;line-height:1;font-weight:900;letter-spacing:1px;border:2px solid #ffd15b;box-shadow:0 8px 22px rgba(126,0,0,.42);touch-action:manipulation;user-select:none}
     .btn:active{transform:scale(.98)}
+    .loading{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;background:rgba(244,226,166,.72);color:#9b0000;font-size:18px;font-weight:800}
+    body.is-loading .loading{display:flex}
   </style>
 </head>
 <body>
   <main class="page">
-    <img src="./Untitled%20design.png" alt="2026流年运势测算">
+    <img src="./Untitled%20design.png" alt="2026流年运势测算" fetchpriority="high" decoding="async">
   </main>
   <div class="bar">
-    <a class="btn" href="./start.html">立即开始测算</a>
+    <a id="startBtn" class="btn" href="./start.html?v=20260525a">立即开始测算</a>
   </div>
+  <div class="loading">正在进入测算页面...</div>
+  <script>
+    (function(){
+      var btn=document.getElementById('startBtn');
+      if(!btn)return;
+      var target=btn.getAttribute('href');
+      var go=function(e){
+        e.preventDefault();
+        document.body.classList.add('is-loading');
+        window.location.href=target;
+      };
+      btn.addEventListener('click',go,{passive:false});
+    })();
+  </script>
 </body>
 </html>

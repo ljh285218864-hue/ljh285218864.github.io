@@ -1,0 +1,1 @@
+Upload the corrected detail image here. Recommended filename: detail-final.png

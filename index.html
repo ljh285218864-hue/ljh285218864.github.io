@@ -8,7 +8,7 @@
   <link rel="preload" as="image" href="assets/Untitled%20design.png">
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #f6dc87; }
+    html, body { margin: 0; min-height: 100%; background: #f4d37e; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       -webkit-tap-highlight-color: transparent;
@@ -18,7 +18,7 @@
       max-width: 480px;
       min-height: 100vh;
       margin: 0 auto;
-      background: #f6dc87;
+      background: #f4d37e;
       overflow-x: hidden;
     }
     .poster {
@@ -33,124 +33,163 @@
       user-select: none;
       -webkit-user-drag: none;
     }
-    .hot-layer {
+
+    /* 覆盖式真实表单：用不透明控件盖住底图里的占位区域 */
+    .form-panel {
       position: absolute;
-      inset: 0;
-      z-index: 5;
+      z-index: 10;
+      left: 12.5%;
+      top: 31.4%;
+      width: 75%;
+      padding: 3.3% 3.6% 3.1%;
       line-height: 1;
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255,253,240,.99), rgba(255,243,203,.99));
+      border: 1.5px solid rgba(199, 143, 35, .92);
+      box-shadow:
+        0 8px 20px rgba(124, 72, 8, .16),
+        inset 0 0 0 1px rgba(255,255,255,.8);
+    }
+    .form-panel::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 12px;
+      border: 1px solid rgba(201, 154, 50, .32);
       pointer-events: none;
     }
-    .field-box,
-    .gender-box,
-    .birth-box,
-    .start-btn,
-    .agree-box,
-    .service-link,
-    .history-link {
-      position: absolute;
-      pointer-events: auto;
+    .form-title {
+      position: relative;
+      margin: 0 0 9px;
+      text-align: center;
+      font-size: clamp(15px, 4.3vw, 21px);
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-weight: 900;
+      color: #7a2b12;
+      letter-spacing: .06em;
     }
-    .field-box,
-    .gender-box,
-    .birth-box {
-      left: 15.5%;
-      width: 69%;
-      height: 7.9%;
-      border-radius: 12px;
-      background: rgba(255, 252, 239, .96);
-      border: 1.5px solid rgba(190, 138, 35, .82);
+    .control-row {
+      position: relative;
       display: flex;
       align-items: center;
-      box-shadow: inset 0 1px 6px rgba(150, 90, 10, .08);
+      width: 100%;
+      height: clamp(38px, 10.4vw, 50px);
+      margin: 7px 0;
+      border-radius: 10px;
+      background: #fffdf4;
+      border: 1.2px solid rgba(205, 159, 55, .78);
       overflow: hidden;
+      box-shadow: inset 0 1px 6px rgba(133, 83, 8, .08);
     }
-    .field-box { top: 31.8%; }
-    .gender-box { top: 43.1%; }
-    .birth-box { top: 54.5%; }
-    .field-label {
-      width: 28%;
-      padding-left: 7%;
-      font-size: clamp(13px, 3.7vw, 18px);
-      font-weight: 700;
-      color: #7c5b20;
-      white-space: nowrap;
-    }
-    .field-input,
-    .birth-date,
-    .birth-time {
-      border: 0;
-      outline: 0;
-      background: transparent;
-      color: #271b12;
-      font-size: clamp(13px, 3.65vw, 18px);
+    .control-row label,
+    .label-text {
+      flex: 0 0 26%;
       height: 100%;
-      min-width: 0;
-      font-family: inherit;
-    }
-    .field-input { flex: 1; padding-right: 4%; }
-    .field-input::placeholder,
-    .birth-date:invalid,
-    .birth-time { color: rgba(65, 44, 22, .62); }
-    .gender-options {
-      display: flex;
-      align-items: center;
-      gap: 9%;
-      flex: 1;
-      height: 100%;
-    }
-    .gender-option {
-      width: 25%;
-      aspect-ratio: 1 / 1;
-      max-height: 44px;
-      min-width: 34px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(196, 149, 45, .9);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(13px, 3.9vw, 19px);
-      color: #8d7b62;
-      background: rgba(255, 255, 255, .72);
+      color: #76511f;
+      font-size: clamp(13px, 3.7vw, 17px);
+      font-weight: 800;
+      background: linear-gradient(180deg, #fff5cf, #efd081);
+      border-right: 1px solid rgba(205,159,55,.62);
+      white-space: nowrap;
+    }
+    .input,
+    .select {
+      flex: 1;
+      height: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: 0 10px;
+      color: #2c1c11;
+      font-size: clamp(14px, 3.8vw, 18px);
+      font-family: inherit;
+    }
+    .input::placeholder { color: rgba(72, 48, 25, .45); }
+    .select {
+      appearance: none;
+      -webkit-appearance: none;
+      color: #2c1c11;
+    }
+    .birth-input { flex: 0 0 43%; padding-right: 4px; }
+    .birth-time { flex: 1; padding-left: 4px; }
+    .gender-options {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10%;
+      background: #fffdf4;
+    }
+    .gender-btn {
+      width: 35%;
+      max-width: 58px;
+      height: 68%;
+      border-radius: 999px;
+      border: 1.4px solid rgba(197, 150, 44, .92);
+      background: #fffaf0;
+      color: #8b765a;
+      font-size: clamp(14px, 4vw, 19px);
+      font-weight: 800;
+      font-family: inherit;
       cursor: pointer;
     }
-    .gender-option.active {
-      background: linear-gradient(180deg, #f5cf40, #d59b10);
+    .gender-btn.active {
       color: #fff;
+      background: linear-gradient(180deg, #f7cf41, #d39b0e);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 3px 8px rgba(173, 115, 8, .24);
+    }
+    .agree-line {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 8px 0 7px;
+      min-height: 22px;
+      color: #7c5d24;
+      font-size: clamp(11px, 3.15vw, 14px);
+      line-height: 1.25;
+      text-align: center;
+    }
+    .agree-line input {
+      flex: 0 0 auto;
+      width: clamp(15px, 4vw, 19px);
+      height: clamp(15px, 4vw, 19px);
+      margin: 0;
+      accent-color: #c99a22;
+    }
+    .agree-line a {
+      color: #bd1d16;
+      text-decoration: none;
       font-weight: 800;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 3px 8px rgba(185, 128, 13, .28);
-    }
-    .birth-date {
-      width: 45%;
-      padding-right: 1%;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-    .birth-time {
-      width: 27%;
-      appearance: none;
-      -webkit-appearance: none;
-      padding-left: 2%;
     }
     .start-btn {
-      top: 66.6%;
-      left: 18.8%;
-      width: 62.4%;
-      height: 7.2%;
+      position: relative;
+      display: block;
+      width: 88%;
+      height: clamp(44px, 12vw, 58px);
+      margin: 8px auto 4px;
       border: 0;
       border-radius: 999px;
       cursor: pointer;
       color: #c71916;
       font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
-      font-size: clamp(20px, 6vw, 30px);
+      font-size: clamp(20px, 5.8vw, 30px);
       font-weight: 900;
       letter-spacing: .08em;
       background:
-        linear-gradient(90deg, transparent 0 8%, rgba(255, 236, 187, .96) 8% 92%, transparent 92% 100%),
+        linear-gradient(90deg, transparent 0 8%, rgba(255, 236, 187, .98) 8% 92%, transparent 92% 100%),
         linear-gradient(180deg, #fff2c7, #f2d89a);
       border: 2px solid #e6c36a;
       box-shadow:
-        0 8px 14px rgba(149, 11, 6, .28),
-        0 0 0 9px #df211b,
+        0 7px 13px rgba(149, 11, 6, .28),
+        0 0 0 8px #df211b,
         inset 0 1px 0 rgba(255,255,255,.75);
       animation: btnPulse 1.55s ease-in-out infinite;
       white-space: nowrap;
@@ -158,42 +197,18 @@
     .start-btn:active { transform: scale(.96); animation: none; }
     @keyframes btnPulse {
       0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px rgba(218,38,22,.25)); }
-      50% { transform: translateY(-3px) scale(1.025); filter: drop-shadow(0 0 11px rgba(218,38,22,.48)); }
-    }
-    .agree-box {
-      top: 77.2%;
-      left: 23%;
-      width: 54%;
-      height: 4.2%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      color: #8a651f;
-      font-size: clamp(12px, 3.4vw, 17px);
-      background: rgba(255, 250, 230, .72);
-      border-radius: 999px;
-    }
-    .agree-box input {
-      width: clamp(16px, 4vw, 22px);
-      height: clamp(16px, 4vw, 22px);
-      accent-color: #c89b22;
-      margin: 0;
-      flex: 0 0 auto;
-    }
-    .service-link {
-      top: 77.4%;
-      left: 51%;
-      width: 22%;
-      height: 3.6%;
-      text-indent: -9999px;
+      50% { transform: translateY(-3px) scale(1.022); filter: drop-shadow(0 0 11px rgba(218,38,22,.48)); }
     }
     .history-link {
-      top: 82.1%;
-      left: 33%;
-      width: 34%;
-      height: 4.2%;
-      text-indent: -9999px;
+      display: block;
+      margin: 8px auto 0;
+      width: max-content;
+      color: #ad7b21;
+      font-size: clamp(12px, 3.3vw, 15px);
+      line-height: 1.2;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 700;
     }
     .toast {
       position: fixed;
@@ -214,36 +229,37 @@
     }
     .toast.show { opacity: 1; }
     @media (max-width: 360px) {
-      .field-label { padding-left: 5%; width: 29%; }
-      .gender-options { gap: 7%; }
-      .start-btn { font-size: 20px; }
-      .agree-box { font-size: 12px; }
+      .form-panel { left: 10.8%; width: 78.4%; padding-left: 3%; padding-right: 3%; }
+      .control-row { margin: 6px 0; }
+      .start-btn { box-shadow: 0 7px 13px rgba(149, 11, 6, .28), 0 0 0 6px #df211b, inset 0 1px 0 rgba(255,255,255,.75); }
     }
   </style>
 </head>
 <body>
   <main class="page" aria-label="2026流年运势测算首页">
     <section class="poster" id="poster">
-      <img class="poster-img" src="assets/Untitled%20design.png" alt="请输入命盘所需的信息">
+      <img class="poster-img" src="assets/Untitled%20design.png" alt="2026流年运势测算">
 
-      <div class="hot-layer" aria-label="真实交互层">
-        <div class="field-box" aria-label="昵称输入区域">
-          <span class="field-label">昵称</span>
-          <input class="field-input" id="name" name="name" autocomplete="name" placeholder="请输入您的昵称">
+      <form class="form-panel" id="fortuneForm" novalidate aria-label="命盘信息填写表单">
+        <h2 class="form-title">请输入命盘所需的信息</h2>
+
+        <div class="control-row">
+          <label for="name">昵称</label>
+          <input class="input" id="name" name="name" autocomplete="name" placeholder="请输入您的昵称">
         </div>
 
-        <div class="gender-box" aria-label="性别选择区域">
-          <span class="field-label">性别</span>
+        <div class="control-row">
+          <span class="label-text">性别</span>
           <div class="gender-options" role="radiogroup" aria-label="性别">
-            <button class="gender-option active" type="button" data-gender="男" aria-pressed="true">男</button>
-            <button class="gender-option" type="button" data-gender="女" aria-pressed="false">女</button>
+            <button class="gender-btn active" type="button" data-gender="男" aria-pressed="true">男</button>
+            <button class="gender-btn" type="button" data-gender="女" aria-pressed="false">女</button>
           </div>
         </div>
 
-        <div class="birth-box" aria-label="出生日期时辰区域">
-          <span class="field-label">生辰</span>
-          <input class="birth-date" id="birthday" name="birthday" type="date" required aria-label="出生日期">
-          <select class="birth-time" id="birthTime" name="birthTime" aria-label="出生时辰">
+        <div class="control-row">
+          <label for="birthday">生辰</label>
+          <input class="input birth-input" id="birthday" name="birthday" type="date" required aria-label="出生日期">
+          <select class="select birth-time" id="birthTime" name="birthTime" aria-label="出生时辰">
             <option value="不清楚">时辰</option>
             <option value="子时">子时</option>
             <option value="丑时">丑时</option>
@@ -260,22 +276,22 @@
           </select>
         </div>
 
-        <button class="start-btn" type="button" id="startBtn">立即测算</button>
-
-        <label class="agree-box" aria-label="勾选同意区域">
+        <label class="agree-line">
           <input id="agree" type="checkbox" checked>
-          <span>我已阅读并同意《服务协议》</span>
+          <span>我已阅读并同意<a href="javascript:void(0)" id="serviceLink">《服务协议》</a></span>
         </label>
-        <a class="service-link" href="javascript:void(0)" id="serviceLink" aria-label="服务协议链接区域">服务协议</a>
-        <a class="history-link" href="javascript:void(0)" id="historyLink" aria-label="查询历史订单链接区域">查询历史订单</a>
-      </div>
+
+        <button class="start-btn" type="submit">立即测算</button>
+        <a class="history-link" href="javascript:void(0)" id="historyLink">查询历史订单</a>
+      </form>
     </section>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const genderButtons = document.querySelectorAll('.gender-option');
+    const form = document.getElementById('fortuneForm');
+    const genderButtons = document.querySelectorAll('.gender-btn');
     const toast = document.getElementById('toast');
     let gender = '男';
 
@@ -298,15 +314,19 @@
       });
     });
 
-    document.getElementById('serviceLink').addEventListener('click', () => {
+    document.getElementById('serviceLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
       showToast('服务协议稍后接入');
     });
 
-    document.getElementById('historyLink').addEventListener('click', () => {
+    document.getElementById('historyLink').addEventListener('click', (event) => {
+      event.preventDefault();
       showToast('历史订单查询稍后接入');
     });
 
-    document.getElementById('startBtn').addEventListener('click', () => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
       const name = document.getElementById('name').value.trim();
       const birthday = document.getElementById('birthday').value;
       const birthTime = document.getElementById('birthTime').value || '不清楚';

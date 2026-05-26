@@ -3,55 +3,338 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>2026紫微流年运势测算</title>
+  <title>2026流年运势测算</title>
   <meta name="description" content="2026流年运势、紫微流年命盘、命理测算">
-  <link rel="preload" as="image" href="assets/home-1-hero.svg">
-  <link rel="preload" as="image" href="assets/home-btn.svg">
-  <link rel="prefetch" as="image" href="assets/form-bg.svg">
-  <link rel="prefetch" as="image" href="assets/form-btn.svg">
+  <link rel="preload" as="image" href="assets/Untitled%20design.png">
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #160504; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-tap-highlight-color: transparent; }
-    .page { width: 100%; max-width: 480px; min-height: 100vh; margin: 0 auto; position: relative; overflow: hidden; background: #260907; }
-    .section { position: relative; }
-    img { width: 100%; height: auto; display: block; }
-    .home-btn {
-      position: absolute;
-      left: 50%;
-      top: 78.8%;
-      width: 76%;
-      display: block;
-      transform: translateX(-50%);
-      animation: btnFloat 1.65s ease-in-out infinite;
-      z-index: 4;
-      touch-action: manipulation;
+    html, body { margin: 0; min-height: 100%; background: #f6dc87; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
-    .home-btn:active { animation: none; transform: translateX(-50%) scale(.96); }
-    .home-btn img { pointer-events: none; }
-    @keyframes btnFloat {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0) scale(1);
-        filter: drop-shadow(0 0 8px rgba(255, 80, 30, .45));
-      }
-      50% {
-        transform: translateX(-50%) translateY(-6px) scale(1.025);
-        filter: drop-shadow(0 0 18px rgba(255, 80, 30, .85));
-      }
+    .page {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #f6dc87;
+      overflow-x: hidden;
+    }
+    .poster {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+    }
+    .poster-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .hot-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .field-box,
+    .gender-box,
+    .birth-box,
+    .start-btn,
+    .agree-box,
+    .service-link,
+    .history-link {
+      position: absolute;
+      pointer-events: auto;
+    }
+    .field-box,
+    .gender-box,
+    .birth-box {
+      left: 15.5%;
+      width: 69%;
+      height: 7.9%;
+      border-radius: 12px;
+      background: rgba(255, 252, 239, .96);
+      border: 1.5px solid rgba(190, 138, 35, .82);
+      display: flex;
+      align-items: center;
+      box-shadow: inset 0 1px 6px rgba(150, 90, 10, .08);
+      overflow: hidden;
+    }
+    .field-box { top: 31.8%; }
+    .gender-box { top: 43.1%; }
+    .birth-box { top: 54.5%; }
+    .field-label {
+      width: 28%;
+      padding-left: 7%;
+      font-size: clamp(13px, 3.7vw, 18px);
+      font-weight: 700;
+      color: #7c5b20;
+      white-space: nowrap;
+    }
+    .field-input,
+    .birth-date,
+    .birth-time {
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #271b12;
+      font-size: clamp(13px, 3.65vw, 18px);
+      height: 100%;
+      min-width: 0;
+      font-family: inherit;
+    }
+    .field-input { flex: 1; padding-right: 4%; }
+    .field-input::placeholder,
+    .birth-date:invalid,
+    .birth-time { color: rgba(65, 44, 22, .62); }
+    .gender-options {
+      display: flex;
+      align-items: center;
+      gap: 9%;
+      flex: 1;
+      height: 100%;
+    }
+    .gender-option {
+      width: 25%;
+      aspect-ratio: 1 / 1;
+      max-height: 44px;
+      min-width: 34px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(196, 149, 45, .9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(13px, 3.9vw, 19px);
+      color: #8d7b62;
+      background: rgba(255, 255, 255, .72);
+      cursor: pointer;
+    }
+    .gender-option.active {
+      background: linear-gradient(180deg, #f5cf40, #d59b10);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 3px 8px rgba(185, 128, 13, .28);
+    }
+    .birth-date {
+      width: 45%;
+      padding-right: 1%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .birth-time {
+      width: 27%;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-left: 2%;
+    }
+    .start-btn {
+      top: 66.6%;
+      left: 18.8%;
+      width: 62.4%;
+      height: 7.2%;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #c71916;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-size: clamp(20px, 6vw, 30px);
+      font-weight: 900;
+      letter-spacing: .08em;
+      background:
+        linear-gradient(90deg, transparent 0 8%, rgba(255, 236, 187, .96) 8% 92%, transparent 92% 100%),
+        linear-gradient(180deg, #fff2c7, #f2d89a);
+      border: 2px solid #e6c36a;
+      box-shadow:
+        0 8px 14px rgba(149, 11, 6, .28),
+        0 0 0 9px #df211b,
+        inset 0 1px 0 rgba(255,255,255,.75);
+      animation: btnPulse 1.55s ease-in-out infinite;
+      white-space: nowrap;
+    }
+    .start-btn:active { transform: scale(.96); animation: none; }
+    @keyframes btnPulse {
+      0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px rgba(218,38,22,.25)); }
+      50% { transform: translateY(-3px) scale(1.025); filter: drop-shadow(0 0 11px rgba(218,38,22,.48)); }
+    }
+    .agree-box {
+      top: 77.2%;
+      left: 23%;
+      width: 54%;
+      height: 4.2%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      color: #8a651f;
+      font-size: clamp(12px, 3.4vw, 17px);
+      background: rgba(255, 250, 230, .72);
+      border-radius: 999px;
+    }
+    .agree-box input {
+      width: clamp(16px, 4vw, 22px);
+      height: clamp(16px, 4vw, 22px);
+      accent-color: #c89b22;
+      margin: 0;
+      flex: 0 0 auto;
+    }
+    .service-link {
+      top: 77.4%;
+      left: 51%;
+      width: 22%;
+      height: 3.6%;
+      text-indent: -9999px;
+    }
+    .history-link {
+      top: 82.1%;
+      left: 33%;
+      width: 34%;
+      height: 4.2%;
+      text-indent: -9999px;
+    }
+    .toast {
+      position: fixed;
+      left: 50%;
+      top: 42%;
+      transform: translateX(-50%);
+      width: max-content;
+      max-width: 78%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: rgba(0,0,0,.74);
+      color: #fff;
+      font-size: 14px;
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease;
+    }
+    .toast.show { opacity: 1; }
+    @media (max-width: 360px) {
+      .field-label { padding-left: 5%; width: 29%; }
+      .gender-options { gap: 7%; }
+      .start-btn { font-size: 20px; }
+      .agree-box { font-size: 12px; }
     }
   </style>
 </head>
 <body>
-  <main class="page" aria-label="2026紫微流年运势测算首页">
-    <section class="section">
-      <img src="assets/home-1-hero.svg" alt="2026紫微流年命盘首屏">
-      <a class="home-btn" href="form.html" aria-label="立即开始测算">
-        <img src="assets/home-btn.svg" alt="立即开始测算">
-      </a>
+  <main class="page" aria-label="2026流年运势测算首页">
+    <section class="poster" id="poster">
+      <img class="poster-img" src="assets/Untitled%20design.png" alt="请输入命盘所需的信息">
+
+      <div class="hot-layer" aria-label="真实交互层">
+        <div class="field-box" aria-label="昵称输入区域">
+          <span class="field-label">昵称</span>
+          <input class="field-input" id="name" name="name" autocomplete="name" placeholder="请输入您的昵称">
+        </div>
+
+        <div class="gender-box" aria-label="性别选择区域">
+          <span class="field-label">性别</span>
+          <div class="gender-options" role="radiogroup" aria-label="性别">
+            <button class="gender-option active" type="button" data-gender="男" aria-pressed="true">男</button>
+            <button class="gender-option" type="button" data-gender="女" aria-pressed="false">女</button>
+          </div>
+        </div>
+
+        <div class="birth-box" aria-label="出生日期时辰区域">
+          <span class="field-label">生辰</span>
+          <input class="birth-date" id="birthday" name="birthday" type="date" required aria-label="出生日期">
+          <select class="birth-time" id="birthTime" name="birthTime" aria-label="出生时辰">
+            <option value="不清楚">时辰</option>
+            <option value="子时">子时</option>
+            <option value="丑时">丑时</option>
+            <option value="寅时">寅时</option>
+            <option value="卯时">卯时</option>
+            <option value="辰时">辰时</option>
+            <option value="巳时">巳时</option>
+            <option value="午时">午时</option>
+            <option value="未时">未时</option>
+            <option value="申时">申时</option>
+            <option value="酉时">酉时</option>
+            <option value="戌时">戌时</option>
+            <option value="亥时">亥时</option>
+          </select>
+        </div>
+
+        <button class="start-btn" type="button" id="startBtn">立即测算</button>
+
+        <label class="agree-box" aria-label="勾选同意区域">
+          <input id="agree" type="checkbox" checked>
+          <span>我已阅读并同意《服务协议》</span>
+        </label>
+        <a class="service-link" href="javascript:void(0)" id="serviceLink" aria-label="服务协议链接区域">服务协议</a>
+        <a class="history-link" href="javascript:void(0)" id="historyLink" aria-label="查询历史订单链接区域">查询历史订单</a>
+      </div>
     </section>
-    <section class="section"><img src="assets/home-2-change.svg" alt="2026你的人生会如何变化"></section>
-    <section class="section"><img src="assets/home-3-value.svg" alt="紫微流年核心价值"></section>
-    <section class="section"><img src="assets/home-4-benefits.svg" alt="您将获得"></section>
   </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const genderButtons = document.querySelectorAll('.gender-option');
+    const toast = document.getElementById('toast');
+    let gender = '男';
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('show'), 1500);
+    }
+
+    genderButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        genderButtons.forEach(item => {
+          item.classList.remove('active');
+          item.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        gender = btn.dataset.gender || '男';
+      });
+    });
+
+    document.getElementById('serviceLink').addEventListener('click', () => {
+      showToast('服务协议稍后接入');
+    });
+
+    document.getElementById('historyLink').addEventListener('click', () => {
+      showToast('历史订单查询稍后接入');
+    });
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const birthday = document.getElementById('birthday').value;
+      const birthTime = document.getElementById('birthTime').value || '不清楚';
+      const agree = document.getElementById('agree').checked;
+
+      if (!name) {
+        showToast('请填写昵称');
+        document.getElementById('name').focus();
+        return;
+      }
+      if (!birthday) {
+        showToast('请选择出生日期');
+        document.getElementById('birthday').focus();
+        return;
+      }
+      if (!agree) {
+        showToast('请勾选并同意服务协议');
+        return;
+      }
+
+      const payload = { name, gender, birthday, birthTime };
+      localStorage.setItem('fortuneUser', JSON.stringify(payload));
+      const params = new URLSearchParams(payload);
+      showToast('正在进入排盘');
+      setTimeout(() => {
+        location.href = 'loading.html?' + params.toString();
+      }, 220);
+    });
+  </script>
 </body>
 </html>
